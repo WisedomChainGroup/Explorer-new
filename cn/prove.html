@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>Wisdom Public Chain主链浏览器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/deal.css" />
+		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+
+	</head>
+	<body>
+		<div id="page_header"></div>
+		<script>
+		  $("#page_header").load("header.html");
+		</script>
+		
+		<section class="box" >
+			<div class="wid-1200">
+				<div class="wid-75">
+					<div class="cont">
+						<div class="ant-bread">
+							<a href="index.html">
+								<i></i>
+								<span>首页</span></a>
+							<span class="arrows">></span>
+							<span>存证</span>
+							<span class="in">
+								<input type="text"placeholder="Address/Trading hash" style="width:50%;height:26px;"/>
+								<a style="min-width: 2%;"><i class="fa fa-search"style="margin-left: -24px;"></i></a>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="blocks"style="margin-top: 2em;">
+					<div class="wrapper">
+						<h5>
+							<p>存证列表</p>
+						</h5>
+						<div class="ant-table-wrapper">
+							<div class="" style="position: relative;">
+								<div class="">
+									<table class="" style="width: 100%;">
+										<colgroup>
+											<col>
+											<col>
+											<col>
+											<col>
+											<col>
+										</colgroup>
+										<thead class="ant-table-thead">
+											<tr>
+												<th class="ant-table-fixed-columns-in-body">
+													<div>序号</div>
+												</th>
+												<th class=""style="text-align: center;">
+													<div>交易hash</div>
+												</th>
+												<th class=""style="text-align: center;">
+													<div>发起账户</div>
+												</th>
+												<th class=""style="text-align: center;">
+													<div>存证信息</div>
+												</th>
+											</tr>
+										</thead>
+										<tbody class="" id="block-content">
+											
+												<tr class="" data-row-key="1">
+													
+													 <td class="">1</td>
+													<td class="">
+														<a href="proveList.html">8fa9971b0270d3ba378d4c02a2d6db6402a2778bbde86892d62f19d35c138ab2</a>
+													</td>
+													
+													<td class="">
+														<a href="proveList.html">14GZWaHMybvUWFSYb2NJGSmHQs5y4q8q9m</a>
+													</td>
+													<td class="">
+														数据文本数据文本数据文本数据文本数据文本
+													</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
+							<i id="first_page"></i><i  id="pre_page"></i>
+							<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+							<span>总页数</span>
+							<span class="pageNum___HAhvB" id="totalPage">1</span></p>
+							<i  id="next_page"></i><i  id="last_page"></i>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<div class="clear">
+			<div id="page_footer"></div>
+		</div>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$("#page_footer").load("footer.html");
+			function MyClick(flag) {
+				if (flag == 'show') {
+					document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+				}
+				if (flag == 'hide') {
+					document.getElementById('header-mobile-menu').classList.remove('show')
+				}
+			}
+		</script>
+	</body>
+</html>

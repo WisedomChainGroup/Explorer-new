@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+		<title>Wisdom Public Chain主链浏览器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/deal.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/nodes.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+	<body>
+		<div id="page_header"></div>
+		
+		<script>
+		  $("#page_header").load("header.html");
+		 </script>
+		 
+		<section class="box" style="margin-top: 20px;">
+			<div class="wid-1200">
+				<div class="wid-75">
+					<div class="ant-bread">
+						<a href="index.html">
+							<i></i>
+							<span>首页</span></a>
+						<span class="arrows">></span>
+						<span>节点</span>
+						<span class="in">
+							<input type="text"placeholder="Address/Trading hash" style="width:50%;height:26px;"/>
+							<a style="min-width: 2%;"><i class="fa fa-search"style="margin-left: -24px;"></i></a>
+						</span>
+					</div>
+				</div>
+				<div class="blocks" style="margin-top: 2em;">
+					<div class="wrapper">
+						<h5>
+							<p>矿工节点列表</p>
+							<p><i></i><span style="font-size: 14px;">总投票数 <b id="totalCount"></b></span></p>
+						</h5>
+
+								
+						<div class="ant-table-wrapper">
+							<div class="" style="position: relative;">
+								<div class="">
+									<div class="">
+										<div class="">
+											<div class="">
+												<div class="">
+													<table class="" style="width: 100%;">
+														<colgroup>
+															<col>
+															<col>
+															<col>
+															<col>
+															<col>
+															<!-- <col>
+															<col>
+															<col>
+															<col> -->
+														</colgroup>
+														<thead class="ant-table-thead">
+															<tr>
+																<th class="ant-table-fixed-columns-in-body">
+																	<div>排名</div>
+																</th>
+																<th class="">
+																	<div>矿工节点</div>
+																</th>
+																<th class="">
+																	<div>票数</div>
+																</th>
+																<th class="">
+																	<div>权益</div>
+																</th>
+																
+															</tr>
+														</thead>
+															<tbody class="" id="block_data_node">
+															<!-- <div id="content"> 
+															     <span style="display: block;width: 100%;text-align: center;">数据请求中......<span>
+																 </div> -->
+															<script type="text/json" id="tpl3">
+																<%if(obj.length==0){%>
+																<tr>
+																<td class="" colspan="8">aaa</td>
+																</tr>
+																<%}else{%>
+																<% for(var i = 0;i<obj.length;i++){%>
+															
+																<tr class="" data-row-key="1">
+																	
+																	<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+																	
+																	<!-- <td class="">
+																		<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>"><%=obj[i].coinAddress%></a>
+																	</td> -->
+																	<td class="">
+																		<a title="<%=obj[i].coinAddress%>" href="nodesList.html?coinaddress=<%=obj[i].coinAddress%>"><%=obj[i].coinAddress%></a>
+																	</td>
+																	
+																	<td class=""><span class=""><%=obj[i].voteAmount%></span></td>
+																	
+																	<td class=""><span><%=obj[i].share%></span></td>
+																	
+																</tr>
+																<%}}%>
+															</script>
+														
+														</tbody>
+													</table>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+		
+					</div>
+				</div>
+
+
+			</div>
+		</section>
+		<div class="clear">
+
+		<div id="page_footer"></div>
+	
+		</div>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$("#page_footer").load("footer.html");
+		function MyClick(flag) {
+			if (flag == 'show') {
+				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+			}
+			if (flag == 'hide') {
+				document.getElementById('header-mobile-menu').classList.remove('show')
+			}
+		}
+	</script>
+	
+	
+	
+	
+	</body>
+</html>
