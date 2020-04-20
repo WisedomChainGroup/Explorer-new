@@ -88,44 +88,44 @@
 					</div>
 					
 					<section class="section">
-						<div id="">
+						<div id="block-content">
+							<script type="text/json" id="tpl3">
+							<ul>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">Txn Hash</span>
+									<span><%=obj.coinHash%></span>
+								</li>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">Txn status</span>
+									<span><%=obj.status%></span>
+								</li>
 
-						<ul>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">交易hash</span>
-								<span><a href="particulars.html">5dc71df0c9e90a3c58842bddce768ae1e555775d806deb3587c99ff583228455</a></span>
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">交易状态</span>
-								<span>成功</span>
-							</li>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">BlockHeight</span>
+									 <span><%=obj.coinHeight%></span>
 
-						 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">区块高度</span>
-								 <span>1549570</span>
-								
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">手续费</span>
-								<span>0.002&nbsp;WDC</span>
-								
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">发起账户</span>
-							
-									<span><a href="particulars.html">14GZWaHMybvUWFSYb2NJGSmHQs5y4q8q9m</a></span>
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">时间戳</span>
-								<span>2020-03-24 11:12:46</objspan>
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">存证信息</span>
-								<span>数据文本数据文本数据文本数据文本数据文本</span>
-							</li>
-						
-						</ul>
+								</li>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">Average Service Charge</span>
+									<span><%=obj.fee%></span>
 
+								</li>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">From Account</span>
+									<span><a href="particulars.html?coinaddress=<%=obj.coinAddress%>"><%=obj.coinAddress%></a></span>
+								</li>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">Timestamp</span>
+									<span><%=obj.createdAt%></objspan>
+								</li>
+								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+									<span style="width: 30%;">Certificate Info</span>
+									<span><%=obj.payload%></span>
+								</li>
+
+							</ul>
+
+						</script>
 						</div>
 					</section>
 					</div>
@@ -135,7 +135,8 @@
 	</div>
 		<div id="page_footer"></div>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
-	<script>
+		<script src="js/proveList.js" type="text/javascript" charset="utf-8"></script>
+		<script>
 		$("#page_footer").load("footer.html");
 		function MyClick(flag) {
 			if (flag == 'show') {
