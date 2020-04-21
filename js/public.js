@@ -5,7 +5,7 @@
 //var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 //var HttpBlockHead="http://192.168.1.67:8080";//测试
 //var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
-var HttpBlockHead = "https://192.168.1.83:8081"; 
+var HttpBlockHead = "http://192.168.1.83:8081";
 var HttpHead = "http://192.168.1.83:9090/wisechain";
 
 
