@@ -14,6 +14,7 @@ function getTransferLogList(pageSize = 20, pageIndex = 1) {
 		},
 
 		function(result) {
+<<<<<<< HEAD
 
 
 
@@ -23,6 +24,12 @@ function getTransferLogList(pageSize = 20, pageIndex = 1) {
 					result.data[i].bili = result.data[i].balance / 590000000 * 100;
 					result.data[i].bili = Math.floor(result.data[i].bili * 1000) / 1000;
 
+=======
+			if (result.code == "2000") {
+				for (var i = 0; i < result.data.length; i++) {
+					// result.data[i].balance = result.data[i].balance / 590000000 * 100;
+					 result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+>>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
 				}
 				//console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
