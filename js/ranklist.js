@@ -17,8 +17,7 @@ function getTransferLogList(pageSize = 20, pageIndex = 1) {
 			if (result.code == "2000") {
 				for (var i = 0; i < result.data.length; i++) {
 					// result.data[i].balance = result.data[i].balance / 590000000 * 100;
-					 result.data[i].proportion = Math.floor(result.data[i].proportion * 1000) / 1000;
-
+					 result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
 				}
 				//console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');

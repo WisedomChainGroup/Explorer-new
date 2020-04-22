@@ -90,7 +90,7 @@ function soso_tag(type = 1) {;
 
 
 		});
-}
+	}
 
 $('#indexsearch').bind("change", function() {
 	var searchval = $(this).val();

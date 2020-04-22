@@ -19,11 +19,11 @@ function getTransferLogList(pageSize = 20, pageIndex = 1) {
 
 
 			if (result.code == "2000") {
-			 	// for (var i = 0; i < result.data.length; i++) {
+			 	 for (var i = 0; i < result.data.length; i++) {
 				// 	result.data[i].bili = result.data[i].balance/590000000*100;
 				//     result.data[i].bili=Math.floor(result.data[i].bili * 1000) / 1000 ;
-				//
-				// }
+						result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+				 }
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
