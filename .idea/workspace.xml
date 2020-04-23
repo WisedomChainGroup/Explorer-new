@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="" />
+    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/assets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/assetsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/block.html" beforeDir="false" afterPath="$PROJECT_DIR$/block.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockList.html" beforeDir="false" afterPath="$PROJECT_DIR$/blockList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/assets.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/assetsList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/assetsList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/block.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/block.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/blockList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/blockList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/account.css" beforeDir="false" afterPath="$PROJECT_DIR$/cn/css/account.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/cn/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/particulars.css" beforeDir="false" afterPath="$PROJECT_DIR$/cn/css/particulars.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/deal.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/deal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/assets.js" beforeDir="false" afterPath="$PROJECT_DIR$/cn/js/assets.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/cn/js/public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/ranklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/cn/js/ranklist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/nodes.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/nodes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/nodesList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/nodesList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/pool.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/pool.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/poolList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/poolList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/prove.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/prove.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/proveList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/proveList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/rankList.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/rankList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/particulars.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/particulars.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deal.html" beforeDir="false" afterPath="$PROJECT_DIR$/deal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/prove.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/prove.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/public.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/public.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/public1.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/public1.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/ranklist.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/ranklist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes.html" beforeDir="false" afterPath="$PROJECT_DIR$/nodes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodesList.html" beforeDir="false" afterPath="$PROJECT_DIR$/nodesList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/particulars.html" beforeDir="false" afterPath="$PROJECT_DIR$/particulars.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pool.html" beforeDir="false" afterPath="$PROJECT_DIR$/pool.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poolList.html" beforeDir="false" afterPath="$PROJECT_DIR$/poolList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prove.html" beforeDir="false" afterPath="$PROJECT_DIR$/prove.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proveList.html" beforeDir="false" afterPath="$PROJECT_DIR$/proveList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rankList.html" beforeDir="false" afterPath="$PROJECT_DIR$/rankList.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +64,9 @@
     <expand />
     <select />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -33,9 +78,10 @@
   </component>
   <component name="ProjectId" id="1afF1uMOZBr44baelM4jJvxx527" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Explorer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -71,10 +117,22 @@
       <updated>1587118529909</updated>
       <workItem from="1587118531148" duration="1254000" />
       <workItem from="1587345040426" duration="794000" />
+      <workItem from="1587605319099" duration="11526000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

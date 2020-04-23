@@ -5,11 +5,16 @@
 //var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 //var HttpBlockHead="http://192.168.1.67:8080";//测试
 //var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
-<<<<<<< HEAD
-var HttpBlockHead = "https://192.168.1.83:8081"; 
-=======
+
+//	测试线上
+//var HttpHead = "http://47.52.195.58:9090/wisechain";
+//正式
+//var HttpBlockHead = "https://scannode.hkcyb.pro";
+//var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
+//var HttpBlockHead="http://192.168.1.67:8080";//测试
+//var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
 var HttpBlockHead = "http://192.168.1.83:8081";
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
+
 var HttpHead = "http://192.168.1.83:9090/wisechain";
 
 
@@ -94,11 +99,8 @@ function soso_tag(type = 1) {;
 
 
 		});
-<<<<<<< HEAD
-}
-=======
+
 	}
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
 
 $('#indexsearch').bind("change", function() {
 	var searchval = $(this).val();

@@ -11,13 +11,6 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
         },
 
         function(result) {
-<<<<<<< HEAD
-
-            if (result.code == "2000") {
-
-                console.log(result.data);
-                setHtml(result.data, 'tpl2', 'block-content');
-=======
             if (result.code == "2000") {
                 var list = result.data;
                 for (var i = 0;i<list.length;i++){
@@ -47,7 +40,6 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
                     }
                 }
                 setHtml(list, 'tpl2', 'block-content');
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
                 //分页处理
                 $('#totalCount').html(result.pageQuery.totalCount);
                 $('#curr_page').html(result.pageQuery.pageIndex);
