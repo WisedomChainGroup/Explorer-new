@@ -34,13 +34,8 @@
 						<span class="arrows">></span>
 						<span>账户</span>
 						<span class="in">
-<<<<<<< HEAD
-							<input type="text"placeholder="Address/Trading hash" style="width:50%;height:26px;"/>
-							<a style="min-width: 2%;"><i class="fa fa-search"style="margin-left: -24px;"></i></a>
-=======
 							<input type="text"placeholder="地址/交易hash" id = "soso" style="width:50%;height:26px;"/>
 							<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
 						</span>
 					</div>
 				</div>
@@ -124,24 +119,16 @@
 																<script type="text/json" id="tpl2">
 																	<% for(var i = 0;i<obj.length;i++){%>
 												                    <tr class="" data-row-key="1">
-<<<<<<< HEAD
-																<td class="cursor tc"><span class="" title="<%=obj[i].addr%>" style="/* float: left; */">
-																<a title="<%=obj[i].addr%>" href="particulars.html?coinaddress=<%=obj[i].addr%>">
-																<%=obj[i].addr%></a></span></td>
-=======
+
 																<td class="cursor tc"><span class="" title="<%=obj[i].address%>" style="/* float: left; */">
 																<a title="<%=obj[i].address%>" href="particulars.html?coinaddress=<%=obj[i].address%>">
 																<%=obj[i].address%></a></span></td>
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
+
 																<td class="cursor tc"><span class="" title=""><%=obj[i].balance%></span></td>
 																<!-- <td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].sort%></td> -->
 
 																<td class="tr">
-<<<<<<< HEAD
-																	<div class="tr"><%=obj[i].bili%>%</div>
-=======
 																	<div class="tr"><%=obj[i].proportion%>%</div>
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
 																</td>
 																<!-- <td class="tr">
 																	<div class="tr">5</div>
@@ -175,7 +162,7 @@
 		
 		<div id="page_footer"></div>
 		
-		<script>
+		<script type="text/javascript">
 		  $("#page_footer").load("footer.html");
 		 </script>
 		

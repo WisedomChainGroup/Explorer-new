@@ -1,13 +1,13 @@
 //var pageIndex = 1;
 //var totalPage = 0;
 
-<<<<<<< HEAD
-function getTransferLogList() {
 
-	
-	//数据请求部分
-	$.post(HttpHead + "/coin/getCoinList/",
-=======
+// function getTransferLogList() {
+//
+//
+// 	//数据请求部分
+// 	$.post(HttpHead + "/coin/getCoinList/",
+
 function getTransferLogList(pageSize = 10, pageIndex = 1) {
 
 
@@ -16,19 +16,18 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 			pageSize: pageSize,
 			pageIndex: pageIndex
 		},
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
+
 
 		function(result) {
 
 			if (result.code == "2000") {
-<<<<<<< HEAD
+
 				
-				console.log(result.data);
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.data.length);
-			
-=======
+				// console.log(result.data);
+				// setHtml(result.data, 'tpl2', 'block-content');
+				// //分页处理
+				// $('#totalCount').html(result.data.length);
+				//
 
 				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
@@ -37,19 +36,18 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 				$('#curr_page').html(result.pageQuery.pageIndex);
 				$('#totalPage').html(result.pageQuery.totalPage);
 
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
 			}
 
 		});
 }
 
-<<<<<<< HEAD
-$(function(){
-	getTransferLogList();
+
+// $(function(){
+// 	getTransferLogList();
+//
+// })
 	
-})
-	
-=======
+
 var pageIndex = GetQueryString("pageIndex");
 
 if (pageIndex != undefined &&
@@ -103,7 +101,7 @@ $(function() {
 		location.href = "assets.html?pageIndex=" + pageIndex;
 	});
 })
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
+
 
 
 

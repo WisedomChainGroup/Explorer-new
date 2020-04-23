@@ -432,7 +432,7 @@ body {
 	font-size: 14px;
 	font-family: PingFangSC-Regular;
 	font-weight: 400;
-	color: #9c9eb9;
+	color: #000000;
 	line-height: 20px;
 	display: inline-block;
 	width: 180px
@@ -990,4 +990,4 @@ body {
 		display: inline-block;
 		vertical-align: middle
 	}
-}
+}}
