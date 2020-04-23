@@ -12,7 +12,12 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 
         function(result) {
             if (result.code == "2000") {
-
+                for (let i = 0;i<result.data.length;i++) {
+                    let address = result.data[i].coinAddress.substring(0, 2);
+                    if (address != "WX") {
+                        result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+                    }
+                }
                 setHtml(result.data, 'tpl2', 'block-content');
                 //分页处理
                 $('#totalCount').html(result.pageQuery.totalCount);
