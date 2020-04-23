@@ -141,6 +141,14 @@
 																<td class="">
 															<%if(obj[i].type==1){%>
 																	转账
+																	<%}else if(obj[i].type==2){%>
+																	投票
+																	<%}else if(obj[i].type==3){%>
+																	存证
+																	<%}else if(obj[i].type==7){%>
+																	规则部署
+																<%}else if(obj[i].type==8){%>
+																	规则调用
 															<%}else if(obj[i].type==9){%>
 															开启合约
 															 <%}else if(obj[i].type==10){%>
@@ -149,6 +157,12 @@
 															  生态合约分配
 															  <%}else if(obj[i].type==12){%>
 															提取合约资产
+															 <%}else if(obj[i].type==13){%>
+															撤回投票
+															 <%}else if(obj[i].type==14){%>
+															抵押
+															<%}else if(obj[i].type==15){%>
+															撤回抵押
 															<%}%>
 														
 																</td>

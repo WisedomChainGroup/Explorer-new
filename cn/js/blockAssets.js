@@ -135,7 +135,6 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-						result.data[i].amount =result.data[i].amount/100000000;
 		
 					}
 					setHtml(result.data, 'tpl1', 'transactions_data_List');
