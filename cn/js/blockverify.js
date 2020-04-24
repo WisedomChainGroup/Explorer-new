@@ -15,9 +15,7 @@ function userTransferLog(hash) {
 		coinHash: hash,
 	},
 	function(result) {
-		
-		console.log(result.data);
-		
+
 		if(result.code=="2000"){
 			//result.data.fee = result.data.fee*0.00000001
 			setHtml(result.data,'tpl','content');

@@ -51,7 +51,7 @@
 						   <!-- <div id="content">
 						     <span style="display: block;width: 100%;text-align: center;">数据请求中......<span>
 							</div> -->
-						<script type="text/json" id="tpl"
+						<script type="text/json" id="tpl">
 						<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>Balance（WDC）</span>：</span><span class="detailValue"><%=obj.dynamicCount%></span></p>
 
 						
@@ -115,70 +115,78 @@
 															</tr>
 														</thead>
 														<tbody class="" id="block-content">
-								
+<!--														<tr class="" data-row-key="1">-->
+<!--															<td class="">-->
+<!--																<span class="" style="padding-left: 0px;"></span>1</td>-->
+<!--															<td >2-->
+<!--															</td>-->
+<!--															<td class=""><span class="">3</span></td>-->
+<!--															<td class=""><span>4</span></td>-->
+<!--															<td class=""><span>5-->
+
+<!--																</span></td>-->
+<!--															<td class="">6-->
+<!--															</td>-->
+<!--															<td class="">7</td>-->
+<!--															<td class="tr">-->
+<!--																<div class="tr">8</div>-->
+<!--															</td>-->
+
+<!--														</tr>-->
 															<script type="text/json" id="tpl2">
 																<%if(obj.length==0){%>
 																<tr>
 																<td class="" colspan="8">aaa</td>
 																</tr>
 																<%}else{%>
-																<% for(var i = 0;i<obj.length;i++){%>
-															
+															<% for(var i = 0;i<obj.length;i++){%>
 															<tr class="" data-row-key="1">
-																<td class="">
-																	<span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-											<td class="cursor" title="<%=obj[i].hash%>" data-clipboard-text="<%=obj[i].hash%>">
-																	
-															<span class="copy" title="<%=obj[i].hash%>">
-															
-															<%=obj[i].tranhaxh%>
-															</span>
-															</td>
+																<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+																<td class="cursor" title="<%=obj[i].hash%>" data-clipboard-text="<%=obj[i].hash%>">
+																	<span class="copy" title="<%=obj[i].hash%>"><%=obj[i].tranhash%></span>
+																</td>
 																<td class=""><span class=""><%=obj[i].nonce%></span></td>
 																<td class=""><span><%=obj[i].datatime%></span></td>
-																<td class=""><span>
-															
-																<%=obj[i].fromhash%>
-																
-																</span></td>
+																<td class=""><span><%=obj[i].fromhash%></span></td>
 																<td class="">
-															<%if(obj[i].type==1){%>
-																	Transfer accounts
-															<%}else if(obj[i].type==9){%>
-															Opening contract
-															 <%}else if(obj[i].type==10){%>
-															 Extraction contract
-															  <%}else if(obj[i].type==11){%>
-															  Distribution of ecological contracts
-															  <%}else if(obj[i].type==12){%>
-															Extraction of contractual assets
-															<%}%>
-														
+																	<%if(obj[i].type==1){%>
+																			Transfer accounts
+																	<%}else if(obj[i].type==2){%>
+																	VOTE
+																	<%}else if(obj[i].type==3){%>
+																	DEPOSIT
+																	<%}else if(obj[i].type==7){%>
+																	Rule deployment
+																<%}else if(obj[i].type==8){%>
+																	Rule call
+																	<%}else if(obj[i].type==9){%>
+																			Opening contract
+																	<%}else if(obj[i].type==10){%>
+																			Extraction contract
+															  		<%}else if(obj[i].type==11){%>
+															  				Distribution of ecological contracts
+															  		<%}else if(obj[i].type==12){%>
+																			Extraction of contractual assets
+																			<%}else if(obj[i].type==13){%>
+															EXIT_VOTE
+															 <%}else if(obj[i].type==14){%>
+															MORTGAGE
+															<%}else if(obj[i].type==15){%>
+															EXIT_MORTGAGE
+																	<%}%>
 																</td>
-																<td class="">
-																	<span class="" title="<%=obj[i].to%>">
-																
-																<%=obj[i].to%>
-															
-																</span></td>
-																<td class="tr">
-																	<div class="tr"><%=obj[i].amount%></div>
-																</td>
-																
+																<td class=""><span class="" title="<%=obj[i].to%>"><%=obj[i].to%></span></td>
+																<td class="tr"><div class="tr"><%=obj[i].amount%></div></td>
 															</tr>
-															
-															
-														
-														<%}}%>
+															<%}}%>
 														</script>
-														
-														
+
 														
 														</tbody>
 													</table>
-							<div id="content-no" style="display: block;width: 100%;text-align: center;font-size:12px ;margin-top: 20px;"> 
-								
-							</div> 
+							<div id="content-no" style="display: block;width: 100%;text-align: center;font-size:12px ;margin-top: 20px;">
+
+							</div>
 												</div>
 											</div>
 
@@ -242,9 +250,12 @@
 			});
 			</script>
 <<<<<<< HEAD
+<<<<<<< HEAD
        </script> 
 =======
        </script>
 >>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
+=======
+>>>>>>> origin/develop
 	</body>
 </html>

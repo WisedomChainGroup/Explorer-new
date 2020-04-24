@@ -30,6 +30,7 @@ function getTransferLogList(pageSize = 20, pageIndex = 1) {
 			 	 for (var i = 0; i < result.data.length; i++) {
 				// 	result.data[i].bili = result.data[i].balance/590000000*100;
 				//     result.data[i].bili=Math.floor(result.data[i].bili * 1000) / 1000 ;
+					 result.data[i].balance = result.data[i].balance / 100000000;
 						result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
 				 }
 				setHtml(result.data, 'tpl2', 'block-content');
@@ -55,8 +56,6 @@ function getTotalInfo() {
 
 
 			if (result.code == "2000") {
-			 
-				console.log(result.data);
                 $("#tradeTotal").html(result.data.tradeTotal);
 				 $("#accountSum").html(result.data.accountSum);
 				  $("#accountNub").html(result.data.accountNub);
@@ -103,8 +102,7 @@ function transaction() {
 
 		function(result) {
 			if (result.code == "2000") {
-			 
-				console.log(result.data);
+
                // $("#tradeTotal").html(result.data.tradeTotal);
 			var accountSum = 5.02 * 100000000 + Number(result.data);
 			

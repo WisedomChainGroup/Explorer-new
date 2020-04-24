@@ -16,7 +16,6 @@ function userTransferLog(hash) {
 	function(result) {
 		
 		var coinHash160=result.data[0].coinHash160;
-		console.log(coinHash160);
 		if(result.code=="2000"){
 			if(coinHash160!=null){
 				//判断是否转的代币
@@ -44,9 +43,6 @@ function getParseContract(coinHash160) {
 			},
 		
 			function(result) {
-		
-				console.log(result.data);
-		
 				if (result.code == "2000") {
 					
 					$('#biname').html(result.data.code);

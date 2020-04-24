@@ -17,9 +17,6 @@ function getBalance(coinaddress) {
 		},
 
 		function(result) {
-
-			console.log(result.data.account);
-      
 			if (result.code == "2000") {
 				$("#lockAccount").html(result.data.account.lockAccount);
 				//setHtml(result.data.account, 'tpl', 'con-box-yu');
@@ -44,9 +41,6 @@ function getTransferLogList(coinaddress, pageIndex = 1) {
 		},
 
 		function(result) {
-
-			console.log(result.data);
-
 			if (result.code == "2000") {
 				for (var i = 0; i < result.data.length; i++) {
 					 result.data[i].hash = result.data[i].coinHash;

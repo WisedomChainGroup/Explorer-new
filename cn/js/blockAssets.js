@@ -20,9 +20,6 @@ function getParseContract(coinaddress,type=1,pageIndex=1) {
 			},
 		
 			function(result) {
-		
-				console.log(result.data);
-		
 				if (result.code == "2000") {
 					if (result.data.allowincrease==1) {
 						result.data.allowincrease = "允许"
@@ -67,9 +64,6 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 			},
 		
 			function(result) {
-		
-				console.log(result);
-		
 				if (result.code == "2000") {
 					
 					for (var i = 0; i < result.data.length; i++) {
@@ -97,9 +91,6 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-		
-				console.log(result);
-		
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].hash = result.data[i].coinHash;
@@ -135,7 +126,6 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-						result.data[i].amount =result.data[i].amount/100000000;
 		
 					}
 					setHtml(result.data, 'tpl1', 'transactions_data_List');

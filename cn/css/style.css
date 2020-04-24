@@ -248,10 +248,10 @@ header {
 	color:rgba(0,0,0,1);
 }
 
-.arr {
-	color: #03b8f7 !important;
-	
-}
+/*.arr {*/
+/*	color: #03b8f7 !important;*/
+/*	*/
+/*}*/
 
 footer {
 
@@ -451,7 +451,7 @@ footer ul li a {
 	display: block;
 	width: 19px;
 	height: 19px;
-	background: url(../img/search-2.png) no-repeat;
+	background: url(../img/Search-2.png) no-repeat;
 	background-size: 100% 100%;
 	position: absolute;
 	top: 15px;

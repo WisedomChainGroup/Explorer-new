@@ -94,35 +94,35 @@
 							<script type="text/json" id="tpl3">
 							<ul>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">Txn Hash</span>
+									<span style="width: 30%;">区块事务hash</span>
 									<span><%=obj.coinHash%></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">Txn status</span>
+									<span style="width: 30%;">区块事务状态</span>
 									<span><%=obj.status%></span>
 								</li>
 
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">BlockHeight</span>
+									<span style="width: 30%;">区块高度</span>
 									 <span><%=obj.coinHeight%></span>
 
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">Average Service Charge</span>
+									<span style="width: 30%;">手续费</span>
 									<span><%=obj.fee%></span>
 
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">From Account</span>
+									<span style="width: 30%;">发起账户</span>
 									<span><a href="particulars.html?coinaddress=<%=obj.coinAddress%>"><%=obj.coinAddress%></a></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">Timestamp</span>
-									<span><%=obj.createdAt%></objspan>
+									<span style="width: 30%;">时间</span>
+									<span><%=obj.time%></objspan>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-									<span style="width: 30%;">Certificate Info</span>
-									<span><%=obj.payload%></span>
+									<span style="width: 30%;">备注信息</span>
+									<span><%=obj.payloadUtf8%></span>
 								</li>
 
 							</ul>

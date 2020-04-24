@@ -262,24 +262,24 @@ td p {
 	right: -1px;
 }
 
-.wdc i {
-	width: 29px;
-	display: block;
-	height: 29px;
-	margin: 0 auto 5px;
-	background: url(../img/0001.png) no-repeat;
-	background-size: 100% 100%;
-}
+/*.wdc i {*/
+/*	width: 29px;*/
+/*	display: block;*/
+/*	height: 29px;*/
+/*	margin: 0 auto 5px;*/
+/*	background: url(../img/0001.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
 
-.ant-row .wdc:nth-child(2) i {
-	background: url(../img/0002.png) no-repeat;
-	background-size: 100% 100%;
-}
+/*.ant-row .wdc:nth-child(2) i {*/
+/*	background: url(../img/0002.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
 
-.ant-row .wdc:nth-child(3) i {
-	background: url(../img/0003.png) no-repeat;
-	background-size: 100% 100%;
-}
+/*.ant-row .wdc:nth-child(3) i {*/
+/*	background: url(../img/0003.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
 
 
 .wdc p {

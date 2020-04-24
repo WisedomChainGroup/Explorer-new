@@ -35,12 +35,7 @@ function userTransferLog(hash) {
 		coinHash: hash,
 	},
 	function(result) {
-		
-		console.log(result.data);
-		
 		if(result.code=="2000"){
-			console.log(result.data.payload)
-			console.log(toUtf8(result.data.payload))
 			result.data.payload = toUtf8(result.data.payload)
 			
 			//result.data.fee = result.data.fee*0.00000001

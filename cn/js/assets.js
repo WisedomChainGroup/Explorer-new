@@ -21,6 +21,7 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 		function(result) {
 
 			if (result.code == "2000") {
+<<<<<<< HEAD
 
 				
 				// console.log(result.data);
@@ -30,6 +31,8 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 				//
 
 				console.log(result.data);
+=======
+>>>>>>> origin/develop
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);

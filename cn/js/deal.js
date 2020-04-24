@@ -27,7 +27,6 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 					result.data[i].blockHash = blockHash;
 
 				}
-				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);

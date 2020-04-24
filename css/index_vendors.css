@@ -14788,7 +14788,6 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 		display: block;
 		width: 275px;
 		height: 180px;
-		background: url(/static/banner_index.18182454.png) no-repeat;
 		background-size: 100% 100%;
 		position: relative;
 		margin: 40px auto 0
@@ -14905,7 +14904,6 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 		top: 0;
 		left: 0;
 		margin-left: 0;
-		background: url(/static/banner_m.1b6d1c82.png) no-repeat;
 		background-size: 100% 100%
 	}
 
