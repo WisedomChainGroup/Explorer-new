@@ -13,7 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-
+	
 		<style>
 			.subtitle span i{
 				margin: 0rem 1.5rem;
@@ -128,19 +128,22 @@
 						</script>
 						</div>
 					</section>
-
 					<div id=""style="text-align: center;">
 						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
+
 					</div>
 					<br />
 					
 			<div class="ant-table-wrapper" id="btnshow">
 				<div style="position: relative;">
 
+
+					</div> 
+
  					
 					<br />
 					
-					<div class="ant-table-wrapper">
+					<div class="ant-table-wrapper" id="btnshow">
 					 <div style="position: relative;">
 					<div class="subtitle" id="div_transaction">
 						<span><i class="sub" data-type="1">增发</i><i class="sub" data-type="2">转账</i><i class="sub" data-type="3">所有权</i></span>
@@ -348,6 +351,16 @@
 							</tbody>
 						</table>
 					</section>
+			
+			
+			
+				<!-- 	<table style="width: 100%;visibility: hidden;" id="table_showdiv">
+						<tbody>
+							<tr>
+								<td  class="cursor" style="text-align: center;" colspan="6">点击展开</td>
+							</tr>
+						</tbody>
+					</table> -->
 					
 					</div>
 					<div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
@@ -359,7 +372,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+				
 	
 			</div>
 			
@@ -378,6 +391,9 @@
 			}
 		}
 		
+
+
+
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来

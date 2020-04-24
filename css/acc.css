@@ -327,21 +327,12 @@ td p {
 .blocks h5 span:after {
     content: "";
     display: block;
-<<<<<<< HEAD
-    width: 100%;
-=======
     width: 90px;
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
     height: 2px;
     background: #2e2f47;
     position: absolute;
     bottom: 0;
-<<<<<<< HEAD
-    /* left:-13px; */
-	}
-=======
     left:-13px;}
->>>>>>> 0c16fb8128407941fcd294817f226dd0ed4c4dc2
 
 
 @media screen and (max-width: 768px) {

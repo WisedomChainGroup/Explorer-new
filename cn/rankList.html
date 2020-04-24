@@ -119,11 +119,9 @@
 																<script type="text/json" id="tpl2">
 																	<% for(var i = 0;i<obj.length;i++){%>
 												                    <tr class="" data-row-key="1">
-
 																<td class="cursor tc"><span class="" title="<%=obj[i].address%>" style="/* float: left; */">
 																<a title="<%=obj[i].address%>" href="particulars.html?coinaddress=<%=obj[i].address%>">
 																<%=obj[i].address%></a></span></td>
-
 																<td class="cursor tc"><span class="" title=""><%=obj[i].balance%></span></td>
 																<!-- <td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].sort%></td> -->
 
@@ -162,7 +160,7 @@
 		
 		<div id="page_footer"></div>
 		
-		<script type="text/javascript">
+		<script>
 		  $("#page_footer").load("footer.html");
 		 </script>
 		
