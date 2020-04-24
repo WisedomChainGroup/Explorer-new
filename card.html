@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+		<title>Wisdom Public Chain</title>
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body>
+		<textarea id="client_name" name="client_name" style="width: 500px; height: 600px"></textarea>
+
+		<textarea id="id_no" name="id_no" style="width: 500px; height: 600px"></textarea>
+
+
+
+		<!-- <input type="text" value="" width="200" />
+
+<input type="text" value="" name="id_no"  width="200"/> -->
+	</body>
+</html>
+<script type="text/javascript">
+	function getName() {
+		var familyNames = new Array(
+			"赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈",
+			"褚", "卫", "蒋", "沈", "韩", "杨", "朱", "秦", "尤", "许",
+			"何", "吕", "施", "张", "孔", "曹", "严", "华", "金", "魏",
+			"陶", "姜", "戚", "谢", "邹", "喻", "柏", "水", "窦", "章",
+			"云", "苏", "潘", "葛", "奚", "范", "彭", "郎", "鲁", "韦",
+			"昌", "马", "苗", "凤", "花", "方", "俞", "任", "袁", "柳",
+			"酆", "鲍", "史", "唐", "费", "廉", "岑", "薛", "雷", "贺",
+			"倪", "汤", "滕", "殷", "罗", "毕", "郝", "邬", "安", "常",
+			"乐", "于", "时", "傅", "皮", "卞", "齐", "康", "伍", "余",
+			"元", "卜", "顾", "孟", "平", "黄", "和", "穆", "萧", "尹"
+		);
+		var givenNames = new Array(
+			"子璇", "淼", "国栋", "夫子", "瑞堂", "甜", "敏", "尚", "国贤", "贺祥", "晨涛",
+			"昊轩", "易轩", "益辰", "益帆", "益冉", "瑾春", "瑾昆", "春齐", "杨", "文昊",
+			"东东", "雄霖", "浩晨", "熙涵", "溶溶", "冰枫", "欣欣", "宜豪", "欣慧", "建政",
+			"美欣", "淑慧", "文轩", "文杰", "欣源", "忠林", "榕润", "欣汝", "慧嘉", "新建",
+			"建林", "亦菲", "林", "冰洁", "佳欣", "涵涵", "禹辰", "淳美", "泽惠", "伟洋",
+			"涵越", "润丽", "翔", "淑华", "晶莹", "凌晶", "苒溪", "雨涵", "嘉怡", "佳毅",
+			"子辰", "佳琪", "紫轩", "瑞辰", "昕蕊", "萌", "明远", "欣宜", "泽远", "欣怡",
+			"佳怡", "佳惠", "晨茜", "晨璐", "运昊", "汝鑫", "淑君", "晶滢", "润莎", "榕汕",
+			"佳钰", "佳玉", "晓庆", "一鸣", "语晨", "添池", "添昊", "雨泽", "雅晗", "雅涵",
+			"清妍", "诗悦", "嘉乐", "晨涵", "天赫", "玥傲", "佳昊", "天昊", "萌萌", "若萌"
+		);
+		var i = parseInt(10 * Math.random()) + parseInt(100 * Math.random());
+		//alert(i);
+		var familyName = familyNames[i];
+		var j = parseInt(Math.random()) + parseInt(Math.random());
+		var givenName = givenNames[i];
+		var name = familyName + givenName;
+		var str = $("#client_name").val() + name + "\n";
+		$("#client_name").val(str);
+
+		//var x = document.getElementId("client_name");
+		// x.innerHTML=name;
+		/* for (var i = 0; i < x.length; i++) {
+			 alert(i);
+			var o = x[i];
+			o.value = name;
+		} */
+	}
+
+	function getMoble() {
+		var prefixArray = new Array("130", "131", "132", "133", "135", "137", "138", "170", "187", "189");
+		var i = parseInt(10 * Math.random());
+		var prefix = prefixArray[i];
+		for (var j = 0; j < 8; j++) {
+			prefix = prefix + Math.floor(Math.random() * 10);
+		}
+		var x = document.getElementsByName("mobile_tel");
+		for (var i = 0; i < x.length; i++) {
+			var o = x[i];
+			o.value = prefix;
+		}
+	}
+	var areaCode = [
+		'110101', '110229', '120102', '120103', '120225', '130101', '130102', '130104', '130123', '130124', '130125',
+		'130127', '130128', '133031', '140101', '140102', '140103', '140104', '140112', '140113', '140121', '140122',
+		'140123', '140181', , '140202', '140203', '140211', '140212', '140221', '140222', '140223', '140224', '140225',
+		'140226', '140227', '140301', '140302', '140303', '140311', '140321', '140322', '140401', '1427', '142733', '150101',
+		'150103', '150104', '150105', '152923', '210101', '210102', '210103', '210104', '210105', '210106', '210111',
+		'210112', '211422', '211481', '220101', '220102', '220103', '220104', '220105', '220111', '220122', '220124',
+		'220125', '220181', '220201', '220202', '222401', '222402', '222403', '222404', '222405', '222406', '222424',
+		'222426', '230101', '230102', '230103', '230104', '230105', '230106', '230107', '230108', '230121', '232723',
+		'310101', '310102', '310103', '310104', '310230', '320101', '320102', '320103', '320104', '320105', '320106',
+		'320107', '320111', '320112', '320113', '321181', '332626', '332627', '340101', '340102', '340103', '340104',
+		'340111', '340121', '340122', '340123', , '340201', '340202', '340203', '340204', '342923', '350101', '350102',
+		'350103', '350104', '350105', '350111', '350121', '350122', '350123', '350124', '350125', '350126', '350128',
+		'350181', '350201', '350202', '350203', '350204', '350205', '350206', '350211', '350221', '350301', '350302',
+		'350303', '350321', '350322', '350401', '350402', '350403', '352627', '360101', '360102', '360103', '360104',
+		'360105', '360111', '360121', '360122', '360123', '360124', '360201', '360202', '360203', '362532', '370101',
+		'370102', '370103'
+
+	]
+
+	function getRandom(istart, iend) {
+		var iChoice = iend - istart + 1; //加1是为了取到100
+		var res = Math.floor(Math.random() * iChoice + istart); //[0,90]+10
+		return res;
+	}
+
+	function getId_no() {
+		var coefficientArray = ["7", "9", "10", "5", "8", "4", "2", "1", "6", "3", "7", "9", "10", "5", "8", "4", "2"]; // 加权因子
+		var lastNumberArray = ["1", "0", "X", "9", "8", "7", "6", "5", "4", "3", "2"]; // 校验码
+		var address = areaCode[getRandom(10, areaCode.length)]; // 住址
+		var year = getRandom(1970, 1995);
+		var month = getRandom(1, 12);
+		if (month < 10) month = "0" + month;
+		var date = getRandom(1, 30);
+		if (date < 10) date = "0" + date;
+		var birthday = year + month + date; // 生日
+		var s = Math.floor(Math.random() * 10).toString() + Math.floor(Math.random() * 10).toString() + Math.floor(Math.random() *
+			10).toString();
+		var array = (address + birthday + s).split("");
+		var total = 0;
+		for (i in array) {
+			total = total + parseInt(array[i]) * parseInt(coefficientArray[i]);
+		}
+		var lastNumber = lastNumberArray[parseInt(total % 11)];
+		var id_no_String = address + birthday + s + lastNumber;
+		//var strs = $("#id_no").val() + id_no_String+"\n";
+		/*$("#id_no").val(strs); */
+		var x = document.getElementsByName("id_no");
+
+		/* for (var i = 0; i < 40; i++) { */
+			/* var o = x[i];
+			o.value = id_no_String; */
+$("#id_no").val($("#id_no").val()+id_no_String+"\n");
+		//}
+		/* var strs = id_no_String+"\n";
+		//alert(strs);
+		$("#id_no").val(strs); */
+	}
+
+	for (var i = 0; i < 40; i++) {
+
+		getId_no();
+       
+	}
+
+
+	/* var address =areaCode[getRandom(10, areaCode.length)]; // 住址
+	var year=getRandom(1970,1995);
+	var month=getRandom(1,12);
+	if(month<10) month="0"+month;
+	var date=getRandom(1,30);
+	if(date<10) date="0"+date;
+	var birthday = address+year+month+date; // 生日
+	alert(birthday); */
+	//getId_no();
+</script>

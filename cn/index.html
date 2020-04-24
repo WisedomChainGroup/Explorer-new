@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+		<title>Wisdom Public Chain 区块链浏览器</title>
+		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+        <script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root">
+			<div>
+				<div>
+					
+					
+					<div class="bannerWrapper___TiD9c">
+						
+						<div id="component-header" class="header___1E4MV">
+							<div class="wid-1201">
+								<div class="componentHeaderPC___f9g9a"><a class="logoContainer___3JZvy" href="../cn/index.html"><i class="wdc-logo"></i></a>
+									<ul class="ant-menu headerMenu___3h_eH ant-menu-light ant-menu-root ant-menu-horizontal hide" role="menu">					
+										<!-- <li class="ant-menu-item ant-menu-item-selected" role="menuitem"><a href="index.html"><span>首页</span></a></li>			 -->
+										<li class="ant-menu-item nav-index" role="menuitem"><a href="index.html"><span>首页</span></a></li>			
+										<li class="ant-menu-item" role="menuitem"><a href="block.html"><span>区块</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="nodes.html"><span>节点</span></a></li>	
+										<li class="ant-menu-item" role="menuitem"><a href="deal.html"><span>交易</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="rankList.html"><span>账户</span></a></li> 
+										<li class="ant-menu-item" role="menuitem"><a href="prove.html"><span>存证</span></a></li> 
+										<li class="ant-menu-item" role="menuitem"><a href="assets.html"><span>资产</span></a></li> 
+										<li class="ant-menu-item" role="menuitem"><a href="pool.html"><span>事务池</span></a></li>					
+									</ul>			
+								</div>
+								<div class="componentHeaderMobile___1JrnQ"><a class="logoContainer___3JZvy" href="/">
+								<i class="wdc-logo"></i></a>
+								<div class="fr menu"><i onclick="MyClick('show')"></i></div>
+								</div>
+							</div>	
+						
+							<div class="language fr hide" style="margin-right: 2.6em; float: right; margin-top: 15px;">
+								<a href="../index.html"><img src="img/English-1.png"  ></a>
+								<!-- <a class="language-chinese" href="/index.html">EN</a> -->
+							</div>
+						</div>
+						<div class="bannerImg___3AdM_">
+							<div class="tpsInfo___20JAn">
+								<i class="tpsIconLeft___3k0p9">Wisdom Chain</i>
+								
+								<span style="display: none;">10000+</span></div>
+								
+							<div class="searchWrapper___2DxiZ">
+							<!-- <select class="bannerSearch___1uumL" id="indexsearch" style="width: 24%;float: left;padding:0.625rem 0.5rem;color: #9C9EB9;">
+								<option value="1" selected="selected">交易</option>
+								<option value="2">存证</option>
+								<option value="3">资产</option>
+							</select> -->
+								<input type="text" placeholder="地址/交易Hash/区块高度" id="soso" class="bannerSearch___1uumL"><i
+								 class="searchSubmit___3bsma"  onclick="soso_tag()"></i></div>
+							<div class="bannerLine1___35AYW"></div>
+							<div class="bannerLine2___2zTk9"></div>
+							<div class="bannerLine3___2ndMb"></div>
+							<div class="bannerLine4___3Qzdv"></div>
+							<div class="bannerLine5___11XB0"></div>
+							<div class="bannerLine6___2wX9C"></div>
+						</div>
+					</div>
+					<div class="wdcIndexWrapper___1Jv9D">
+						<div class="container">
+							<div class="wdcIndexIndicators___2j14J">
+								<h3 class="wdcIndexCardTitle___3NiKJ"><span>WDC关键指标</span></h3>
+								<div class="ant-row wdcIndexRow___14GUn">
+									<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6" id='block_data_test' style="background: #fff;">
+										<script type="text/json" id="tpl">
+											<div class="roundBrew">
+												<div class="circle"></div>
+												<div class="circle_bottom animation"></div>
+											</div>
+											<p><span>WDC价格</span></p>
+											<h5 id="price">&yen;<%=obj.last%></h5>
+										</script> 
+									</div>
+									<div id="block_data_browser">
+										<script type="text/json" id="tpl1">
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>每天出块数量</span></p>
+												<h5><%=obj.blocksCount%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>区块高度</span></p>
+												<h5><%=obj.lastConfirmedHeight%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>平均出块时间</span></p>
+												<h5><%=obj.averageBlockInterval%>秒</h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>平均手续费(WDC)</span></p>
+												<h5><%=obj.averageFee/100000000%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>事务池大小</span></p>
+												<h5><%=obj.queuedTransactions+obj.pendingTransactions%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>当前难度</span></p>
+												<h5 style="word-wrap:break-word;line-height: 25px;padding-top: 10px;"><%=obj.target%></h5>
+											</div>
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				
+				
+				
+				
+				
+				
+					<div class="wdcIndexExchange___z8C_Q" style="display: none;">
+						<div class="wdcIndexExchangeimg___FDKrI">
+							<div class="container">
+								<h3 class="wdcIndexCardTitle___3NiKJ HPBexTitle___MAOz6" style="color:#eef0f3;"><span>WDC支持交易所</span></h3>
+								<div class="ant-row hpbexRow___1eCVu">
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://www.bitz.com/"
+										 target="_blank" >
+										 <img src="img/bit-z.png" style="width: 67%;" />
+										 </a>
+										 </div>
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://ceohk.bi/"
+										 target="_blank"
+										 >
+										 <img src="img/ceo-logo.png" style="width: 95%;"/>
+										 </a></div>
+								<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+									<a href="https://www.bizu.one/"
+									 target="_blank"
+									 >
+									 <img src="img/bizu-logo.png" style="width: 100%;" />
+									 </a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="component-footer"><!-- <i class="wdc-logo"></i><i class="wdcfooterline___284Mv"></i> -->
+						<p class="wdcfooterinfo___2Wwrt"><span>Wisdom Public Chain包含了主链各项指标，还提供了节点、区块、交易、链上合约查询。</span></p>
+						<div class="wdcfooterurl___I7w7A">
+							<p><span>联系我们</span>：<a href="mailto:service@wdc852.com">service@wdc852.com</a></p>
+							<p><span>友情链接</span>：<a href="https://www.wisdchain.com" target="_blank"><span>Wisdom Public Chain官网</span></a>
+							</p>
+						</div>
+						
+						<p class="footerfoundation___9v27I">2018-2019 Wisdom Public Chain Foundation. All rights reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="root">
+			<div class="uu">
+				<div class="header-mobile-menu" id='header-mobile-menu'>
+					<div class="root-header">
+						<div class="fl top-logo wid-150"><span><img src="img/logo.png" class=""></span></div>
+						<div class="fr guanbi"><i onclick="MyClick('hide')"></i></div>
+					</div>
+					<div class="root-search">
+						<input type="text" placeholder="地址/交易Hash" class="soso" id="sosowap" />
+						<span class="ww" onclick="soso_tag(2)"></span>
+					</div>
+					<div class="root-nav">
+						<ul>
+						<li> <a href="index.html" >首页</a></li>
+						<li> <a href="block.html">区块</a></li>
+						<li> <a href="nodes.html">节点</a></li>
+						<li> <a href="deal.html">交易</a></li>
+						<li> <a href="rankList.html">账户</a></li>
+						<li> <a href="prove.html">存证</a></li>
+						<li> <a href="assets.html">资产</a></li>
+						<li> <a href="pool.html" class="arr">事务池</a></li>
+						<li class="root-language"><a href="/index.html">English</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		<script>
+			function MyClick(flag) {
+				
+				if (flag == 'show') {
+					document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+					document.getElementById('component-header').setAttribute('class', 'header-mobile-menu show');
+					
+				}
+				if (flag == 'hide') {
+					document.getElementById('header-mobile-menu').classList.remove('show');
+					document.getElementById('component-header').setAttribute('class', 'header___1E4MV');
+				}
+			}
+		</script>
+   <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

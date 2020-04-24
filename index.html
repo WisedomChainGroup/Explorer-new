@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+		<title>Wisdom Public Chain</title>
+		<link rel="stylesheet" href="./css/index.css" />
+		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" href="css/style.css" />
+<!--		<link rel="stylesheet" href="css3tip/css/index.html" />-->
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="root">
+			<div>
+				<div>
+					
+
+					<div class="bannerWrapper___TiD9c">
+						<div id="component-header" class="header___1E4MV">
+							<!-- <div class="container"> -->
+							<div class="wid-1201">
+								<div class="componentHeaderPC___f9g9a"><a class="logoContainer___3JZvy" href="index.html"><i class="wdc-logo"></i></a>
+									<ul class="ant-menu headerMenu___3h_eH ant-menu-light ant-menu-root ant-menu-horizontal hide" role="menu">
+										<li class="ant-menu-item nav-index" role="menuitem"><a href="index.html"><span>Home</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="block.html"><span>Block</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="nodes.html"><span>Nodes</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="deal.html"><span>Transaction</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="rankList.html"><span>Account</span></a></li>								
+										<li class="ant-menu-item" role="menuitem"><a href="prove.html"><span>Certificate</span></a></li>
+										<li class="ant-menu-item" role="menuitem"><a href="assets.html"><span>Assets</span></a></li>
+						
+										<li class="ant-menu-item" role="menuitem"><a href="pool.html"><span>Transaction Pool</span></a></li>
+									</ul>
+								</div>
+								<div class="componentHeaderMobile___1JrnQ"><a class="logoContainer___3JZvy" href="/">
+										<i class="wdc-logo"></i></a>
+									<div class="fr menu"><i onclick="MyClick('show')"></i></div>
+								</div>
+							</div>
+							<div class="language fr hide" style="margin-right: 1.8rem; float: right;margin-top: 20px;">
+								<a href="cn/index.html"><img src="img/Chinese-1.png" /></a>
+								<!-- <a class="language-chinese" href="cn/index.html">CN</a> -->
+							</div>
+						</div>
+						<div class="bannerImg___3AdM_">
+							<div class="tpsInfo___20JAn">
+								<i class="tpsIconLeft___3k0p9">Wisdom  Chain</i>
+
+								<span style="display: none;">10000+</span></div>
+							<div class="searchWrapper___2DxiZ">
+<!-- 	<select class="bannerSearch___1uumL" id="indexsearch" style="width: 24%;float: left;padding:0.625rem 0.5rem;color: #9C9EB9;">
+								<option value="1" selected="selected">trade</option>
+								<option value="2">evidence</option>
+								<option value="3">assets</option>
+							</select> -->
+								<input type="text" placeholder="Address/Trading Hash/Block Height" id="soso" class="bannerSearch___1uumL"><i class="searchSubmit___3bsma"
+								 onclick="soso_tag()" ></i></div>
+							<div class="bannerLine1___35AYW"></div>
+							<div class="bannerLine2___2zTk9"></div>
+							<div class="bannerLine3___2ndMb"></div>
+							<div class="bannerLine4___3Qzdv"></div>
+							<div class="bannerLine5___11XB0"></div>
+							<div class="bannerLine6___2wX9C"></div>
+						</div>
+					</div>
+					<div class="wdcIndexWrapper___1Jv9D">
+						<div class="container">
+							<div class="wdcIndexIndicators___2j14J">
+								<h3 class="wdcIndexCardTitle___3NiKJ"><span>WDC Key Indicators</span></h3>
+								<div class="ant-row wdcIndexRow___14GUn">
+									<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6" id='block_data_test' style="background: #fff;">
+										<script type="text/json" id="tpl">
+											<div class="roundBrew">
+												<div class="circle"></div>
+												<div class="circle_bottom animation"></div>
+											</div>
+											<p><span>WDC Price</span></p>
+											<h5 id="price">&yen;<%=obj.last%></h5>
+										</script>
+									</div>
+									<div id="block_data_browser">
+										<script type="text/json" id="tpl1">
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6" >
+													<div class="roundBrew">
+														<div class="circle"></div>
+														<div class="circle_bottom animation"></div>
+													</div>
+													<p><span>Daily Mining Number</span></p>
+													<h5><%=obj.blocksCount%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+												<div class="roundBrew">
+													<div class="circle"></div>
+													<div class="circle_bottom animation"></div>
+												</div>
+												<p><span>Block Height</span></p>
+												<h5><%=obj.lastConfirmedHeight%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+													<div class="roundBrew">
+														<div class="circle"></div>
+														<div class="circle_bottom animation"></div>
+													</div>
+													<p><span>Average Block Time</span></p>
+													<h5><%=obj.averageBlockInterval%>&nbsp;S</h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+													<div class="roundBrew">
+														<div class="circle"></div>
+														<div class="circle_bottom animation"></div>
+													</div>
+													<p><span>Average Service Charge (WDC)</span></p>
+													<h5><%=obj.averageFee/100000000%></h5>
+											</div>
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+													<div class="roundBrew">
+														<div class="circle"></div>
+														<div class="circle_bottom animation"></div>
+													</div>
+													<p><span>Transaction Pool Size</span></p>
+													<h5><%=obj.queuedTransactions+obj.pendingTransactions%></h5>
+											</div> 
+											<div class="wdcIndexCardValue___22_VJ ant-col-xs-24 ant-col-sm-24 ant-col-md-12 ant-col-lg-6">
+													<div class="roundBrew">
+														<div class="circle"></div>
+														<div class="circle_bottom animation"></div>
+													</div>
+													 <p><span>Current Difficulty</span></p> 
+													  <h5 style="word-wrap:break-word;line-height: 25px;padding-top: 10px;"><%=obj.target%></h5>
+													  <!--<div class="inner"> <span>i</span>
+													    <h5><%=obj.target%></h5>
+													     <p>这是一张信息卡它会告诉你一些重要的事情</p> 
+													  </div>-->
+													
+													<!-- <p id="abb"><h5><%=obj.target%></h5></p> -->
+											</div>
+										</script>
+								    </div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+
+
+					<div class="wdcIndexExchange___z8C_Q" style="display: none;">
+						<div class="wdcIndexExchangeimg___FDKrI">
+							<div class="container">
+								<h3 class="wdcIndexCardTitle___3NiKJ HPBexTitle___MAOz6" style="color:#eef0f3;"><span>WDC支持交易所</span></h3>
+								<div class="ant-row hpbexRow___1eCVu">
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://www.bitz.com/" target="_blank">
+											<img src="img/bit-z.png" style="width: 67%;" />
+										</a>
+									</div>
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://ceohk.bi/" target="_blank">
+											<img src="img/ceo-logo.png" style="width: 95%;" />
+										</a></div>
+									<div class="exItem___2OWRZ ant-col-xs-12 ant-col-sm-12 ant-col-md-6 ant-col-lg-6">
+										<a href="https://www.bizu.one/" target="_blank">
+											<img src="img/bizu-logo.png" style="width: 100%;" />
+										</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="component-footer">
+						<!-- <i class="wdc-logo"></i><i class="wdcfooterline___284Mv"></i> -->
+						<p class="wdcfooterinfo___2Wwrt"><span>Wisdom Public Chain contains indicators of the main Chain, as well as
+								nodes, blocks, transactions, and contract queries on the Chain.</span></p>
+						<div class="wdcfooterurl___I7w7A">
+							<p><span>Contact us:service@wdc852.com</span>：<a href="mailto:service@wdc852.com">service@wdc852.com</a></p>
+							<p><span>Link</span>：<a href="https://www.wisdchain.com" target="_blank"><span>Wisdom Public Chain WebSite</span></a>
+							</p>
+						</div>
+
+						<p class="footerfoundation___9v27I">2018-2019 Wisdom Public Chain Foundation. All rights reserved</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="root">
+			<div class="uu">
+				<div class="header-mobile-menu" id='header-mobile-menu'>
+					<div class="root-header">
+						<div class="fl top-logo wid-150"><span><img src="img/logo.png" class=""></span></div>
+						<div class="fr guanbi"><i onclick="MyClick('hide')"></i></div>
+					</div>
+					<div class="root-search">
+						<input type="text" placeholder="Address/Trading Hash" class="soso" id="sosowap" />
+						<span class="ww" onclick="soso_tag(2)"></span>
+					</div>
+					<div class="root-nav">
+						<ul>
+							<li> <a href="index.html" class="arr">Home</a></li>
+							<li> <a href="block.html">Block</a></li>
+							<li> <a href="nodes.html">Nodes</a></li>
+							<li> <a href="deal.html">Transaction</a></li>
+							<li> <a href="rankList.html">Account</a></li>
+							<li> <a href="assets.html">Assets</a></li>
+							<li> <a href="pool.html">Transaction Pool</a></li>
+							<li class="root-language"><a href="cn/index.html">Chinese</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<script>
+				function MyClick(flag) {
+
+					if (flag == 'show') {
+						document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+						document.getElementById('component-header').setAttribute('class', 'header-mobile-menu show');
+
+					}
+					if (flag == 'hide') {
+						document.getElementById('header-mobile-menu').classList.remove('show');
+						document.getElementById('component-header').setAttribute('class', 'header___1E4MV');
+					}
+				}
+			</script>
+			<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
