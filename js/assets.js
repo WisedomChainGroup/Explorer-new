@@ -13,8 +13,6 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 		function(result) {
 
 			if (result.code == "2000") {
-
-				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);

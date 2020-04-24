@@ -17,9 +17,6 @@ function getBalance(coinaddress) {
 		},
 
 		function(result) {
-
-			console.log(result.data.account);
-
 			if (result.code == "2000") {
 				setHtml(result.data.account, 'tpl', 'con-box-yu');
 			}

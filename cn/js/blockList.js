@@ -23,6 +23,9 @@ $(function() {
 function blockListPlay(height=1){
 	$.get(HttpBlockHead+"/block/detail?height="+height,
 			function(result) {
+				if(result.data.Minner.substring(0,2) != "WX" ){
+					result.data.Minner = "WX" + result.data.Minner;
+				}
 				setHtml(result.data, 'tpl3', 'blocks_data_List');
 			}); 
 			
@@ -30,6 +33,12 @@ function blockListPlay(height=1){
     		function(result) {
     			if (result.code == "200") {
 					for (var i = 0; i < result.data.length; i++) {
+						if(result.data[i].toaddress.substring(0,2) != "WX" ){
+							result.data[i].toaddress = "WX" + result.data[i].toaddress;
+						}
+						if(result.data[i].fromaddress.substring(0,2) != "WX" ){
+							result.data[i].fromaddress = "WX" + result.data[i].fromaddress;
+						}
 						//hash处理
 						result.data[i].hash = result.data[i].transactionhash;
 						var transactionhash = result.data[i].transactionhash.substring(0, 5) + "***" + result.data[i].transactionhash.substring(result.data[i].transactionhash.length - 5, result.data[i].transactionhash.length);
@@ -77,7 +86,6 @@ function blockListPlay(height=1){
 						result.data[i].transactionhash = transactionhash;
 						result.data[i].amount = result.data[i].amount/100000000;
 					}
-					console.log(result.data);
 					setHtml(result.data, 'tpl4', 'transactions_data_List');
 				}
     		}); 

@@ -17,9 +17,6 @@ function userTransferLog(hash) {
 		blockHash: hash,
 	},
 	function(result) {
-		
-		console.log(result.data);
-		
 		if(result.code=="2000" &&result.data!=""){
 			setHtml(result.data,'tpl','content');
 		}else{

@@ -84,7 +84,7 @@ function getVoteLogList(coinaddress, pageIndex) {
                    var amount=result.data[i].amount;
 				   result.data[i].amount=amount;
 				}
-				console.log("result========="+result.data);
+				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
