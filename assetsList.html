@@ -72,7 +72,7 @@
 							<span class="arrows">></span>
 							<span>Assets Details</span>
 							<span class="in">
-								<input type="text"placeholder="Address/Trading hash" />
+								<input type="text"placeholder="Address/Trading hash" style="width: 50%;"/>
 								<a style="min-width: 2%;"><i class="fa fa-search"style="margin-left: -24px;"></i></a>
 							</span>
 						</div>
@@ -128,10 +128,14 @@
 						</script>
 						</div>
 					</section>
+					
+					<div id=""style="text-align: center;">
+						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
+					</div> 
  					
 					<br />
 					
-					<div class="ant-table-wrapper">
+					<div class="ant-table-wrapper"id="btnshow">
 					 <div style="position: relative;">
 					<div class="subtitle" id="div_transaction">
 						<span><i class="sub" data-type="1">Additional</i><i class="sub" data-type="2">Transfer</i><i class="sub" data-type="3">Ownership</i></span>
@@ -377,7 +381,37 @@
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
 		}
+		
+		function addEVent(obj,type,fn){
+		    var saved=null;
+		//判断是否之前有事件，如果有，保存下来
+		    if(typeof obj['on'+type]=='function'){
+		        saved=obj['on'+type];
+		         
+		        }  
+		//执行
+		    obj['on'+type]=function(){
+		        if(saved)saved();
+		        fn.call(this);
+		
+		        };
+		     
+		}
+		addEVent(window,'load',function(){
+		    var box=document.getElementById('arrow');
+		    addEVent(box,'click',toBlue);  
+		     
+		    });
+		 
+		function toBlue(){
+		    this.className='fa fa-angle-double-down fa-2x';
+		    addEVent(this,'click',toRed);
+			document.getElementById("btnshow").style.display = "none";
+		}
+		function toRed(){
+		    this.className='fa fa-angle-double-up fa-2x';
+		    addEVent(this,'click',toBlue);
+			document.getElementById("btnshow").style.display = "block";
+		}
 	</script>
-	  
-	</body>
 </html>

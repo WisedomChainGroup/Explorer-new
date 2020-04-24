@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/account.css" />
 		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
 		
@@ -25,17 +26,23 @@
 		</div>
 		<div class="con-box">
 			<div class="wid-1200">
-				<div class="ant-breadcrumb hide">
-					<a href="index.html">
-						<i></i>
-						<span>首页</span></a>
-					<span class="arrows">></span>
-					<a href="deal.html"><span>交易</span></a>
-					<span class="arrows">></span>
-					<span>账户详情</span>
+				<div class="wid-75">
+					<div class="ant-bread">
+						<a href="index.html">
+							<i></i>
+							<span>首页</span></a>
+						<span class="arrows">></span>
+						<a href="deal.html"><span>交易</span></a>
+						<span class="arrows">></span>
+						<span>账户详情</span>
+						<span class="in">
+							<input type="text"placeholder="地址/交易hash" id= "soso" style="width:50%;height:26px;"/>
+							<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+						</span>
+					</div>
 				</div>
 
-				<div class="blocks">
+				<div class="blocks"style="margin-top: 2em;">
 					<h3 class="h3"><span>交易详情</span></h3>
 
 					<div class="subtitle">
