@@ -72,7 +72,7 @@
 							<span class="arrows">></span>
 							<span>Assets Details</span>
 							<span class="in">
-								<input type="text"placeholder="Address/Trading hash" style="width: 50%"/>
+								<input type="text"placeholder="Address/Trading hash" style="width: 50%;"/>
 								<a style="min-width: 2%;"><i class="fa fa-search"style="margin-left: -24px;"></i></a>
 							</span>
 						</div>
@@ -128,21 +128,14 @@
 						</script>
 						</div>
 					</section>
-
 					
 					<div id=""style="text-align: center;">
 						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
-					</div>
+					</div> 
  					
 					<br />
 					
-					<div class="ant-table-wrapper" id="btnshow">
-
- 					
-					<br />
-					
-					<div class="ant-table-wrapper">
-
+					<div class="ant-table-wrapper"id="btnshow">
 					 <div style="position: relative;">
 					<div class="subtitle" id="div_transaction">
 						<span><i class="sub" data-type="1">Additional</i><i class="sub" data-type="2">Transfer</i><i class="sub" data-type="3">Ownership</i></span>
@@ -350,7 +343,17 @@
 							</tbody>
 						</table>
 					</section>
-
+			
+			
+			
+				<!-- 	<table style="width: 100%;visibility: hidden;" id="table_showdiv">
+						<tbody>
+							<tr>
+								<td  class="cursor" style="text-align: center;" colspan="6">点击展开</td>
+							</tr>
+						</tbody>
+					</table> -->
+					
 					</div>
 						<div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
 							<i id="first_page"></i><i  id="pre_page"></i>
@@ -378,43 +381,37 @@
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
 		}
-	</script>
-
-	<script type="text/javascript">
 		
-	function addEVent(obj,type,fn){
-	    var saved=null;
-	//判断是否之前有事件，如果有，保存下来
-	    if(typeof obj['on'+type]=='function'){
-	        saved=obj['on'+type];
-	         
-	        }  
-	//执行
-	    obj['on'+type]=function(){
-	        if(saved)saved();
-	        fn.call(this);
-	
-	        };
-	     
-	}
-	addEVent(window,'load',function(){
-	    var box=document.getElementById('arrow');
-	    addEVent(box,'click',toBlue);  
-	     
-	});
-	 
-	function toBlue(){
-	    this.className='fa fa-angle-double-down fa-2x';
-	    addEVent(this,'click',toRed);
-		document.getElementById("btnshow").style.display = "none";
-	}
-	function toRed(){
-	    this.className='fa fa-angle-double-up fa-2x';
-	    addEVent(this,'click',toBlue);
-		document.getElementById("btnshow").style.display = "block";
-	}
-	 
+		function addEVent(obj,type,fn){
+		    var saved=null;
+		//判断是否之前有事件，如果有，保存下来
+		    if(typeof obj['on'+type]=='function'){
+		        saved=obj['on'+type];
+		         
+		        }  
+		//执行
+		    obj['on'+type]=function(){
+		        if(saved)saved();
+		        fn.call(this);
+		
+		        };
+		     
+		}
+		addEVent(window,'load',function(){
+		    var box=document.getElementById('arrow');
+		    addEVent(box,'click',toBlue);  
+		     
+		    });
+		 
+		function toBlue(){
+		    this.className='fa fa-angle-double-down fa-2x';
+		    addEVent(this,'click',toRed);
+			document.getElementById("btnshow").style.display = "none";
+		}
+		function toRed(){
+		    this.className='fa fa-angle-double-up fa-2x';
+		    addEVent(this,'click',toBlue);
+			document.getElementById("btnshow").style.display = "block";
+		}
 	</script>
-	  
-	</body>
 </html>

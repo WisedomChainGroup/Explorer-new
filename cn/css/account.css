@@ -39,7 +39,7 @@
 	box-sizing: border-box;
 	position: relative;
 	transition: color .3s cubic-bezier(.645, .045, .355, 1);
-	cursor: pointer;
+	/* cursor: pointer; */
 	text-decoration: none;
 	display: block;
 	border-bottom: 0.0625rem solid #e8e8e8;

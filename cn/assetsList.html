@@ -130,7 +130,7 @@
 					</section>
 
 					<div id=""style="text-align: center;">
-						<i id="arrow" class="fa fa-angle-double-down fa-2x" style="color: #999999;"></i>
+						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
 					</div>
 					<br />
 					
@@ -377,42 +377,38 @@
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
 		}
-	</script>
-
-	<script type="text/javascript">
 		
-	function addEVent(obj,type,fn){
-	    var saved=null;
-	//判断是否之前有事件，如果有，保存下来
-	    if(typeof obj['on'+type]=='function'){
-	        saved=obj['on'+type];
-	         
-	        }  
-	//执行
-	    obj['on'+type]=function(){
-	        if(saved)saved();
-	        fn.call(this);
-	
-	        };
-	     
-	}
-	addEVent(window,'load',function(){
-	    var box=document.getElementById('arrow');
-	    addEVent(box,'click',toBlue);  
-	     
-	    });
-	 
-	function toBlue(){
-	    this.className='fa fa-angle-double-up fa-2x';
-	    addEVent(this,'click',toRed);
-		document.getElementById("btnshow").style.display = "none";
-	}
-	function toRed(){
-	    this.className='fa fa-angle-double-down fa-2x';
-	    addEVent(this,'click',toBlue);
-		document.getElementById("btnshow").style.display = "block";
-	}
-	 
+		function addEVent(obj,type,fn){
+		    var saved=null;
+		//判断是否之前有事件，如果有，保存下来
+		    if(typeof obj['on'+type]=='function'){
+		        saved=obj['on'+type];
+		         
+		        }  
+		//执行
+		    obj['on'+type]=function(){
+		        if(saved)saved();
+		        fn.call(this);
+		
+		        };
+		     
+		}
+		addEVent(window,'load',function(){
+		    var box=document.getElementById('arrow');
+		    addEVent(box,'click',toBlue);  
+		     
+		    });
+		 
+		function toBlue(){
+		    this.className='fa fa-angle-double-down fa-2x';
+		    addEVent(this,'click',toRed);
+			document.getElementById("btnshow").style.display = "none";
+		}
+		function toRed(){
+		    this.className='fa fa-angle-double-up fa-2x';
+		    addEVent(this,'click',toBlue);
+			document.getElementById("btnshow").style.display = "block";
+		}
 	</script>
 	  
 	</body>

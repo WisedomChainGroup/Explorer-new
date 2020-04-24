@@ -92,16 +92,20 @@
 						</script>
 						</div>
 					</section>
+					
+					<div id=""style="text-align: center;cursor:pointer;">
+						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
+					</div>
  					
 					<br />
 					
 					
-					
-					<div class="subtitle" id="div_transaction">
+					<div id="btnshow">
+					<div class="subtitle" id=""><!--div_transaction-->
 						<span>事务</span>
 						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
 					</div>
-					<section class="box" id="section_transaction">
+					<section class="box" id=""><!--section_transaction-->
 						<table class="" style="width: 100%;">
 							<colgroup>
 								<col>
@@ -165,13 +169,14 @@
 							</tbody>
 						</table>
 					</section>
-					<table style="width: 100%;visibility: hidden;" id="table_showdiv">
+					</div>
+<!-- 					<table style="width: 100%;visibility: hidden;" id="table_showdiv">
 						<tbody>
 							<tr>
 								<td  class="cursor" style="text-align: center;" colspan="6">点击展开</td>
 							</tr>
 						</tbody>
-					</table>
+					</table> -->
 				</div>
 
 			</div>
@@ -187,6 +192,40 @@
 			if (flag == 'hide') {
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
+		}
+		
+		
+		
+		function addEVent(obj,type,fn){
+		    var saved=null;
+		//判断是否之前有事件，如果有，保存下来
+		    if(typeof obj['on'+type]=='function'){
+		        saved=obj['on'+type];
+		         
+		        }  
+		//执行
+		    obj['on'+type]=function(){
+		        if(saved)saved();
+		        fn.call(this);
+		
+		        };
+		     
+		}
+		addEVent(window,'load',function(){
+		    var box=document.getElementById('arrow');
+		    addEVent(box,'click',toBlue);  
+		     
+		    });
+		 
+		function toBlue(){
+		    this.className='fa fa-angle-double-down fa-2x';
+		    addEVent(this,'click',toRed);
+			document.getElementById("btnshow").style.display = "none";
+		}
+		function toRed(){
+		    this.className='fa fa-angle-double-up fa-2x';
+		    addEVent(this,'click',toBlue);
+			document.getElementById("btnshow").style.display = "block";
 		}
 	</script>
 	  
