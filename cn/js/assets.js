@@ -21,7 +21,14 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 				// $('#totalCount').html(result.data.length);
 				//
 
-			
+				for(let i = 0;i<result.data.length;i++){
+					if(result.data[i].coinAddress.substring(0,2) != "WX" ){
+						result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+					}
+					if(result.data[i].coinAddress.substring(0,2) != "WX" ){
+						result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+					}
+				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
