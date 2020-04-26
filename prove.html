@@ -101,14 +101,14 @@
 							</div>
 
 						</div>
-						<div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
+						<!-- <div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
 							<i id="first_page"></i><i  id="pre_page"></i>
 							<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
 								<span>Total Pages</span>
 								<span class="pageNum___HAhvB" id="totalPage">1</span></p>
 							<i  id="next_page"></i><i  id="last_page"></i>
-						</div>
-		
+						</div> -->
+						<div id="paging"></div>
 					</div>
 				</div>
 
@@ -124,6 +124,7 @@
 		 <script src="js/prove.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
+		$("#paging").load("paging.html");
 		function MyClick(flag) {
 			if (flag == 'show') {
 				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');

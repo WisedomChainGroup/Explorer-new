@@ -344,25 +344,15 @@
 							</tbody>
 						</table>
 					</section>
-			
-			
-			
-				<!-- 	<table style="width: 100%;visibility: hidden;" id="table_showdiv">
-						<tbody>
-							<tr>
-								<td  class="cursor" style="text-align: center;" colspan="6">点击展开</td>
-							</tr>
-						</tbody>
-					</table> -->
-					
 					</div>
-						<div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
+						<!-- <div class=" compontPagination___3HkDQ" style="margin-top: 47px;">
 							<i id="first_page"></i><i  id="pre_page"></i>
 							<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
 								<span>Total Pages</span>
 								<span class="pageNum___HAhvB" id="totalPage">1</span></p>
 							<i  id="next_page"></i><i  id="last_page"></i>
-						</div>
+						</div> -->
+						<div id="paging"></div>
 				</div>
 				
 	
@@ -374,6 +364,7 @@
 		<script src="js/blockAssets.js" type="text/javascript" charset="UTF-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
+		$("#paging").load("paging.html");
 		function MyClick(flag) {
 			if (flag == 'show') {
 				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
