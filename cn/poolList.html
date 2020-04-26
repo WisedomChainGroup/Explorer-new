@@ -53,7 +53,7 @@
 						   <!-- <div id="content">
 						     <span style="display: block;width: 100%;text-align: center;">数据请求中......<span>
 							</div> -->
-						<script type="text/json" id="tpl"
+						<script type="text/json" id="tpl">
 						<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"><%=obj.dynamicCount%></span></p>
 						
 							
@@ -128,7 +128,7 @@
 																	
 															<span class="copy" title="<%=obj[i].hash%>">
 															
-															<%=obj[i].tranhaxh%>
+															<%=obj[i].tranhash%>
 															</span>
 															</td>
 																<td class=""><span class=""><%=obj[i].nonce%></span></td>
@@ -222,12 +222,11 @@
 
 		</section>
 		<div class="clear">
-
-			<div id="page_footer"></div>
 			
 			<script>
 			  $("#page_footer").load("footer.html");
 			 </script>
+		</div>
 			<script>
 				function MyClick(flag) {
 					if (flag == 'show') {
@@ -254,6 +253,5 @@
 				alert("复制失败！");
 			});
 			</script>
-       </script> 
 	</body>
 </html>
