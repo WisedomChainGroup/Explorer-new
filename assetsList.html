@@ -89,43 +89,7 @@
 					
 					<section class="section">
 						<div id="blocks_data_List">
-						<script type="text/json" id="tpl">
-						<ul>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Token Name</span>
-								<span><%=obj.code%></span>
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Initial circulation</span>
-								<span><%=obj.offering%></span>
-							</li>
 
-						 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Total issue amount</span>
-								 <span><%=obj.totalamount%></span>
-								
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Creator user</span>
-								<span><a title="<%=obj.createuserAddress%>" href="particulars.html?coinaddress=<%=obj.createuserAddress%>"><%=obj.createuserAddress%></a></span>
-								
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Owner user</span>
-							
-									<span><a title="<%=obj.ownerAddress%>" href="particulars.html?coinaddress=<%=obj.ownerAddress%>"><%=obj.ownerAddress%></a></span>
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Allow additional issue</span>
-								<span><%=obj.allowincrease%></objspan>
-							</li>
-							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Asset description</span>
-								<span><%=obj.info%></span>
-							</li>
-						
-						</ul>
-						</script>
 						</div>
 					</section>
 					
@@ -239,107 +203,7 @@
 								</tr>
 							</thead>	
 								<tbody class="" id="transactions_data_List">
-								<script type="text/json" id="tpl1">
-									<%if(obj.length==0){%>
-									<tr>
-									<td class="" colspan="6">aaa</td>
-									</tr>
-									<%}else{%>
-									<% for(var i = 0;i<obj.length;i++){%>
-								<tr class="showtr" data-row-key="1">
-									<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-									<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
-									<td class=""><%=obj[i].coinHeigth%></td>
-									<td class="">
-										
-											<%=obj[i].time%>
-									    
-										</td>
-									<td style="width: 20%;">
-										<span>
-											<a class="cursor" title="<%=obj[i].ownerAddress%>" href="particulars.html?coinaddress=<%=obj[i].ownerAddress%>"><%=obj[i].ownerAddress%></a>
-										</span>
-									</td>
-									
-									<td class="tr"><%=obj[i].amount%></td>
-									<td class="tr"><%=obj[i].fee%></td>
-								</tr>
-									<%}}%>
-								</script>
-							
-							<script type="text/json" id="tpl2">
-									<%if(obj.length==0){%>
-									<tr>
-									<td class="" colspan="8">aaa</td>
-									</tr>
-									<%}else{%>
-									<% for(var i = 0;i<obj.length;i++){%>
-								
-								<tr class="" data-row-key="1">
-									<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-									<td class="cursor">
-								<span class="" title="<%=obj[i].blockHash%>">
-								
-								<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].blockHash%></a>
-								</span>
-								</td>
-									<td class=""><span class=""><%=obj[i].coinHeigth%></span></td>
-									<td class=""><span><%=obj[i].createTime%></span></td>
-									<td class=""><span>
-									<a title="<%=obj[i].fromAddress%>" href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
-									<%=obj[i].fromAddress%>
-									</a>
-									</span></td>
-									
-									<td class="">
-										<span class="" title="<%=obj[i].coinAddress%>">
-									<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>">
-									<%=obj[i].coinAddress%>
-									</a>
-									</span></td>
-									<td class="tr">
-										<div class="tr"><%=obj[i].amount%></div>
-									</td>
-									<td class="tr">
-										<div class="tr"><%=obj[i].fee%></div>
-									</td>
-								</tr>
-								
-								
-							
-							<%}}%>
-							</script>
-							
-							<script type="text/json" id="tpl3">
-								<%if(obj.length==0){%>
-								<tr>
-								<td class="" colspan="6">aaa</td>
-								</tr>
-								<%}else{%>
-								<% for(var i = 0;i<obj.length;i++){%>
-							<tr class="showtr" data-row-key="1">
-								<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-								<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
-								<td class=""><%=obj[i].coinHeigth%></td>
-								<td  class="">
-								
-										<%=obj[i].time%>
-								
-								</td>
-								<td class="">
-								
-										<%=obj[i].oldAddress%>
-								  
-									</td>
-									<td class="">
-									
-											<%=obj[i].newAddress%>
-									  
-										</td>
-								<td class=""><%=obj[i].fee%></td>
-							</tr>
-								<%}}%>
-							</script>
+
 							
 							</tbody>
 						</table>
@@ -348,7 +212,7 @@
 					<div class="d-md-flex justify-content-between my-3">
 						<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
 							Show
-							<select class="custom-select custom-select-xs mx-2">
+							<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
 								<option selected="selected" value="10">10</option>
 								<option value="25">25</option>
 								<option value="50">50</option>
@@ -370,7 +234,146 @@
 			</div>
 			
 		</div>
+
 		<div id="page_footer"></div>
+			<script type="text/json" id="tpl">
+						<ul>
+							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Token Name</span>
+								<span><%=obj.code%></span>
+							</li>
+							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Initial circulation</span>
+								<span><%=obj.offering%></span>
+							</li>
+
+						 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Total issue amount</span>
+								 <span><%=obj.totalamount%></span>
+
+							</li>
+							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Creator user</span>
+								<span><a title="<%=obj.createuserAddress%>" href="particulars.html?coinaddress=<%=obj.createuserAddress%>"><%=obj.createuserAddress%></a></span>
+
+							</li>
+							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Owner user</span>
+
+									<span><a title="<%=obj.ownerAddress%>" href="particulars.html?coinaddress=<%=obj.ownerAddress%>"><%=obj.ownerAddress%></a></span>
+							</li>
+							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Allow additional issue</span>
+								<span><%=obj.allowincrease%></objspan>
+							</li>
+							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+								<span style="width: 30%;">Asset description</span>
+								<span><%=obj.info%></span>
+							</li>
+
+						</ul>
+						</script>
+			<script type="text/json" id="tpl1">
+									<%if(obj.length==0){%>
+									<tr>
+									<td class="" colspan="6">aaa</td>
+									</tr>
+									<%}else{%>
+									<% for(var i = 0;i<obj.length;i++){%>
+								<tr class="showtr" data-row-key="1">
+									<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+									<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
+									<td class=""><%=obj[i].coinHeigth%></td>
+									<td class="">
+
+											<%=obj[i].time%>
+
+										</td>
+									<td style="width: 20%;">
+										<span>
+											<a class="cursor" title="<%=obj[i].ownerAddress%>" href="particulars.html?coinaddress=<%=obj[i].ownerAddress%>"><%=obj[i].ownerAddress%></a>
+										</span>
+									</td>
+
+									<td class="tr"><%=obj[i].amount%></td>
+									<td class="tr"><%=obj[i].fee%></td>
+								</tr>
+									<%}}%>
+								</script>
+
+			<script type="text/json" id="tpl2">
+									<%if(obj.length==0){%>
+									<tr>
+									<td class="" colspan="8">aaa</td>
+									</tr>
+									<%}else{%>
+									<% for(var i = 0;i<obj.length;i++){%>
+
+								<tr class="" data-row-key="1">
+									<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+									<td class="cursor">
+								<span class="" title="<%=obj[i].blockHash%>">
+
+								<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].blockHash%></a>
+								</span>
+								</td>
+									<td class=""><span class=""><%=obj[i].coinHeigth%></span></td>
+									<td class=""><span><%=obj[i].createTime%></span></td>
+									<td class=""><span>
+									<a title="<%=obj[i].fromAddress%>" href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
+									<%=obj[i].fromAddress%>
+									</a>
+									</span></td>
+
+									<td class="">
+										<span class="" title="<%=obj[i].coinAddress%>">
+									<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>">
+									<%=obj[i].coinAddress%>
+									</a>
+									</span></td>
+									<td class="tr">
+										<div class="tr"><%=obj[i].amount%></div>
+									</td>
+									<td class="tr">
+										<div class="tr"><%=obj[i].fee%></div>
+									</td>
+								</tr>
+
+
+
+							<%}}%>
+							</script>
+
+			<script type="text/json" id="tpl3">
+								<%if(obj.length==0){%>
+								<tr>
+								<td class="" colspan="6">aaa</td>
+								</tr>
+								<%}else{%>
+								<% for(var i = 0;i<obj.length;i++){%>
+							<tr class="showtr" data-row-key="1">
+								<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+								<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
+								<td class=""><%=obj[i].coinHeigth%></td>
+								<td  class="">
+
+										<%=obj[i].time%>
+
+								</td>
+								<td class="">
+
+										<%=obj[i].oldAddress%>
+
+									</td>
+									<td class="">
+
+											<%=obj[i].newAddress%>
+
+										</td>
+								<td class=""><%=obj[i].fee%></td>
+							</tr>
+								<%}}%>
+							</script>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/blockAssets.js" type="text/javascript" charset="UTF-8"></script>
 	<script>
