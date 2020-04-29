@@ -1,5 +1,5 @@
-var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
-var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
+// var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
+//var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 //var HttpBlockHead="http://192.168.1.67:8080";//测试
 //var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
 
@@ -7,8 +7,9 @@ var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 //	测试线上
 //var HttpHead = "http://47.52.195.58:9090/wisechain";
 //正式
-// var HttpBlockHead = "http://192.168.1.83:8081";
-// var HttpHead = "http://192.168.1.83:9090/wisechain";
+//var HttpBlockHead = "https://scannode.hkcyb.pro";
+var HttpBlockHead = "http://192.168.1.83:8081";
+var HttpHead = "http://192.168.1.83:9090/wisechain";
 
 /**
  * 设置模板宣言
@@ -20,6 +21,9 @@ function setHtml(val, p, s) {
 	var type = typeof val;
 	if (type != "object" || val.length <= 0) return;
 	var tpl = $("#" + p).html(); //document.getElementById(p).innerHTML;
+	if (tpl===""){
+		tpl = $("#page_footer").html(); //document.getElementById(p).innerHTML;
+	}
 	var data = {
 		obj: val
 	};
@@ -64,7 +68,7 @@ function soso_tag(type = 1) {;
 
 		function(result) {
 
-			
+
 			var indexsearch = $('#indexsearch').val();
 			if (indexsearch == 2) {
 				//存证
@@ -72,26 +76,26 @@ function soso_tag(type = 1) {;
 
 			} else if (indexsearch == 3) {
 				//资产
-               location.href = "assetsList.html?coinaddress=" + sosoval;
+				location.href = "assetsList.html?coinaddress=" + sosoval;
 
 			} else {
 				if (result.data == "0") {
-					
-						location.href = "particulars.html?coinaddress=" + sosoval;
-					
+
+					location.href = "particulars.html?coinaddress=" + sosoval;
+
 
 				} else {
 					if (!isNaN(sosoval)) {
 						location.href = "blockList.html?height=" + sosoval;
 					} else {
-					  location.href = "account.html?hash=" + sosoval;
+						location.href = "account.html?hash=" + sosoval;
 					}
 				}
 			}
 
 
 		});
-	}
+}
 
 $('#indexsearch').bind("change", function() {
 	var searchval = $(this).val();

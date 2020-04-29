@@ -3,7 +3,10 @@
 
 function getTransferLogList(pageSize = 10, pageIndex = 1) {
 
-
+    var pageSize = GetQueryString("select");
+    if(pageSize == null){
+        pageSize = 10;
+    }
     //数据请求部分
     $.post(HttpHead + "/prove/getProveList/", {
             pageSize: pageSize,
@@ -46,17 +49,53 @@ if (pageIndex != undefined &&
     getTransferLogList(10, 1);
 }
 
+function changePageSize(){
+    let startIndex = document.getElementById("select").value;
+    getTransferLogList1(startIndex,1);
+}
+
+function getTransferLogList1(pageSize = 10, pageIndex = 1) {
+
+
+    //数据请求部分
+    $.post(HttpHead + "/prove/getProveList/", {
+            pageSize: pageSize,
+            pageIndex: pageIndex
+        },
+
+        function(result) {
+            if (result.code == "2000") {
+                for (let i = 0;i<result.data.length;i++) {
+                    let address = result.data[i].coinAddress.substring(0, 2);
+                    if (address != "WX") {
+                        result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+                    }
+                }
+                setHtml(result.data, 'tpl2', 'block-content');
+                console.log(result.data)
+                //分页处理
+                $('#totalCount').html(result.pageQuery.totalCount);
+                $('#curr_page').html(result.pageQuery.pageIndex);
+                $('#totalPage').html(result.pageQuery.totalPage);
+
+            }
+
+        });
+}
+
 $(function() {
     //首页
     $("#first_page").click(function() {
         //getTransferLogList(10, 1);
-        location.href = "prove.html?pageIndex=1";
+        let startIndex = document.getElementById("select").value;
+        location.href = "prove.html?pageIndex=1&select=" + startIndex;
     });
 
     //最后一页
     $('#last_page').click(function() {
         var totalPage = $('#totalPage').html();
-        location.href = "prove.html?pageIndex=" + totalPage;
+        let startIndex = document.getElementById("select").value;
+        location.href = "prove.html?pageIndex=" + totalPage+"&select=" + startIndex;
         //getTransferLogList(10, totalPage);
     });
     //上一頁
@@ -68,7 +107,8 @@ $(function() {
         }else{
             pageIndex=curr_page;
         }
-        location.href = "prove.html?pageIndex=" + pageIndex;
+        let startIndex = document.getElementById("select").value;
+        location.href = "prove.html?pageIndex=" + pageIndex+"&select=" + startIndex;
     });
     //下一頁
     $("#next_page").click(function() {
@@ -79,9 +119,17 @@ $(function() {
         }else{
             pageIndex=curr_page;
         }
-        location.href = "prove.html?pageIndex=" + pageIndex;
+        let startIndex = document.getElementById("select").value;
+        location.href = "prove.html?pageIndex=" + pageIndex+"&select=" + startIndex;
     });
 })
 
-
+$(document).ready(function(){
+    var test = GetQueryString("select");
+    if (test == null){
+        $("#select").val("10");
+    }else {
+        $("#select").val(test);
+    }
+});
 
