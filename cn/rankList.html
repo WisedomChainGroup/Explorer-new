@@ -99,6 +99,9 @@
 														<thead class="ant-table-thead" >
 															<tr>
 																
+																<th class="">
+																	<div>序号</div>
+																</th>
 																<th class="tc">
 																	<div>地址</div>
 																</th>
@@ -159,6 +162,7 @@
 		<script type="text/json" id="tpl2">
 				<% for(var i = 0;i<obj.length;i++){%>
 				<tr class="" data-row-key="1">
+				<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
 			<td class="cursor tc"><span class="" title="<%=obj[i].address%>" style="/* float: left; */">
 			<a title="<%=obj[i].address%>" href="particulars.html?coinaddress=<%=obj[i].address%>">
 			<%=obj[i].address%></a></span></td>
