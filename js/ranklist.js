@@ -117,11 +117,8 @@ if (pageIndex != undefined &&
 	if (pageIndex < 1) {
 		pageIndex = 1;
 	}
-
-	getTransferLogList(10, pageIndex);
-
+	getTransferLogList(startIndex2, pageIndex);
 } else {
-
 	getTransferLogList(startIndex2, 1);
 }
 

@@ -8,8 +8,8 @@
 //var HttpHead = "http://47.52.195.58:9090/wisechain";
 //正式
 //var HttpBlockHead = "https://scannode.hkcyb.pro";
-var HttpBlockHead = "http://192.168.1.83:8081";
-var HttpHead = "http://192.168.1.83:9090/wisechain";
+var HttpBlockHead = "http://192.168.1.137:8081";
+var HttpHead = "http://192.168.1.137:9090/wisechain";
 
 /**
  * 设置模板宣言

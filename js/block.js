@@ -42,6 +42,8 @@ function Blocklist(page = 1,startIndex)
 		},
 		function(result) {
 			var sortlist=result.data.sort(function(a,b){return b.nheight-a.nheight});
+			console.log(sortlist)
+			console.log("sortlist")
 			$('#curr_page').html(page)
 			setHtml(sortlist, 'tpl3', 'block-details');
 
@@ -103,7 +105,7 @@ function getList1() {
 			}
 			$('#totalPage').html(parseInt(total));
 		});
-	let startIndex = document.getElementById("select").value;
+		let startIndex = document.getElementById("select").value;
 		Blocklist(1,startIndex);
 }
 $(document).ready(function(){
