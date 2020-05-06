@@ -71,14 +71,17 @@
 																	<div>NO.</div>
 																</th>
 																<th class="">
-																	<div>img</div>
+																	<div>Assets icon</div>
 																</th>
-																<th class="">
-																	<div style="margin-left: 20%;">CoinAddress</div>
-																</th>
-															<!-- 	<th class="">
-																	<div>代币转移数</div>
+																<!-- <th class="">
+																	<div>Token Name</div>
 																</th> -->
+																<!-- <th class="" style="text-align: center;">
+																	<div>Txn Hash</div>
+																</th> -->
+																<th class="">
+																	<div style="margin-left: 20%;">Hash160</div>
+																</th>
 															</tr>
 														</thead>
 															<tbody class="" id="block-content">
@@ -128,10 +131,17 @@
 				<tr class="" data-row-key="1">
 
 					 <td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-					<td class="" style="text-align: center;"><%=obj[i].imgUrl%>
+
+					<td><img/></td>
+					<!-- <td class="" style="">
+						<a title="<%=obj[i].coinCode%>" href="assetsList.html?coinaddress=<%=obj[i].coinCode%>"><%=obj[i].coinCode%></a>
 					</td>
+
+					<td class="" style="text-align: center;">
+						<a title="<%=obj[i].coinHash%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].coinHash%></a>
+					</td> -->
 					<td class="" >
-						<a title="<%=obj[i].coinAddress%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash160%>"><%=obj[i].coinHashToAddress%></a>
+						<a title="<%=obj[i].coinAddress%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash160%>"><%=obj[i].coinAddress%></a>
 					</td>
 					<!-- <td class=""><span>22</span></td>
 

@@ -104,6 +104,9 @@
 																<!-- <th class="ant-table-fixed-columns-in-body">
 																	<div>ranking</div>
 																</th> -->
+																<th class="">
+																	<div>NO.</div>
+																</th>
 																<th class="tc">
 																	<div>address</div>
 																</th>
@@ -161,6 +164,7 @@
 		<script type="text/json" id="tpl2">
 			<% for(var i = 0;i<obj.length;i++){%>
 				<tr class="" data-row-key="1">
+				<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
 					<td class="cursor tc"><span class="" title="<%=obj[i].address%>">
 			<a title="<%=obj[i].address%>" href="particulars.html?coinaddress=<%=obj[i].address%>">
 			<%=obj[i].address%></a></span></td>
