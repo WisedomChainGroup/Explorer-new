@@ -51,7 +51,14 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 		$("#block-content").html("未查到该信息");
 		return;
 	}
-
+	var startIndex2 = GetQueryString("select");
+	if(startIndex2 != undefined &&
+		startIndex2 != null &&
+		startIndex2 != "undefined" &&
+		startIndex2 != "null" &&
+		startIndex2 != ""){
+		startIndex2 = 10;
+	}
 	//console.log(coinhash)
 	//console.log(type)
 	if(type==2){  //转账事务
@@ -59,7 +66,7 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 		$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
 				coinAddress:coinhash,
 				txHash:coinhash160,
-				pageSize: 10,
+				pageSize: startIndex2,
 				pageIndex: pageIndex
 			},
 		
@@ -87,7 +94,7 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 			//数据请求部分
 		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex2,
 				pageIndex: pageIndex
 			},
 			function(result) {
@@ -112,7 +119,7 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 			//数据请求部分
 		$.post(HttpHead + "/assetIncreased/getAssetIncreased/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex2,
 				pageIndex: pageIndex
 			},
 			function(result) {

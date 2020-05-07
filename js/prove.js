@@ -34,6 +34,11 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 
 var pageIndex = GetQueryString("pageIndex");
 
+var startIndex2 = GetQueryString("select");
+if(startIndex2 == null){
+    startIndex2 = 10;
+}
+
 if (pageIndex != undefined &&
     pageIndex != null &&
     pageIndex != "undefined" &&
@@ -43,10 +48,10 @@ if (pageIndex != undefined &&
     if (pageIndex < 1) {
         pageIndex = 1;
     }
-    getTransferLogList(10, pageIndex);
+    getTransferLogList(startIndex2, pageIndex);
 
 } else {
-    getTransferLogList(10, 1);
+    getTransferLogList(startIndex2, 1);
 }
 
 function changePageSize(){
