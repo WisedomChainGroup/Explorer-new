@@ -167,7 +167,8 @@ body {
 }
 
 #component-header .ant-menu-horizontal>.ant-menu-item,
-#component-header .ant-menu-horizontal>.ant-menu-submenu {
+#component-header .ant-menu-horizontal>.ant-menu-
+menu {
 	border-bottom: none !important;
 	color: #fff;
 	line-height: 50px;
