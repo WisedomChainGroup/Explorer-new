@@ -6,9 +6,12 @@
 //var HttpBlockHead="http://localhost:8080";//测试
 //var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
 
-var HttpBlockHead = "http://192.168.1.83:8081";
-var HttpHead = "http://192.168.1.83:9090/wisechain";
-
+// var HttpBlockHead = "http://192.168.1.83:8081";
+// var HttpHead = "http://192.168.1.83:9090/wisechain";
+//测试链是
+var HttpBlockHead = "http://139.129.12.159:19585";
+//测试后端服务器
+var HttpHead = "http://139.129.12.159:9090/wisechain";
 
  
 
