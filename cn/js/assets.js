@@ -8,7 +8,7 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 		pageSize = 10;
 	}
 	//数据请求部分
-	$.post(HttpHead + "/coin/getCoinList/", {
+	$.post(HttpHead + "/coin/getAllCoinList/", {
 			pageSize: pageSize,
 			pageIndex: pageIndex
 		},
@@ -17,7 +17,7 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 
 			if (result.code == "2000") {
 
-				
+
 				// console.log(result.data);
 				// setHtml(result.data, 'tpl2', 'block-content');
 				// //分页处理
@@ -69,7 +69,7 @@ function getTransferLogList1(pageSize = 10, pageIndex = 1) {
 
 
 	//数据请求部分
-	$.post(HttpHead + "/coin/getCoinList/", {
+	$.post(HttpHead + "/coin/getAllCoinList/", {
 			pageSize: pageSize,
 			pageIndex: pageIndex
 		},

@@ -3,7 +3,7 @@
  * 根据事务hash获取区块信息
  * @param {Object} hash
  */
-function getParseContract(coinaddress,type=1,pageIndex=1) {
+function getParseContract(coinaddress,type=1,pageIndex=1,startIndex2) {
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -26,14 +26,13 @@ function getParseContract(coinaddress,type=1,pageIndex=1) {
 				} else{
 					result.data.allowincrease = "No"
 				}
-
 				if(type==1){
 					getTransferLogList(result.data.coinHash160,'',type,pageIndex);
 				}else if(type==2){//转账记录
 					getTransferLogList(result.data.createuserAddress,result.data.coinHash160,type,pageIndex);
 
 				}else if(type==3){
-					getTransferLogList(result.data.coinHash160,'',type,pageIndex);
+					getTransferLogList(result.data.coinHash160,'',type,pageIndex,startIndex2);
 				}
 
 
@@ -51,15 +50,14 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 		$("#block-content").html("未查到该信息");
 		return;
 	}
-
-	//console.log(coinhash)
+	console.log(coinhash)
 	//console.log(type)
 	if(type==2){  //转账事务
 		//数据请求部分
 		$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-				coinAddress:coinhash,
+				coidHash160:coinhash,
 				txHash:coinhash160,
-				pageSize: 10,
+				pageSize: startIndex2,
 				pageIndex: pageIndex
 			},
 
@@ -87,7 +85,7 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 		//数据请求部分
 		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex2,
 				pageIndex: pageIndex
 			},
 			function(result) {
@@ -112,7 +110,7 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 		//数据请求部分
 		$.post(HttpHead + "/assetIncreased/getAssetIncreased/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex2,
 				pageIndex: pageIndex
 			},
 			function(result) {
@@ -147,6 +145,11 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 var GetQueryString_address = GetQueryString("coinaddress");
 var pageIndex = GetQueryString("pageIndex");
 var type = GetQueryString("type");
+
+let startIndex2 = GetQueryString("select");
+if(startIndex2 == null || startIndex2 == undefined){
+	startIndex2 = 10;
+}
 if (GetQueryString_address != undefined &&
 	GetQueryString_address != null &&
 	GetQueryString_address != "undefined" &&
@@ -166,7 +169,7 @@ if (GetQueryString_address != undefined &&
 
 	//getBalance(GetQueryString_address);
 	//getTransferLogList(GetQueryString_address,pageIndex);
-	getParseContract(GetQueryString_address,type,pageIndex);
+	getParseContract(GetQueryString_address,type,pageIndex,startIndex2);
 	if (type==1) {
 		$('.tabst').css('left','1.5rem');
 	}else if(type==2){
@@ -190,7 +193,7 @@ if (GetQueryString_address != undefined &&
 		}
 	}
 
-	getParseContract(GetQueryString_address,1,1);
+	getParseContract(GetQueryString_address,1,1,startIndex2);
 	//getTransferLogList(GetQueryString_address,1,1);
 }
 
@@ -290,7 +293,7 @@ function getTransferLogList1(coinhash='',coinhash160='',type=1, pageIndex = 1,st
 		//数据请求部分
 		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex,
 				pageIndex: pageIndex
 			},
 			function(result) {
@@ -315,7 +318,7 @@ function getTransferLogList1(coinhash='',coinhash160='',type=1, pageIndex = 1,st
 		//数据请求部分
 		$.post(HttpHead + "/assetIncreased/getAssetIncreased/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex,
 				pageIndex: pageIndex
 			},
 			function(result) {
