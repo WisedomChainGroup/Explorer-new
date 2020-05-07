@@ -16,8 +16,8 @@ function getTransferLogList(pageSize = 20, pageIndex = 1) {
 		function(result) {
 			if (result.code == "2000") {
 				for (var i = 0; i < result.data.length; i++) {
-					 result.data[i].balance = result.data[i].balance / 100000000;
-					 result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+					result.data[i].balance = result.data[i].balance / 100000000;
+					result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
 				}
 				//console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
@@ -58,12 +58,12 @@ function transaction() {
 		function(result) {
 			if (result.code == "2000") {
 
-				
+
 				// $("#tradeTotal").html(result.data.tradeTotal);
 				var accountSum = 5.02 * 100000000 + Number(result.data);
-				
+
 				accountSum=Math.floor(accountSum*1000)/1000;
-				
+
 				$("#accountSum").html(accountSum);
 				var tradeTotal = Math.floor((88000000 - Number(result.data)) * 1000) / 1000;
 				$("#tradeTotal").html(tradeTotal);
@@ -105,7 +105,7 @@ getTransferTotal();
 var pageIndex = GetQueryString("pageIndex");
 
 var startIndex2 = GetQueryString("select");
-if(startIndex2 == null){
+if(startIndex2 == null || startIndex2 == undefined){
 	startIndex2 = 10;
 }
 if (pageIndex != undefined &&
