@@ -50,7 +50,14 @@ function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
 		$("#block-content").html("未查到该信息");
 		return;
 	}
-	console.log(coinhash)
+	var startIndex2 = GetQueryString("select");
+	if(startIndex2 == undefined &&
+		startIndex2 == null &&
+		startIndex2 == "undefined" &&
+		startIndex2 == "null" &&
+		startIndex2 == ""){
+		startIndex2 = 10;
+	}
 	//console.log(type)
 	if(type==2){  //转账事务
 		//数据请求部分
@@ -200,9 +207,8 @@ if (GetQueryString_address != undefined &&
 function changePageSize(){
 	let startIndex = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
-	var pageIndex = GetQueryString("pageIndex");
 	var type = GetQueryString("type");
-	getParseContract1(GetQueryString_address,type,pageIndex,startIndex);
+	getParseContract1(GetQueryString_address,type,1,startIndex);
 }
 
 /**

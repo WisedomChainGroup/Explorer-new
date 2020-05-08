@@ -8,7 +8,7 @@ function getTransferLogList(pageSize = 10, pageIndex = 1) {
 		pageSize = 10;
 	}
 	//数据请求部分
-	$.post(HttpHead + "/coin/getCoinList/", {
+	$.post(HttpHead + "/coin/getAllCoinList/", {
 			pageSize: pageSize,
 			pageIndex: pageIndex
 		},
@@ -63,7 +63,7 @@ function getTransferLogList1(pageSize = 10, pageIndex = 1) {
 
 
 	//数据请求部分
-	$.post(HttpHead + "/coin/getCoinList/", {
+	$.post(HttpHead + "/coin/getAllCoinList/", {
 			pageSize: pageSize,
 			pageIndex: pageIndex
 		},
