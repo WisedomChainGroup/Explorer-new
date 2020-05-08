@@ -73,7 +73,6 @@ function getTransferLogList1(pageSize = 10, pageIndex = 1) {
                     }
                 }
                 setHtml(result.data, 'tpl2', 'block-content');
-                console.log(result.data)
                 //分页处理
                 $('#totalCount').html(result.pageQuery.totalCount);
                 $('#curr_page').html(result.pageQuery.pageIndex);
