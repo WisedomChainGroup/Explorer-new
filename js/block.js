@@ -10,7 +10,7 @@ function getList() {
 	$.get(HttpHead+"/accountSort/explorerInfo",
 		function(result) {
 			setHtml(result.data, 'tpl', 'block_data_browser1');
-			let total = result.data.lastConfirmedHeight / startIndex2
+			let total = result.data.lastConfirmedHeight / startIndex2;
 			if(result.data.lastConfirmedHeight % startIndex2 != 0){
 				total = total + 1;
 			}

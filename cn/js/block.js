@@ -97,7 +97,7 @@ function getList1() {
 		function(result) {
 			let startIndex = document.getElementById("select").value;
 			setHtml(result.data, 'tpl', 'block_data_browser1');
-			let total = result.data.lastConfirmedHeight/startIndex
+			let total = result.data.lastConfirmedHeight/startIndex;
 			if(result.data.lastConfirmedHeight % startIndex != 0){
 				total = total + 1;
 			}
