@@ -45,7 +45,8 @@ function GetQueryString(name) {
 /**
  * 搜索
  */
-function soso_tag(type = 1) {
+function soso_tag(type) {
+    var type=type||1;
 	var sosoval;
 	if (type == 2) {
 		sosoval = $("#sosowap").val();

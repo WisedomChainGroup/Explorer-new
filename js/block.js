@@ -34,8 +34,9 @@ function getList() {
 }
 
 
-function Blocklist(page = 1,startIndex)
+function Blocklist(page,startIndex)
 {
+    var page=page||1;
 	$.post(HttpBlockHead+"/block/list", {
 			page:page,
 			startIndex: startIndex
