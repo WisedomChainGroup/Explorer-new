@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/assets.js" afterPath="$PROJECT_DIR$/js/assets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/block.js" afterPath="$PROJECT_DIR$/js/block.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/blockAssets.js" afterPath="$PROJECT_DIR$/js/blockAssets.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/blockList.js" afterPath="$PROJECT_DIR$/js/blockList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/coinaddress.js" afterPath="$PROJECT_DIR$/js/coinaddress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/deal.js" afterPath="$PROJECT_DIR$/js/deal.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/prove.js" afterPath="$PROJECT_DIR$/js/prove.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/public.js" afterPath="$PROJECT_DIR$/js/public.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/ranklist.js" afterPath="$PROJECT_DIR$/js/ranklist.js" />
-    </list>
+    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,7 +182,7 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="415" />
     <option name="y" value="136" />
     <option name="width" value="1193" />
@@ -427,15 +417,15 @@
       <workItem from="1587345040426" duration="794000" />
       <workItem from="1587605319099" duration="12222000" />
       <workItem from="1587624777659" duration="627000" />
-      <workItem from="1589249133394" duration="12234000" />
+      <workItem from="1589249133394" duration="12280000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12234000" />
+    <option name="totallyTimeSpent" value="12280000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
