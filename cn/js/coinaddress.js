@@ -24,7 +24,8 @@ function getBalance(coinaddress) {
 		});
 }
 
-function getTransferLogList(coinaddress, pageIndex = 1,startIndex2) {
+function getTransferLogList(coinaddress, pageIndex,startIndex2) {
+    var pageIndex=pageIndex||1;
 	if (coinaddress == "") {
 		//alert();
 		$("#block-content").html("No information was found！");
@@ -95,7 +96,8 @@ function changePageSize(){
 	getTransferLogList1(GetQueryString_address,1,startIndex);
 }
 
-function getTransferLogList1(coinaddress, pageIndex = 1,startIndex) {
+function getTransferLogList1(coinaddress, pageIndex,startIndex) {
+    var pageIndex=pageIndex||1;
 	if (coinaddress == "") {
 		//alert();
 		$("#block-content").html("No information was found！");

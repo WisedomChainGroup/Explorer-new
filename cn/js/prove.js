@@ -1,7 +1,9 @@
 //var pageIndex = 1;
 //var totalPage = 0;
 
-function getTransferLogList(pageSize = 10, pageIndex = 1) {
+function getTransferLogList(pageSize, pageIndex) {
+    var pageSize=pageSize||10;
+    var pageIndex=pageIndex||1;
     var pageSize = GetQueryString("select");
     if(pageSize == null){
         pageSize = 10;
@@ -55,8 +57,9 @@ function changePageSize(){
     getTransferLogList1(startIndex,1);
 }
 
-function getTransferLogList1(pageSize = 10, pageIndex = 1) {
-
+function getTransferLogList1(pageSize, pageIndex) {
+    var pageSize=pageSize||10;
+    var pageIndex=pageIndex||1;
 
     //数据请求部分
     $.post(HttpHead + "/prove/getProveList/", {

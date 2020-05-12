@@ -3,7 +3,7 @@
 //var HttpBlockHead="http://192.168.1.67:8080";//测试
 //var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
 
-
+var HttpHead;
 //	测试线上
 //var HttpHead = "http://47.52.195.58:9090/wisechain";
 //正式
@@ -45,7 +45,7 @@ function GetQueryString(name) {
 /**
  * 搜索
  */
-function soso_tag(type = 1) {;
+function soso_tag(type = 1) {
 	var sosoval;
 	if (type == 2) {
 		sosoval = $("#sosowap").val();

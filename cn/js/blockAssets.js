@@ -3,7 +3,9 @@
  * 根据事务hash获取区块信息
  * @param {Object} hash
  */
-function getParseContract(coinaddress,type=1,pageIndex=1,startIndex2) {
+function getParseContract(coinaddress,type,pageIndex,startIndex2) {
+    var type=type||1;
+    var pageIndex=pageIndex||1;
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -44,7 +46,11 @@ function getParseContract(coinaddress,type=1,pageIndex=1,startIndex2) {
 }
 
 
-function getTransferLogList(coinhash='',coinhash160='',type=1, pageIndex = 1) {
+function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
+    var coinhash=coinhash||'';
+    var coinhash160=coinhash160||'';
+    var type=type||1;
+    var pageIndex=pageIndex||1;
 	if (coinhash == "") {
 		//alert();
 		$("#block-content").html("未查到该信息");
@@ -215,7 +221,9 @@ function changePageSize(){
  * 根据事务hash获取区块信息
  * @param {Object} hash
  */
-function getParseContract1(coinaddress,type=1,pageIndex=1,startIndex) {
+function getParseContract1(coinaddress,type,pageIndex,startIndex) {
+    var type=type||1;
+    var pageIndex=pageIndex||1;
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -257,7 +265,11 @@ function getParseContract1(coinaddress,type=1,pageIndex=1,startIndex) {
 }
 
 
-function getTransferLogList1(coinhash='',coinhash160='',type=1, pageIndex = 1,startIndex) {
+function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
+    var coinhash=coinhash||'';
+    var coinhash160=coinhash160||'';
+    var type=type||1;
+    var pageIndex=pageIndex||1;
 	if (coinhash == "") {
 		//alert();
 		$("#block-content").html("未查到该信息");
