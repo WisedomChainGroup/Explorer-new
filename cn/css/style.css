@@ -621,7 +621,7 @@ footer ul li a {
 		display: none !important; 
 		}
 }
-tr:hover{text-decoration: none; cursor: pointer;}
+tr:hover{text-decoration: none; /* cursor: pointer; */}
 tr:hover {background-color: #F4F4F4}
 
 
