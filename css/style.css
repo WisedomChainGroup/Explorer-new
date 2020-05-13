@@ -380,7 +380,7 @@ footer ul li a {
 .cursor {
 
 	color: #3498db;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 
 
