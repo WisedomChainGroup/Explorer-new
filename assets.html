@@ -74,16 +74,16 @@
 																	<div>NO.</div>
 																</th>
 																<th class="">
-																	<div>Token</div>
+																	<div style="text-align: center;">Token</div>
 																</th>
 																<th class="">
-																	<div>Assets icon</div>
+																	<div style="text-align: center;">Assets icon</div>
 																</th>
 																<!-- <th class="" style="text-align: center;">
 																	<div>Txn Hash</div>
 																</th> -->
 																<th class="">
-																	<div style="margin-left: 10%;">Hash160</div>
+																	<div style="text-align: center;">Hash160</div>
 																</th>
 															</tr>
 														</thead>
@@ -135,15 +135,15 @@
 
 					 <td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
 
-					<td class="" style="">
+					<td class="" style="text-align: center;">
 						<a title="<%=obj[i].coinCode%>" href="assetsList.html?coinaddress=<%=obj[i].coinCode%>"><%=obj[i].coinCode%></a>
 					</td>
-					<td><img src="<%=obj[i].imgUrl%>" style="width: 28px;height: 28px;border-radius:50%"/></td>
+					<td style="text-align: center;"><img src="<%=obj[i].imgUrl%>" style="width: 28px;height: 28px;border-radius:50%"/></td>
 
 					<!-- <td class="" style="text-align: center;">
 						<a title="<%=obj[i].coinHash%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].imgUrl%></a>
 					</td> -->
-					<td class="" >
+					<td class="" style="text-align: center;">
 						<a title="<%=obj[i].coinHashToAddress%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash160%>"><%=obj[i].coinHashToAddress%></a>
 					</td>
 					<!-- <td class=""><span>22</span></td>
