@@ -25,14 +25,11 @@ function getTransferLogList(pageSize, pageIndex) {
 				// $('#totalCount').html(result.data.length);
 				//
 
-				/*for(let i = 0;i<result.data.length;i++){
-					if(result.data[i].coinAddress.substring(0,2) != "WX" ){
-						result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+				for(let i = 0;i<result.data.length;i++){
+					if(result.data[i].imgUrl == null ){
+						result.data[i].imgUrl = "../cn/img/coin_Logo.png";
 					}
-					if(result.data[i].coinAddress.substring(0,2) != "WX" ){
-						result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
-					}
-				}*/
+				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
@@ -82,7 +79,11 @@ function getTransferLogList1(pageSize, pageIndex) {
 		},
 
 		function(result) {
-
+			for(let i = 0;i<result.data.length;i++){
+				if(result.data[i].imgUrl == null ){
+					result.data[i].imgUrl = "../cn/img/coin_Logo.png";
+				}
+			}
 			if (result.code == "2000") {
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
