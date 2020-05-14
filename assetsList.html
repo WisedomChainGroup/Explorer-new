@@ -102,17 +102,17 @@
 						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;cursor:pointer;"></i>
 					</div> 
  					
-					<br />
+					<!-- <br /> -->
 					
 					<div class="ant-table-wrapper"id="btnshow">
 					 <div style="position: relative;">
-					<div class="subtitle" id="div_transaction">
+					<div class="subtitle"><!--id="div_transaction"-->
 						<span><i class="sub" data-type="1">Additional</i><i class="sub" data-type="2">Transfer</i><i class="sub" data-type="3">Ownership</i></span>
 						 <div class="tabst" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
 					</div>
 					
 					
-					<section class="box" id="section_transaction">
+					<section class="box" ><!--id="section_transaction"-->
 						<table class="" style="width: 100%;">
 							<colgroup>
 								<col>
@@ -395,10 +395,10 @@
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来
-		    if(typeof obj['on'+type]=='function'){
-		        saved=obj['on'+type];
+		    // if(typeof obj['on'+type]=='function'){
+		    //     saved=obj['on'+type];
 		         
-		        }  
+		    //     }  
 		//执行
 		    obj['on'+type]=function(){
 		        if(saved)saved();

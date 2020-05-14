@@ -118,8 +118,8 @@
 								<col>
 								<col>
 							</colgroup>
-							<thead class="ant-table-thead">
-								<tr>
+							<thead class="ant-table-thead" >
+								<tr style="background: #F5F5F5;">
 									<th class="">
 										<div>NO.</div>
 									</th>
@@ -200,10 +200,10 @@
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来
-		    if(typeof obj['on'+type]=='function'){
-		        saved=obj['on'+type];
+		    // if(typeof obj['on'+type]=='function'){
+		    //     saved=obj['on'+type];
 		         
-		        }  
+		    //     }  
 		//执行
 		    obj['on'+type]=function(){
 		        if(saved)saved();
