@@ -102,29 +102,7 @@
 															</tr>
 														</thead>
 														<tbody class="" id="block-content">
-															 <script type="text/json" id="tpl2">
-																<%if(obj.length==0){%>
-																<tr>
-																<td class="" colspan="8">aaa</td>
-																</tr>
-																<%}else{%>
-																<% for(var i = 0;i<obj.length;i++){%> 
-															
-															<tr class="" data-row-key="1">
-																<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-																<td class="cursor"><span><%=obj[i].coinHash%></span></td>
-																<td class=""><span><%=obj[i].amount%></span></td>
-																<td class="cursor"><span><%=obj[i].coinAddress%></span></td>
-																
-																<!-- <td class="cursor"><span><%=obj[i].toAddress%></span></td> -->
-																<td class=""><span><%=obj[i].coinHeigth%></span></td>
-																
-																<td class="tr"><span><%=obj[i].createTimeFmt%></span></td>
-															</tr>
-															
-																<%}}%>
-															
-															</script> 
+
 													
 														</tbody>
 													</table>
@@ -147,7 +125,7 @@
 						<div class="d-md-flex justify-content-between my-3">
 							<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
 								Show
-								<select class="custom-select custom-select-xs mx-2">
+								<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
 									<option selected="selected" value="10">10</option>
 									<option value="25">25</option>
 									<option value="50">50</option>
@@ -179,6 +157,30 @@
 			<script>
 			  $("#page_footer").load("footer.html");
 			 </script>
+
+			<script type="text/json" id="tpl2">
+				<%if(obj.length==0){%>
+				<tr>
+				<td class="" colspan="8">aaa</td>
+				</tr>
+				<%}else{%>
+				<% for(var i = 0;i<obj.length;i++){%>
+
+			<tr class="" data-row-key="1">
+				<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+				<td class="cursor"><span><%=obj[i].coinHash%></span></td>
+				<td class=""><span><%=obj[i].amount%></span></td>
+				<td class="cursor"><span><%=obj[i].coinAddress%></span></td>
+
+				<!-- <td class="cursor"><span><%=obj[i].toAddress%></span></td> -->
+				<td class=""><span><%=obj[i].coinHeigth%></span></td>
+
+				<td class="tr"><span><%=obj[i].createTimeFmt%></span></td>
+			</tr>
+
+				<%}}%>
+
+			</script>
 			<script>
 				function MyClick(flag) {
 					if (flag == 'show') {

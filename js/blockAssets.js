@@ -70,7 +70,6 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 	if(type==2){  //转账事务
 		//数据请求部分
 		$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-				coinAddress:coinhash,
 				txHash:coinhash160,
 				pageSize: startIndex2,
 				pageIndex: pageIndex
@@ -278,7 +277,6 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 	if(type==2){  //转账事务
 		//数据请求部分
 		$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-				coinAddress:coinhash,
 				txHash:coinhash160,
 				pageSize: startIndex,
 				pageIndex: pageIndex
