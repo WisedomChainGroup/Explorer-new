@@ -396,18 +396,21 @@
 			}
 		}
 		
-
+		// function removeEvent(obj,type){
+		//        if(obj["on"+type]) obj["on"+type]=null;
+		//    }
 		
 
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来
 		    // if(typeof obj['on'+type]=='function'){
-		    //     saved=obj['on'+type];
+		    //     saved=obj['on'+type];//保存上一个事件
 		         
 		    //     }  
 		//执行
 		    obj['on'+type]=function(){
+//            if(saved)saved.call(this);//先执行上一个事件
 		        if(saved)saved();
 		        fn.call(this);
 		
