@@ -13669,7 +13669,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 	/* background: url(../img/index-header.png) center center no-repeat; */
 	position: relative;
 	z-index: 101;
-	box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .08)
+	/* box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .08) */
 }
 
 .logoContainer___3JZvy {

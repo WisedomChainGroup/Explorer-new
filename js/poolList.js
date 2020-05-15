@@ -24,7 +24,8 @@ function getBalance(coinaddress) {
 		});
 }
 
-function getTransferLogList(coinaddress, pageIndex = 1) {
+function getTransferLogList(coinaddress, pageIndex) {
+	var pageIndex=pageIndex||1;
 	if (coinaddress == "") {
 		//alert();
 		$("#block-content").html("No information was found");
