@@ -14132,7 +14132,8 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 .bannerWrapper___TiD9c {
 	width: 100%;
 	height: 605px;
-	background:  url(../img/pool.png) center center no-repeat;
+	background:  url(../img/pool.png);
+/* 	background:  url(../img/pool.png) center center no-repeat; */
 	position: relative;
 	overflow: hidden
 }
