@@ -1,14 +1,23 @@
 $(function() {
-	getList();
+	var pageIndex = GetQueryString("pageIndex");
+	var select = GetQueryString("select");
+	if(select == null){
+		select = 50;
+	}
+	if(pageIndex == null){
+		pageIndex = 1;
+	}
+	getList(select,pageIndex);
 });
 
-function getList() {
-	$.post(HttpHead+"/userMortgage/getUserMortgageList", {
-		pageSize: pageSize,
+function getList(select, pageIndex) {
+
+	$.post(HttpHead+"/userMortgage/queryPageUserMortgageList", {
+		pageSize: select,
 		pageIndex: pageIndex
 	},
 		function(result) {
-			//alert(result.data.length)
+			// alert(result.data.length)
 			var sum=0;
 			for(var i=0;i<result.data.length;i++)
 			{
@@ -17,6 +26,9 @@ function getList() {
 			var restr=fmoney(sum, 1).replace('.0','');
 			$('#totalCount').html(restr);
 			setHtml(result.data, 'tpl3', 'block_data_node');
+			//分页处理
+			$('#curr_page').html(result.pageQuery.pageIndex);
+			$('#totalPage').html(result.pageQuery.totalPage);
 		});
 	function fmoney(s, n) {
 		n = n > 0 && n <= 20 ? n : 2;
@@ -31,13 +43,16 @@ function getList() {
 }
 
 function changePageSize(){
-	let startIndex = document.getElementById("select").value;
+	let pageSize = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
-	getList1(GetQueryString_address,1,startIndex);
+	getList1(GetQueryString_address,1,pageSize);
 }
 
-function getList1(coinaddress, pageIndex,startIndex) {
-	$.post(HttpHead+"/userMortgage/getUserMortgageList",
+function getList1(coinaddress, pageIndex,pageSize) {
+	$.post(HttpHead+"/userMortgage/queryPageUserMortgageList",{
+		pageSize: pageSize,
+		pageIndex: pageIndex
+	},
 		function(result) {
 			//alert(result.data.length)
 			var sum=0;
@@ -48,6 +63,9 @@ function getList1(coinaddress, pageIndex,startIndex) {
 			var restr=fmoney(sum, 1).replace('.0','');
 			$('#totalCount').html(restr);
 			setHtml(result.data, 'tpl3', 'block_data_node');
+			//分页处理
+			$('#curr_page').html(result.pageQuery.pageIndex);
+			$('#totalPage').html(result.pageQuery.totalPage);
 		});
 	function fmoney(s, n) {
 		n = n > 0 && n <= 20 ? n : 2;
@@ -108,7 +126,7 @@ $(function() {
 $(document).ready(function(){
 	var test = GetQueryString("select");
 	if (test == null){
-		$("#select").val("10");
+		$("#select").val("50");
 	}else {
 		$("#select").val(test);
 	}

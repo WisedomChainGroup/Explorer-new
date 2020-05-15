@@ -12,7 +12,7 @@
 //测试链是
 var HttpBlockHead = "http://192.168.1.137:8081";
 //测试后端服务器
-var HttpHead = "http://139.129.12.159:9090/wisechain";
+var HttpHead = "http://192.168.1.137:9090/wisechain";
 
 
  
