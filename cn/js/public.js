@@ -192,3 +192,10 @@ $('#sosoPool').keydown(function(e) {
 		sosoPool_tag();
 	}
 });
+
+$('#soso').keydown(function(e) {
+	var key = e.charCode ? e.charCode : e.keyCode ? e.keyCode : 0;
+	if (key == 13) {
+		soso_tag();
+	}
+});
