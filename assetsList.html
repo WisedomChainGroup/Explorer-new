@@ -391,7 +391,6 @@
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
 		}
-		
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来
@@ -403,7 +402,6 @@
 		    obj['on'+type]=function(){
 		        if(saved)saved();
 		        fn.call(this);
-		
 		        };
 		     
 		}
