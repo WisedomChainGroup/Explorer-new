@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie6" lang="zh-cn"><![endif]--> <!--[if IE 7 ]><html class="ie7" lang="zh-cn"><![endif]--> <!--[if IE 8 ]><html class="ie8" lang="zh-cn"><![endif]--> <!--[if IE 9 ]><html class="ie9" lang="zh-cn"><![endif]--> <!--[if (gt IE 9)|!(IE)]><!--><html class="" lang="zh-cn"><!--<![endif]-->
-
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -16,7 +14,46 @@
 		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-
+		<style type="text/css">
+			@media screen and (max-width: 768px){
+				.compontPagination___3HkDQ{
+					flex-direction:column;
+				}
+			}
+			.dis{
+				display: flex;
+			}
+			.ju-c{
+				justify-content: center;
+				align-items: center;
+			}
+			.page-input{
+				padding: 0 0.15rem;
+				font-size: 80%;
+				background-position: right .375rem center;
+				background-size: 7px 8px;
+				border-radius: 5px;
+				width: 50px;
+				height: 28px;
+				border: 1px solid #a8a8a8;
+			}
+			.page-button{
+				margin: 0 10px;
+				border-radius: 5px;
+				/* width: 50px; */
+				height: 28px;
+				border: 1px solid #a8a8a8;
+				color: #428BCA;
+				outline: none;
+				cursor: pointer;
+			}
+			.ma-r-2{
+				margin-right: 40px;
+			}
+			.compontPagination___3HkDQ p{
+				margin-top: 12px;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="page_header"></div>
@@ -110,16 +147,27 @@
 									<option value="50">50</option>
 									<option value="100">100</option>
 								</select>
-								Records
+								Records 
 							</div>
-							<div class=" compontPagination___3HkDQ" style="float: right;">
-								<i id="first_page"></i><i  id="pre_page"></i>
-								<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
-									<span>Total Pages</span>
-									<span class="pageNum___HAhvB" id="totalPage">1</span></p>
-								<i  id="next_page"></i><i  id="last_page"></i>
+							<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
+								<div class="dis ju-c ma-r-2">
+									<i id="first_page"></i><i id="pre_page"></i>
+									<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+										<span>Total Pages</span>
+										<span class="pageNum___HAhvB" id="totalPage">1</span></p>
+									<i id="next_page"></i><i id="last_page"></i>
+								</div>
+								<div id="" class="dis page-annal">
+									<div id="" class="">
+											Jump
+										<input type="" name="" id="" value="" class="page-input"/>
+											page
+									</div>
+									<button class="page-button">Search</button>
+								</div>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 
