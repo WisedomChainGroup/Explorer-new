@@ -115,3 +115,8 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function test() {
+	let soso = document.getElementById("soso1").value;
+	location.href = "blockList.html?height="+ soso;
+}

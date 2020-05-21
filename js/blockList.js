@@ -5,7 +5,7 @@ $(function() {
 		height != "undefined" &&
 		height != "null" &&
 		height != "") {
-			blockListPlay(height>=1?height:1);
+			blockListPlay(height);
 	} else {
 		window.location.href='block.html';
 	}
@@ -21,7 +21,6 @@ $(function() {
 }); 
 
 function blockListPlay(height){
-    var height=height||1;
 	$.get(HttpBlockHead+"/block/detail?height="+height,
 			function(result) {
 			if(result.data.Minner.substring(0,2) != "WX" ){

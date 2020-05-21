@@ -42,13 +42,19 @@ function getTransferLogList(coinaddress, pageIndex,startIndex2) {
 
 		function(result) {
 			if (result.code == "2000") {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].blockHash;
 					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
 						i].blockHash.length - 5, result.data[
 						i].blockHash.length);
 					result.data[i].blockHash = blockHash;
-
+					result.data[i].number = number+i;
 				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
@@ -113,13 +119,19 @@ function getTransferLogList1(coinaddress, pageIndex,startIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].blockHash;
 					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
 						i].blockHash.length - 5, result.data[
 						i].blockHash.length);
 					result.data[i].blockHash = blockHash;
-
+					result.data[i].number = number+i;
 				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理

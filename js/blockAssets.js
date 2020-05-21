@@ -76,6 +76,12 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 			},
 
 			function(result) {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 
 					for (var i = 0; i < result.data.length; i++) {
@@ -84,7 +90,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 							i].blockHash.length - 5, result.data[
 							i].blockHash.length);
 						result.data[i].blockHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl2', 'transactions_data_List');
 					//分页处理
@@ -103,6 +109,12 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].hash = result.data[i].coinHash;
@@ -110,8 +122,9 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
+					console.log(result.data);
 					setHtml(result.data, 'tpl3', 'transactions_data_List');
 					//分页处理
 					$('#totalCount').html(result.pageQuery.totalCount);
@@ -128,9 +141,12 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-
-				//console.log(result.data);
-
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].coinHash = result.data[i].coinHash;
@@ -138,7 +154,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl1', 'transactions_data_List');
 					//分页处理
@@ -284,14 +300,19 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 
 			function(result) {
 				if (result.code == "2000") {
-
+					let number;
+					if(pageIndex == null || pageIndex ==1){
+						number = 1;
+					}else{
+						number = ((pageIndex-1)*startIndex2)+1;
+					}
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].hash = result.data[i].blockHash;
 						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
 							i].blockHash.length - 5, result.data[
 							i].blockHash.length);
 						result.data[i].blockHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl2', 'transactions_data_List');
 					//分页处理
@@ -306,10 +327,16 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 		//数据请求部分
 		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex,
 				pageIndex: pageIndex
 			},
 			function(result) {
+					let number;
+					if(pageIndex == null || pageIndex ==1){
+						number = 1;
+					}else{
+						number = ((pageIndex-1)*startIndex)+1;
+					}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].hash = result.data[i].coinHash;
@@ -317,7 +344,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl3', 'transactions_data_List');
 					//分页处理
@@ -335,9 +362,12 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-
-				//console.log(result.data);
-
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].coinHash = result.data[i].coinHash;
@@ -345,7 +375,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl1', 'transactions_data_List');
 					//分页处理

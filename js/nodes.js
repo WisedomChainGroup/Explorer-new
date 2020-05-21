@@ -17,10 +17,16 @@ function getList(select, pageIndex) {
 		pageIndex: pageIndex
 	},
 		function(result) {
-			// alert(result.data.length)
+			let number;
+			if(pageIndex == null || pageIndex ==1){
+				number = 1;
+			}else{
+				number = ((pageIndex-1)*pageSize)+1;
+			}
 			var sum=0;
 			for(var i=0;i<result.data.length;i++)
 			{
+				result.data[i].number = number+i;
 				sum+=result.data[i].voteAmount;
 			}
 			var restr=fmoney(sum, 1).replace('.0','');
@@ -54,10 +60,16 @@ function getList1(coinaddress, pageIndex,pageSize) {
 		pageIndex: pageIndex
 	},
 		function(result) {
-			//alert(result.data.length)
+			let number;
+			if(pageIndex == null || pageIndex ==1){
+				number = 1;
+			}else{
+				number = ((pageIndex-1)*pageSize)+1;
+			}
 			var sum=0;
 			for(var i=0;i<result.data.length;i++)
 			{
+				result.data[i].number = number+i;
 				sum+=result.data[i].voteAmount;
 			}
 			var restr=fmoney(sum, 1).replace('.0','');
@@ -131,4 +143,9 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function test() {
+	let soso = document.getElementById("soso1").value;
+	location.href = "nodesList.html?coinaddress="+ soso;
+}
 

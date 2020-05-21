@@ -19,8 +19,9 @@ function getTransferLogList(pageSize, pageIndex) {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].balance = result.data[i].balance / 100000000;
 					result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+					result.data[i].index = result.data[i].index+1;
 				}
-				//console.log(result.data);
+				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
@@ -147,8 +148,9 @@ function getTransferLogList1(pageSize, pageIndex) {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].balance = result.data[i].balance / 100000000;
 					result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+					result.data[i].index = result.data[i].index+1;
 				}
-				//console.log(result.data);
+				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);

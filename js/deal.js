@@ -19,7 +19,12 @@ function getTransferLogList(pageSize, pageIndex) {
 		},
 
 		function(result) {
-
+			let number;
+			if(pageIndex == null || pageIndex ==1){
+				number = 1;
+			}else{
+				number = ((pageIndex-1)*pageSize)+1;
+			}
 			if (result.code == "2000") {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].blockHash;
@@ -27,8 +32,10 @@ function getTransferLogList(pageSize, pageIndex) {
 						i].blockHash.length - 5, result.data[
 						i].blockHash.length);
 					result.data[i].blockHash = blockHash;
-
+					result.data[i].number = number+i;
 				}
+
+				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
@@ -83,7 +90,12 @@ function getTransferLogList1(pageSize, pageIndex) {
 		},
 
 		function(result) {
-
+			let number;
+			if(pageIndex == null || pageIndex ==1){
+				number = 1;
+			}else{
+				number = ((pageIndex-1)*pageSize)+1;
+			}
 			if (result.code == "2000") {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].blockHash;
@@ -91,7 +103,7 @@ function getTransferLogList1(pageSize, pageIndex) {
 						i].blockHash.length - 5, result.data[
 						i].blockHash.length);
 					result.data[i].blockHash = blockHash;
-
+					result.data[i].number = number+i;
 				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理

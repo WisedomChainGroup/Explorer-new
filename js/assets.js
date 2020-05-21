@@ -15,10 +15,16 @@ function getTransferLogList(pageSize, pageIndex) {
 		},
 
 		function(result) {
-
+			let number;
+			if(pageIndex == null || pageIndex ==1){
+				number = 1;
+			}else{
+				number = ((pageIndex-1)*pageSize)+1;
+			}
 			if (result.code == "2000") {
 				for(let i = 0;i<result.data.length;i++){
 					if(result.data[i].imgUrl == null ){
+						result.data[i].number = number+i;
 						result.data[i].imgUrl = "img/coin_Logo.png";
 					}
 				}
@@ -71,10 +77,16 @@ function getTransferLogList1(pageSize, pageIndex) {
 		},
 
 		function(result) {
-
+			let number;
+			if(pageIndex == null || pageIndex ==1){
+				number = 1;
+			}else{
+				number = ((pageIndex-1)*pageSize)+1;
+			}
 			if (result.code == "2000") {
 				for(let i = 0;i<result.data.length;i++){
 					if(result.data[i].imgUrl == null ){
+						result.data[i].number = number+i;
 						result.data[i].imgUrl = "img/coin_Logo.png";
 					}
 				}
