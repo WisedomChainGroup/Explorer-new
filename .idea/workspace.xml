@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="" />
+    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/assets.html" afterPath="$PROJECT_DIR$/cn/assets.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/assetsList.html" afterPath="$PROJECT_DIR$/cn/assetsList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/block.html" afterPath="$PROJECT_DIR$/cn/block.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/deal.html" afterPath="$PROJECT_DIR$/cn/deal.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/nodes.html" afterPath="$PROJECT_DIR$/cn/nodes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/nodesList.html" afterPath="$PROJECT_DIR$/cn/nodesList.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/particulars.html" afterPath="$PROJECT_DIR$/cn/particulars.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/prove.html" afterPath="$PROJECT_DIR$/cn/prove.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cn/rankList.html" afterPath="$PROJECT_DIR$/cn/rankList.html" />
+    </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/block.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="250">
-              <caret line="10" column="60" lean-forward="true" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+              <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -398,11 +409,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2839000" />
+    <option name="totallyTimeSpent" value="3438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -414,7 +424,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4284165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4284165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -484,50 +494,50 @@
           <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
           <folding>
             <element signature="n#!!doc" expanded="false" />
-            <marker date="1589264884352" expanded="true" signature="636:1010" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="796:874" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="887:902" ph="{&quot;obj&quot;: val...}" />
-            <marker date="1589264884352" expanded="true" signature="1011:1050" ph="/** 参数接收 ...*/" />
-            <marker date="1589264884352" expanded="true" signature="1081:1248" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1250:1263" ph="/** 搜索 ...*/" />
-            <marker date="1589264884352" expanded="true" signature="1288:2224" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1342:1439" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1399:1436" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1445:1539" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1499:1536" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1594:1624" ph="{&quot;coinAddress&quot;: sosoval...}" />
-            <marker date="1589264884352" expanded="true" signature="1646:2220" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1724:1796" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1824:1913" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1919:2214" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="1949:2034" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2040:2209" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2068:2134" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2140:2203" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2270:2568" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2325:2417" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2443:2504" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2510:2566" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2603:2705" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2685:2703" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2711:2726" ph="/** 应用搜索 ...*/" />
-            <marker date="1589264884352" expanded="true" signature="2750:3136" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2827:2861" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2916:2946" ph="{&quot;coinAddress&quot;: sosoval...}" />
-            <marker date="1589264884352" expanded="true" signature="2968:3132" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="2997:3060" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3066:3127" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3172:3277" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3254:3275" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3283:3299" ph="/** 事务池搜索 ...*/" />
-            <marker date="1589264884352" expanded="true" signature="3324:3735" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3402:3436" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3491:3521" ph="{&quot;coinAddress&quot;: sosoval...}" />
-            <marker date="1589264884352" expanded="true" signature="3543:3731" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3572:3638" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3644:3726" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3773:3879" ph="{...}" />
-            <marker date="1589264884352" expanded="true" signature="3855:3877" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="636:1010" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="796:874" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="887:902" ph="{&quot;obj&quot;: val...}" />
+            <marker date="1589529902748" expanded="true" signature="1011:1050" ph="/** 参数接收 ...*/" />
+            <marker date="1589529902748" expanded="true" signature="1081:1248" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1250:1263" ph="/** 搜索 ...*/" />
+            <marker date="1589529902748" expanded="true" signature="1288:2224" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1342:1439" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1399:1436" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1445:1539" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1499:1536" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1594:1624" ph="{&quot;coinAddress&quot;: sosoval...}" />
+            <marker date="1589529902748" expanded="true" signature="1646:2220" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1724:1796" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1824:1913" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1919:2214" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="1949:2034" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2040:2209" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2068:2134" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2140:2203" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2270:2568" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2325:2417" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2443:2504" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2510:2566" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2603:2705" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2685:2703" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2711:2726" ph="/** 应用搜索 ...*/" />
+            <marker date="1589529902748" expanded="true" signature="2750:3136" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2827:2861" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2916:2946" ph="{&quot;coinAddress&quot;: sosoval...}" />
+            <marker date="1589529902748" expanded="true" signature="2968:3132" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="2997:3060" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3066:3127" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3172:3277" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3254:3275" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3283:3299" ph="/** 事务池搜索 ...*/" />
+            <marker date="1589529902748" expanded="true" signature="3324:3735" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3402:3436" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3491:3521" ph="{&quot;coinAddress&quot;: sosoval...}" />
+            <marker date="1589529902748" expanded="true" signature="3543:3731" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3572:3638" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="3644:3726" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="4003:4015" ph="{...}" />
+            <marker date="1589529902748" expanded="true" signature="4003:4013" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -729,7 +739,7 @@
     <entry file="file://$PROJECT_DIR$/block.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="10" column="60" lean-forward="true" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
+          <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
           <folding />
         </state>
       </provider>
