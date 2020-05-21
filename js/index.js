@@ -1,7 +1,6 @@
 $(function() {
 	 $.post(HttpHead+"/product/getTicker?market=wdc_qc",
 		function(result) {
-	 	console.log(result.data)
 			//$('#price').find('font').find('font').innerText=result.data.last;
 			setHtml(result.data, 'tpl', 'block_data_test');
 		}); 
