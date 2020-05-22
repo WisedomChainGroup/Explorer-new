@@ -155,8 +155,8 @@ $(document).ready(function(){
 	}
 });
 
-function test() {
-	let soso = document.getElementById("soso1").value;
+function soso_nodes() {
+	let soso = document.getElementById("soso_node").value;
 	location.href = "nodesList.html?coinaddress="+ soso;
 }
 

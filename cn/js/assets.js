@@ -163,6 +163,11 @@ $(document).ready(function(){
 	}
 });
 
+function soso_coin() {
+	let soso = document.getElementById("soso_coin").value;
+	location.href = "assetsList.html?coinaddress="+ soso;
+}
+
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){

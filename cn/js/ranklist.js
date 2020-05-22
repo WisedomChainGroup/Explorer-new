@@ -228,6 +228,11 @@ $(document).ready(function(){
 	}
 });
 
+function soso_account() {
+	let soso = document.getElementById("soso_account").value;
+	location.href = "particulars.html?coinaddress="+ soso;
+}
+
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){

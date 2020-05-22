@@ -165,6 +165,11 @@ $(document).ready(function(){
     }
 });
 
+function soso_cer() {
+    let soso = document.getElementById("soso_cer").value;
+    location.href = "proveList.html?coinaddress="+ soso;
+}
+
 function jumpSize(){
     let page = document.getElementById("page").value;
     if(isNaN(page)){

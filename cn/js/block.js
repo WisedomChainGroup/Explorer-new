@@ -127,8 +127,8 @@ $(document).ready(function(){
 	}
 });
 
-function test() {
-	let soso = document.getElementById("soso1").value;
+function soso_block() {
+	let soso = document.getElementById("soso_block").value;
 	location.href = "blockList.html?height="+ soso;
 }
 
