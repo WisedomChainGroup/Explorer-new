@@ -91,7 +91,6 @@ function Blocklist(page,startIndex)
 
 function changePageSize(page)
 {
-	let page1 = GetQueryString("page");
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
@@ -107,6 +106,9 @@ function getList1(page) {
 			let startIndex = document.getElementById("select").value;
 			setHtml(result.data, 'tpl', 'block_data_browser1');
 			let total = result.data.lastConfirmedHeight/startIndex;
+			if (result.data.lastConfirmedHeight % startIndex != 0) {
+				total = total + 1;
+			}
 			if(page > total){
 				alert("Please enter the correct number!");
 			}else {
