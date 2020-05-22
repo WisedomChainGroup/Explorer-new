@@ -71,8 +71,8 @@
 						<span class="arrows">></span>
 						<span>Transaction</span>
 						<span class="in">
-							<input type="text"placeholder="Address/Trading hash"  id="soso" style="width:50%;height:26px;"/>
-							<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+							<input type="text"placeholder="Address/Trading hash"  id="soso_tran" style="width:50%;height:26px;"/>
+							<a style="min-width: 2%;"><span onclick="soso_tran()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
 						</span>
 						<span ></span>
 					</div>
@@ -174,10 +174,10 @@
 								<div id="" class="dis page-annal">
 									<div id="" class="">
 											Jump
-										<input type="" name="" id="" value="" class="page-input"/>
+										<input type="" name="" id="page" value="" class="page-input" />
 											page
 									</div>
-									<button class="page-button">Search</button>
+									<button class="page-button" onclick="jumpSize()">Search</button>
 								</div>
 							</div>
 						</div>
@@ -198,7 +198,7 @@
 							<% for(var i = 0;i<obj.length;i++){%>
 
 						<tr class="" data-row-key="1">
-							<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+							<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 							<td class="cursor">
 						<span class="" title="<%=obj[i].blockHash%>">
 

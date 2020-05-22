@@ -25,7 +25,7 @@ function getBalance(coinaddress) {
 }
 
 function getTransferLogList(coinaddress, pageIndex,startIndex2) {
-    var pageIndex=pageIndex||1;
+	var pageIndex=pageIndex||1;
 	if (coinaddress == "") {
 		//alert();
 		$("#block-content").html("No information was found！");
@@ -42,13 +42,19 @@ function getTransferLogList(coinaddress, pageIndex,startIndex2) {
 
 		function(result) {
 			if (result.code == "2000") {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].blockHash;
 					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
 						i].blockHash.length - 5, result.data[
 						i].blockHash.length);
 					result.data[i].blockHash = blockHash;
-
+					result.data[i].number = number+i;
 				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
@@ -90,14 +96,22 @@ if (GetQueryString_address != undefined &&
 	getTransferLogList(GetQueryString_address,1,startIndex2);
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
-	getTransferLogList1(GetQueryString_address,1,startIndex);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == "") {
+		getTransferLogList1(GetQueryString_address, 1, startIndex);
+	}else{
+		getTransferLogList1(GetQueryString_address, page, startIndex);
+	}
 }
 
 function getTransferLogList1(coinaddress, pageIndex,startIndex) {
-    var pageIndex=pageIndex||1;
+	var pageIndex=pageIndex||1;
 	if (coinaddress == "") {
 		//alert();
 		$("#block-content").html("No information was found！");
@@ -113,21 +127,31 @@ function getTransferLogList1(coinaddress, pageIndex,startIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].hash = result.data[i].blockHash;
-					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-						i].blockHash.length - 5, result.data[
-						i].blockHash.length);
-					result.data[i].blockHash = blockHash;
-
+				let len = result.pageQuery.totalPage;
+				if (pageIndex > len) {
+					alert("Please enter the correct number!");
+				} else {
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * startIndex2) + 1;
+					}
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].hash = result.data[i].blockHash;
+						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
+							i].blockHash.length - 5, result.data[
+							i].blockHash.length);
+						result.data[i].blockHash = blockHash;
+						result.data[i].number = number + i;
+					}
+					setHtml(result.data, 'tpl2', 'block-content');
+					//分页处理
+					$('#totalCount').html(result.pageQuery.totalCount);
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
 			}
-
 		});
 }
 
@@ -182,3 +206,11 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

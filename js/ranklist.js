@@ -19,8 +19,9 @@ function getTransferLogList(pageSize, pageIndex) {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].balance = result.data[i].balance / 100000000;
 					result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+					result.data[i].index = result.data[i].index+1;
 				}
-				//console.log(result.data);
+				console.log(result.data);
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
 				$('#totalCount').html(result.pageQuery.totalCount);
@@ -124,9 +125,17 @@ if (pageIndex != undefined &&
 	getTransferLogList(startIndex2, 1);
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
-	getTransferLogList1(startIndex,1);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getTransferLogList1(startIndex,1);
+	}else {
+		getTransferLogList1(startIndex, page);
+	}
 }
 
 function getTransferLogList1(pageSize, pageIndex) {
@@ -144,18 +153,24 @@ function getTransferLogList1(pageSize, pageIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].balance = result.data[i].balance / 100000000;
-					result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+				let len = result.pageQuery.totalPage;
+				if(pageIndex > len) {
+					alert("Please enter the correct number!");
+				}else {
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].balance = result.data[i].balance / 100000000;
+						result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
+						result.data[i].index = result.data[i].index + 1;
+					}
+					console.log(result.data);
+					setHtml(result.data, 'tpl2', 'block-content');
+					//分页处理
+					$('#totalCount').html(result.pageQuery.totalCount);
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
+					//totalPage=result.pageQuery.totalPage;
+					//pageIndex=result.pageQuery.pageIndex;
 				}
-				//console.log(result.data);
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
-				//totalPage=result.pageQuery.totalPage;
-				//pageIndex=result.pageQuery.pageIndex;
 			}
 
 		});
@@ -212,3 +227,20 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function soso_account() {
+	let sosoval = document.getElementById("soso_account").value;
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	location.href = "particulars.html?coinaddress="+ sosoval;
+}
+
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

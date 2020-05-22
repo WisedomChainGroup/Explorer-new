@@ -3,9 +3,9 @@
  * 根据事务hash获取区块信息
  * @param {Object} hash
  */
-function getParseContract(coinaddress,type,pageIndex,startIndex2) {
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+function getParseContract(coinaddress,type,pageIndex) {
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -28,13 +28,14 @@ function getParseContract(coinaddress,type,pageIndex,startIndex2) {
 				} else{
 					result.data.allowincrease = "No"
 				}
+
 				if(type==1){
 					getTransferLogList(result.data.coinHash160,'',type,pageIndex);
 				}else if(type==2){//转账记录
 					getTransferLogList(result.data.createuserAddress,result.data.coinHash160,type,pageIndex);
 
 				}else if(type==3){
-					getTransferLogList(result.data.coinHash160,'',type,pageIndex,startIndex2);
+					getTransferLogList(result.data.coinHash160,'',type,pageIndex);
 				}
 
 
@@ -46,11 +47,11 @@ function getParseContract(coinaddress,type,pageIndex,startIndex2) {
 }
 
 
-function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
-    var coinhash=coinhash||'';
-    var coinhash160=coinhash160||'';
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
+	var coinhash=coinhash||'';
+	var coinhash160=coinhash160||'';
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	if (coinhash == "") {
 		//alert();
 		$("#block-content").html("未查到该信息");
@@ -64,6 +65,7 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 		startIndex2 == ""){
 		startIndex2 = 10;
 	}
+	//console.log(coinhash)
 	//console.log(type)
 	if(type==2){  //转账事务
 		//数据请求部分
@@ -74,6 +76,12 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 			},
 
 			function(result) {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 
 					for (var i = 0; i < result.data.length; i++) {
@@ -82,7 +90,7 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 							i].blockHash.length - 5, result.data[
 							i].blockHash.length);
 						result.data[i].blockHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl2', 'transactions_data_List');
 					//分页处理
@@ -101,6 +109,12 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].hash = result.data[i].coinHash;
@@ -108,8 +122,9 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
+					console.log(result.data);
 					setHtml(result.data, 'tpl3', 'transactions_data_List');
 					//分页处理
 					$('#totalCount').html(result.pageQuery.totalCount);
@@ -126,9 +141,12 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-
-				//console.log(result.data);
-
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].coinHash = result.data[i].coinHash;
@@ -136,7 +154,7 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl1', 'transactions_data_List');
 					//分页处理
@@ -157,11 +175,6 @@ function getTransferLogList(coinhash,coinhash160,type,pageIndex) {
 var GetQueryString_address = GetQueryString("coinaddress");
 var pageIndex = GetQueryString("pageIndex");
 var type = GetQueryString("type");
-
-let startIndex2 = GetQueryString("select");
-if(startIndex2 == null || startIndex2 == undefined){
-	startIndex2 = 10;
-}
 if (GetQueryString_address != undefined &&
 	GetQueryString_address != null &&
 	GetQueryString_address != "undefined" &&
@@ -181,13 +194,13 @@ if (GetQueryString_address != undefined &&
 
 	//getBalance(GetQueryString_address);
 	//getTransferLogList(GetQueryString_address,pageIndex);
-	getParseContract(GetQueryString_address,type,pageIndex,startIndex2);
+	getParseContract(GetQueryString_address,type,pageIndex);
 	if (type==1) {
-		$('.tabst').css('left','1.5rem');
+		$('.tabst').css('left','2.5rem');
 	}else if(type==2){
-		$('.tabst').css('left','6.5rem');
+		$('.tabst').css('left','8.8rem');
 	}else{
-		$('.tabst').css('left','12rem');
+		$('.tabst').css('left','15.6rem');
 	}
 
 	for(var i =1 ;i<4;i++){
@@ -205,15 +218,23 @@ if (GetQueryString_address != undefined &&
 		}
 	}
 
-	getParseContract(GetQueryString_address,1,1,startIndex2);
+	getParseContract(GetQueryString_address,1,1);
 	//getTransferLogList(GetQueryString_address,1,1);
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
 	var type = GetQueryString("type");
-	getParseContract1(GetQueryString_address,type,1,startIndex);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getParseContract1(GetQueryString_address,type,1,startIndex);
+	}else {
+		getParseContract1(GetQueryString_address,type,page,startIndex);
+	}
 }
 
 /**
@@ -221,8 +242,8 @@ function changePageSize(){
  * @param {Object} hash
  */
 function getParseContract1(coinaddress,type,pageIndex,startIndex) {
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -265,10 +286,10 @@ function getParseContract1(coinaddress,type,pageIndex,startIndex) {
 
 
 function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
-    var coinhash=coinhash||'';
-    var coinhash160=coinhash160||'';
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+	var coinhash=coinhash||'';
+	var coinhash160=coinhash160||'';
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	if (coinhash == "") {
 		//alert();
 		$("#block-content").html("未查到该信息");
@@ -287,22 +308,31 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 
 			function(result) {
 				if (result.code == "2000") {
-
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].blockHash;
-						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-							i].blockHash.length - 5, result.data[
-							i].blockHash.length);
-						result.data[i].blockHash = blockHash;
-
+					let len = result.pageQuery.totalPage;
+					if (pageIndex > len) {
+						alert("Please enter the correct number!");
+					} else {
+						let number;
+						if (pageIndex == null || pageIndex == 1) {
+							number = 1;
+						} else {
+							number = ((pageIndex - 1) * startIndex) + 1;
+						}
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].hash = result.data[i].blockHash;
+							var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
+								i].blockHash.length - 5, result.data[
+								i].blockHash.length);
+							result.data[i].blockHash = blockHash;
+							result.data[i].number = i + number;
+						}
+						setHtml(result.data, 'tpl2', 'transactions_data_List');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
 					}
-					setHtml(result.data, 'tpl2', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-
 			});
 
 	}else if(type==3){  //所有权
@@ -313,22 +343,32 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-				if (result.code == "2000") {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].coinHash;
-						var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-							i].coinHash.length - 5, result.data[
-							i].coinHash.length);
-						result.data[i].coinHash = blockHash;
-
+				let len = result.pageQuery.totalPage;
+				if(pageIndex > len){
+					alert("Please enter the correct number!");
+				}else {
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * startIndex) + 1;
 					}
-					setHtml(result.data, 'tpl3', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
+					if (result.code == "2000") {
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].hash = result.data[i].coinHash;
+							var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
+								i].coinHash.length - 5, result.data[
+								i].coinHash.length);
+							result.data[i].coinHash = blockHash;
+							result.data[i].number = i + number;
+						}
+						setHtml(result.data, 'tpl3', 'transactions_data_List');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
+					}
 				}
-
 			});
 	}else{  //增发
 		//数据请求部分
@@ -338,25 +378,32 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-
-				//console.log(result.data);
-
-				if (result.code == "2000") {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].coinHash = result.data[i].coinHash;
-						var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-							i].coinHash.length - 5, result.data[
-							i].coinHash.length);
-						result.data[i].coinHash = blockHash;
-
+				let len = result.pageQuery.totalPage;
+				if(pageIndex > len){
+					alert("Please enter the correct number!");
+				}else {
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * startIndex) + 1;
 					}
-					setHtml(result.data, 'tpl1', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
+					if (result.code == "2000") {
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].coinHash = result.data[i].coinHash;
+							var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
+								i].coinHash.length - 5, result.data[
+								i].coinHash.length);
+							result.data[i].coinHash = blockHash;
+							result.data[i].number = i + number;
+						}
+						setHtml(result.data, 'tpl1', 'transactions_data_List');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
+					}
 				}
-
 			});
 
 
@@ -425,3 +472,11 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

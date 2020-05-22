@@ -76,6 +76,12 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 			},
 
 			function(result) {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 
 					for (var i = 0; i < result.data.length; i++) {
@@ -84,7 +90,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 							i].blockHash.length - 5, result.data[
 							i].blockHash.length);
 						result.data[i].blockHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl2', 'transactions_data_List');
 					//分页处理
@@ -103,6 +109,12 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].hash = result.data[i].coinHash;
@@ -110,8 +122,9 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
+					console.log(result.data);
 					setHtml(result.data, 'tpl3', 'transactions_data_List');
 					//分页处理
 					$('#totalCount').html(result.pageQuery.totalCount);
@@ -128,9 +141,12 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-
-				//console.log(result.data);
-
+				let number;
+				if(pageIndex == null || pageIndex ==1){
+					number = 1;
+				}else{
+					number = ((pageIndex-1)*startIndex2)+1;
+				}
 				if (result.code == "2000") {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].coinHash = result.data[i].coinHash;
@@ -138,7 +154,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 							i].coinHash.length - 5, result.data[
 							i].coinHash.length);
 						result.data[i].coinHash = blockHash;
-
+						result.data[i].number = i+number;
 					}
 					setHtml(result.data, 'tpl1', 'transactions_data_List');
 					//分页处理
@@ -206,11 +222,19 @@ if (GetQueryString_address != undefined &&
 	//getTransferLogList(GetQueryString_address,1,1);
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
 	var type = GetQueryString("type");
-	getParseContract1(GetQueryString_address,type,1,startIndex);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getParseContract1(GetQueryString_address,type,1,startIndex);
+	}else {
+		getParseContract1(GetQueryString_address,type,page,startIndex);
+	}
 }
 
 /**
@@ -284,48 +308,67 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 
 			function(result) {
 				if (result.code == "2000") {
-
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].blockHash;
-						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-							i].blockHash.length - 5, result.data[
-							i].blockHash.length);
-						result.data[i].blockHash = blockHash;
-
+					let len = result.pageQuery.totalPage;
+					if (pageIndex > len) {
+						alert("Please enter the correct number!");
+					} else {
+						let number;
+						if (pageIndex == null || pageIndex == 1) {
+							number = 1;
+						} else {
+							number = ((pageIndex - 1) * startIndex) + 1;
+						}
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].hash = result.data[i].blockHash;
+							var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
+								i].blockHash.length - 5, result.data[
+								i].blockHash.length);
+							result.data[i].blockHash = blockHash;
+							result.data[i].number = i + number;
+						}
+						setHtml(result.data, 'tpl2', 'transactions_data_List');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
 					}
-					setHtml(result.data, 'tpl2', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-
 			});
 
 	}else if(type==3){  //所有权
 		//数据请求部分
 		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
 				coidHash160: coinhash,
-				pageSize: 10,
+				pageSize: startIndex,
 				pageIndex: pageIndex
 			},
 			function(result) {
-				if (result.code == "2000") {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].coinHash;
-						var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-							i].coinHash.length - 5, result.data[
-							i].coinHash.length);
-						result.data[i].coinHash = blockHash;
-
+				let len = result.pageQuery.totalPage;
+				if(pageIndex > len){
+					alert("Please enter the correct number!");
+				}else {
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * startIndex) + 1;
 					}
-					setHtml(result.data, 'tpl3', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
+					if (result.code == "2000") {
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].hash = result.data[i].coinHash;
+							var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
+								i].coinHash.length - 5, result.data[
+								i].coinHash.length);
+							result.data[i].coinHash = blockHash;
+							result.data[i].number = i + number;
+						}
+						setHtml(result.data, 'tpl3', 'transactions_data_List');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
+					}
 				}
-
 			});
 	}else{  //增发
 		//数据请求部分
@@ -335,25 +378,32 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 				pageIndex: pageIndex
 			},
 			function(result) {
-
-				//console.log(result.data);
-
-				if (result.code == "2000") {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].coinHash = result.data[i].coinHash;
-						var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-							i].coinHash.length - 5, result.data[
-							i].coinHash.length);
-						result.data[i].coinHash = blockHash;
-
+				let len = result.pageQuery.totalPage;
+				if(pageIndex > len){
+					alert("Please enter the correct number!");
+				}else {
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * startIndex) + 1;
 					}
-					setHtml(result.data, 'tpl1', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
+					if (result.code == "2000") {
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].coinHash = result.data[i].coinHash;
+							var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
+								i].coinHash.length - 5, result.data[
+								i].coinHash.length);
+							result.data[i].coinHash = blockHash;
+							result.data[i].number = i + number;
+						}
+						setHtml(result.data, 'tpl1', 'transactions_data_List');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
+					}
 				}
-
 			});
 
 
@@ -422,3 +472,11 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

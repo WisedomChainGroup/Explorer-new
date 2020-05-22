@@ -36,7 +36,7 @@ function getList() {
 
 function Blocklist(page,startIndex)
 {
-    var page=page||1;
+    // var page=page||1;
 	$.post(HttpBlockHead+"/block/list", {
 			page:page,
 			startIndex: startIndex
@@ -89,23 +89,34 @@ function Blocklist(page,startIndex)
 		});
 }
 
-function changePageSize()
+function changePageSize(page)
 {
-	getList1();
+	let page1 = GetQueryString("page");
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getList1(1);
+	}
+	getList1(page);
 }
-function getList1() {
+function getList1(page) {
 	$.get(HttpHead+"/accountSort/explorerInfo",
 		function(result) {
 			let startIndex = document.getElementById("select").value;
 			setHtml(result.data, 'tpl', 'block_data_browser1');
-			let total = result.data.lastConfirmedHeight/startIndex
-			if(result.data.lastConfirmedHeight % startIndex != 0){
-				total = total + 1;
+			let total = result.data.lastConfirmedHeight/startIndex;
+			if(page > total){
+				alert("Please enter the correct number!");
+			}else {
+				if (result.data.lastConfirmedHeight % startIndex != 0) {
+					total = total + 1;
+				}
+				$('#totalPage').html(parseInt(total));
+				Blocklist(page, startIndex);
 			}
-			$('#totalPage').html(parseInt(total));
 		});
-		let startIndex = document.getElementById("select").value;
-		Blocklist(1,startIndex);
 }
 $(document).ready(function(){
 	var test = GetQueryString("select");
@@ -115,3 +126,20 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function soso_block() {
+	let sosoval = document.getElementById("soso_block").value;
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	location.href = "blockList.html?height="+ sosoval;
+}
+
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

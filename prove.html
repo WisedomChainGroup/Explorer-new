@@ -75,8 +75,8 @@
 									<span>Certificate</span>
 								</a>
 							<span class="in">
-								<input type="text"placeholder="Address/Trading hash"  id="soso" style="width: 50%;">
-								<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+								<input type="text"placeholder="Trading hash"  id="soso_cer" style="width: 50%;">
+								<a style="min-width: 2%;"><span onclick="soso_cer()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
 							</span>
 						</div>
 					</div>
@@ -145,10 +145,10 @@
 								<div id="" class="dis page-annal">
 									<div id="" class="">
 											Jump
-										<input type="" name="" id="" value="" class="page-input"/>
+										<input type="" name="" id="page" value="" class="page-input"/>
 											page
 									</div>
-									<button class="page-button">Search</button>
+									<button class="page-button" onclick="jumpSize()">Search</button>
 								</div>
 							</div>
 						</div>
@@ -163,7 +163,7 @@
 			<script type="text/json" id="tpl2">
 				<% for(var i = 0;i<obj.length;i++){%>
 					<tr class="" data-row-key="1">
-						<td class=""><%=i+1%></td>
+						<td class=""><%=obj[i].number%></td>
 						<td class="">
 							<a href="proveList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].coinHash%></a>
 						</td>
