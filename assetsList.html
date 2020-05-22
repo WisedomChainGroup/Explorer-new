@@ -266,10 +266,10 @@
 							<div id="" class="dis page-annal">
 								<div id="" class="">
 										Jump
-									<input type="" name="" id="" value="" class="page-input"/>
+									<input type="" name="" id="page" value="" class="page-input"/>
 										page
 								</div>
-								<button class="page-button">Search</button>
+								<button class="page-button" onclick="jumpSize()">Search</button>
 							</div>
 						</div>
 					</div>
@@ -325,7 +325,7 @@
 									<%}else{%>
 									<% for(var i = 0;i<obj.length;i++){%>
 								<tr class="showtr" data-row-key="1">
-									<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+									<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 									<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
 									<td class=""><%=obj[i].coinHeigth%></td>
 									<td class="">
@@ -354,7 +354,7 @@
 									<% for(var i = 0;i<obj.length;i++){%>
 
 								<tr class="" data-row-key="1">
-									<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+									<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 									<td class="cursor">
 								<span class="" title="<%=obj[i].blockHash%>">
 
@@ -396,7 +396,7 @@
 								<%}else{%>
 								<% for(var i = 0;i<obj.length;i++){%>
 							<tr class="showtr" data-row-key="1">
-								<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+								<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 								<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
 								<td class=""><%=obj[i].coinHeigth%></td>
 								<td  class="">

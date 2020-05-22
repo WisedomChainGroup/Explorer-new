@@ -71,20 +71,25 @@ if (pageIndex != undefined &&
 	getTransferLogList(startIndex2, 1);
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
-	getTransferLogList1(startIndex,1);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getTransferLogList1(startIndex,1);
+	}else {
+		getTransferLogList1(startIndex, page);
+	}
 }
 
 function getTransferLogList1(pageSize, pageIndex) {
-    var pageSize=pageSize||10;
-    var pageIndex=pageIndex||1;
 	if (pageIndex == "") {
 		pageIndex = 1;
 	}
 	//数据请求部分
 	$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-
 			pageSize: pageSize,
 			pageIndex: pageIndex
 		},
@@ -97,19 +102,24 @@ function getTransferLogList1(pageSize, pageIndex) {
 				number = ((pageIndex-1)*pageSize)+1;
 			}
 			if (result.code == "2000") {
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].hash = result.data[i].blockHash;
-					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-						i].blockHash.length - 5, result.data[
-						i].blockHash.length);
-					result.data[i].blockHash = blockHash;
-					result.data[i].number = number+i;
+				let len = result.pageQuery.totalPage;
+				if(pageIndex > len){
+					alert("Please enter the correct number!");
+				}else {
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].hash = result.data[i].blockHash;
+						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
+							i].blockHash.length - 5, result.data[
+							i].blockHash.length);
+						result.data[i].blockHash = blockHash;
+						result.data[i].number = number + i;
+					}
+					setHtml(result.data, 'tpl2', 'block-content');
+					//分页处理
+					$('#totalCount').html(result.pageQuery.totalCount);
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
 				//totalPage=result.pageQuery.totalPage;
 				//pageIndex=result.pageQuery.pageIndex;
 			}
@@ -168,3 +178,11 @@ $(document).ready(function(){
 		$("#select").val(test);
 	}
 });
+
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

@@ -62,14 +62,22 @@ if (pageIndex != undefined &&
     getTransferLogList(startIndex2, 1);
 }
 
-function changePageSize(){
+function changePageSize(page){
     let startIndex = document.getElementById("select").value;
-    getTransferLogList1(startIndex,1);
+    if(page == undefined ||
+        page == null ||
+        page == "undefined" ||
+        page == "null" ||
+        page == ""){
+        getTransferLogList1(startIndex,1);
+    }else {
+        getTransferLogList1(startIndex, page);
+    }
 }
 
 function getTransferLogList1(pageSize, pageIndex) {
-    var pageSize=pageSize||10;
-    var pageIndex=pageIndex||1;
+    // var pageSize=pageSize||10;
+    // var pageIndex=pageIndex||1;
 
     //数据请求部分
     $.post(HttpHead + "/prove/getProveList/", {
@@ -85,19 +93,23 @@ function getTransferLogList1(pageSize, pageIndex) {
                 number = ((pageIndex-1)*pageSize)+1;
             }
             if (result.code == "2000") {
-                for (let i = 0;i<result.data.length;i++) {
-                    let address = result.data[i].coinAddress.substring(0, 2);
-                    if (address != "WX") {
-                        result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+                let len = result.pageQuery.totalPage;
+                if(pageIndex > len){
+                    alert("Please enter the correct number!");
+                }else {
+                    for (let i = 0; i < result.data.length; i++) {
+                        let address = result.data[i].coinAddress.substring(0, 2);
+                        if (address != "WX") {
+                            result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+                        }
+                        result.data[i].number = number + i;
                     }
-                    result.data[i].number = number+i;
+                    setHtml(result.data, 'tpl2', 'block-content');
+                    //分页处理
+                    $('#totalCount').html(result.pageQuery.totalCount);
+                    $('#curr_page').html(result.pageQuery.pageIndex);
+                    $('#totalPage').html(result.pageQuery.totalPage);
                 }
-                setHtml(result.data, 'tpl2', 'block-content');
-                //分页处理
-                $('#totalCount').html(result.pageQuery.totalCount);
-                $('#curr_page').html(result.pageQuery.pageIndex);
-                $('#totalPage').html(result.pageQuery.totalPage);
-
             }
 
         });
@@ -153,3 +165,10 @@ $(document).ready(function(){
     }
 });
 
+function jumpSize(){
+    let page = document.getElementById("page").value;
+    if(isNaN(page)){
+        alert("Please enter the correct number!");
+    }
+    changePageSize(page);
+}

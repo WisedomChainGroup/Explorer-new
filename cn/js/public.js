@@ -12,10 +12,10 @@
 //测试链是
 // var HttpBlockHead = "http://192.168.1.137:8081";
 // //测试后端服务器
-// var HttpHead = "http://192.168.1.137:9090/wisechain";
+ var HttpHead = "http://192.168.1.137:9090/wisechain";
 
 
-var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
+//var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
 var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 
 

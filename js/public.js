@@ -1,5 +1,5 @@
 // var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
-// var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
+ var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 //var HttpBlockHead="http://192.168.1.67:8080";//测试
 //var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
 
@@ -8,7 +8,7 @@
 //var HttpHead = "http://47.52.195.58:9090/wisechain";
 //正式
 //var HttpBlockHead = "https://scannode.hkcyb.pro";
-var HttpBlockHead = "http://192.168.1.137:8081";
+//var HttpBlockHead = "http://192.168.1.137:8081";
 var HttpHead = "http://192.168.1.137:9090/wisechain";
 
 /**

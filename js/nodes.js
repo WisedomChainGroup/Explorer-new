@@ -48,10 +48,18 @@ function getList(select, pageIndex) {
 	}
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let pageSize = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
-	getList1(GetQueryString_address,1,pageSize);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getList1(GetQueryString_address,1,pageSize);
+	}else {
+		getList1(GetQueryString_address,page,pageSize);
+	}
 }
 
 function getList1(coinaddress, pageIndex,pageSize) {
@@ -60,24 +68,27 @@ function getList1(coinaddress, pageIndex,pageSize) {
 		pageIndex: pageIndex
 	},
 		function(result) {
-			let number;
-			if(pageIndex == null || pageIndex ==1){
-				number = 1;
+			if(result.code == "5000"){
+				alert("Please enter the correct number!");
 			}else{
-				number = ((pageIndex-1)*pageSize)+1;
+				let number;
+				if (pageIndex == null || pageIndex == 1) {
+					number = 1;
+				} else {
+					number = ((pageIndex - 1) * pageSize) + 1;
+				}
+				var sum = 0;
+				for (var i = 0; i < result.data.length; i++) {
+					result.data[i].number = number + i;
+					sum += result.data[i].voteAmount;
+				}
+				var restr = fmoney(sum, 1).replace('.0', '');
+				$('#totalCount').html(restr);
+				setHtml(result.data, 'tpl3', 'block_data_node');
+				//分页处理
+				$('#curr_page').html(result.pageQuery.pageIndex);
+				$('#totalPage').html(result.pageQuery.totalPage);
 			}
-			var sum=0;
-			for(var i=0;i<result.data.length;i++)
-			{
-				result.data[i].number = number+i;
-				sum+=result.data[i].voteAmount;
-			}
-			var restr=fmoney(sum, 1).replace('.0','');
-			$('#totalCount').html(restr);
-			setHtml(result.data, 'tpl3', 'block_data_node');
-			//分页处理
-			$('#curr_page').html(result.pageQuery.pageIndex);
-			$('#totalPage').html(result.pageQuery.totalPage);
 		});
 	function fmoney(s, n) {
 		n = n > 0 && n <= 20 ? n : 2;
@@ -149,3 +160,10 @@ function test() {
 	location.href = "nodesList.html?coinaddress="+ soso;
 }
 
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("Please enter the correct number!");
+	}
+	changePageSize(page);
+}

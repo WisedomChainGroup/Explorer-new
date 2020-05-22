@@ -197,10 +197,10 @@
 								<div id="" class="dis page-annal">
 									<div id="" class="">
 											Jump
-										<input type="" name="" id="" value="" class="page-input"/>
+										<input type="" name="" id="page" value="" class="page-input"/>
 											page
 									</div>
-									<button class="page-button">Search</button>
+									<button class="page-button" onclick="jumpSize()">Search</button>
 								</div>
 							</div>
 						</div>
@@ -215,7 +215,7 @@
 		<script type="text/json" id="tpl2">
 			<% for(var i = 0;i<obj.length;i++){%>
 				<tr class="" data-row-key="1">
-				<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+				<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].index%></td>
 					<td class="cursor tc"><span class="" title="<%=obj[i].address%>">
 			<a title="<%=obj[i].address%>" href="particulars.html?coinaddress=<%=obj[i].address%>">
 			<%=obj[i].address%></a></span></td>

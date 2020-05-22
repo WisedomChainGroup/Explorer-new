@@ -138,10 +138,10 @@
 								<div id="" class="dis page-annal">
 									<div id="" class="">
 											跳转
-										<input type="" name="" id="" value="" class="page-input"/>
+										<input type="" name="" id="page" value="" class="page-input"/>
 											页
 									</div>
-									<button class="page-button">确定</button>
+									<button class="page-button" onclick="jumpSize()">确定</button>
 								</div>
 							</div>
 							
@@ -155,7 +155,7 @@
 			<script type="text/json" id="tpl2">
 			<% for(var i = 0;i<obj.length;i++){%>
 				<tr class="" data-row-key="1">
-					<td class=""><%=i+1%></td>
+					<td class=""><%=obj[i].number%></td>
 					<td class="">
 						<a href="proveList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].coinHash%></a>
 					</td>
