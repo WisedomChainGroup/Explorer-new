@@ -229,8 +229,12 @@ $(document).ready(function(){
 });
 
 function soso_account() {
-	let soso = document.getElementById("soso_account").value;
-	location.href = "particulars.html?coinaddress="+ soso;
+	let sosoval = document.getElementById("soso_account").value;
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	location.href = "particulars.html?coinaddress="+ sosoval;
 }
 
 function jumpSize(){

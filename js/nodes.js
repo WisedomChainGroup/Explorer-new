@@ -156,8 +156,12 @@ $(document).ready(function(){
 });
 
 function soso_nodes() {
-	let soso = document.getElementById("soso_node").value;
-	location.href = "nodesList.html?coinaddress="+ soso;
+	let sosoval = document.getElementById("soso_node").value;
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	location.href = "nodesList.html?coinaddress="+ sosoval;
 }
 
 function jumpSize(){

@@ -179,6 +179,27 @@ $(document).ready(function(){
 	}
 });
 
+function soso_tran() {
+	var sosoval;
+	sosoval = $("#soso_tran").val();
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
+			coinAddress: sosoval,
+		},
+
+		function(result) {
+				if (result.data == "0") {
+					location.href = "particulars.html?coinaddress=" + sosoval;
+				} else {
+					location.href = "account.html?hash=" + sosoval;
+				}
+
+		});
+}
+
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){

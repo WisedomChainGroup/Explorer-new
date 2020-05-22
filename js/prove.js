@@ -166,8 +166,12 @@ $(document).ready(function(){
 });
 
 function soso_cer() {
-    let soso = document.getElementById("soso_cer").value;
-    location.href = "proveList.html?coinaddress="+ soso;
+    let sosoval = document.getElementById("soso_cer").value;
+    if (sosoval == "") {
+        alert("Please enter the search content!");
+        return;
+    }
+    location.href = "proveList.html?coinaddress="+ sosoval;
 }
 
 function jumpSize(){

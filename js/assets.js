@@ -164,8 +164,12 @@ $(document).ready(function(){
 });
 
 function soso_coin() {
-	let soso = document.getElementById("soso_coin").value;
-	location.href = "assetsList.html?coinaddress="+ soso;
+	let sosoval = document.getElementById("soso_coin").value;
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	location.href = "assetsList.html?coinaddress="+ sosoval;
 }
 
 function jumpSize(){

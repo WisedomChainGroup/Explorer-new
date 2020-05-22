@@ -128,8 +128,12 @@ $(document).ready(function(){
 });
 
 function soso_block() {
-	let soso = document.getElementById("soso_block").value;
-	location.href = "blockList.html?height="+ soso;
+	let sosoval = document.getElementById("soso_block").value;
+	if (sosoval == "") {
+		alert("Please enter the search content!");
+		return;
+	}
+	location.href = "blockList.html?height="+ sosoval;
 }
 
 function jumpSize(){
