@@ -71,11 +71,13 @@
 							<a href="index.html">
 								<i></i>
 								<span>首页</span></a>
+								<span class="arrows">></span>
+							<a href="assets.html"><span>资产</span></a>
 							<span class="arrows">></span>
-							<span>资产</span>
+							<span>支付合约</span>
 							<span class="in">
-								<input type="text"placeholder="代币名称/代币哈希" id="soso_coin" style="width:50%;height:26px;"/>
-								<a style="min-width: 2%;"><span onclick="soso_coin()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+								<input type="text"placeholder="地址/交易hash" id="soso" style="width:50%;height:26px;"/>
+								<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
 							</span>
 						</div>
 					</div>
@@ -83,8 +85,8 @@
 				<div class="blocks"style="margin-top: 2em;">
 					<div class="wrapper">
 						<h5>
-							<p>资产列表</p>
-							<p><i></i><span style="font-size: 14px;">共&nbsp;<b id="totalCount"></b>&nbsp;项代币</span></p>
+							<p>支付合约</p>
+							<p><i></i><span style="font-size: 14px;">&nbsp;总合约数:&nbsp;<b>988125</b></span></p>
 						</h5>
 
 								
@@ -110,13 +112,13 @@
 													<div>序号</div>
 												</th>
 												<th class="">
-													<div style="text-align: center;">代币</div>
+													<div style="text-align: center;">部署人</div>
 												</th>
 												<th class="">
-													<div style="text-align: center">资产图标</div>
+													<div style="text-align: center">规则地址</div>
 												</th>
 												<th class="">
-													<div style="text-align: center;">资产地址</div>
+													<div style="text-align: center;">部署时间</div>
 												</th>
 
 											</tr>
@@ -153,10 +155,10 @@
 								<div id="" class="dis page-annal">
 									<div id="" class="">
 											跳转
-										<input type="" name="" id="page" value="" class="page-input"/>
+										<input type="" name="" id="" value="" class="page-input"/>
 											页
 									</div>
-									<button class="page-button" onclick="jumpSize()">确定</button>
+									<button class="page-button">确定</button>
 								</div>
 							</div>
 							
@@ -174,19 +176,18 @@
 
 				<tr class="" data-row-key="1">
 
-					 <td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+					 <td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
 					 
 					<td class="" style="text-align: center;">
-						<a title="<%=obj[i].coinCode%>" href="assetsList.html?coinaddress=<%=obj[i].coinCode%>"><%=obj[i].coinCode%></a>
+						<div>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</div>
 					</td>
 					
-					<td style="text-align: center"><img src = "<%=obj[i].imgUrl%>" style="width: 28px;height: 28px;border-radius:50%"/></td>
+					<td style="text-align: center">
+						<a href="contractList.html?coinaddress=WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG">WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</a>
+					</td>
 
-					<!-- <td class="" style="text-align: center;">
-						<a title="<%=obj[i].coinHash%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].imgUrl%></a>
-					</td> -->
 					<td class="" style="text-align: center;">
-						<a title="<%=obj[i].coinHashToAddress%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash160%>"><%=obj[i].coinHashToAddress%></a>
+						<div>2020-05-22 11:02:02</div>
 					</td>
 
 				</tr>

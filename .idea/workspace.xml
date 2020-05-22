@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets.html" afterPath="$PROJECT_DIR$/assets.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assetsList.html" afterPath="$PROJECT_DIR$/assetsList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/block.html" afterPath="$PROJECT_DIR$/block.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blockList.html" afterPath="$PROJECT_DIR$/blockList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deal.html" afterPath="$PROJECT_DIR$/deal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodes.html" afterPath="$PROJECT_DIR$/nodes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nodesList.html" afterPath="$PROJECT_DIR$/nodesList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/particulars.html" afterPath="$PROJECT_DIR$/particulars.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prove.html" afterPath="$PROJECT_DIR$/prove.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rankList.html" afterPath="$PROJECT_DIR$/rankList.html" />
-    </list>
+    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,8 +104,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -135,6 +122,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="ProjectViewState">
@@ -413,15 +402,15 @@
       <workItem from="1589332800381" duration="98000" />
       <workItem from="1589333061571" duration="58000" />
       <workItem from="1590048134851" duration="48000" />
+      <workItem from="1590110195712" duration="597000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3486000" />
+    <option name="totallyTimeSpent" value="4083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="501" y="224" width="1193" height="742" extended-state="1" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -436,7 +425,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19505738" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19858782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -489,6 +478,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/block.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/block.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
