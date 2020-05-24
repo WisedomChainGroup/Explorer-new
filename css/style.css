@@ -684,3 +684,50 @@ tr:hover {background-color: #F4F4F4}}
 	transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	cursor: pointer;
 }
+
+
+@media screen and (max-width: 1920px){
+	.h-dis-f{
+		display: flex;
+	}
+	.h-jus-sp{
+		justify-content: space-between;
+	}
+	.h-jus-ce{
+		justify-content: center;
+	}
+	.h-ali-ce{
+		align-items: center;
+	}
+	.h-dividing{
+		font-family: PingFangSC-Regular;
+		font-weight: 400;
+		color: #9c9eb9;
+		line-height: 20px;
+		padding: 12px 0 12px 10px;
+		border-bottom: 1px solid #404c64;
+		border-radius: 0;
+	}
+	.h-mobileMenuLanguage___3lWvP{
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		--antd-wave-shadow-color: #1890ff;
+		font-feature-settings: "tnum";
+		list-style: none;
+		font-variant: tabular-nums;
+		box-sizing: border-box;
+		font-size: 12px;
+		font-family: PingFangSC-Regular;
+		font-weight: 400;
+		color: #9c9eb9;
+		line-height: 17px;
+		padding:  0 20px;
+	}
+	.h-mobileMenuLanguage___3lWvP p{
+		margin-top: 1em;
+	}
+	.h-arrow-i{
+		color: #999999;
+		cursor:pointer;
+		margin-right: 10px;
+	}
+}

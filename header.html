@@ -72,8 +72,8 @@
 						
 							 <div class="popover fade bottom" role="tooltip" id="popover787031" style="left: 0em; display: block;width: 150px;">
 								<div class="arrow" style="left: 30%;"></div>
-								<div class="popover-title"><a href="assets.html">Assets Details</a></div>
-								<div class="popover-content"><a href="contract.html">Contract Details</a></div>
+								<div class="popover-title"><a href="assets.html" id="assets_link2">Assets Details</a></div>
+								<div class="popover-content"><a href="contract.html" id="contract_link2">Contract Details</a></div>
 							 </div>
 						
 						  </div>
@@ -118,7 +118,21 @@
 					<li> <a href="deal.html">Transaction</a></li>
 					<li> <a href="rankList.html">Account</a></li>
 					<li> <a href="prove.html">Certificate</a></li>
-					<li> <a href="assets.html">Assets</a></li>
+					<!-- <li> <a href="assets.html">Assets</a></li> -->
+					<li>
+						<div id="" style="width: 100%;">
+							<div id=""class="h-dis-f h-jus-sp h-dividing">
+								<div id="" class="h-dis-f h-ali-ce h-jus-ce"><a href="assets.html" style="padding: 0 0;">Assets</a></div>
+								<div class="h-dis-f h-ali-ce h-jus-ce">
+									<!-- <i class="fa fa-chevron-down" id="h-arrow" onselectstart="return false"></i> -->
+								</div>
+							</div>
+							<div class="h-mobileMenuLanguage___3lWvP" id="h-btnshow">
+								<p><a href="assets.html">Assets Details</a></p>
+								<p><a href="contract.html">Contract Details</a></p>
+							</div>
+						</div>
+					</li>
 					<li> <a href="pool.html">Transaction Pool</a></li>
 					<li class="root-language"><a href="cn/index.html">Chinese</a></li>
 					</ul>
@@ -146,44 +160,40 @@
 		if(u.indexOf('block')>-1)
 		{
 			$('#block_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('nodes')>-1){
 			$('#nodes_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('deal')>-1){
 			$('#deal_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('rankList')>-1){
 			$('#rankList_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('pool')>-1){
 			$('#pool_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('assets')>-1){
 			$('#assets_link').addClass("nav-text")
+			$('#assets_link2').css('color','#1890ff');
 		}else if(u.indexOf('prove')>-1){
 			$('#prove_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('home')>-1){
 			$('#home_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('pool')>-1){
 			$('#pool_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('particulars')>-1){
 			$('#deal_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('account')>-1){
 			$('#deal_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
 		}else if(u.indexOf('contract')>-1){
 			$('#assets_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
+			$('#contract_link2').css('color','#1890ff');
 		}else if(u.indexOf('operate')>-1){
 			$('#assets_link').addClass("nav-text")
-			document.getElementById("login-box").style.display="none";
+			$('#contract_link2').css('color','#1890ff');
+			// document.getElementById("login-box").style.display="none";
 		}
 	})
+	
+	
+
 </script>
+
 	
 	
