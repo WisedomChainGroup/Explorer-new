@@ -3,29 +3,18 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-		<title>Wisdom Public Chain主链浏览器</title>
+		<title>Wisdom Public Chain Main chain browser</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/account.css" />
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
 		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
 		<link rel="stylesheet" href="./css/index.css" />
 		<link rel="stylesheet" href="./css/index_vendors.css" />
-		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
 		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-	
+		
 		<style>
-			#arrow{
-				cursor:pointer;
-			}
-			@media screen and (max-width:768px) {
-				.section-f{
-					overflow:auto;width: 100%;
-				}
-				.table-z{
-					white-space: nowrap;width: 100%;
-				}
-			}
 			.subtitle span i{
 				margin: 0rem 1.5rem;
 				display: inline-block;
@@ -45,19 +34,18 @@
 			-ms-transform-origin: 0 0;
 			transform-origin: 0 0;
             }
-
 		@media screen and (max-width: 768px){
-			.tabst {
-				position: inherit!important;
-				margin-top: -0.0625rem;
-			}
-			.subtitle span {
-				text-align: -webkit-left !important;
-			}
-			.tabs{
-				margin-left: 0px;
-			}
+		.tabst {
+			position: inherit!important;
+			margin-top: -0.0625rem;
 		}
+		.subtitle span {
+			text-align: -webkit-left !important;
+		}
+		.tabs{
+			margin-left: 0px;
+		}
+	   }
 			@media screen and (max-width: 768px){
 				.compontPagination___3HkDQ{
 					flex-direction:column;
@@ -83,7 +71,6 @@
 			.page-button{
 				margin: 0 10px;
 				border-radius: 5px;
-				width: 50px;
 				height: 28px;
 				border: 1px solid #a8a8a8;
 				color: #428BCA;
@@ -95,7 +82,8 @@
 			}
 			.compontPagination___3HkDQ p{
 				margin-top: 12px;
-			}
+			}	 
+
 		</style>
 	</head>
 	<body>
@@ -106,169 +94,167 @@
 		<div class="clear">
 
 		</div>
-		
 		<div class="con-box" style="margin-left: 0rem;">
 					<div class="wid-1200">
 						<div class="wid-75">
 							<div class="ant-bread">
 								<a href="index.html">
 									<i></i>
-									<span>首页</span></a>
+									<span>Home</span></a>
 								<span class="arrows">></span>
-								<a href="assets.html"><span>资产</span></a>
+								<span>Assets</span>
+								<a href="assets.html"><span class="arrows">></span></a>
+								<span>Pay contract</span>
+								<a href="contractList.html"><span>Contract Details</span></a>
 								<span class="arrows">></span>
-								<a href="contract.html"><span>支付合约</span></a>
-								<span class="arrows">></span>
-								<a href="contractList.html"><span>合约详情</span></a>
-								<span class="arrows">></span>
-								<span>操作详情</span>
-								<span class="in">
-									<input type="text"placeholder="地址/交易hash" id="soso" style="width:50%;height:26px;"/>
+								<span>Operation details</span>
+							<!-- 	<span class="in">
+									<input type="text"placeholder="Address/Trading hash"   id="soso" style="width:50%;height:26px;"/>
 									<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
-								</span>
+								</span> -->
+								<span ></span>
 							</div>
 						</div>
 		
 						<div class="blocks" style="margin-top: 2em;">
-							
-							<h3 class="h3"><span>操作详情</span></h3>
+							<h3 class="h3"><span>Operation details</span></h3>
 		
 							<div class="subtitle">
-								<span>详情</span>
+								<span>Details</span>
 								<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
 							</div>
-							
 							<section class="section">
+								
 								<ul>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">合约名称</span>
+										<span style="width: 30%;">Contract name:</span>
 										<span>YGT（或暂无）</span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">剩余资产</span>
-										<span>500121</span>
+										<span style="width: 30%;">Residual assets:</span>
+										<span>50</span>
 									</li>
-		
 								 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">总提取次数</span>
-										<span>23</span>
+										<span style="width: 30%;">Total extraction times:</span>
+										<span>20</span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">已提取次数</span>
-										<span>15</span>
+										<span style="width: 30%;">Number of times extracted:</span>
+										<span>12</span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">当前可提取次数</span>
-										<span>5</objspan>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">部署人地址:</span>
+										<span style="width: 30%;">Current number of extractions:</span>
 										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</objspan>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">规则地址</span>
+										<span style="width: 30%;">Deployer address:</span>
+										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</objspan>
+									</li>
+									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+										<span style="width: 30%;">Regular address:</span>
 										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</span>
 									</li>
-								</ul>
-								
-							</section>
-		
-							<div id=""style="text-align: center;">
-		
-								<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
-							</div>
-		 					
-							<br />
-							<div id="btnshow">
-		
-							<div class="subtitle" >
-		
-								<span>操作记录</span>
-								<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
-							</div>
-							<section class="box section-f" id="">
-								<table class="table-z" style="width: 100%;">
-									<colgroup>
-										<col>
-										<col>
-										<col>
-										<col>
-										<col>
-										<col>
-										<col>
-										<col>
-									</colgroup>
-									<thead class="ant-table-thead">
-										<tr>
-											<th class="">
-												<div>序号</div>
-											</th>
-											<th class="">
-												<div>操作金额</div>
-											</th>
-											<th class="">
-												<div style="margin-left: 20%;">目标地址</div>
-											</th>
-											<th class="">
-												<div>操作时间</div>
-											</th>
-											<th class="">
-												<div>类型</div>
-											</th>
-										</tr>
-									</thead>
-										<tbody class="" id="">
-										
-										<tr class="showtr" data-row-key="1">
-											<td class="" ><span class="" style="padding-left: 0px;"></span>1</td>
-											<td>500.0000000001</td>
-											<td>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</td>
-											<td>2020-05-22 11:02:02</td>
-											<td>撤回</td>
-										</tr>
-										
 									
-									</tbody>
-								</table>
+								</ul>
+							
 							</section>
-							</div>
-							<div class="d-md-flex justify-content-between my-3">
-								<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
-									显示
-									<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
-										<option selected="selected" value="10">10</option>
-										<option value="25">25</option>
-										<option value="50">50</option>
-										<option value="100">100</option>
-									</select>
-									记录
-								</div>
-								<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
-									<div class="dis ju-c ma-r-2">
-										<i id="first_page"></i><i id="pre_page"></i>
-										<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
-											<span>总页数</span>
-											<span class="pageNum___HAhvB" id="totalPage">1</span></p>
-										<i id="next_page"></i><i id="last_page"></i>
-									</div>
-									<div id="" class="dis page-annal">
-										<div id="" class="">
-												跳转
-											<input type="" name="" id="" value="" class="page-input"/>
-												页
-										</div>
-										<button class="page-button">确定</button>
-									</div>
-								</div>
+							
+					
+					<div id=""style="text-align: center;">
+						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;cursor:pointer;" onselectstart="return false"></i>
+					</div> 
+ 					
+
+					
+					<div class="ant-table-wrapper" id="btnshow">
+						
+					<div class="subtitle" id="">
+						<span>Operation record</span>
+						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 120px;"></div>
+					</div>
+					<section class="box section-f" id="">
+						<table class="table-z" style="width: 100%;">
+							<colgroup>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+								<col>
+							</colgroup>
+							<thead class="ant-table-thead" >
+								<tr style="background: #F5F5F5;">
+									<th class="">
+										<div>NO.</div>
+									</th>
+									<th class="">
+										<div>Operating amount</div>
+									</th>
+									<th class="" >
+										<div>target address</div>
+									</th>
+									<th class="" >
+										<div>Operating time</div>
+									</th>
+									<th class="" >
+										<div>Types</div>
+									</th>
+								</tr>
+							</thead>
+								<tbody class="" id="">
 								
+								<tr class="showtr" data-row-key="1">
+									<td class="" ><span class="" style="padding-left: 0px;"></span>1</td>
+									<td>500000</td>
+									<td>2020-05-22 11:02:02</td>
+									<td>886</td>
+									<td>quit</td>
+								</tr>
+								</script>
+							</tbody>
+						</table>
+					</section>
+					
+					<div class="d-md-flex justify-content-between my-3">
+						<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
+							Show
+							<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
+								<option selected="selected" value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+							</select>
+							Records 
+						</div>
+						<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
+							<div class="dis ju-c ma-r-2">
+								<i id="first_page"></i><i id="pre_page"></i>
+								<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+									<span>Total Pages</span>
+									<span class="pageNum___HAhvB" id="totalPage">1</span></p>
+								<i id="next_page"></i><i id="last_page"></i>
+							</div>
+							<div id="" class="dis page-annal">
+								<div id="" class="">
+										Jump
+									<input type="" name="" id="page" value="" class="page-input"/>
+										page
+								</div>
+								<button class="page-button" onclick="jumpSize()">Search</button>
 							</div>
 						</div>
-		
+					</div>
 					</div>
 				</div>
+			</div>
+			
+		</div>
+
 		<div id="page_footer"></div>
+	
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/blockAssets.js" type="text/javascript" charset="UTF-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
 		function MyClick(flag) {
@@ -279,20 +265,17 @@
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
 		}
-
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来
 		    // if(typeof obj['on'+type]=='function'){
-		    //     saved=obj['on'+type];//保存上一个事件
+		    //     saved=obj['on'+type];
 		         
 		    //     }  
 		//执行
 		    obj['on'+type]=function(){
-//            if(saved)saved.call(this);//先执行上一个事件
 		        if(saved)saved();
 		        fn.call(this);
-		
 		        };
 		     
 		}
@@ -301,7 +284,6 @@
 		    addEVent(box,'click',toBlue);  
 		     
 		    });
-			
 		 
 		function toBlue(){
 		    this.className='fa fa-angle-double-down fa-2x';
@@ -314,6 +296,4 @@
 			document.getElementById("btnshow").style.display = "block";
 		}
 	</script>
-	  
-	</body>
 </html>

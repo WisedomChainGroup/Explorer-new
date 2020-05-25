@@ -2,16 +2,75 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 		<title>Wisdom Public Chain 区块链浏览器</title>
 		<link rel="stylesheet" href="./css/style.css" />
 		<link rel="stylesheet" href="./css/index.css" />
 		<link rel="stylesheet" href="./css/index_vendors.css" />
 		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
         <script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			/* 导航栏 */
+			.fade.in {
+				opacity: 1;
+			}
+				
+			.bottom>.arrow {
+				top: -13px;
+				border-top-width: 0;
+				border-bottom-color: #DBECF9;
+				/* border-bottom-color: rgba(0, 0, 0, .25); */
+				border-bottom-color: #DBECF9;
+			}
+				
+			.arrow {
+				border-width: 11px;
+			}
+				
+			.arrow,
+			.arrow:after {
+				position: absolute;
+				display: block;
+				width: 0;
+				height: 0;
+				border-color: transparent;
+				border-style: solid;
+				margin-top: 2px;
+			}
+			.popover-title {
+				font-size: 14px;
+				background-color: #DBECF9;
+				border-bottom: 1px solid #ffffff;
+				border-radius: 5px 5px 0 0;
+				height: 40px;
+				line-height: 40px;
+				margin-left: -30px;
+			}
+			.popover-divider{
+				border: 1px solid #000000;
+			}
+			.popover-content {
+				background-color: #DBECF9;
+				height: 40px;
+				line-height: 40px;
+				border-radius: 0 0 5px 5px;
+				margin-left: -30px;
+				
+			}
+			.dorp{
+				position: relative;
+				display: inline-block;
+			}
+			.dorp_con{
+			  display: none;
+			  position: absolute;
+			  cursor: pointer;
+			}
+			.dorp:hover .dorp_con{display:block;}
+		</style>
 	</head>
 	<body>
 		<div id="root">
@@ -32,7 +91,19 @@
 										<li class="ant-menu-item" role="menuitem"><a href="deal.html"><span>交易</span></a></li>
 										<li class="ant-menu-item" role="menuitem"><a href="rankList.html"><span>账户</span></a></li> 
 										<li class="ant-menu-item" role="menuitem"><a href="prove.html"><span>存证</span></a></li> 
-										<li class="ant-menu-item" role="menuitem"><a href="assets.html"><span>资产</span></a></li> 
+										<!-- <li class="ant-menu-item" role="menuitem"><a href="assets.html"><span>资产</span></a></li> -->
+										<li class="ant-menu-item dorp" role="menuitem">
+										  <a href="assets.html"id="assets_link">资产</a>
+										  <div class="dorp_con" id="login-box">
+											 <div class="popover fade bottom" role="tooltip" id="popover787031" style="display: block;width: 70px;">
+												<div class="arrow"></div>
+												<div class="popover-title h-dis-f h-jus-ce h-ali-ce">
+													<a href="assets.html" id="assets_link2">资产详情</a></div>
+												
+												<div class="popover-content h-dis-f h-jus-ce h-ali-ce"><a href="contract.html" id="contract_link2">合约详情</a></div>
+											 </div>
+										  </div>
+										</li>
 										<li class="ant-menu-item" role="menuitem"><a href="pool.html"><span>事务池</span></a></li>					
 									</ul>			
 								</div>
@@ -206,7 +277,21 @@
 						<li> <a href="deal.html">交易</a></li>
 						<li> <a href="rankList.html">账户</a></li>
 						<li> <a href="prove.html">存证</a></li>
-						<li> <a href="assets.html">资产</a></li>
+						<!-- <li> <a href="assets.html">资产</a></li> -->
+						<li>
+							<div id="" style="width: 100%;">
+								<div id=""class="h-dis-f h-jus-sp h-dividing">
+									<div id="" class="h-dis-f h-ali-ce h-jus-ce"> <a href="assets.html"style="padding: 0 0;">资产</a></div>
+									<div class="h-dis-f h-ali-ce h-jus-ce">
+										<!-- <i class="fa fa-chevron-down" id="h-arrow" onselectstart="return false"></i> -->
+									</div>
+								</div>
+								<div class="h-mobileMenuLanguage___3lWvP" id="h-btnshow">
+									<p><a href="assets.html">资产详情</a></p>
+									<p><a href="contract.html">合约详情</a></p>
+								</div>
+							</div>
+						</li>
 						<li> <a href="pool.html" class="arr">事务池</a></li>
 						<li class="root-language"><a href="/index.html">English</a></li>
 						</ul>
@@ -226,6 +311,8 @@
 					document.getElementById('component-header').setAttribute('class', 'header___1E4MV');
 				}
 			}
+			
+			
 		</script>
    <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 	</body>
