@@ -145,26 +145,7 @@
 										<span id = "ruleName"></span>
 									</li>
 									<div  id="block-content">
-										<script type="text/json" id="tpl2">
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">剩余资产</span>
-										<span><%=obj.asset%></span>
-									</li>
-		
-								 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">总提取次数</span>
-										<span><%=obj.allCount%></span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">已提取次数</span>
-										<span><%=obj.usedCount%></span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">当前可提取次数</span>
-										<span><%=obj.currentCount%></span>
-									</li>
 
-								</script>
 								</div>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">部署人地址:</span>
@@ -222,17 +203,7 @@
 										</tr>
 									</thead>
 										<tbody class="" id="block-details">
-											<script type="text/json" id="tpl3">
-												<% for(var i = 0;i<obj.length;i++){%>
-												<tr class="showtr" data-row-key="1">
-													<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-													<td><%=obj[i].amount%></td>
-													<td><%=obj[i].toAddress%></td>
-													<td><%=obj[i].createdAt%></td>
-													<td>撤回</td>
-												</tr>
-												<%}%>
-											</script>
+
 									</tbody>
 								</table>
 							</section>
@@ -272,6 +243,37 @@
 					</div>
 				</div>
 		<div id="page_footer"></div>
+		<script type="text/json" id="tpl2">
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">剩余资产</span>
+				<span><%=obj.asset%></span>
+			</li>
+
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">总提取次数</span>
+				<span><%=obj.allCount%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">已提取次数</span>
+				<span><%=obj.usedCount%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">当前可提取次数</span>
+				<span><%=obj.currentCount%></span>
+			</li>
+
+		</script>
+		<script type="text/json" id="tpl3">
+			<% for(var i = 0;i<obj.length;i++){%>
+			<tr class="showtr" data-row-key="1">
+				<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+				<td><%=obj[i].amount%></td>
+				<td><%=obj[i].toAddress%></td>
+				<td><%=obj[i].createdAt%></td>
+				<td><%if(obj[i].fromAddress==obj[i].toAddress){%>撤回<%}else{%>提取<%}%></td>
+			</tr>
+			<%}%>
+		</script>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/operateList.js" type="text/javascript" charset="UTF-8"></script>
 	<script>

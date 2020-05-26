@@ -1,19 +1,22 @@
 var coinHash = GetQueryString("coinHash");
-var fromAddress = GetQueryString("fromAddress");
-address = fromAddress.substring(2,fromAddress.length);
+var coinHashAddress = GetQueryString("coinHashAddress");
+if(coinHashAddress.substring(0,2) == "WX"){
+    coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
+}
 var coinHash160 = GetQueryString("coinHash160");
-getRuleLogList(address,1,10);
+getRuleLogList(coinHashAddress,1,10);
 
 
 function getRuleLogList(address,pageIndex,pageSize) {
     //数据请求部分
-    $.post(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
+    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
             search:address,
-            pageIndex: pageIndex,
+            pageIndex: 1,
             pageSize: pageSize
         },
 
         function(result) {
+            let fromAddress;
             for(let  i = 0;i<result.data.length;i++){
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
                 if(result.data[i].type == 2){
@@ -26,6 +29,7 @@ function getRuleLogList(address,pageIndex,pageSize) {
                 $('#ruleName').html(result.data[i].ruleName);
                 $('#coinHashAddress').html(result.data[i].coinHashAddress);
                 $('#fromAddress').html(result.data[i].fromAddress);
+                fromAddress = result.data[i].fromAddress;
             }
             //数据请求部分
             $.get(HttpHead + "/conditionalPaymentRuleTransferInOut/getTransferOutList/", {
@@ -44,7 +48,7 @@ function getRuleLogList(address,pageIndex,pageSize) {
                             result.data.outs[i].toAddress = "WX"+ result.data.outs[i].toAddress;
                         }
                         result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
-                        list.push(result.data.outs[i])
+                        list.push(result.data.outs[i]);
                     }
                     setHtml(list, 'tpl3', 'block-details');
                 });
