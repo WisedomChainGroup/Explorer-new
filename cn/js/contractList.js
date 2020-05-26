@@ -76,19 +76,18 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                     }
                     if (result.code == "2000") {
                         let len = result.pageQuery.totalPage;
-                        if (pageIndex > len) {
+                        if (pageIndex > len && len != 0) {
                             alert("Please enter the correct number!");
-                        } else {
-                            for (let i = 0; i < result.data.list.length; i++) {
-                                result.data.list[i].number = number+i;
-                                result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
-                            }
-                            setHtml(result.data.list, 'tpl3', 'block-transferList');
-                            //分页处理
-                            $('#totalCount').html(result.pageQuery.totalCount);
-                            $('#curr_page').html(result.pageQuery.pageIndex);
-                            $('#totalPage').html(result.pageQuery.totalPage);
                         }
+                        for (let i = 0; i < result.data.list.length; i++) {
+                            result.data.list[i].number = number+i;
+                            result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
+                        }
+                        setHtml(result.data.list, 'tpl3', 'block-transferList');
+                        //分页处理
+                        $('#totalCount').html(result.pageQuery.totalCount);
+                        $('#curr_page').html(result.pageQuery.pageIndex);
+                        $('#totalPage').html(result.pageQuery.totalPage);
                     }
                 });
 
@@ -162,18 +161,17 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                     }
                     if (result.code == "2000") {
                         let len = result.pageQuery.totalPage;
-                        if (pageIndex > len) {
+                        if (pageIndex > len && len != 0) {
                             alert("Please enter the correct number!");
-                        } else {
                             for (let i = 0; i < result.data.list.length; i++) {
-                                result.data.list[i].number = number+i;
+                                result.data.list[i].number = number + i;
                                 result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
                             }
                             setHtml(result.data.list, 'tpl3', 'block-transferList');
                             //分页处理
-                            // $('#totalCount').html(result.pageQuery.totalCount);
-                            // $('#curr_page').html(result.pageQuery.pageIndex);
-                            // $('#totalPage').html(result.pageQuery.totalPage);
+                            $('#totalCount').html(result.pageQuery.totalCount);
+                            $('#curr_page').html(result.pageQuery.pageIndex);
+                            $('#totalPage').html(result.pageQuery.totalPage);
                         }
                     }
                 });
