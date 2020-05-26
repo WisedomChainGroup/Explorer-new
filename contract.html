@@ -74,8 +74,8 @@
 						<span class="arrows">></span>
 						<span>Pay contract</span>
 						<span class="in">
-							<input type="text"placeholder="Coin Hash"  id="soso_coin" style="width:50%;height:26px;"/>
-							<a style="min-width: 2%;"><span onclick="soso_coin()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
+							<input type="text"placeholder="Coin Hash"  id="soso_address" style="width:50%;height:26px;"/>
+							<a style="min-width: 2%;"><span onclick="soso_address()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
 						</span>
 						<span ></span>
 					</div>
@@ -84,7 +84,7 @@
 					<div class="wrapper">
 						<h5>
 							<p>Pay contract</p>
-							<p><i></i><span style="font-size: 18px;">&nbsp;Total contracts:&nbsp;<b>988125</b></span></p>
+							<p><i></i><span style="font-size: 18px;">&nbsp;Total contracts:&nbsp;<b id="totalCount"></b></span></p>
 						</h5>
 
 								
@@ -178,13 +178,13 @@
 				<tr class="" data-row-key="1">
 					 <td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 					<td style="text-align: center;">
-						<div>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</div>
+						<div><%=obj[i].fromAddress%></div>
 					</td>
 					<td style="text-align: center;">
-						<a href="contractList.html?coinaddress=WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG">WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</a>
+						<a href="contractList.html?coinaddress=<%=obj[i].coinHashAddress%>"><%=obj[i].coinHashAddress%></a>
 					</td>
 					<td style="text-align: center;">
-						<div>2020-05-22 16:00</div>
+						<div><%=obj[i].createdAt%></div>
 					</td>
 				</tr>
 			<%}%>
@@ -193,7 +193,7 @@
 	
 		</div>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
-		 <script src="js/assets.js" type="text/javascript" charset="utf-8"></script> 
+		 <script src="js/contract.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
 		function MyClick(flag) {

@@ -24,7 +24,7 @@ function getRuleLogList(pageIndex,pageSize) {
     //     pageSize = 10;
     // }
     //数据请求部分
-    $.post(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
+    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
             pageIndex: pageIndex,
             pageSize: pageSize
         },
@@ -77,7 +77,7 @@ function getRuleLogList1(pageIndex,pageSize) {
     //     pageSize = 10;
     // }
     //数据请求部分
-    $.post(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
+    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
             pageIndex: pageIndex,
             pageSize: pageSize
         },
