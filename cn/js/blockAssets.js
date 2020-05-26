@@ -196,11 +196,11 @@ if (GetQueryString_address != undefined &&
 	//getTransferLogList(GetQueryString_address,pageIndex);
 	getParseContract(GetQueryString_address,type,pageIndex);
 	if (type==1) {
-		$('.tabst').css('left','2.5rem');
+		$('.tabst').css('left','1.65rem');
 	}else if(type==2){
-		$('.tabst').css('left','8.8rem');
+		$('.tabst').css('left','6.65rem');
 	}else{
-		$('.tabst').css('left','15.6rem');
+		$('.tabst').css('left','12rem');
 	}
 
 	for(var i =1 ;i<4;i++){
