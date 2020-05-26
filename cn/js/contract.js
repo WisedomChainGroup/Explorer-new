@@ -171,6 +171,15 @@ function jumpSize(){
     changePageSize(page);
 }
 
+function soso_address() {
+    let sosoval = document.getElementById("soso_address").value;
+    if (sosoval == "") {
+        alert("Please enter the search content!");
+        return;
+    }
+    location.href = "contractList.html?coinaddress="+ sosoval;
+}
+
 function getTime(UTCDateString) {
     if(!UTCDateString){
         return '-';
