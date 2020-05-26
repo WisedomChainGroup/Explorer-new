@@ -211,7 +211,7 @@ if (GetQueryString_address != undefined &&
 
 }else{
 	//alert($("#sosowap").val());
-	$('.tabst').css('left','1.5rem');
+	$('.tabst').css('left','2.5rem');
 	for(var i =1 ;i<4;i++){
 		if(i!=1){
 			$('.tab'+i).css('display','none');

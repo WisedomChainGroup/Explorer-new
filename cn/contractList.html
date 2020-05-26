@@ -130,49 +130,53 @@
 						<div class="blocks" style="margin-top: 2em;">
 							
 							<h3 class="h3"><span>合约详情</span></h3>
-		
+
 							<div class="subtitle">
 								<span>详情</span>
 								<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
 							</div>
-							
 							<section class="section">
 								
 								<ul>
+									<div  id="block-content">
+									<script type="text/json" id="tpl2">
+									<% for(var i = 0;i<obj.length;i++){%>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">合约名称</span>
-										<span>YGT（或暂无）</span>
+										<span ><%=obj[i].ruleName%></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">转让资产倍数</span>
-										<span>500</span>
+										<span><%=obj[i].rate%></span>
 									</li>
-		
+
 								 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">提取资产间隔高度</span>
-										<span>500000</span>
+										<span><%=obj[i].heightPeriod%></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">资产提取比例</span>
-										<span>15%</span>
+										<span><%=obj[i].drawRate%></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">提取资产地址</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</objspan>
+										<span><%=obj[i].destAddress%></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">部署人地址:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</objspan>
+										<span><%=obj[i].fromAddress%></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">规则地址</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</span>
+										<span><%=obj[i].coinHashAddress%></span>
 									</li>
+									<%}%>
+									</script>
+									</div>
 								</ul>
-								
+
 							</section>
-		
-							<div id=""style="text-align: center;">
+							<div id="a"style="text-align: center;">
 		
 								<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
 							</div>
@@ -185,7 +189,7 @@
 								<span>转入</span>
 								<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
 							</div>
-							<section class="box section-f" id="">
+							<section class="box section-f" id="1">
 								<table class="table-z" style="width: 100%;">
 									<colgroup>
 										<col>
@@ -217,51 +221,24 @@
 											<th class=""></th>
 										</tr>
 									</thead>
-										<tbody class="" id="">
-										
+										<tbody class="" id="block-transferList">
+										<script type="text/json" id="tpl3">
+										<% for(var i = 0;i<obj.length;i++){%>
 										<tr class="showtr" data-row-key="1">
-											<td class="" ><span class="" style="padding-left: 0px;"></span>1</td>
-											<td>500000</td>
-											<td>2020-05-22 11:02:02</td>
-											<td>8</td>
+											<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+											<td><%=obj[i].amount%></td>
+											<td><%=obj[i].createdAt%></td>
+											<td><%=obj[i].restOutCount%></td>
 											<td>成功</td>
-											<td><a href="operateList.html"><i class="fa fa-chevron-circle-right fa-2x" style="color: #999999;cursor: pointer;"></i></a></td>
+											<td><a href="operateList.html?coinHash=<%=obj[i].coinHash%>&fromAddress=<%=obj[i].fromAddress%>&coinHash160=<%=obj[i].coinHash160%>"><i class="fa fa-chevron-circle-right fa-2x" style="color: #999999;cursor: pointer;"></i></a></td>
 										</tr>
+										<%}%>
+										</script>
 										
 									
 									</tbody>
 								</table>
 							</section>
-							</div>
-							<div class="d-md-flex justify-content-between my-3">
-								<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
-									显示
-									<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
-										<option selected="selected" value="10">10</option>
-										<option value="25">25</option>
-										<option value="50">50</option>
-										<option value="100">100</option>
-									</select>
-									记录
-								</div>
-								<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
-									<div class="dis ju-c ma-r-2">
-										<i id="first_page"></i><i id="pre_page"></i>
-										<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
-											<span>总页数</span>
-											<span class="pageNum___HAhvB" id="totalPage">1</span></p>
-										<i id="next_page"></i><i id="last_page"></i>
-									</div>
-									<div id="" class="dis page-annal">
-										<div id="" class="">
-												跳转
-											<input type="" name="" id="" value="" class="page-input"/>
-												页
-										</div>
-										<button class="page-button">确定</button>
-									</div>
-								</div>
-								
 							</div>
 						</div>
 		
@@ -269,7 +246,7 @@
 				</div>
 		<div id="page_footer"></div>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/blockAssets.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="js/contractList.js" type="text/javascript" charset="UTF-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
 		function MyClick(flag) {
