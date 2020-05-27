@@ -39,7 +39,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
             for(let  i = 0;i<result.data.length;i++){
                 result.data[i].createdAt = getTime(result.data[i].createdAt);
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
-                result.data[i].drawRate = result.data[i].drawRate * 100 + "%";
+                result.data[i].drawRate = result.data[i].drawRate * 100;
                 result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 if(result.data[i].destAddress == "0000000000000000000000000000000000000000"){
                     result.data[i].destAddress = "anyone address";
@@ -118,10 +118,10 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
             for(let  i = 0;i<result.data.length;i++){
                 result.data[i].createdAt = getTime(result.data[i].createdAt);
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
-                result.data[i].drawRate = result.data[i].drawRate * 100 + "%";
+                result.data[i].drawRate = result.data[i].drawRate * 100;
                 result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 if(result.data[i].destAddress == "0000000000000000000000000000000000000000"){
-                    result.data[i].destAddress = "anyone address";
+                    result.data[i].destAddress = "Any Address";
                 }else{
                     if(result.data[i].type == 2){
                         result.data[i].destAddress = "WR"+ result.data[i].destAddress;
