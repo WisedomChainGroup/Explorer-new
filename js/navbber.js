@@ -13,3 +13,35 @@ $(document).ready(function(e) {
 		}
 	 });
 });
+
+$(function(){
+	var u=window.location.pathname;
+	if(u.indexOf('block')>-1)
+	{
+		$('#h_block_link').css('color','#FFFFFF')
+	}else if(u.indexOf('nodes')>-1){
+		$('#h_nodes_link').css('color','#FFFFFF')
+	}else if(u.indexOf('deal')>-1){
+		$('#h_deal_link').css('color','#FFFFFF')
+	}else if(u.indexOf('rankList')>-1){
+		$('#h_rankList_link').css('color','#FFFFFF')
+	}else if(u.indexOf('pool')>-1){
+		$('#h_pool_link').css('color','#FFFFFF')
+	}else if(u.indexOf('assets')>-1){
+		$('#h_assets_link').css('color','#FFFFFF')
+	}else if(u.indexOf('prove')>-1){
+		$('#h_prove_link').css('color','#FFFFFF')
+	}else if(u.indexOf('home')>-1){
+		$('#h_index_link').css('color','#FFFFFF')
+	}else if(u.indexOf('pool')>-1){
+		$('#h_pool_link').css('color','#FFFFFF')
+	}else if(u.indexOf('particulars')>-1){
+		$('#h_deal_link').css('color','#FFFFFF')
+	}else if(u.indexOf('account')>-1){
+		$('#h_deal_link').css('color','#FFFFFF')
+	}else if(u.indexOf('contract')>-1){
+		$('#h_contract_link').css('color','#FFFFFF')
+	}else if(u.indexOf('operate')>-1){
+		$('#h_contract_link').css('color','#FFFFFF')
+	}
+})
