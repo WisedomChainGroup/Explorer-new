@@ -186,15 +186,21 @@ $(function() {
 	//首页
 	$("#first_page").click(function() {
 		//getTransferLogList(10, 1);
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "rankList.html?pageIndex=1&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "rankList.html?pageIndex=1&select=" + startIndex;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "rankList.html?pageIndex=" + totalPage+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "rankList.html?pageIndex=" + totalPage + "&select=" + startIndex;
+		}
 		//getTransferLogList(10, totalPage);
 	});
 	//上一頁
@@ -207,7 +213,9 @@ $(function() {
 			pageIndex = curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "rankList.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "rankList.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
@@ -219,7 +227,9 @@ $(function() {
 			pageIndex = curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "rankList.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "rankList.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+		}
 	});
 })
 

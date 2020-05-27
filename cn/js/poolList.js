@@ -101,13 +101,19 @@ $(function() {
 	//首页
 	$("#first_page").click(function() {
 		//getTransferLogList(10, 1);
-		location.href = "particulars.html?pageIndex=1&coinaddress="+coinaddress;
+		var curr_page = parseInt($('#curr_page').html());
+		if(curr_page > 1) {
+			location.href = "particulars.html?pageIndex=1&coinaddress=" + coinaddress;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
-		location.href = "particulars.html?pageIndex=" + totalPage+"&coinaddress="+coinaddress;
+		var curr_page = parseInt($('#curr_page').html());
+		if(curr_page < totalPage) {
+			location.href = "particulars.html?pageIndex=" + totalPage + "&coinaddress=" + coinaddress;
+		}
 		//getTransferLogList(10, totalPage);
 	});
 	//上一頁
@@ -119,7 +125,9 @@ $(function() {
 		}else{
 			pageIndex=curr_page;
 		}
-		location.href = "particulars.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress;
+		if(curr_page > 1) {
+			location.href = "particulars.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
@@ -131,6 +139,8 @@ $(function() {
 		}else{
 			pageIndex=curr_page;
 		}
-		location.href = "particulars.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress;
+		if(curr_page < totalPage) {
+			location.href = "particulars.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress;
+		}
 	});
 })

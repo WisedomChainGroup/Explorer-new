@@ -152,7 +152,7 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                         number = ((pageIndex-1)*pageSize)+1;
                     }
                     if (result.code == "2000") {
-                        let len = result.pageQuery.totalPage +1;
+                        let len = result.pageQuery.totalPage;
                         if (pageIndex > len) {
                             if(len == 0){
                                 return;
@@ -180,17 +180,23 @@ $(function() {
     //首页
     $("#first_page").click(function() {
         //getTransferLogList(10, 1);
+        var curr_page = parseInt($('#curr_page').html());
         let startIndex = document.getElementById("select").value;
         var address = GetQueryString("coinaddress");
-        location.href = "contractList.html?pageIndex=1&select=" + startIndex+"&coinaddress=" + address;
+        if(curr_page > 1) {
+            location.href = "contractList.html?pageIndex=1&select=" + startIndex + "&coinaddress=" + address;
+        }
     });
 
     //最后一页
     $('#last_page').click(function() {
+        var curr_page = parseInt($('#curr_page').html());
         var totalPage = $('#totalPage').html();
         let startIndex = document.getElementById("select").value;
         var address = GetQueryString("coinaddress");
-        location.href = "contractList.html?pageIndex=" + totalPage+"&select=" + startIndex+"&coinaddress=" + address;
+        if(curr_page < totalPage) {
+            location.href = "contractList.html?pageIndex=" + totalPage + "&select=" + startIndex + "&coinaddress=" + address;
+        }
         //getTransferLogList(10, totalPage);
     });
     //上一頁
@@ -204,7 +210,9 @@ $(function() {
         }
         let startIndex = document.getElementById("select").value;
         var address = GetQueryString("coinaddress");
-        location.href = "contractList.html?pageIndex=" + pageIndex+"&select=" + startIndex+"&coinaddress=" + address;
+        if(curr_page > 1) {
+            location.href = "contractList.html?pageIndex=" + pageIndex + "&select=" + startIndex + "&coinaddress=" + address;
+        }
     });
     //下一頁
     $("#next_page").click(function() {
@@ -217,7 +225,9 @@ $(function() {
         }
         let startIndex = document.getElementById("select").value;
         var address = GetQueryString("coinaddress");
-        location.href = "contractList.html?pageIndex=" + pageIndex+"&select=" + startIndex+"&coinaddress=" + address;
+        if(curr_page < totalPage) {
+            location.href = "contractList.html?pageIndex=" + pageIndex + "&select=" + startIndex + "&coinaddress=" + address;
+        }
     });
 })
 
