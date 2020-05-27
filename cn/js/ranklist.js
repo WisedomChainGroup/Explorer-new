@@ -153,9 +153,13 @@ function getTransferLogList1(pageSize, pageIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage+1;
+				let len = result.pageQuery.totalPage;
 				if(pageIndex > len) {
-					alert("Please enter the correct number!");
+					if(len == 0){
+						return;
+					}else {
+						alert("请输入正确的数字!");
+					}
 				}else {
 					for (var i = 0; i < result.data.length; i++) {
 						result.data[i].balance = result.data[i].balance / 100000000;

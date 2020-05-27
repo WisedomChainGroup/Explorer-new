@@ -154,7 +154,11 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                     if (result.code == "2000") {
                         let len = result.pageQuery.totalPage +1;
                         if (pageIndex > len) {
-                            alert("请输入正确的数字!");
+                            if(len == 0){
+                                return;
+                            }else {
+                                alert("请输入正确的数字!");
+                            }
                         } else {
                             for (let i = 0; i < result.data.list.length; i++) {
                                 result.data.list[i].number = number + i;

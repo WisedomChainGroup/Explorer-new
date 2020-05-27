@@ -85,9 +85,13 @@ function getRuleLogList1(pageIndex,pageSize) {
                 number = ((pageIndex-1)*pageSize)+1;
             }
             if (result.code == "2000") {
-                let len = result.pageQuery.totalPage +1;
+                let len = result.pageQuery.totalPage;
                 if(pageIndex > len){
-                    alert("请输入正确的数字!");
+                    if(len == 0){
+                        return;
+                    }else {
+                        alert("请输入正确的数字!");
+                    }
                 }else {
                     for (let i = 0; i < result.data.length; i++) {
                         result.data[i].number = number+i;

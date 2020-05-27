@@ -152,9 +152,13 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                         number = ((pageIndex-1)*pageSize)+1;
                     }
                     if (result.code == "2000") {
-                        let len = result.pageQuery.totalPage +1;
+                        let len = result.pageQuery.totalPage;
                         if (pageIndex > len) {
-                            alert("Please enter the correct number!");
+                            if(len == 0){
+                                return;
+                            }else {
+                                alert("Please enter the correct number!");
+                            }
                         } else {
                             for (let i = 0; i < result.data.list.length; i++) {
                                 result.data.list[i].number = number + i;
