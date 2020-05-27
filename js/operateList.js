@@ -1,7 +1,7 @@
 var coinHash = GetQueryString("coinHash");
 var coinHashAddress = GetQueryString("coinHashAddress");
 var fromAddress = GetQueryString("fromAddress");
-if(coinHashAddress.substring(0,2) == "WX"){
+if(coinHashAddress.substring(0,2) == "WX" || coinHashAddress.substring(0,2) == "WR"){
     coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
 }
 var coinHash160 = GetQueryString("coinHash160");
@@ -60,7 +60,7 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                         setHtml(result.data, 'tpl2', 'block-content');
                         var list = new Array();
                         for (let i = 0; i < result.data.outs.length; i++) {
-                            if(fromAddress.substring(0,2) == "WX"){
+                            if(fromAddress.substring(0,2) == "WX" || fromAddress.substring(0,2) == "WR"){
                                 fromAddress = fromAddress.substring(2,fromAddress.length);
                             }
                             if (result.data.outs[i].type == 2) {
@@ -88,7 +88,7 @@ function changePageSize(page){
     let startIndex = document.getElementById("select").value;
     var coinHash = GetQueryString("coinHash");
     var coinHashAddress = GetQueryString("coinHashAddress");
-    if(coinHashAddress.substring(0,2) == "WX"){
+    if(coinHashAddress.substring(0,2) == "WX" || coinHashAddress.substring(0,2) == "WR"){
         coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
     }
     var coinHash160 = GetQueryString("coinHash160");
@@ -145,7 +145,7 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                         setHtml(result.data, 'tpl2', 'block-content');
                         var list = new Array();
                         for (let i = 0; i < result.data.outs.length; i++) {
-                            if(fromAddress.substring(0,2) == "WX"){
+                            if(fromAddress.substring(0,2) == "WX"||fromAddress.substring(0,2) == "WR"){
                                 fromAddress = fromAddress.substring(2,fromAddress.length);
                             }
                             if (result.data.outs[i].type == 2) {
@@ -153,7 +153,7 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                                 result.data.outs[i].fromAddress = "WR" + fromAddress;
                             } else {
                                 result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress =  "WX" + fromAddress;
+                                result.data.outs[i].fromAddress = "WX" + fromAddress;
                             }
                             result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
                             result.data.outs[i].number = number+i;
@@ -177,7 +177,7 @@ $(function() {
         let startIndex = document.getElementById("select").value;
         var coinHash = GetQueryString("coinHash");
         var coinHashAddress = GetQueryString("coinHashAddress");
-        if(coinHashAddress.substring(0,2) == "WX"){
+        if(coinHashAddress.substring(0,2) == "WX" ||coinHashAddress.substring(0,2) == "WR"){
             coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
         }
         var coinHash160 = GetQueryString("coinHash160");
@@ -191,7 +191,7 @@ $(function() {
         let startIndex = document.getElementById("select").value;
         var coinHash = GetQueryString("coinHash");
         var coinHashAddress = GetQueryString("coinHashAddress");
-        if(coinHashAddress.substring(0,2) == "WX"){
+        if(coinHashAddress.substring(0,2) == "WX" ||coinHashAddress.substring(0,2) == "WR"){
             coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
         }
         var coinHash160 = GetQueryString("coinHash160");
@@ -211,7 +211,7 @@ $(function() {
         let startIndex = document.getElementById("select").value;
         var coinHash = GetQueryString("coinHash");
         var coinHashAddress = GetQueryString("coinHashAddress");
-        if(coinHashAddress.substring(0,2) == "WX"){
+        if(coinHashAddress.substring(0,2) == "WX" ||coinHashAddress.substring(0,2) == "WR"){
             coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
         }
         var coinHash160 = GetQueryString("coinHash160");
@@ -230,7 +230,7 @@ $(function() {
         let startIndex = document.getElementById("select").value;
         var coinHash = GetQueryString("coinHash");
         var coinHashAddress = GetQueryString("coinHashAddress");
-        if(coinHashAddress.substring(0,2) == "WX"){
+        if(coinHashAddress.substring(0,2) == "WX" ||coinHashAddress.substring(0,2) == "WR"){
             coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
         }
         var coinHash160 = GetQueryString("coinHash160");
