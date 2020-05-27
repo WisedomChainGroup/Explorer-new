@@ -169,7 +169,11 @@ function soso_address() {
         alert("Please enter the search content!");
         return;
     }
-    location.href = "contractList.html?coinaddress="+ sosoval;
+    if(sosoval.substring(0,2) == "WR"){
+        location.href = "contractList.html?coinaddress="+ sosoval;
+    }else{
+        return;
+    }
 }
 
 function getTime(UTCDateString) {

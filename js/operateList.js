@@ -65,10 +65,10 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                             }
                             if (result.data.outs[i].type == 2) {
                                 result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = fromAddress;
+                                result.data.outs[i].fromAddress = "WR" + fromAddress;
                             } else {
                                 result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = fromAddress;
+                                result.data.outs[i].fromAddress = "WX" + fromAddress;
                             }
                             result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
                             result.data.outs[i].number = number+i;
@@ -150,10 +150,10 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                             }
                             if (result.data.outs[i].type == 2) {
                                 result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = fromAddress;
+                                result.data.outs[i].fromAddress = "WR" + fromAddress;
                             } else {
                                 result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = fromAddress;
+                                result.data.outs[i].fromAddress =  "WX" + fromAddress;
                             }
                             result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
                             result.data.outs[i].number = number+i;
