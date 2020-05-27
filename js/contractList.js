@@ -1,5 +1,7 @@
 var address = GetQueryString("coinaddress");
-address = address.substring(2,address.length);
+if(address.substring(0,2) =="WR"){
+    address = address.substring(2,address.length);
+}
 
 var pageIndex = GetQueryString("pageIndex");
 
@@ -38,11 +40,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                 result.data[i].createdAt = getTime(result.data[i].createdAt);
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
                 result.data[i].drawRate = result.data[i].drawRate * 100;
-                if(result.data[i].type == 2){
-                    result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
-                }else{
-                    result.data[i].coinHashAddress = "WX"+ result.data[i].coinHashAddress;
-                }
+                result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 if(result.data[i].destAddress == "0000000000000000000000000000000000000000"){
                     result.data[i].destAddress = "任意地址";
                 }else{
@@ -97,7 +95,9 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
 function changePageSize(page){
     let startIndex = document.getElementById("select").value;
     var address = GetQueryString("coinaddress");
-    address = address.substring(2,address.length);
+    if(address.substring(0,2) =="WR"){
+        address = address.substring(2,address.length);
+    }
     if(page == undefined ||
         page == null ||
         page == "undefined" ||
@@ -123,11 +123,7 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                 result.data[i].createdAt = getTime(result.data[i].createdAt);
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
                 result.data[i].drawRate = result.data[i].drawRate * 100;
-                if(result.data[i].type == 2){
-                    result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
-                }else{
-                    result.data[i].coinHashAddress = "WX"+ result.data[i].coinHashAddress;
-                }
+                result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 if(result.data[i].destAddress == "0000000000000000000000000000000000000000"){
                     result.data[i].destAddress = "任意地址";
                 }else{

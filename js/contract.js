@@ -41,11 +41,7 @@ function getRuleLogList(pageIndex,pageSize) {
                     result.data[i].number = number+i;
                     result.data[i].createdAt = getTime(result.data[i].createdAt);
                     result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
-                    if (result.data[i].type == 2) {
-                        result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
-                    } else {
-                        result.data[i].coinHashAddress = "WX" + result.data[i].coinHashAddress;
-                    }
+                    result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
                 }
             }
             setHtml(result.data, 'tpl2', 'block-content');
@@ -97,11 +93,7 @@ function getRuleLogList1(pageIndex,pageSize) {
                         result.data[i].number = number+i;
                         result.data[i].createdAt = getTime(result.data[i].createdAt);
                         result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
-                        if (result.data[i].type == 2) {
-                            result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
-                        } else {
-                            result.data[i].coinHashAddress = "WX" + result.data[i].coinHashAddress;
-                        }
+                        result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
                     }
                     setHtml(result.data, 'tpl2', 'block-content');
                     //分页处理
