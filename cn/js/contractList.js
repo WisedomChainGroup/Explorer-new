@@ -37,7 +37,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
             for(let  i = 0;i<result.data.length;i++){
                 result.data[i].createdAt = getTime(result.data[i].createdAt);
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
-                result.data[i].drawRate = result.data[i].drawRate * 100 +"%";
+                result.data[i].drawRate = result.data[i].drawRate * 100;
                 if(result.data[i].type == 2){
                     result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 }else{
@@ -97,7 +97,9 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
 function changePageSize(page){
     let startIndex = document.getElementById("select").value;
     var address = GetQueryString("coinaddress");
-    address = address.substring(2,address.length);
+    if(address.substring(0,2) =="WX"){
+        address = address.substring(2,address.length);
+    }
     if(page == undefined ||
         page == null ||
         page == "undefined" ||
@@ -122,7 +124,7 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
             for(let  i = 0;i<result.data.length;i++){
                 result.data[i].createdAt = getTime(result.data[i].createdAt);
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
-                result.data[i].drawRate = result.data[i].drawRate * 100 +"%";
+                result.data[i].drawRate = result.data[i].drawRate * 100;
                 if(result.data[i].type == 2){
                     result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 }else{
@@ -163,16 +165,16 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                         let len = result.pageQuery.totalPage;
                         if (pageIndex > len && len != 0) {
                             alert("Please enter the correct number!");
-                            for (let i = 0; i < result.data.list.length; i++) {
-                                result.data.list[i].number = number + i;
-                                result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
-                            }
-                            setHtml(result.data.list, 'tpl3', 'block-transferList');
-                            //分页处理
-                            $('#totalCount').html(result.pageQuery.totalCount);
-                            $('#curr_page').html(result.pageQuery.pageIndex);
-                            $('#totalPage').html(result.pageQuery.totalPage);
                         }
+                        for (let i = 0; i < result.data.list.length; i++) {
+                            result.data.list[i].number = number+i;
+                            result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
+                        }
+                        setHtml(result.data.list, 'tpl3', 'block-transferList');
+                        //分页处理
+                        $('#totalCount').html(result.pageQuery.totalCount);
+                        $('#curr_page').html(result.pageQuery.pageIndex);
+                        $('#totalPage').html(result.pageQuery.totalPage);
                     }
                 });
 
