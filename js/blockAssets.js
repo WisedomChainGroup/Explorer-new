@@ -4,8 +4,8 @@
  * @param {Object} hash
  */
 function getParseContract(coinaddress,type,pageIndex) {
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -48,10 +48,10 @@ function getParseContract(coinaddress,type,pageIndex) {
 
 
 function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
-    var coinhash=coinhash||'';
-    var coinhash160=coinhash160||'';
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+	var coinhash=coinhash||'';
+	var coinhash160=coinhash160||'';
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	if (coinhash == "") {
 		//alert();
 		$("#block-content").html("未查到该信息");
@@ -196,11 +196,11 @@ if (GetQueryString_address != undefined &&
 	//getTransferLogList(GetQueryString_address,pageIndex);
 	getParseContract(GetQueryString_address,type,pageIndex);
 	if (type==1) {
-		$('.tabst').css('left','2.5rem');
+		$('.tabst').css('left','1.65rem');
 	}else if(type==2){
-		$('.tabst').css('left','8.8rem');
+		$('.tabst').css('left','6.65rem');
 	}else{
-		$('.tabst').css('left','15.6rem');
+		$('.tabst').css('left','12rem');
 	}
 
 	for(var i =1 ;i<4;i++){
@@ -211,7 +211,7 @@ if (GetQueryString_address != undefined &&
 
 }else{
 	//alert($("#sosowap").val());
-	$('.tabst').css('left','2.5rem');
+	$('.tabst').css('left','1.5rem');
 	for(var i =1 ;i<4;i++){
 		if(i!=1){
 			$('.tab'+i).css('display','none');
@@ -242,8 +242,8 @@ function changePageSize(page){
  * @param {Object} hash
  */
 function getParseContract1(coinaddress,type,pageIndex,startIndex) {
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
@@ -286,13 +286,13 @@ function getParseContract1(coinaddress,type,pageIndex,startIndex) {
 
 
 function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
-    var coinhash=coinhash||'';
-    var coinhash160=coinhash160||'';
-    var type=type||1;
-    var pageIndex=pageIndex||1;
+	var coinhash=coinhash||'';
+	var coinhash160=coinhash160||'';
+	var type=type||1;
+	var pageIndex=pageIndex||1;
 	if (coinhash == "") {
 		//alert();
-		$("#block-content").html("未查到该信息");
+		$("#block-content").html("The information was not found");
 		return;
 	}
 
@@ -431,15 +431,21 @@ $(function() {
 	//首页
 	$("#first_page").click(function() {
 		//getTransferLogList(10, 1);
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "assetsList.html?pageIndex=1&coinaddress="+coinaddress+"&type="+type+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "assetsList.html?pageIndex=1&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "assetsList.html?pageIndex=" + totalPage+"&coinaddress="+coinaddress+"&type="+type+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "assetsList.html?pageIndex=" + totalPage + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+		}
 		//getTransferLogList(10, totalPage);
 	});
 	//上一頁
@@ -452,7 +458,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "assetsList.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress+"&type="+type+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
@@ -465,7 +473,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "assetsList.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress+"&type="+type+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+		}
 	});
 })
 $(document).ready(function(){

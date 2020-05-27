@@ -6,7 +6,7 @@ function getBalance(coinaddress) {
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert();
-		$("#con-box-yu").html("No information was found");
+		$("#con-box-yu").html("The information was not found");
 		return;
 	}
 	$("#accountAddress").html(coinaddress);
@@ -28,7 +28,7 @@ function getTransferLogList(coinaddress, pageIndex) {
 	var pageIndex=pageIndex||1;
 	if (coinaddress == "") {
 		//alert();
-		$("#block-content").html("No information was found");
+		$("#block-content").html("The information was not found");
 		return;
 	}
 
@@ -47,10 +47,12 @@ function getTransferLogList(coinaddress, pageIndex) {
 			if (result.code == "2000"&&result.data.length>0) {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].tranhash;
-					var blockHash = result.data[i].tranhash.substring(0, 5) + "***" + result.data[i].tranhash.substring(result.data[i].tranhash.length - 5, result.data[i].tranhash.length);
+					var blockHash = result.data[i].tranhaxh.substring(0, 5) + "***" + result.data[i].tranhaxh.substring(result.data[
+						i].tranhash.length - 5, result.data[
+						i].tranhash.length);
 					result.data[i].tranhash = blockHash;
-                   var amount=result.data[i].amount/100000000;
-				   result.data[i].amount=amount;
+					var amount=result.data[i].amount/100000000;
+					result.data[i].amount=amount;
 				}
 				setHtml(result.data, 'tpl2', 'block-content');
 				//分页处理
@@ -58,7 +60,7 @@ function getTransferLogList(coinaddress, pageIndex) {
 				$('#curr_page').html(result.pageQuery.pageIndex);
 				$('#totalPage').html(result.pageQuery.totalPage);*/
 			}else{
-				$("#content-no").html("no Data...");
+				$("#content-no").html("暂无数据...");
 			}
 
 		});
@@ -85,7 +87,7 @@ if (GetQueryString_address != undefined &&
 	$("#sosoPool").val(GetQueryString_address);
 	//alert($("#soso").val());
 	$("#sosoPoolwap").val(GetQueryString_address);
-	
+
 	//alert($("#sosowap").val());
 	getBalance(GetQueryString_address);
 	getTransferLogList(GetQueryString_address);
@@ -94,18 +96,24 @@ if (GetQueryString_address != undefined &&
 $(function() {
 
 
-    var coinaddress=$("#soso").val();
+	var coinaddress=$("#soso").val();
 
 	//首页
 	$("#first_page").click(function() {
 		//getTransferLogList(10, 1);
-		location.href = "particulars.html?pageIndex=1&coinaddress="+coinaddress;
+		var curr_page = parseInt($('#curr_page').html());
+		if(curr_page > 1) {
+			location.href = "particulars.html?pageIndex=1&coinaddress=" + coinaddress;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
-		location.href = "particulars.html?pageIndex=" + totalPage+"&coinaddress="+coinaddress;
+		var curr_page = parseInt($('#curr_page').html());
+		if(curr_page < totalPage) {
+			location.href = "particulars.html?pageIndex=" + totalPage + "&coinaddress=" + coinaddress;
+		}
 		//getTransferLogList(10, totalPage);
 	});
 	//上一頁
@@ -117,18 +125,22 @@ $(function() {
 		}else{
 			pageIndex=curr_page;
 		}
-		location.href = "particulars.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress;
+		if(curr_page > 1) {
+			location.href = "particulars.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
 		var curr_page = parseInt($('#curr_page').html());
-		
+
 		var totalPage = parseInt($('#totalPage').html());
 		if (curr_page < totalPage) {
 			pageIndex = curr_page+ 1;
 		}else{
 			pageIndex=curr_page;
 		}
-		location.href = "particulars.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress;
+		if(curr_page < totalPage) {
+			location.href = "particulars.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress;
+		}
 	});
 })

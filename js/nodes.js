@@ -13,9 +13,9 @@ $(function() {
 function getList(select, pageIndex) {
 
 	$.post(HttpHead+"/userMortgage/queryPageUserMortgageList", {
-		pageSize: select,
-		pageIndex: pageIndex
-	},
+			pageSize: select,
+			pageIndex: pageIndex
+		},
 		function(result) {
 			let number;
 			if(pageIndex == null || pageIndex ==1){
@@ -64,30 +64,37 @@ function changePageSize(page){
 
 function getList1(coinaddress, pageIndex,pageSize) {
 	$.post(HttpHead+"/userMortgage/queryPageUserMortgageList",{
-		pageSize: pageSize,
-		pageIndex: pageIndex
-	},
+			pageSize: pageSize,
+			pageIndex: pageIndex
+		},
 		function(result) {
-			if(result.code == "5000"){
-				alert("Please enter the correct number!");
-			}else{
-				let number;
-				if (pageIndex == null || pageIndex == 1) {
-					number = 1;
+			if (result.code == "2000") {
+				let len = result.pageQuery.totalPage;
+				if (pageIndex > len) {
+					if (len == 0) {
+						return;
+					} else {
+						alert("Please enter the correct number!");
+					}
 				} else {
-					number = ((pageIndex - 1) * pageSize) + 1;
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * pageSize) + 1;
+					}
+					var sum = 0;
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].number = number + i;
+						sum += result.data[i].voteAmount;
+					}
+					var restr = fmoney(sum, 1).replace('.0', '');
+					$('#totalCount').html(restr);
+					setHtml(result.data, 'tpl3', 'block_data_node');
+					//分页处理
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-				var sum = 0;
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].number = number + i;
-					sum += result.data[i].voteAmount;
-				}
-				var restr = fmoney(sum, 1).replace('.0', '');
-				$('#totalCount').html(restr);
-				setHtml(result.data, 'tpl3', 'block_data_node');
-				//分页处理
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
 			}
 		});
 	function fmoney(s, n) {
@@ -108,15 +115,21 @@ $(function() {
 	//首页
 	$("#first_page").click(function() {
 		//getVoteLogList(10, 1);
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodes.html?pageIndex=1&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "nodes.html?pageIndex=1&select=" + startIndex;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodes.html?pageIndex=" + totalPage+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "nodes.html?pageIndex=" + totalPage + "&select=" + startIndex;
+		}
 		//getVoteLogList(10, totalPage);
 	});
 	//上一頁
@@ -130,7 +143,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodes.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "nodes.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
@@ -142,7 +157,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodes.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "nodes.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+		}
 	});
 })
 

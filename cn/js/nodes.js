@@ -68,26 +68,33 @@ function getList1(coinaddress, pageIndex,pageSize) {
 			pageIndex: pageIndex
 		},
 		function(result) {
-			if(result.code == "5000"){
-				alert("Please enter the correct number!");
-			}else{
-				let number;
-				if (pageIndex == null || pageIndex == 1) {
-					number = 1;
+			if (result.code == "2000") {
+				let len = result.pageQuery.totalPage;
+				if (pageIndex > len) {
+					if (len == 0) {
+						return;
+					} else {
+						alert("请输入正确的数字!");
+					}
 				} else {
-					number = ((pageIndex - 1) * pageSize) + 1;
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * pageSize) + 1;
+					}
+					var sum = 0;
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].number = number + i;
+						sum += result.data[i].voteAmount;
+					}
+					var restr = fmoney(sum, 1).replace('.0', '');
+					$('#totalCount').html(restr);
+					setHtml(result.data, 'tpl3', 'block_data_node');
+					//分页处理
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-				var sum = 0;
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].number = number + i;
-					sum += result.data[i].voteAmount;
-				}
-				var restr = fmoney(sum, 1).replace('.0', '');
-				$('#totalCount').html(restr);
-				setHtml(result.data, 'tpl3', 'block_data_node');
-				//分页处理
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
 			}
 		});
 	function fmoney(s, n) {
@@ -168,7 +175,7 @@ $(document).ready(function(){
 function soso_nodes() {
 	let sosoval = document.getElementById("soso_node").value;
 	if (sosoval == "") {
-		alert("Please enter the search content!");
+		alert("请输入搜索内容!");
 		return;
 	}
 	location.href = "nodesList.html?coinaddress="+ sosoval;
@@ -177,7 +184,7 @@ function soso_nodes() {
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){
-		alert("Please enter the correct number!");
+		alert("请输入正确的数字!");
 	}
 	changePageSize(page);
 }

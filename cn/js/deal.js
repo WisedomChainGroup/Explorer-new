@@ -197,7 +197,7 @@ function soso_tran() {
 	var sosoval;
 	sosoval = $("#soso_tran").val();
 	if (sosoval == "") {
-		alert("Please enter the search content!");
+		alert("请输入搜索内容!");
 		return;
 	}
 	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
@@ -217,7 +217,7 @@ function soso_tran() {
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){
-		alert("Please enter the correct number!");
+		alert("请输入正确的数字!");
 	}
 	changePageSize(page);
 }

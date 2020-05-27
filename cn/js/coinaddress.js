@@ -224,7 +224,7 @@ $(document).ready(function(){
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){
-		alert("Please enter the correct number!");
+		alert("请输入正确的数字!");
 	}
 	changePageSize(page);
 }
