@@ -172,6 +172,7 @@ function soso_address() {
     if(sosoval.substring(0,2) == "WR"){
         location.href = "contractList.html?coinaddress="+ sosoval;
     }else{
+        alert("Please enter the correct search content！");
         return;
     }
 

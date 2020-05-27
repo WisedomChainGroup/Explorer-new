@@ -166,12 +166,13 @@ function jumpSize(){
 function soso_address() {
     let sosoval = document.getElementById("soso_address").value;
     if (sosoval == "") {
-        alert("Please enter the search content!");
+        alert("请输入规则地址!");
         return;
     }
     if(sosoval.substring(0,2) == "WR"){
         location.href = "contractList.html?coinaddress="+ sosoval;
     }else{
+        alert("请输入正确的规则地址！");
         return;
     }
 }
