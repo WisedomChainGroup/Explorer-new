@@ -60,8 +60,8 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                         setHtml(result.data, 'tpl2', 'block-content');
                         var list = new Array();
                         for (let i = 0; i < result.data.outs.length; i++) {
-                            if(fromAddress.substring(0,2) == "WX" || fromAddress.substring(0,2) == "WR"){
-                                fromAddress = fromAddress.substring(2,fromAddress.length);
+                            if (fromAddress.substring(0, 2) == "WX" || fromAddress.substring(0, 2) == "WR") {
+                                fromAddress = fromAddress.substring(2, fromAddress.length);
                             }
                             if (result.data.outs[i].type == 2) {
                                 result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
@@ -71,7 +71,7 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                                 result.data.outs[i].fromAddress = "WX" + fromAddress;
                             }
                             result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
-                            result.data.outs[i].number = number+i;
+                            result.data.outs[i].number = number + i;
                             list.push(result.data.outs[i]);
                         }
                         setHtml(list, 'tpl3', 'block-details');
@@ -142,29 +142,34 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                         number = ((pageIndex-1)*pageSize)+1;
                     }
                     if (result.code == "2000") {
-                        setHtml(result.data, 'tpl2', 'block-content');
-                        var list = new Array();
-                        for (let i = 0; i < result.data.outs.length; i++) {
-                            if(fromAddress.substring(0,2) == "WX"||fromAddress.substring(0,2) == "WR"){
-                                fromAddress = fromAddress.substring(2,fromAddress.length);
+                        let len = result.pageQuery.totalPage +1;
+                        if (pageIndex > len) {
+                            alert("请输入正确的数字!");
+                        } else {
+                            setHtml(result.data, 'tpl2', 'block-content');
+                            var list = new Array();
+                            for (let i = 0; i < result.data.outs.length; i++) {
+                                if (fromAddress.substring(0, 2) == "WX" || fromAddress.substring(0, 2) == "WR") {
+                                    fromAddress = fromAddress.substring(2, fromAddress.length);
+                                }
+                                if (result.data.outs[i].type == 2) {
+                                    result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
+                                    result.data.outs[i].fromAddress = "WR" + fromAddress;
+                                } else {
+                                    result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
+                                    result.data.outs[i].fromAddress = "WX" + fromAddress;
+                                }
+                                result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
+                                result.data.outs[i].number = number + i;
+                                list.push(result.data.outs[i]);
+                                ;
                             }
-                            if (result.data.outs[i].type == 2) {
-                                result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = "WR" + fromAddress;
-                            } else {
-                                result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = "WX" + fromAddress;
-                            }
-                            result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
-                            result.data.outs[i].number = number+i;
-                            list.push(result.data.outs[i]);
-                            ;
+                            setHtml(list, 'tpl3', 'block-details');
+                            //分页处理
+                            $('#totalCount').html(result.pageQuery.totalCount);
+                            $('#curr_page').html(result.pageQuery.pageIndex);
+                            $('#totalPage').html(result.pageQuery.totalPage);
                         }
-                        setHtml(list, 'tpl3', 'block-details');
-                        //分页处理
-                        $('#totalCount').html(result.pageQuery.totalCount);
-                        $('#curr_page').html(result.pageQuery.pageIndex);
-                        $('#totalPage').html(result.pageQuery.totalPage);
                     }
                 });
         });

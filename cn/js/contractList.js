@@ -73,10 +73,6 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                         number = ((pageIndex-1)*pageSize)+1;
                     }
                     if (result.code == "2000") {
-                        let len = result.pageQuery.totalPage;
-                        if (pageIndex > len && len != 0) {
-                            alert("Please enter the correct number!");
-                        }
                         for (let i = 0; i < result.data.list.length; i++) {
                             result.data.list[i].number = number+i;
                             result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
@@ -156,19 +152,20 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                         number = ((pageIndex-1)*pageSize)+1;
                     }
                     if (result.code == "2000") {
-                        let len = result.pageQuery.totalPage;
-                        if (pageIndex > len && len != 0) {
-                            alert("Please enter the correct number!");
+                        let len = result.pageQuery.totalPage +1;
+                        if (pageIndex > len) {
+                            alert("请输入正确的数字!");
+                        } else {
+                            for (let i = 0; i < result.data.list.length; i++) {
+                                result.data.list[i].number = number + i;
+                                result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
+                            }
+                            setHtml(result.data.list, 'tpl3', 'block-transferList');
+                            //分页处理
+                            $('#totalCount').html(result.pageQuery.totalCount);
+                            $('#curr_page').html(result.pageQuery.pageIndex);
+                            $('#totalPage').html(result.pageQuery.totalPage);
                         }
-                        for (let i = 0; i < result.data.list.length; i++) {
-                            result.data.list[i].number = number+i;
-                            result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
-                        }
-                        setHtml(result.data.list, 'tpl3', 'block-transferList');
-                        //分页处理
-                        $('#totalCount').html(result.pageQuery.totalCount);
-                        $('#curr_page').html(result.pageQuery.pageIndex);
-                        $('#totalPage').html(result.pageQuery.totalPage);
                     }
                 });
 

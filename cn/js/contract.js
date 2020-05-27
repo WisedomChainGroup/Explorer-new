@@ -38,7 +38,7 @@ function getRuleLogList(pageIndex,pageSize) {
             }
             if (result.code == "2000") {
                 for (let i = 0; i < result.data.length; i++) {
-                    result.data[i].number = number+i;
+                    result.data[i].number = number + i;
                     result.data[i].createdAt = getTime(result.data[i].createdAt);
                     result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
                     result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
@@ -85,9 +85,9 @@ function getRuleLogList1(pageIndex,pageSize) {
                 number = ((pageIndex-1)*pageSize)+1;
             }
             if (result.code == "2000") {
-                let len = result.pageQuery.totalPage;
+                let len = result.pageQuery.totalPage +1;
                 if(pageIndex > len){
-                    alert("Please enter the correct number!");
+                    alert("请输入正确的数字!");
                 }else {
                     for (let i = 0; i < result.data.length; i++) {
                         result.data[i].number = number+i;

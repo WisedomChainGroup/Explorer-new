@@ -92,7 +92,7 @@ function getTransferLogList1(pageSize, pageIndex) {
 				number = ((pageIndex-1)*pageSize)+1;
 			}
 			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage;
+				let len = result.pageQuery.totalPage+1;
 				if(pageIndex > len){
 					alert("Please enter the correct number!");
 				}else {
