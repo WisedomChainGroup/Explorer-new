@@ -3,20 +3,16 @@
 	<style>
 		.fade.in {
 			opacity: 1;
-		}
-			
+		}	
 		.bottom>.arrow {
-			top: -13px;
+			top: -14px;
 			border-top-width: 0;
-			border-bottom-color: #DBECF9;
 			/* border-bottom-color: rgba(0, 0, 0, .25); */
 			border-bottom-color: #DBECF9;
 		}
-			
 		.arrow {
 			border-width: 11px;
 		}
-			
 		.arrow,
 		.arrow:after {
 			position: absolute;
@@ -26,29 +22,34 @@
 			border-color: transparent;
 			border-style: solid;
 		}
+		.popover-s{
+			margin-top: -13px;
+		}
 		.popover-title {
 			font-size: 14px;
 			background-color: #DBECF9;
-			border-bottom: 1px solid #ebebeb;
+			border-bottom: 1px solid #FFFFFF;
 			border-radius: 5px 5px 0 0;
 			height: 40px;
 			line-height: 40px;
-			margin-top: -13px;
-		}
-		.popover-divider{
-			border: 1px solid #000000;
 		}
 		.popover-content {
 			background-color: #DBECF9;
 			height: 40px;
 			line-height: 40px;
 			border-radius: 0 0 5px 5px;
-			margin-top: -13px;
-			
+			color: #1890FF;	
 		}
 		.dorp{
 			position: relative;
 			display: inline-block;
+		}
+		.wid-1202 ul li span{
+			color: #000000;
+			padding: 0 1.2rem;
+			padding-top: 0.6875rem!important;
+			display: block;
+			cursor: pointer;
 		}
 		.dorp_con{
 		  display: none;
@@ -69,15 +70,16 @@
 						<li> <a href="deal.html" id="deal_link">交易</a></li>
 						<li> <a href="rankList.html" id="rankList_link">账户</a></li>
 						<li> <a href="prove.html" id="prove_link">存证</a></li>
-						<!-- <li> <a href="assets.html" id="assets_link">资产</a></li> -->
 						<li class="dorp">
-						  <a href="assets.html"id="assets_link">资产</a>
+						  <!-- <a href="assets.html"id="assets_link">资产</a> -->
+						  <span id="assets_link">资产</span>
 						  <div class="dorp_con" id="login-box">
 							 <div class="popover fade bottom" role="tooltip" id="popover787031" style="left: 1em; display: block;width: 100px;">
 								<div class="arrow" style="left: 30%;"></div>
-								<div class="popover-title"><a href="assets.html" id="assets_link2">资产详情</a></div>
-								
-								<div class="popover-content"><a href="contract.html" id="contract_link2">合约详情</a></div>
+								<div id=""class="popover-s">
+									<div class="popover-title"><a href="assets.html" id="assets_link2">资产详情</a></div>
+									<div class="popover-content"><a href="contract.html" id="contract_link2"style="margin-top: 0px;">合约详情</a></div>
+								</div>
 							 </div>
 						
 						  </div>
@@ -125,7 +127,10 @@
 						<li>
 							<div id="" style="width: 100%;">
 								<div id=""class="h-dis-f h-jus-sp h-dividing">
-									<div id="" class="h-dis-f h-ali-ce h-jus-ce"><a href="assets.html"style="padding: 0 0;">资产</a></div>
+									<div id="" class="h-dis-f h-ali-ce h-jus-ce">
+										<!-- <a href="assets.html"style="padding: 0 0;">资产</a> -->
+										<span id="h-assets">资产</span>
+									</div>
 									<div class="h-dis-f h-ali-ce h-jus-ce" id="h-arrow">
 										<i class="fa fa-chevron-down" id="h-arrow-down"></i>
 										<i class="fa fa-chevron-right" id="h-arrow-right" style="display: none;"></i>
@@ -175,7 +180,7 @@
 					$('#pool_link').addClass("nav-text")
 				}else if(u.indexOf('assets')>-1){
 					$('#assets_link').addClass("nav-text")
-					$('#assets_link2').css('color','#1890ff');	
+					$('#assets_link2').css('color','#03b8f7');
 				}else if(u.indexOf('prove')>-1){
 					$('#prove_link').addClass("nav-text")
 				}else if(u.indexOf('home')>-1){
@@ -188,9 +193,10 @@
 					$('#deal_link').addClass("nav-text")
 				}else if(u.indexOf('contract')>-1){
 					$('#assets_link').addClass("nav-text")
-					$('#contract_link2').css('color','#1890ff');
+					$('#contract_link2').css('color','#03b8f7');
 				}else if(u.indexOf('operate')>-1){
 					$('#assets_link').addClass("nav-text")
+					$('#contract_link2').css('color','#03b8f7');
 					// document.getElementById("login-box").style.display="none";
 				}
 			})

@@ -11,7 +11,6 @@
 		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
         <script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-		
 		<style type="text/css">
 			/* 导航栏 */
 			.fade.in {
@@ -24,11 +23,9 @@
 				border-bottom-color: #DBECF9;
 				left: 10px;
 			}
-				
 			.arrow {
 				border-width: 11px;
 			}
-				
 			.arrow,
 			.arrow:after {
 				position: absolute;
@@ -61,7 +58,6 @@
 				line-height: 40px;
 				border-radius: 0 0 5px 5px;
 				margin-left: -20px;
-				
 			}
 			.dorp{
 				position: relative;
@@ -95,17 +91,17 @@
 										<li class="ant-menu-item" role="menuitem"><a href="deal.html"><span>Transaction</span></a></li>
 										<li class="ant-menu-item" role="menuitem"><a href="rankList.html"><span>Account</span></a></li>
 										<li class="ant-menu-item" role="menuitem"><a href="prove.html"><span>Certificate</span></a></li>
-										<!-- <li class="ant-menu-item" role="menuitem"><a href="assets.html"><span>Assets</span></a></li> -->
 										<li class="ant-menu-item dorp" role="menuitem">
-										  <a href="assets.html"id="assets_link">Assets</a>
+										  <!-- <a href="assets.html"id="assets_link">Assets</a> -->
+										  <span>Assets</span>
 										  <div class="dorp_con" id="login-box">
 											 <div class="popover fade bottom" role="tooltip" id="popover787031" style="display: block;width: 120px;">
 												<div class="arrow"></div>
 												<div class="popover-title h-dis-f h-jus-ce h-ali-ce">
-													<a href="assets.html" id="assets_link2">Assets Details</a>
+													<a href="assets.html" id="assets_link2"style="color: #000000!important;">Assets Details</a>
 												</div>
 												<div class="popover-content h-dis-f h-jus-ce h-ali-ce">
-													<a href="contract.html" id="contract_link2">Contract Details</a>
+													<a href="contract.html" id="contract_link2"style="color: #000000!important;">Contract Details</a>
 												</div>
 											 </div>
 										  </div>
@@ -187,7 +183,10 @@
 						<li>
 							<div id="" style="width: 100%;">
 								<div id=""class="h-dis-f h-jus-sp h-dividing">
-									<div id="" class="h-dis-f h-ali-ce h-jus-ce"><a href="assets.html" style="padding: 0 0;">Assets</a></div>
+									<div id="" class="h-dis-f h-ali-ce h-jus-ce">
+										<!-- <a href="assets.html" style="padding: 0 0;">Assets</a> -->
+										<span id="h-assets">Assets</span>
+									</div>
 									<div class="h-dis-f h-ali-ce h-jus-ce" id="h-arrow">
 										<i class="fa fa-chevron-down" id="h-arrow-down"></i>
 										<i class="fa fa-chevron-right" id="h-arrow-right" style="display: none;"></i>

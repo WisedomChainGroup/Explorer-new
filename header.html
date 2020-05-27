@@ -24,22 +24,30 @@
 			border-color: transparent;
 			border-style: solid;
 		}
+		.popover-s{
+			margin-top: -13px;
+		}
+		
 		.popover-title {
 			font-size: 14px;
 			background-color: #DBECF9;
-			border-bottom: 1px solid #ebebeb;
+			border-bottom: 1px solid #FFFFFF;
 			border-radius: 5px 5px 0 0;
 			height: 40px;
 			line-height: 40px;
-			margin-top: -13px;
-			
 		}
 		.popover-content {
 			background-color: #DBECF9;
 			height: 40px;
 			line-height: 40px;
 			border-radius: 0 0 5px 5px;
-			margin-top: -13px;
+		}
+		.wid-1202 ul li span{
+			color: #000000;
+			padding: 0 1.2rem;
+			padding-top: 0.6875rem!important;
+			display: block;
+			cursor: pointer;
 		}
 		.dorp{
 			position: relative;
@@ -65,15 +73,17 @@
 						<li> <a href="deal.html" id="deal_link">Transaction</a></li>
 						<li> <a href="rankList.html" id="rankList_link">Account</a></li>
 						<li> <a href="prove.html" id="prove_link">Certificate</a></li>
-						<!-- <li> <a href="assets.html" id="assets_link">Assets</a></li> -->
 						<li class="dorp">
-						  <a href="assets.html" id="assets_link">Assets</a>
+						  <!-- <a href="assets.html" id="assets_link">Assets</a> -->
+						  <span id="assets_link">Assets</span>
 						  <div class="dorp_con" id="login-box">
 						
 							 <div class="popover fade bottom" role="tooltip" id="popover787031" style="left: 0em; display: block;width: 150px;">
 								<div class="arrow" style="left: 30%;"></div>
-								<div class="popover-title"><a href="assets.html" id="assets_link2">Assets Details</a></div>
-								<div class="popover-content"><a href="contract.html" id="contract_link2">Contract Details</a></div>
+								<div id="" class="popover-s">
+									<div class="popover-title"><a href="assets.html" id="assets_link2">Assets Details</a></div>
+									<div class="popover-content"><a href="contract.html" id="contract_link2" style="margin-top: 0px;">Contract Details</a></div>
+								</div>
 							 </div>
 						
 						  </div>
@@ -122,7 +132,10 @@
 					<li>
 						<div id="" style="width: 100%;">
 							<div id=""class="h-dis-f h-jus-sp h-dividing">
-								<div id="" class="h-dis-f h-ali-ce h-jus-ce"><a href="assets.html" style="padding: 0 0;">Assets</a></div>
+								<div id="" class="h-dis-f h-ali-ce h-jus-ce">
+									<!-- <a href="assets.html" style="padding: 0 0;">Assets</a> -->
+									<span id="h-assets">Assets</span>
+								</div>
 								<div class="h-dis-f h-ali-ce h-jus-ce" id="h-arrow">
 									<i class="fa fa-chevron-down" id="h-arrow-down"></i>
 									<i class="fa fa-chevron-right" id="h-arrow-right" style="display: none;"></i>
@@ -171,7 +184,7 @@
 			$('#pool_link').addClass("nav-text")
 		}else if(u.indexOf('assets')>-1){
 			$('#assets_link').addClass("nav-text")
-			$('#assets_link2').css('color','#1890ff');
+			$('#assets_link2').css('color','#03b8f7');
 		}else if(u.indexOf('prove')>-1){
 			$('#prove_link').addClass("nav-text")
 		}else if(u.indexOf('home')>-1){
@@ -184,10 +197,10 @@
 			$('#deal_link').addClass("nav-text")
 		}else if(u.indexOf('contract')>-1){
 			$('#assets_link').addClass("nav-text")
-			$('#contract_link2').css('color','#1890ff');
+			$('#contract_link2').css('color','#03b8f7');
 		}else if(u.indexOf('operate')>-1){
 			$('#assets_link').addClass("nav-text")
-			$('#contract_link2').css('color','#1890ff');
+			$('#contract_link2').css('color','#03b8f7');
 			// document.getElementById("login-box").style.display="none";
 		}
 	})

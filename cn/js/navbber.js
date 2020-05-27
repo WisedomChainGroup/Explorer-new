@@ -1,5 +1,5 @@
 $(document).ready(function(e) {
-	$("#h-arrow").click(function(e) {
+	$("#h-arrow,#h-assets").click(function(e) {
 		if( $("#h-btnshow").hasClass("h-mobileMenuLanguage___3lWvP") ){
 	// 执行隐藏
 			$("#h-btnshow").hide().removeClass("h-mobileMenuLanguage___3lWvP");
