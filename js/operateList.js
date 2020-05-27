@@ -8,7 +8,7 @@ var coinHash160 = GetQueryString("coinHash160");
 var pageIndex = GetQueryString("pageIndex");
 var startIndex2 = GetQueryString("select");
 if(startIndex2 == null){
-    startIndex2 = 1;
+    startIndex2 = 10;
 }
 if (pageIndex == undefined ||
     pageIndex == null ||
@@ -242,7 +242,7 @@ $(function() {
 $(document).ready(function(){
     var test = GetQueryString("select");
     if (test == null){
-        $("#select").val("1");
+        $("#select").val("10");
     }else {
         $("#select").val(test);
     }
@@ -275,7 +275,7 @@ function getTime(UTCDateString) {
     return dateStr;
 }
 
-function test() {
+function returnBack() {
     var coinHashAddress = GetQueryString("coinHashAddress");
     location.href = "contractList.html?coinaddress=" + coinHashAddress;
 }
