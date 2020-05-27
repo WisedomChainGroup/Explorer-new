@@ -111,7 +111,6 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
         },
 
         function(result) {
-            let fromAddress;
             for(let  i = 0;i<result.data.length;i++){
                 result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
                 if(result.data[i].type == 2){
@@ -124,7 +123,6 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                 $('#ruleName').html(result.data[i].ruleName);
                 $('#coinHashAddress').html(result.data[i].coinHashAddress);
                 $('#fromAddress').html(result.data[i].fromAddress);
-                fromAddress = result.data[i].fromAddress;
             }
             //数据请求部分
             $.get(HttpHead + "/conditionalPaymentRuleTransferInOut/getTransferOutList/", {
