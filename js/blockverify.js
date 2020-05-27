@@ -26,7 +26,7 @@ function userTransferLog(hash) {
 	//var hash = "undefined" ? "" : hash;
 	if ( hash== "") {
 		//alert();
-		$("#content").html("未查到该信息");
+		$("#content").html("The information was not found");
 		return;
 	} 
 	//GET /userTransferLog/getTransaction

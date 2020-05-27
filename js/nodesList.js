@@ -6,7 +6,7 @@ function getBalance(coinaddress) {
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert("aaa");
-		$("#con-box-yu").html("未查到该信息");
+		$("#con-box-yu").html("The information was not found");
 		return;
 	}
 
@@ -63,7 +63,7 @@ if (GetQueryString_address != undefined &&
 function getVoteLogList(coinaddress, pageIndex,startIndex2) {
 	if (coinaddress == "") {
 		//alert();
-		$("#block-content").html("未查到该信息");
+		$("#block-content").html("The information was not found");
 		return;
 	}
 
@@ -96,7 +96,7 @@ function getVoteLogList(coinaddress, pageIndex,startIndex2) {
 				$('#totalPage').html(result.pageQuery.totalPage);
 
 			}else{
-				$("#content-no").html("暂无数据...");
+				$("#content-no").html("No data...");
 			}
 
 		});
@@ -160,15 +160,21 @@ $(function() {
 	//首页
 	$("#first_page").click(function() {
 		//getVoteLogList(10, 1);
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodesList.html?pageIndex=1&coinaddress="+coinaddress+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "nodesList.html?pageIndex=1&coinaddress=" + coinaddress + "&select=" + startIndex;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodesList.html?pageIndex=" + totalPage+"&coinaddress="+coinaddress+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "nodesList.html?pageIndex=" + totalPage + "&coinaddress=" + coinaddress + "&select=" + startIndex;
+		}
 		//getVoteLogList(10, totalPage);
 	});
 	//上一頁
@@ -182,7 +188,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodesList.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "nodesList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&select=" + startIndex;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
@@ -194,7 +202,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "nodesList.html?pageIndex=" + pageIndex+"&coinaddress="+coinaddress+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "nodesList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&select=" + startIndex;
+		}
 	});
 })
 

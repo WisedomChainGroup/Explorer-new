@@ -142,7 +142,7 @@ $(document).ready(function(){
 function soso_block() {
 	let sosoval = document.getElementById("soso_block").value;
 	if (sosoval == "") {
-		alert("Please enter the search content!");
+		alert("请输入搜索内容!");
 		return;
 	}
 	location.href = "blockList.html?height="+ sosoval;
@@ -151,7 +151,7 @@ function soso_block() {
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){
-		alert("Please enter the correct number!");
+		alert("请输入正确的数字!");
 	}
 	changePageSize(page);
 }

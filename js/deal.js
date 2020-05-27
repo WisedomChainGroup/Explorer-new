@@ -2,8 +2,8 @@
 //var totalPage = 0;
 
 function getTransferLogList(pageSize, pageIndex) {
-    var pageSize=pageSize||10;
-    var pageIndex=pageIndex||1;
+	var pageSize=pageSize||10;
+	var pageIndex=pageIndex||1;
 	if (pageIndex == "") {
 		pageIndex = 1;
 	}
@@ -63,11 +63,11 @@ if (pageIndex != undefined &&
 	if (pageIndex < 1) {
 		pageIndex = 1;
 	}
-   
+
 	getTransferLogList(startIndex2, pageIndex);
 
 } else {
-	
+
 	getTransferLogList(startIndex2, 1);
 }
 
@@ -137,15 +137,21 @@ $(function() {
 	//首页
 	$("#first_page").click(function() {
 		//getTransferLogList(10, 1);
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "deal.html?pageIndex=1&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "deal.html?pageIndex=1&select=" + startIndex;
+		}
 	});
 
 	//最后一页
 	$('#last_page').click(function() {
 		var totalPage = $('#totalPage').html();
+		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
-		location.href = "deal.html?pageIndex=" + totalPage+"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "deal.html?pageIndex=" + totalPage + "&select=" + startIndex;
+		}
 		//getTransferLogList(10, totalPage);
 	});
 	//上一頁
@@ -158,7 +164,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "deal.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+		if(curr_page > 1) {
+			location.href = "deal.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+		}
 	});
 	//下一頁
 	$("#next_page").click(function() {
@@ -170,7 +178,9 @@ $(function() {
 			pageIndex=curr_page;
 		}
 		let startIndex = document.getElementById("select").value;
-		location.href = "deal.html?pageIndex=" + pageIndex +"&select=" + startIndex;
+		if(curr_page < totalPage) {
+			location.href = "deal.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+		}
 	});
 })
 
@@ -195,11 +205,11 @@ function soso_tran() {
 		},
 
 		function(result) {
-				if (result.data == "0") {
-					location.href = "particulars.html?coinaddress=" + sosoval;
-				} else {
-					location.href = "account.html?hash=" + sosoval;
-				}
+			if (result.data == "0") {
+				location.href = "particulars.html?coinaddress=" + sosoval;
+			} else {
+				location.href = "account.html?hash=" + sosoval;
+			}
 
 		});
 }
