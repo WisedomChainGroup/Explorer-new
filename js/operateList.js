@@ -74,12 +74,12 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                             result.data.outs[i].number = number + i;
                             list.push(result.data.outs[i]);
                         }
-                        setHtml(list, 'tpl3', 'block-details');
-                        //分页处理
-                        $('#totalCount').html(result.pageQuery.totalCount);
-                        $('#curr_page').html(result.pageQuery.pageIndex);
-                        $('#totalPage').html(result.pageQuery.totalPage);
                     }
+                    setHtml(list, 'tpl3', 'block-details');
+                    //分页处理
+                    $('#totalCount').html(result.pageQuery.totalCount);
+                    $('#curr_page').html(result.pageQuery.pageIndex);
+                    $('#totalPage').html(result.pageQuery.totalPage);
                 });
         });
 }
@@ -142,12 +142,12 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                         number = ((pageIndex-1)*pageSize)+1;
                     }
                     if (result.code == "2000") {
-                        let len = result.pageQuery.totalPage ;
+                        let len = result.pageQuery.totalPage;
                         if (pageIndex > len) {
                             if(len == 0){
                                 return;
                             }else {
-                                alert("请输入正确的数字!");
+                                alert("Please enter the correct number!");
                             }
                         } else {
                             setHtml(result.data, 'tpl2', 'block-content');
@@ -166,6 +166,7 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                                 result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
                                 result.data.outs[i].number = number + i;
                                 list.push(result.data.outs[i]);
+                                ;
                             }
                             setHtml(list, 'tpl3', 'block-details');
                             //分页处理
@@ -182,7 +183,6 @@ $(function() {
     //首页
     $("#first_page").click(function() {
         //getTransferLogList(10, 1);
-        var curr_page = parseInt($('#curr_page').html());
         let startIndex = document.getElementById("select").value;
         var coinHash = GetQueryString("coinHash");
         var coinHashAddress = GetQueryString("coinHashAddress");
@@ -191,14 +191,11 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page > 1) {
-            location.href = "operateList.html?pageIndex=1&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
-        }
+        location.href = "operateList.html?pageIndex=1&select=" + startIndex+"&coinHashAddress=" + coinHashAddress+"&coinHash=" + coinHash+"&coinHash160=" + coinHash160+"&fromAddress=" + fromAddress;
     });
 
     //最后一页
     $('#last_page').click(function() {
-        var curr_page = parseInt($('#curr_page').html());
         var totalPage = $('#totalPage').html();
         let startIndex = document.getElementById("select").value;
         var coinHash = GetQueryString("coinHash");
@@ -208,9 +205,8 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page < totalPage) {
-            location.href = "operateList.html?pageIndex=" + totalPage + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
-        }//getTransferLogList(10, totalPage);
+        location.href = "operateList.html?pageIndex=" + totalPage+"&select=" + startIndex+"&coinHashAddress=" + coinHashAddress+"&coinHash=" + coinHash+"&coinHash160=" + coinHash160+"&fromAddress=" + fromAddress;
+        //getTransferLogList(10, totalPage);
     });
     //上一頁
     $("#pre_page").click(function() {
@@ -229,9 +225,7 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page > 1) {
-            location.href = "operateList.html?pageIndex=" + pageIndex + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
-        }
+        location.href = "operateList.html?pageIndex=" + pageIndex+"&select=" + startIndex+"&coinHashAddress=" + coinHashAddress+"&coinHash=" + coinHash+"&coinHash160=" + coinHash160+"&fromAddress=" + fromAddress;
     });
     //下一頁
     $("#next_page").click(function() {
@@ -250,9 +244,7 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page < totalPage) {
-            location.href = "operateList.html?pageIndex=" + pageIndex + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
-        }
+        location.href = "operateList.html?pageIndex=" + pageIndex+"&select=" + startIndex+"&coinHashAddress=" + coinHashAddress+"&coinHash=" + coinHash+"&coinHash160=" + coinHash160+"&fromAddress=" + fromAddress;
     });
 })
 
@@ -268,7 +260,7 @@ $(document).ready(function(){
 function jumpSize(){
     let page = document.getElementById("page").value;
     if(isNaN(page)){
-        alert("请输入正确的数字!");
+        alert("Please enter the correct number!");
     }
     changePageSize(page);
 }

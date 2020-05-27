@@ -86,15 +86,15 @@ function getRuleLogList1(pageIndex,pageSize) {
             }
             if (result.code == "2000") {
                 let len = result.pageQuery.totalPage;
-                if(pageIndex > len){
+                if (pageIndex > len) {
                     if(len == 0){
                         return;
                     }else {
-                        alert("请输入正确的数字!");
+                        alert("Please enter the correct number!");
                     }
-                }else {
+                } else {
                     for (let i = 0; i < result.data.length; i++) {
-                        result.data[i].number = number+i;
+                        result.data[i].number = number + i;
                         result.data[i].createdAt = getTime(result.data[i].createdAt);
                         result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
                         result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
@@ -113,21 +113,15 @@ $(function() {
     //首页
     $("#first_page").click(function() {
         //getTransferLogList(10, 1);
-        var curr_page = parseInt($('#curr_page').html());
         let startIndex = document.getElementById("select").value;
-        if(curr_page > 1) {
-            location.href = "contract.html?pageIndex=1&select=" + startIndex;
-        }
+        location.href = "contract.html?pageIndex=1&select=" + startIndex;
     });
 
     //最后一页
     $('#last_page').click(function() {
-        var curr_page = parseInt($('#curr_page').html());
         var totalPage = $('#totalPage').html();
-        if(curr_page < totalPage) {
-            let startIndex = document.getElementById("select").value;
-            location.href = "contract.html?pageIndex=" + totalPage + "&select=" + startIndex;
-        }
+        let startIndex = document.getElementById("select").value;
+        location.href = "contract.html?pageIndex=" + totalPage+"&select=" + startIndex;
         //getTransferLogList(10, totalPage);
     });
     //上一頁
@@ -139,10 +133,8 @@ $(function() {
         }else{
             pageIndex=curr_page;
         }
-        if(curr_page > 1){
-            let startIndex = document.getElementById("select").value;
-            location.href = "contract.html?pageIndex=" + pageIndex+"&select=" + startIndex;
-        }
+        let startIndex = document.getElementById("select").value;
+        location.href = "contract.html?pageIndex=" + pageIndex+"&select=" + startIndex;
     });
     //下一頁
     $("#next_page").click(function() {
@@ -153,10 +145,8 @@ $(function() {
         }else{
             pageIndex=curr_page;
         }
-        if(curr_page < totalPage){
-            let startIndex = document.getElementById("select").value;
-            location.href = "contract.html?pageIndex=" + pageIndex+"&select=" + startIndex;
-        }
+        let startIndex = document.getElementById("select").value;
+        location.href = "contract.html?pageIndex=" + pageIndex+"&select=" + startIndex;
     });
 })
 
@@ -172,7 +162,7 @@ $(document).ready(function(){
 function jumpSize(){
     let page = document.getElementById("page").value;
     if(isNaN(page)){
-        alert("请输入正确的数字!");
+        alert("Please enter the correct number!");
     }
     changePageSize(page);
 }
@@ -180,15 +170,16 @@ function jumpSize(){
 function soso_address() {
     let sosoval = document.getElementById("soso_address").value;
     if (sosoval == "") {
-        alert("请输入规则地址!");
+        alert("Please enter the search content!");
         return;
     }
     if(sosoval.substring(0,2) == "WR"){
         location.href = "contractList.html?coinaddress="+ sosoval;
     }else{
-        alert("请输入正确的规则地址！");
+        alert("Please enter the correct search content！");
         return;
     }
+
 }
 
 function getTime(UTCDateString) {

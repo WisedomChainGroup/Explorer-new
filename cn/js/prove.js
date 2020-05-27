@@ -95,7 +95,11 @@ function getTransferLogList1(pageSize, pageIndex) {
             if (result.code == "2000") {
                 let len = result.pageQuery.totalPage;
                 if(pageIndex > len){
-                    alert("Please enter the correct number!");
+                    if(len == 0){
+                        return;
+                    }else {
+                        alert("请输入正确的数字!");
+                    }
                 }else {
                     for (let i = 0; i < result.data.length; i++) {
                         let address = result.data[i].coinAddress.substring(0, 2);
@@ -119,15 +123,21 @@ $(function() {
     //首页
     $("#first_page").click(function() {
         //getTransferLogList(10, 1);
+        var curr_page = parseInt($('#curr_page').html());
         let startIndex = document.getElementById("select").value;
-        location.href = "prove.html?pageIndex=1&select=" + startIndex;
+        if(curr_page > 1) {
+            location.href = "prove.html?pageIndex=1&select=" + startIndex;
+        }
     });
 
     //最后一页
     $('#last_page').click(function() {
         var totalPage = $('#totalPage').html();
+        var curr_page = parseInt($('#curr_page').html());
         let startIndex = document.getElementById("select").value;
-        location.href = "prove.html?pageIndex=" + totalPage+"&select=" + startIndex;
+        if(curr_page < totalPage) {
+            location.href = "prove.html?pageIndex=" + totalPage + "&select=" + startIndex;
+        }
         //getTransferLogList(10, totalPage);
     });
     //上一頁
@@ -140,7 +150,9 @@ $(function() {
             pageIndex=curr_page;
         }
         let startIndex = document.getElementById("select").value;
-        location.href = "prove.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+        if(curr_page > 1) {
+            location.href = "prove.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+        }
     });
     //下一頁
     $("#next_page").click(function() {
@@ -152,7 +164,9 @@ $(function() {
             pageIndex=curr_page;
         }
         let startIndex = document.getElementById("select").value;
-        location.href = "prove.html?pageIndex=" + pageIndex+"&select=" + startIndex;
+        if(curr_page < totalPage) {
+            location.href = "prove.html?pageIndex=" + pageIndex + "&select=" + startIndex;
+        }
     });
 })
 

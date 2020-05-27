@@ -105,7 +105,7 @@
 								<span>Assets</span>
 								<a href="assets.html"><span class="arrows">></span></a>
 								<span>Pay contract</span>
-								<a href="contractList.html"><span>Contract Details</span></a>
+								<span onclick="returnBack()"style="cursor: pointer;">Contract Details</span></a>
 								<span class="arrows">></span>
 								<span>Operation details</span>
 							<!-- 	<span class="in">
@@ -128,31 +128,19 @@
 								<ul>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">Contract name:</span>
-										<span>YGT（或暂无）</span>
+										<span id = "ruleName"></span>
 									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Residual assets:</span>
-										<span>50</span>
-									</li>
-								 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Total extraction times:</span>
-										<span>20</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Number of times extracted:</span>
-										<span>12</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Current number of extractions:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</objspan>
-									</li>
+									<div  id="block-content">
+
+									</div>
+
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">Deployer address:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</objspan>
+										<span id = "fromAddress"></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">Regular address:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</span>
+										<span id = "coinHashAddress"></span>
 									</li>
 									
 								</ul>
@@ -170,7 +158,7 @@
 						
 					<div class="subtitle" id="">
 						<span>Operation record</span>
-						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 120px;"></div>
+						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 120px;margin-left: 9px"></div>
 					</div>
 					<section class="box section-f" id="">
 						<table class="table-z" style="width: 100%;">
@@ -203,16 +191,9 @@
 									</th>
 								</tr>
 							</thead>
-								<tbody class="" id="">
+								<tbody class="" id="block-details">
 								
-								<tr class="showtr" data-row-key="1">
-									<td class="" ><span class="" style="padding-left: 0px;"></span>1</td>
-									<td>500000</td>
-									<td>2020-05-22 11:02:02</td>
-									<td>886</td>
-									<td>quit</td>
-								</tr>
-								</script>
+
 							</tbody>
 						</table>
 					</section>
@@ -253,8 +234,37 @@
 		</div>
 
 		<div id="page_footer"></div>
-	
+		<script type="text/json" id="tpl2">
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+			<span style="width: 30%;">Residual assets:</span>
+			<span><%=obj.asset%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+					<span style="width: 30%;">Total extraction times:</span>
+			<span><%=obj.allCount%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+					<span style="width: 30%;">Number of times extracted:</span>
+			<span><%=obj.usedCount%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+					<span style="width: 30%;">Current number of extractions:</span>
+			<span><%=obj.currentCount%></span>
+			</li>
+		</script>
+		<script type="text/json" id="tpl3">
+			<% for(var i = 0;i<obj.length;i++){%>
+			<tr class="showtr" data-row-key="1">
+				<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+				<td><%=obj[i].amount%></td>
+				<td><%=obj[i].toAddress%></td>
+				<td><%=obj[i].createdAt%></td>
+				<td><%if(obj[i].fromAddress==obj[i].toAddress){%>quit<%}else{%>extract<%}%></td>
+			</tr>
+			<%}%>
+		</script>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/operateList.js" type="text/javascript" charset="UTF-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
 		function MyClick(flag) {

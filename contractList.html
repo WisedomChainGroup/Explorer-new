@@ -126,34 +126,10 @@
 							<section class="section">
 								
 								<ul>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Contract name:</span>
-										<span>YGT（或暂无）</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Multiple of transferred assets:</span>
-										<span>500</span>
-									</li>
-								 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Withdrawal asset interval height:</span>
-										<span>2000090</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Asset withdrawal ratio:</span>
-										<span>10%</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Withdraw asset address:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Deployer address:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</span>
-									</li>
-									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Regular address:</span>
-										<span>WR1EdEfwD6TeB1RvLgKjKYeEs8gihu2QjQZG</span>
-									</li>
+									<div  id="block-content">
+
+									</div>
+
 									
 								</ul>
 							
@@ -205,15 +181,8 @@
 									</th>
 								</tr>
 							</thead>
-								<tbody class="" id="">
-								<tr class="showtr" data-row-key="1">
-									<td class="" ><span class="" style="padding-left: 0px;"></span>1</td>
-									<td>500000</td>
-									<td>2020-05-22 11:02:02</td>
-									<td>886</td>
-									<td>success</td>
-									<td><a href="operateList.html"><i class="fa fa-chevron-circle-right fa-2x" style="color: #999999;cursor: pointer;"></i></a></td>
-								</tr>
+								<tbody class="" id="block-transferList">
+
 							</tbody>
 						</table>
 					</section>
@@ -254,8 +223,52 @@
 		</div>
 
 		<div id="page_footer"></div>
-	
+		<script type="text/json" id="tpl2">
+			<% for(var i = 0;i<obj.length;i++){%>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Contract name:</span>
+				<span><%=obj[i].ruleName%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Multiple of transferred assets:</span>
+				<span><%=obj[i].rate%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Withdrawal asset interval height:</span>
+				<span><%=obj[i].heightPeriod%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Asset withdrawal ratio:</span>
+				<span><%=obj[i].drawRate%>%</span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Withdraw asset address:</span>
+				<span><%=obj[i].destAddress%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Deployer address:</span>
+				<span><%=obj[i].fromAddress%></span>
+			</li>
+			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+				<span style="width: 30%;">Regular address:</span>
+				<span><%=obj[i].coinHashAddress%></span>
+			</li>
+			<%}%>
+			</script>
+		<script type="text/json" id="tpl3">
+		<% for(var i = 0;i<obj.length;i++){%>
+		<tr class="showtr" data-row-key="1">
+			<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+			<td><%=obj[i].amount%></td>
+			<td><%=obj[i].createdAt%></td>
+			<td><%=obj[i].restOutCount%></td>
+			<td>success</td>
+			<td><a href="operateList.html?coinHash=<%=obj[i].coinHash%>&coinHashAddress=<%=obj[i].coinHashAddress%>&coinHash160=<%=obj[i].coinHash160%>&fromAddress=<%=obj[i].fromAddress%>"><i class="fa fa-chevron-circle-right fa-2x" style="color: #999999;cursor: pointer;"></i></a></td>
+		</tr>
+		<%}%>
+		</script>
 	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/contractList.js" type="text/javascript" charset="utf-8"></script>
 	<script>
 		$("#page_footer").load("footer.html");
 		function MyClick(flag) {

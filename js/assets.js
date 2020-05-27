@@ -94,7 +94,11 @@ function getTransferLogList1(pageSize, pageIndex) {
 			if (result.code == "2000") {
 				let len = result.pageQuery.totalPage;
 				if(pageIndex > len){
-					alert("Please enter the correct number!");
+					if(len == 0){
+						return;
+					}else {
+						alert("Please enter the correct number!");
+					}
 				}else {
 					for (let i = 0; i < result.data.length; i++) {
 						if (result.data[i].imgUrl == null) {

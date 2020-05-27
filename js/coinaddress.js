@@ -129,7 +129,11 @@ function getTransferLogList1(coinaddress, pageIndex,startIndex) {
 			if (result.code == "2000") {
 				let len = result.pageQuery.totalPage;
 				if (pageIndex > len) {
-					alert("Please enter the correct number!");
+					if(len == 0){
+						return;
+					}else {
+						alert("Please enter the correct number!");
+					}
 				} else {
 					let number;
 					if (pageIndex == null || pageIndex == 1) {
