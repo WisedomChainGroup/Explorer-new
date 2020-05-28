@@ -53,6 +53,9 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                 if(result.data[i].ruleName == null){
                     result.data[i].ruleName = "";
                 }
+                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
+                }
                 coinHash160 = result.data[i].coinHash160;
             }
             setHtml(result.data, 'tpl2', 'block-content');
@@ -131,6 +134,9 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                 }
                 if(result.data[i].ruleName == null){
                     result.data[i].ruleName = "";
+                }
+                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
                 }
                 coinHash160 = result.data[i].coinHash160;
             }

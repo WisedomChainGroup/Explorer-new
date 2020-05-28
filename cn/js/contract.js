@@ -42,6 +42,9 @@ function getRuleLogList(pageIndex,pageSize) {
                     result.data[i].createdAt = getTime(result.data[i].createdAt);
                     result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
                     result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
+                    if(result.data[i].ruleName == null){
+                        result.data[i].ruleName = "";
+                    }
                 }
             }
             setHtml(result.data, 'tpl2', 'block-content');
@@ -98,6 +101,9 @@ function getRuleLogList1(pageIndex,pageSize) {
                         result.data[i].createdAt = getTime(result.data[i].createdAt);
                         result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
                         result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
+                        if(result.data[i].ruleName == null){
+                            result.data[i].ruleName = "";
+                        }
                     }
                     setHtml(result.data, 'tpl2', 'block-content');
                     //分页处理
