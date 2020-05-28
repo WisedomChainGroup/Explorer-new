@@ -141,6 +141,7 @@ function getVoteLogList1(coinaddress, pageIndex,startIndex) {
 				} else {
 					alert("请输入正确的数字!");
 				}
+			}
 			if (result.code == "2000"&&result.data.length>0) {
 					for (var i = 0; i < result.data.length; i++) {
 						// result.data[i].hash = result.data[i].coinHash;
@@ -156,7 +157,6 @@ function getVoteLogList1(coinaddress, pageIndex,startIndex) {
 					$('#totalCount').html(result.pageQuery.totalCount);
 					$('#curr_page').html(result.pageQuery.pageIndex);
 					$('#totalPage').html(result.pageQuery.totalPage);
-				}
 			}else{
 				$("#content-no").html("暂无数据...");
 			}
@@ -234,7 +234,7 @@ $(document).ready(function(){
 function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)){
-		alert("请输入正确的数字!");
+		alert("Please enter the correct number!");
 	}
 	changePageSize(page);
 }
