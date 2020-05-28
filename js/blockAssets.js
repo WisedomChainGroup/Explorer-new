@@ -195,11 +195,11 @@ if (GetQueryString_address != undefined &&
 	//getTransferLogList(GetQueryString_address,pageIndex);
 	getParseContract(GetQueryString_address,type,pageIndex);
 	if (type==1) {
-		$('.tabst').css('left','1.65rem');
+		$('.tabst').css('left','2.5rem');
 	}else if(type==2){
-		$('.tabst').css('left','6.65rem');
+		$('.tabst').css('left','9.1rem');
 	}else{
-		$('.tabst').css('left','12rem');
+		$('.tabst').css('left','15.6rem');
 	}
 
 	for(var i =1 ;i<4;i++){
@@ -210,7 +210,7 @@ if (GetQueryString_address != undefined &&
 
 }else{
 	//alert($("#sosowap").val());
-	$('.tabst').css('left','1.5rem');
+	$('.tabst').css('left','2.5rem');
 	for(var i =1 ;i<4;i++){
 		if(i!=1){
 			$('.tab'+i).css('display','none');
