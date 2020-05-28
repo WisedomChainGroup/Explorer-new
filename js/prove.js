@@ -34,7 +34,6 @@ function getTransferLogList(pageSize, pageIndex) {
                 $('#totalCount').html(result.pageQuery.totalCount);
                 $('#curr_page').html(result.pageQuery.pageIndex);
                 $('#totalPage').html(result.pageQuery.totalPage);
-                console.log(result.data)
             }
 
         });

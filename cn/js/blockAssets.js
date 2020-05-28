@@ -124,7 +124,6 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 						result.data[i].coinHash = blockHash;
 						result.data[i].number = i+number;
 					}
-					console.log(result.data);
 					setHtml(result.data, 'tpl3', 'transactions_data_List');
 					//分页处理
 					$('#totalCount').html(result.pageQuery.totalCount);
