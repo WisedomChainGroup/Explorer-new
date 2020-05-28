@@ -173,7 +173,7 @@ $(document).ready(function(){
 });
 
 function soso_nodes() {
-	let sosoval = document.getElementById("soso_node").value;
+	let sosoval = document.getElementById("soso_nodes").value;
 	if (sosoval == "") {
 		alert("请输入搜索内容!");
 		return;
