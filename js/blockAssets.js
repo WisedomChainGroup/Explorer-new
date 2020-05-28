@@ -310,7 +310,11 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 				if (result.code == "2000") {
 					let len = result.pageQuery.totalPage;
 					if (pageIndex > len) {
-						alert("Please enter the correct number!");
+						if(len == 0){
+							return;
+						}else {
+							alert("Please enter the correct number!");
+						}
 					} else {
 						let number;
 						if (pageIndex == null || pageIndex == 1) {
@@ -345,7 +349,11 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 			function(result) {
 				let len = result.pageQuery.totalPage;
 				if(pageIndex > len){
-					alert("Please enter the correct number!");
+					if(len == 0){
+						return;
+					}else {
+						alert("Please enter the correct number!");
+					}
 				}else {
 					let number;
 					if (pageIndex == null || pageIndex == 1) {
