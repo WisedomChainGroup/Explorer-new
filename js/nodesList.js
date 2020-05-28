@@ -102,10 +102,18 @@ function getVoteLogList(coinaddress, pageIndex,startIndex2) {
 		});
 }
 
-function changePageSize(){
+function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
-	getVoteLogList1(GetQueryString_address,1,startIndex);
+	if(page == undefined ||
+		page == null ||
+		page == "undefined" ||
+		page == "null" ||
+		page == ""){
+		getVoteLogList1(GetQueryString_address,1,startIndex);
+	}else {
+		getVoteLogList1(GetQueryString_address,page,startIndex);
+	}
 }
 
 function getVoteLogList1(coinaddress, pageIndex,startIndex) {
@@ -126,23 +134,29 @@ function getVoteLogList1(coinaddress, pageIndex,startIndex) {
 		function(result) {
 
 			//alert(result.coinHash);
-
-			if (result.code == "2000"&&result.data.length>0) {
-				for (var i = 0; i < result.data.length; i++) {
-					// result.data[i].hash = result.data[i].coinHash;
-					// var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-					// 	i].coinHash.length - 5, result.data[
-					// 	i].coinHash.length);
-					// result.data[i].coinHash = blockHash;
-					var amount=result.data[i].amount;
-					result.data[i].amount=amount;
+			let len = result.pageQuery.totalPage;
+			if (pageIndex > len) {
+				if (len == 0) {
+					return;
+				} else {
+					alert("请输入正确的数字!");
 				}
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
-
+			if (result.code == "2000"&&result.data.length>0) {
+					for (var i = 0; i < result.data.length; i++) {
+						// result.data[i].hash = result.data[i].coinHash;
+						// var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
+						// 	i].coinHash.length - 5, result.data[
+						// 	i].coinHash.length);
+						// result.data[i].coinHash = blockHash;
+						var amount = result.data[i].amount;
+						result.data[i].amount = amount;
+					}
+					setHtml(result.data, 'tpl2', 'block-content');
+					//分页处理
+					$('#totalCount').html(result.pageQuery.totalCount);
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
+				}
 			}else{
 				$("#content-no").html("暂无数据...");
 			}
@@ -217,6 +231,13 @@ $(document).ready(function(){
 	}
 });
 
+function jumpSize(){
+	let page = document.getElementById("page").value;
+	if(isNaN(page)){
+		alert("请输入正确的数字!");
+	}
+	changePageSize(page);
+}
 
 
 
