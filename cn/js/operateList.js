@@ -36,6 +36,9 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                 }else{
                     result.data[i].destAddress = "WX"+ result.data[i].destAddress;
                 }
+                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
+                }
                 $('#ruleName').html(result.data[i].ruleName);
                 $('#coinHashAddress').html(result.data[i].coinHashAddress);
                 $('#fromAddress').html(result.data[i].fromAddress);
@@ -120,6 +123,9 @@ function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAdd
                     result.data[i].destAddress = "WR"+ result.data[i].destAddress;
                 }else{
                     result.data[i].destAddress = "WX"+ result.data[i].destAddress;
+                }
+                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
                 }
                 $('#ruleName').html(result.data[i].ruleName);
                 $('#coinHashAddress').html(result.data[i].coinHashAddress);

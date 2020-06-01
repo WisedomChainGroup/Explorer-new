@@ -23,6 +23,12 @@ function getParseContract(coinaddress,type,pageIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
+				if(result.data.code == "WGC"){
+					result.data.info = "十方盾，英文：Wisdom guardian coin，简称：WGC，WGC是基于公链WDC底层技术，实现实时的点对点交换和支付服务。WGC将适用于贝诺国际全球业务以及影视众筹等项目。";
+				}
+				if(result.data.code == "TGB"){
+					result.data.info = "TGB 基于公链WDC底层技术，实现实时的点对点交换和支付服务。TGB将适用于泰国境内旅游、酒店预订、餐饮、购买水果等一条龙服务。";
+				}
 				if (result.data.allowincrease==1) {
 					result.data.allowincrease = "Yes"
 				} else{
@@ -124,7 +130,6 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 						result.data[i].coinHash = blockHash;
 						result.data[i].number = i+number;
 					}
-					console.log(result.data);
 					setHtml(result.data, 'tpl3', 'transactions_data_List');
 					//分页处理
 					$('#totalCount').html(result.pageQuery.totalCount);
@@ -261,6 +266,12 @@ function getParseContract1(coinaddress,type,pageIndex,startIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
+				if(result.data.code == "WGC"){
+					result.data.info = "十方盾，英文：Wisdom guardian coin，简称：WGC，WGC是基于公链WDC底层技术，实现实时的点对点交换和支付服务。WGC将适用于贝诺国际全球业务以及影视众筹等项目。";
+				}
+				if(result.data.code == "TGB"){
+					result.data.info = "TGB 基于公链WDC底层技术，实现实时的点对点交换和支付服务。TGB将适用于泰国境内旅游、酒店预订、餐饮、购买水果等一条龙服务。";
+				}
 				if (result.data.allowincrease==1) {
 					result.data.allowincrease = "Yes"
 				} else{
@@ -310,7 +321,11 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 				if (result.code == "2000") {
 					let len = result.pageQuery.totalPage;
 					if (pageIndex > len) {
-						alert("Please enter the correct number!");
+						if(len == 0){
+							return;
+						}else {
+							alert("请输入正确的数字!");
+						}
 					} else {
 						let number;
 						if (pageIndex == null || pageIndex == 1) {
@@ -345,7 +360,11 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
 			function(result) {
 				let len = result.pageQuery.totalPage;
 				if(pageIndex > len){
-					alert("Please enter the correct number!");
+					if(len == 0){
+						return;
+					}else {
+						alert("请输入正确的数字!");
+					}
 				}else {
 					let number;
 					if (pageIndex == null || pageIndex == 1) {

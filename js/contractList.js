@@ -42,7 +42,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                 result.data[i].drawRate = result.data[i].drawRate * 100;
                 result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
                 if(result.data[i].destAddress == "0000000000000000000000000000000000000000"){
-                    result.data[i].destAddress = "anyone address";
+                    result.data[i].destAddress = "Any Address";
                 }else{
                     if(result.data[i].type == 2){
                         result.data[i].destAddress = "WR"+ result.data[i].destAddress;
@@ -52,6 +52,9 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                 }
                 if(result.data[i].ruleName == null){
                     result.data[i].ruleName = "";
+                }
+                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
                 }
                 coinHash160 = result.data[i].coinHash160;
             }
@@ -131,6 +134,9 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                 }
                 if(result.data[i].ruleName == null){
                     result.data[i].ruleName = "";
+                }
+                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
                 }
                 coinHash160 = result.data[i].coinHash160;
             }
