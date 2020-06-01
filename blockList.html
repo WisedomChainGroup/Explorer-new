@@ -23,6 +23,107 @@
 				.table-z{
 					white-space: nowrap;width: 100%;
 				}
+				.compontPagination___3HkDQ{
+					flex-direction:column;
+				}
+				.compontPagination___3HkDQ p{
+					/* margin-top: 12px; */
+					width: 230px;
+				}
+				.dis-top{
+					margin-top: 10px;
+				}
+			}
+			
+			.dis{
+				display: flex;
+			}
+			.ju-c{
+				justify-content: center;
+				align-items: center;
+			}
+			.page-input{
+				padding: 0 0.15rem;
+				font-size: 80%;
+				background-position: right .375rem center;
+				background-size: 7px 8px;
+				border-radius: 5px;
+				width: 50px;
+				height: 28px;
+				border: 1px solid #a8a8a8;
+			}
+			.page-button{
+				margin: 0 10px;
+				border-radius: 5px;
+				height: 28px;
+				border: 1px solid #a8a8a8;
+				color: #428BCA;
+				outline: none;
+				cursor: pointer;
+			}
+			.ma-r-2{
+				margin-right: 40px;
+			}
+			.compontPagination___3HkDQ p{
+				/* margin-top: 12px; */
+				width: 230px;
+			}
+			.mb-3, .my-3 {
+				margin-bottom: .75rem!important;
+			}
+			
+			.mt-3, .my-3 {
+				margin-top: 2.75rem!important;
+			}
+			.justify-content-between {
+				-ms-flex-pack: justify!important;
+				justify-content: space-between!important;
+			}
+			@media (min-width: 768px)
+			.d-md-flex {
+				display: -ms-flexbox!important;
+				display: flex!important;
+			}
+			.text-secondary {
+				color: #000000!important;
+			}
+			@media (min-width: 768px)
+			.mb-md-0, .my-md-0 {
+				margin-bottom: 0!important;
+			}
+			.mb-2, .my-2 {
+				margin-bottom: .5rem!important;
+				float: left;
+			}
+			.align-items-center {
+				-ms-flex-align: center!important;
+				align-items: center!important;
+			}
+			.d-flex {
+				display: -ms-flexbox!important;
+				display: flex!important;
+			}
+			.custom-select-xs.custom-select {
+				width: auto;
+			}
+			.custom-select-xs {
+				height: calc(1.75rem + 2px);
+				padding: .375rem;
+				padding-right: 0.15rem;
+				font-size: 80%;
+				background-position: right .375rem center;
+				background-size: 7px 8px;
+				border-radius:5px
+			}
+			.ml-2, .mx-2 {
+				margin-left: .5rem!important;
+			}
+			.mr-2, .mx-2 {
+				margin-right: .5rem!important;
+			}
+			.custom-control-label:before, .custom-file-label, .custom-select {
+				transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+				cursor: pointer;
 			}
 		</style>
 	</head>
@@ -53,7 +154,7 @@
 					</div>
 				</div>
 
-				<div class="blocks" style="margin-top: 2em;">
+				<div class="blocks" style="margin-top: 3em;">
 					<h3 class="h3"><span>Block Details</span></h3>
 
 					<div class="subtitle">
@@ -104,7 +205,8 @@
 						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;"></i>
 					</div>
 					<br />
-					<div id="btnshow">
+					<div class="ant-table-wrapper"id="btnshow">
+					 <div style="position: relative;">
 					<div class="subtitle" id="">
 						<span>Txn</span>
 						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
@@ -173,13 +275,38 @@
 						</table>
 					</section>
 					</div>
-<!-- 					<table style="width: 100%;visibility: hidden;" id="table_showdiv">
-						<tbody>
-							<tr>
-								<td  class="cursor" style="text-align: center;" colspan="6">点击展开</td>
-							</tr>
-						</tbody>
-					</table> -->
+					
+					<!-- <div class="d-md-flex justify-content-between my-3">
+						<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
+							Show
+							<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
+								<option selected="selected" value="10">10</option>
+								<option value="25">25</option>
+								<option value="50">50</option>
+								<option value="100">100</option>
+							</select>
+							Records 
+						</div>
+						<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
+							<div class="dis ju-c ma-r-2">
+								<i id="first_page"></i><i id="pre_page"></i>
+								<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+									<span>Total Pages</span>
+									<span class="pageNum___HAhvB" id="totalPage">1</span></p>
+								<i id="next_page"></i><i id="last_page"></i>
+							</div>
+							<div id="" class="dis page-annal dis-top">
+								<div id="" class="">
+										Jump
+									<input type="" name="" id="page" value="" class="page-input"/>
+										page
+								</div>
+								<button class="page-button" onclick="jumpSize()">Search</button>
+							</div>
+						</div>
+					</div> -->
+					</div>
+					
 				</div>
 			</div>
 		</div>
