@@ -23,8 +23,8 @@ function getTransferLogList(pageSize, pageIndex) {
 			}
 			if (result.code == "2000") {
 				for(let i = 0;i<result.data.length;i++){
+					result.data[i].number = number+i;
 					if(result.data[i].imgUrl == null ){
-						result.data[i].number = number+i;
 						result.data[i].imgUrl = "img/coin_Logo.png";
 					}
 				}
@@ -101,8 +101,8 @@ function getTransferLogList1(pageSize, pageIndex) {
 					}
 				}else {
 					for (let i = 0; i < result.data.length; i++) {
+						result.data[i].number = number + i;
 						if (result.data[i].imgUrl == null) {
-							result.data[i].number = number + i;
 							result.data[i].imgUrl = "img/coin_Logo.png";
 						}
 					}
