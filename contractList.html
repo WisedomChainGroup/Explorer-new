@@ -168,6 +168,9 @@
 										<div>NO.</div>
 									</th>
 									<th class="">
+										<div>Transfer Address</div>
+									</th>
+									<th class="">
 										<div>Transfer amount(<b class="codes"></b>)</div>
 									</th>
 									<th class="" >
@@ -262,6 +265,7 @@
 		<% for(var i = 0;i<obj.length;i++){%>
 		<tr class="showtr" data-row-key="1">
 			<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+			<td><%=obj[i].fromAddress%></td>
 			<td><%=obj[i].amount%></td>
 			<td><%=obj[i].createdAt%></td>
 			<td><%=obj[i].restOutCount%></td>
