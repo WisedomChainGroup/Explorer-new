@@ -77,6 +77,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                     }
                     if (result.code == "2000") {
                         for (let i = 0; i < result.data.list.length; i++) {
+                            result.data.list[i].fromAddress = "WX"+ result.data.list[i].fromAddress;
                             result.data.list[i].number = number+i;
                             result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
                         }
@@ -167,6 +168,7 @@ function getRuleLogList1(fromAddress,pageIndex,pageSize) {
                             }
                         } else {
                             for (let i = 0; i < result.data.list.length; i++) {
+                                result.data.list[i].fromAddress = "WX"+ result.data.list[i].fromAddress;
                                 result.data.list[i].number = number + i;
                                 result.data.list[i].createdAt = getTime(result.data.list[i].createdAt);
                             }
