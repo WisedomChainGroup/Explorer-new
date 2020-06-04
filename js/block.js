@@ -100,7 +100,6 @@ function Blocklist(page,startIndex)
 
 function changePageSize(page)
 {
-	let page1 = GetQueryString("page");
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
@@ -122,9 +121,6 @@ function getList1(page) {
 			if(page > total){
 				alert("Please enter the correct number!");
 			}else {
-				if (result.data.lastConfirmedHeight % startIndex != 0) {
-					total = total + 1;
-				}
 				$('#totalPage').html(parseInt(total));
 				Blocklist(page, startIndex);
 			}
