@@ -116,6 +116,9 @@
 													<div style="text-align: center">资产图标</div>
 												</th>
 												<th class="">
+													<div style="text-align: center;">资产事务哈希</div>
+												</th>
+												<th class="">
 													<div style="text-align: center;">资产地址</div>
 												</th>
 
@@ -182,9 +185,9 @@
 					
 					<td style="text-align: center"><img src = "<%=obj[i].imgUrl%>" style="width: 28px;height: 28px;border-radius:50%"/></td>
 
-					<!-- <td class="" style="text-align: center;">
-						<a title="<%=obj[i].coinHash%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].imgUrl%></a>
-					</td> -->
+					<td class="" style="text-align: center;">
+						<%=obj[i].coinHash%>
+					</td>
 					<td class="" style="text-align: center;">
 						<a title="<%=obj[i].coinHashToAddress%>" href="assetsList.html?coinaddress=<%=obj[i].coinHash160%>"><%=obj[i].coinHashToAddress%></a>
 					</td>
