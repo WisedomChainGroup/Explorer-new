@@ -31,7 +31,6 @@ function getTransferLogList(coinaddress, pageIndex,startIndex2) {
 		$("#block-content").html("No information was found！");
 		return;
 	}
-
 	$("#accountAddress").html(coinaddress);
 	//数据请求部分
 	$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
@@ -42,25 +41,29 @@ function getTransferLogList(coinaddress, pageIndex,startIndex2) {
 
 		function(result) {
 			if (result.code == "2000") {
-				let number;
-				if(pageIndex == null || pageIndex ==1){
-					number = 1;
-				}else{
-					number = ((pageIndex-1)*startIndex2)+1;
+				if(coinaddress == "WX14dbSaSKX6TCWDh92LXJSZbiCjLSBYpR94" || coinaddress == "14dbSaSKX6TCWDh92LXJSZbiCjLSBYpR94"){
+					return;
+				}else {
+					let number;
+					if (pageIndex == null || pageIndex == 1) {
+						number = 1;
+					} else {
+						number = ((pageIndex - 1) * startIndex2) + 1;
+					}
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].hash = result.data[i].blockHash;
+						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
+							i].blockHash.length - 5, result.data[
+							i].blockHash.length);
+						result.data[i].blockHash = blockHash;
+						result.data[i].number = number + i;
+					}
+					setHtml(result.data, 'tpl2', 'block-content');
+					//分页处理
+					$('#totalCount').html(result.pageQuery.totalCount);
+					$('#curr_page').html(result.pageQuery.pageIndex);
+					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].hash = result.data[i].blockHash;
-					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-						i].blockHash.length - 5, result.data[
-						i].blockHash.length);
-					result.data[i].blockHash = blockHash;
-					result.data[i].number = number+i;
-				}
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
 			}
 
 		});
@@ -127,33 +130,37 @@ function getTransferLogList1(coinaddress, pageIndex,startIndex) {
 
 		function(result) {
 			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage;
-				if (pageIndex > len) {
-					if(len == 0){
-						return;
-					}else {
-						alert("Please enter the correct number!");
-					}
-				} else {
-					let number;
-					if (pageIndex == null || pageIndex == 1) {
-						number = 1;
+				if(coinaddress == "WX14dbSaSKX6TCWDh92LXJSZbiCjLSBYpR94" || coinaddress == "14dbSaSKX6TCWDh92LXJSZbiCjLSBYpR94"){
+					return;
+				}else {
+					let len = result.pageQuery.totalPage;
+					if (pageIndex > len) {
+						if (len == 0) {
+							return;
+						} else {
+							alert("Please enter the correct number!");
+						}
 					} else {
-						number = ((pageIndex - 1) * startIndex2) + 1;
+						let number;
+						if (pageIndex == null || pageIndex == 1) {
+							number = 1;
+						} else {
+							number = ((pageIndex - 1) * startIndex2) + 1;
+						}
+						for (var i = 0; i < result.data.length; i++) {
+							result.data[i].hash = result.data[i].blockHash;
+							var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
+								i].blockHash.length - 5, result.data[
+								i].blockHash.length);
+							result.data[i].blockHash = blockHash;
+							result.data[i].number = number + i;
+						}
+						setHtml(result.data, 'tpl2', 'block-content');
+						//分页处理
+						$('#totalCount').html(result.pageQuery.totalCount);
+						$('#curr_page').html(result.pageQuery.pageIndex);
+						$('#totalPage').html(result.pageQuery.totalPage);
 					}
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].blockHash;
-						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-							i].blockHash.length - 5, result.data[
-							i].blockHash.length);
-						result.data[i].blockHash = blockHash;
-						result.data[i].number = number + i;
-					}
-					setHtml(result.data, 'tpl2', 'block-content');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
 				}
 			}
 		});
