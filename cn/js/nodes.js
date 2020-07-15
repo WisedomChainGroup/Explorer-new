@@ -2,7 +2,7 @@ $(function() {
 	var pageIndex = GetQueryString("pageIndex");
 	var select = GetQueryString("select");
 	if(select == null){
-		select = 1;
+		select = 50;
 	}
 	if(pageIndex == null || pageIndex=="undenfind"){
 		pageIndex = 1;
@@ -128,7 +128,7 @@ $(function() {
 $(document).ready(function(){
 	var test = GetQueryString("select");
 	if (test == null){
-		$("#select").val("1");
+		$("#select").val("50");
 	}else {
 		$("#select").val(test);
 	}
