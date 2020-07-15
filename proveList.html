@@ -93,16 +93,16 @@
 							<ul>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">Txn Hash</span>
-									<span><%=obj.coinHash%></span>
+									<span><%=obj.hash%></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">Txn status</span>
-									<span><%=obj.status%></span>
+									<span>success</span>
 								</li>
 
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">BlockHeight</span>
-									 <span><%=obj.coinHeight%></span>
+									 <span><%=obj.height%></span>
 
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
@@ -112,15 +112,15 @@
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">From Account</span>
-									<span><a href="particulars.html?coinaddress=<%=obj.coinAddress%>"><%=obj.coinAddress%></a></span>
+									<span><a href="particulars.html?coinaddress=<%=obj.from_address%>"><%=obj.from_address%></a></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">Timestamp</span>
-									<span><%=obj.time%></span>
+									<span><%=obj.created_at%></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">Certificate Info</span>
-									<span><%=obj.payloadUtf8%></span>
+									<span><%=obj.payload%></span>
 								</li>
 
 

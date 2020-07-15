@@ -77,7 +77,7 @@
 						<span class="arrows">></span>
 						<span>Pay contract</span>
 						<span class="in">
-							<input type="text"placeholder="Coin Hash"  id="soso_address" style="width:50%;height:26px;"/>
+							<input type="text"placeholder="Contract Address"  id="soso_address" style="width:50%;height:26px;"/>
 							<a style="min-width: 2%;"><span onclick="soso_address()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
 						</span>
 						<span ></span>
@@ -184,16 +184,16 @@
 				<tr class="" data-row-key="1">
 					 <td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 					 <td style="text-align: center;">
-						<div><%=obj[i].ruleName%></div>
+						<div><%=obj[i].rule_name%></div>
 					</td>
 					<td style="text-align: center;">
-						<div><%=obj[i].fromAddress%></div>
+						<div><%=obj[i].from_address%></div>
 					</td>
 					<td style="text-align: center;">
-						<a href="contractList.html?coinaddress=<%=obj[i].coinHashAddress%>"><%=obj[i].coinHashAddress%></a>
+						<a href="contractList.html?coinaddress=<%=obj[i].hash_address%>"><%=obj[i].hash_address%></a>
 					</td>
 					<td style="text-align: center;">
-						<div><%=obj[i].createdAt%></div>
+						<div><%=obj[i].created_at%></div>
 					</td>
 				</tr>
 			<%}%>

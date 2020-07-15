@@ -233,7 +233,7 @@
 			<% for(var i = 0;i<obj.length;i++){%>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Contract name:</span>
-				<span><%=obj[i].ruleName%></span>
+				<span><%=obj[i].rule_name%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Multiple of transferred assets:</span>
@@ -241,23 +241,23 @@
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Withdrawal asset interval height:</span>
-				<span><%=obj[i].heightPeriod%></span>
+				<span><%=obj[i].height_period%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Asset withdrawal ratio:</span>
-				<span><%=obj[i].drawRate%>%</span>
+				<span><%=obj[i].draw_rate%>%</span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Withdraw asset address:</span>
-				<span><%=obj[i].destAddress%></span>
+				<span><%=obj[i].dest_address%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Deployer address:</span>
-				<span><%=obj[i].fromAddress%></span>
+				<span><%=obj[i].from_address%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">Regular address:</span>
-				<span><%=obj[i].coinHashAddress%></span>
+				<span><%=obj[i].hash_address%></span>
 			</li>
 			<%}%>
 			</script>
@@ -265,12 +265,12 @@
 		<% for(var i = 0;i<obj.length;i++){%>
 		<tr class="showtr" data-row-key="1">
 			<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
-			<td><%=obj[i].fromAddress%></td>
+			<td><%=obj[i].from_address%></td>
 			<td><%=obj[i].amount%></td>
-			<td><%=obj[i].createdAt%></td>
-			<td><%=obj[i].restOutCount%></td>
+			<td><%=obj[i].created_at%></td>
+			<td><%=obj[i].rest_out_count%></td>
 			<td>success</td>
-			<td><a href="operateList.html?coinHash=<%=obj[i].coinHash%>&coinHashAddress=<%=obj[i].coinHashAddress%>&coinHash160=<%=obj[i].coinHash160%>&fromAddress=<%=obj[i].fromAddress%>"><i class="fa fa-chevron-circle-right fa-2x" style="color: #999999;cursor: pointer;"></i></a></td>
+			<td><a href="operateList.html?coinHash=<%=obj[i].hash%>&coinHashAddress=<%=obj[i].hash_address%>&coinHash160=<%=obj[i].hash160%>&fromAddress=<%=obj[i].from_address%>"><i class="fa fa-chevron-circle-right fa-2x" style="color: #999999;cursor: pointer;"></i></a></td>
 		</tr>
 		<%}%>
 		</script>

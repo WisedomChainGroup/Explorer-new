@@ -19,7 +19,6 @@ var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
 var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
 
 
-
 /**
  * 设置模板宣言
  * @param {Object} val
@@ -72,13 +71,6 @@ function soso_tag(type) {
 			return;
 		}
 	}
-	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
-			coinAddress: sosoval,
-		},
-
-		function(result) {
-
-			
 			var indexsearch = $('#indexsearch').val();
 			if (indexsearch == 2) {
 				//存证
@@ -89,11 +81,8 @@ function soso_tag(type) {
                location.href = "assetsList.html?coinaddress=" + sosoval;
 
 			} else {
-				if (result.data == "0") {
-					
-						location.href = "particulars.html?coinaddress=" + sosoval;
-					
-
+				if (sosoval.substring(0,2) == "WX") {
+					location.href = "particulars.html?coinaddress=" + sosoval;
 				} else {
 					if (!isNaN(sosoval)) {
 						location.href = "blockList.html?height=" + sosoval;
@@ -102,9 +91,6 @@ function soso_tag(type) {
 					}
 				}
 			}
-
-
-		});
 }
 
 $('#indexsearch').bind("change", function() {
@@ -171,19 +157,12 @@ function sosoPool_tag() {
 		alert("请输入搜索内容");
 		return;
 	}
-	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
-			coinAddress: sosoval,
-		},
-
-		function(result) {
-			if (result.data == "0") {
-				location.href = "poolList.html?coinaddress=" + sosoval;
-			} else {
-				//location.href = "incubation.html?hash=" + sosoval;
-				alert("非法地址");
-			}
-
-		});
+	if (sosoval.substring(0,2) == "WX") {
+		location.href = "poolList.html?coinaddress=" + sosoval;
+	} else {
+		//location.href = "incubation.html?hash=" + sosoval;
+		alert("非法地址");
+	}
 }
 
 

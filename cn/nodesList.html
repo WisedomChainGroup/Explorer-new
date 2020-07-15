@@ -96,7 +96,7 @@
 					
 					<div class="con-box" id="con-box-yu">
 						<script type="text/json" id="tpl">
-							<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.dynamicCount%></span></p>
+							<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.data/100000000%></span></p>
 						</script>
 					</div>
 						
@@ -212,15 +212,15 @@
 				<% for(var i = 0;i<obj.length;i++){%>
 
 			<tr class="" data-row-key="1">
-				<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-				<td class="cursor"><span><%=obj[i].coinHash%></span></td>
+				<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+				<td class="cursor"><span><%=obj[i].hash%></span></td>
 				<td class=""><span><%=obj[i].amount%></span></td>
-				<td class="cursor"><span><%=obj[i].coinAddress%></span></td>
+				<td class="cursor"><span><%=obj[i].from_address%></span></td>
 
 				<!-- <td class="cursor"><span><%=obj[i].toAddress%></span></td> -->
-				<td class=""><span><%=obj[i].coinHeigth%></span></td>
+				<td class=""><span><%=obj[i].height%></span></td>
 
-				<td class="tr"><span><%=obj[i].createTimeFmt%></span></td>
+				<td class="tr"><span><%=obj[i].created_at%></span></td>
 			</tr>
 
 				<%}}%>

@@ -138,8 +138,12 @@
 									</div>
 
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">Deployer address:</span>
+										<span style="width: 30%;">Transfer Into From Address:</span>
 										<span id = "fromAddress"></span>
+									</li>
+									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+										<span style="width: 30%;">Transfer Into Txn Hash:</span>
+										<span id = "txn_hash"></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">Regular address:</span>
@@ -185,6 +189,9 @@
 									</th>
 									<th class="" >
 										<div>target address</div>
+									</th>
+									<th class="">
+										<div style="margin-left: 20%;">Transfer Out Txn Hash</div>
 									</th>
 									<th class="" >
 										<div>Operating time</div>
@@ -244,15 +251,15 @@
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 					<span style="width: 30%;">Total extraction times:</span>
-			<span><%=obj.allCount%></span>
+			<span><%=obj.all_count%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 					<span style="width: 30%;">Number of times extracted:</span>
-			<span><%=obj.usedCount%></span>
+			<span><%=obj.used_count%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 					<span style="width: 30%;">Current number of extractions:</span>
-			<span><%=obj.currentCount%></span>
+			<span><%=obj.current_count%></span>
 			</li>
 		</script>
 		<script type="text/json" id="tpl3">
@@ -260,9 +267,10 @@
 			<tr class="showtr" data-row-key="1">
 				<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 				<td><%=obj[i].amount%></td>
-				<td><%=obj[i].toAddress%></td>
-				<td><%=obj[i].createdAt%></td>
-				<td><%if(obj[i].fromAddress==obj[i].toAddress){%>quit<%}else{%>extract<%}%></td>
+				<td><%=obj[i].to_address%></td>
+				<td><%=obj[i].hash%></td>
+				<td><%=obj[i].created_at%></td>
+				<td><%if(obj[i].from_address==obj[i].to_address){%>quit<%}else{%>extract<%}%></td>
 			</tr>
 			<%}%>
 		</script>

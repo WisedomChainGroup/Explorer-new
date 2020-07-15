@@ -53,10 +53,9 @@
 						</div>	
 						<ul>
 						<script type="text/json" id="tpl">
-							<% for(var i = 0;i<obj.length;i++){%>
 							<li>
 								<span>TransactionHash</span>
-								<span><%=obj[i].blockHash%></span>
+								<span><%=obj.hash%></span>
 							</li>
 							<li>
 								<span>Trading status</span>
@@ -64,11 +63,11 @@
 							</li>
 							<li>
 								<span>Block height</span>
-								<span><%=obj[i].coinHeigth%></span>
+								<span><%=obj.height%></span>
 							</li>
 						 	<li>
 								<span>Amount</span>
-								<span><%=obj[i].amount%> <i id="biname">WDC</i></span>
+								<span><%=obj.amount%> <%=obj.code%></span>
 							</li>
 						<!--	<li>
 								<span>Gas 上限</span>
@@ -80,39 +79,38 @@
 							</li> -->
 							<li>
 								<span>Fee</span>
-								<span><%=obj[i].fee%> WDC</objspan>
+								<span><%=obj.fee%> WDC</objspan>
 							</li>
 							<li>
 								<span>Sender</span>
-								
-								<span><a href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
-								
-								<%=obj[i].fromAddress%></a>
-								
+
+								<span><a href="particulars.html?coinaddress=<%=obj.from_address%>">
+
+								<%=obj.from_address%></a>
+
 								</span>
 							</li>
 							<li>
 								<span>Receiving</span>
-								<span><a href="particulars.html?coinaddress=<%=obj[i].coinAddress%>"><%=obj[i].coinAddress%></a></span>
+								<span><a href="particulars.html?coinaddress=<%=obj.to_address%>"><%=obj.to_address%></a></span>
 							</li>
-							
+
 							<li>
 								<span>nonce</span>
-								<span><%=obj[i].nonce%></span>
+								<span><%=obj.nonce%></span>
 							</li>
 							<li>
 								<span>Time</span>
-								<span><%=obj[i].createTime%></span>
+								<span><%=obj.created_at%></span>
 							</li>
 							<!-- <li>
 								<span>操作类型</span>
-								<span><%if(obj[i].type==1){%>
+								<span><%if(obj.type==1){%>
 															<%="In"%>
 															<%}else{%>
 															<%="Out"%>
 										<%}%></span>
 							</li> -->
-							<%}%>
 							</script>
 						</ul>
 					</section>
@@ -123,7 +121,7 @@
 	<script>
 		  $("#page_footer").load("footer.html");
 		 </script>
-		
+
 	<script>
 		function MyClick(flag) {
 			if (flag == 'show') {

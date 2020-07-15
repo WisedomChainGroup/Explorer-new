@@ -6,24 +6,16 @@ function getBalance(coinaddress) {
 	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
 		//alert("aaa");
-		$("#con-box-yu").html("未查到该信息");
+		$("#con-box-yu").html("The information was not found");
 		return;
 	}
-
-
-
 	//数据请求部分
-	$.post(HttpHead + "/userAccount/getAccount/", {
-			coinAddress: coinaddress,
+	$.post("/getAddressBalance/", {
+			address: coinaddress
 		},
-
 		function(result) {
-
-			//console.log(result.data.account);
-
 			if (result.code == "2000") {
-				setHtml(result.data.account, 'tpl', 'con-box-yu');
-
+				setHtml(result, 'tpl', 'con-box-yu');
 			}
 
 		});
@@ -63,40 +55,36 @@ if (GetQueryString_address != undefined &&
 function getVoteLogList(coinaddress, pageIndex,startIndex2) {
 	if (coinaddress == "") {
 		//alert();
-		$("#block-content").html("未查到该信息");
+		$("#block-content").html("The information was not found");
 		return;
 	}
 
+	if(pageIndex > 0){
+		pageIndex = pageIndex-1;
+	}
 
 	//数据请求部分
-	$.post(HttpHead + "/userVote/getAddrVote", {
-			coinAddress: coinaddress,
-			pageSize: startIndex2,
-			pageIndex: pageIndex
+	$.get("/v2-web/get_vote_list_by_to_address", {
+			to_address: coinaddress,
+			per_page: startIndex2,
+			page: pageIndex
 		},
-
 		function(result) {
-
-			//alert(result.coinHash);
-
-			if (result.code == "2000"&&result.data.length>0) {
-				for (var i = 0; i < result.data.length; i++) {
-					// result.data[i].hash = result.data[i].coinHash;
-					// var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-					// 	i].coinHash.length - 5, result.data[
-					// 	i].coinHash.length);
-					// result.data[i].coinHash = blockHash;
-					var amount=result.data[i].amount;
-					result.data[i].amount=amount;
+			if (result.code == "2000"&&result.data.content.length>0) {
+				for (var i = 0; i < result.data.content.length; i++) {
+					result.data.content[i].number = ((pageIndex) * startIndex2) + i + 1;
+					if (result.data.content[i].from_address.substring(0, 2) != "WX") {
+						result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
+					}
+					result.data.content[i].created_at = getTime(result.data.content[i].created_at);
 				}
-				setHtml(result.data, 'tpl2', 'block-content');
+				setHtml(result.data.content, 'tpl2', 'block-content');
 				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
-
+				$('#totalCount').html(result.data.totalElements);
+				$('#curr_page').html(pageIndex + 1);
+				$('#totalPage').html(result.data.totalPages);
 			}else{
-				$("#content-no").html("暂无数据...");
+				$("#content-no").html("No data...");
 			}
 
 		});
@@ -104,66 +92,23 @@ function getVoteLogList(coinaddress, pageIndex,startIndex2) {
 
 function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
+	let total = $('#totalPage').html();
 	var GetQueryString_address = GetQueryString("coinaddress");
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
 		page == "null" ||
 		page == ""){
-		getVoteLogList1(GetQueryString_address,1,startIndex);
+		location.href = "nodesList.html?pageIndex=1&coinaddress=" + GetQueryString_address + "&select=" + startIndex;
 	}else {
-		getVoteLogList1(GetQueryString_address,page,startIndex);
+		if(parseInt(total)<parseInt(page)){
+			alert("超过最大页数");
+			return;
+		}else {
+			location.href = "nodesList.html?pageIndex=" + page + "&coinaddress=" + GetQueryString_address + "&select=" + startIndex;
+		}
 	}
 }
-
-function getVoteLogList1(coinaddress, pageIndex,startIndex) {
-	if (coinaddress == "") {
-		//alert();
-		$("#block-content").html("未查到该信息");
-		return;
-	}
-
-
-	//数据请求部分
-	$.post(HttpHead + "/userVote/getAddrVote", {
-			coinAddress: coinaddress,
-			pageSize: startIndex,
-			pageIndex: pageIndex
-		},
-
-		function(result) {
-
-			//alert(result.coinHash);
-			let len = result.pageQuery.totalPage;
-			if (pageIndex > len) {
-				if (len == 0) {
-					return;
-				} else {
-					alert("请输入正确的数字!");
-				}
-			}
-			if (result.code == "2000"&&result.data.length>0) {
-				for (var i = 0; i < result.data.length; i++) {
-					// result.data[i].hash = result.data[i].coinHash;
-					// var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-					// 	i].coinHash.length - 5, result.data[
-					// 	i].coinHash.length);
-					// result.data[i].coinHash = blockHash;
-					var amount = result.data[i].amount;
-					result.data[i].amount = amount;
-				}
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
-			}else{
-				$("#content-no").html("暂无数据...");
-			}
-
-		});
-}
-
 
 $(function() {
 
@@ -233,12 +178,30 @@ $(document).ready(function(){
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
-		alert("请输入正确的数字!");
+	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
+		alert("请输入正确的数字！");
 	}
 	changePageSize(page);
 }
 
+function getTime(UTCDateString) {
+	if(!UTCDateString){
+		return '-';
+	}
+	function formatFunc(str) {    //格式化显示
+		return str > 9 ? str : '0' + str
+	}
+	var date2 = new Date(UTCDateString);     //这步是关键
+	var year = date2.getFullYear();
+	var mon = formatFunc(date2.getMonth() + 1);
+	var day = formatFunc(date2.getDate());
+	var hour = date2.getHours();
+	hour = formatFunc(hour);
+	var min = formatFunc(date2.getMinutes());
+	var sec = formatFunc(date2.getSeconds());
+	var dateStr = year+'-'+mon+'-'+day+' '+hour+':'+min+':'+sec;
+	return dateStr;
+}
 
 
 

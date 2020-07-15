@@ -203,23 +203,23 @@
 			<tr class="" data-row-key="1">
 				<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 				<td class="cursor">
-			<span class="" title="<%=obj[i].blockHash%>">
+			<span class="" title="<%=obj[i].hash%>">
 
-			<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].blockHash%></a>
+			<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].txn_hash%></a>
 			</span>
 			</td>
-				<td class=""><span class=""><%=obj[i].coinHeigth%></span></td>
-				<td class=""><span><%=obj[i].createTime%></span></td>
+				<td class=""><span class=""><%=obj[i].height%></span></td>
+				<td class=""><span><%=obj[i].created_at%></span></td>
 				<td class=""><span>
-				<a title="<%=obj[i].fromAddress%>" href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
-				<%=obj[i].fromAddress%>
+				<a title="<%=obj[i].from_address%>" href="particulars.html?coinaddress=<%=obj[i].from_address%>">
+				<%=obj[i].from_address%>
 				</a>
 				</span></td>
 				<td class="">
 				</td>
-				<td class=""><span class="" title="<%=obj[i].coinAddress%>">
-				<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>">
-				<%=obj[i].coinAddress%>
+				<td class=""><span class="" title="<%=obj[i].to_address%>">
+				<a title="<%=obj[i].to_address%>" href="particulars.html?coinaddress=<%=obj[i].to_address%>">
+				<%=obj[i].to_address%>
 				</a>
 				</span></td>
 				<td class="tr">

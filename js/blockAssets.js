@@ -4,56 +4,53 @@
  * @param {Object} hash
  */
 function getParseContract(coinaddress,type,pageIndex) {
-	var type=type||1;
-	var pageIndex=pageIndex||1;
-	//var hash = "undefined" ? "" : hash;
 	if (coinaddress == "") {
-		//alert();
 		$("#con-box-yu").html("未查到该信息");
 		return;
 	}
 	$("#accountAddress").html(coinaddress);
-
-
-
 	//数据请求部分
-	$.post(HttpHead + "/userTransferLog/getParseContractTx/", {
-			coincode: coinaddress,
-		},
-
+	$.get("/v2-web/get_coin_by_code", {
+		code: coinaddress
+	},
 		function(result) {
-			if (result.code == "2000") {
-				if(result.data.code == "WGC"){
-					result.data.info = "十方盾，英文：Wisdom guardian coin，简称：WGC，WGC是基于公链WDC底层技术，实现实时的点对点交换和支付服务。WGC将适用于贝诺国际全球业务以及影视众筹等项目。";
+		if (result.code == "2000") {
+			let hash = result.data.hash;
+			$.get("/ParseContractTx", {
+				txhash: hash
+			},
+					function(result1) {
+				if (result1.code == "2000") {
+					if(result1.data.code == "WGC"){
+						result1.data.info = "十方盾，英文：Wisdom guardian coin，简称：WGC，WGC是基于公链WDC底层技术，实现实时的点对点交换和支付服务。WGC将适用于贝诺国际全球业务以及影视众筹等项目。";
+					}
+					if(result.data.code == "TGB"){
+						result1.data.info = "TGB 基于公链WDC底层技术，实现实时的点对点交换和支付服务。TGB将适用于泰国境内旅游、酒店预订、餐饮、购买水果等一条龙服务。";
+					}
+					if (result1.data.allowincrease==1) {
+						result1.data.allowincrease = "Yes";
+					} else{
+						result1.data.allowincrease = "No";
+					}
 				}
-				if(result.data.code == "TGB"){
-					result.data.info = "TGB 基于公链WDC底层技术，实现实时的点对点交换和支付服务。TGB将适用于泰国境内旅游、酒店预订、餐饮、购买水果等一条龙服务。";
-				}
-				if (result.data.allowincrease==1) {
-					result.data.allowincrease = "Yes"
-				} else{
-					result.data.allowincrease = "No"
-				}
+				setHtml(result1.data, 'tpl', 'blocks_data_List');
+			});
+			if(type==1){
+				getTransferLogList(result.data.hash160,'',type,pageIndex);
+			}else if(type==2){//转账记录
+				getTransferLogList(result.data.address,result.data.hash160,type,pageIndex,result.data.code);
 
-				if(type==1){
-					getTransferLogList(result.data.coinHash160,'',type,pageIndex);
-				}else if(type==2){//转账记录
-					getTransferLogList(result.data.createuserAddress,result.data.coinHash160,type,pageIndex);
-
-				}else if(type==3){
-					getTransferLogList(result.data.coinHash160,'',type,pageIndex);
-				}
-
-
-				$('.codes').html(result.data.code);
-				setHtml(result.data, 'tpl', 'blocks_data_List');
+			}else if(type==3){
+				getTransferLogList(result.data.hash160,'',type,pageIndex);
 			}
+			$('.codes').html(result.data.code);
+		}
 
-		});
+	});
 }
 
 
-function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
+function getTransferLogList(coinhash,coinhash160,type, pageIndex,code) {
 	var coinhash=coinhash||'';
 	var coinhash160=coinhash160||'';
 	var type=type||1;
@@ -63,128 +60,123 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex) {
 		$("#block-content").html("未查到该信息");
 		return;
 	}
+	let code1;
+	if(type == 2){
+		code1 = code;
+	}
 	var startIndex2 = GetQueryString("select");
-	if(startIndex2 == undefined &&
-		startIndex2 == null &&
-		startIndex2 == "undefined" &&
-		startIndex2 == "null" &&
+	if(startIndex2 == undefined ||
+		startIndex2 == null ||
+		startIndex2 == "undefined" ||
+		startIndex2 == "null" ||
 		startIndex2 == ""){
 		startIndex2 = 10;
 	}
-	//console.log(coinhash)
-	//console.log(type)
+	if(pageIndex > 0){
+		pageIndex = pageIndex - 1;
+	}
 	if(type==2){  //转账事务
 		//数据请求部分
-		$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-				txHash:coinhash160,
-				pageSize: startIndex2,
-				pageIndex: pageIndex
-			},
-
+		$.get("/v2-web/get_code_transfer_by_hash160", {
+				hash160:coinhash160,
+				per_page: startIndex2,
+				page: pageIndex
+	},
 			function(result) {
-				let number;
-				if(pageIndex == null || pageIndex ==1){
-					number = 1;
-				}else{
-					number = ((pageIndex-1)*startIndex2)+1;
+		if (result.code == "2000") {
+			for (var i = 0;i < result.data.content.length;i++) {
+				var blockHash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
+						i].hash.length - 5, result.data.content[
+						i].hash.length);
+				result.data.content[i].blockHash = blockHash;
+				result.data.content[i].number = ((pageIndex)*startIndex2)+i+1;
+				if (result.data.content[i].from_address.substring(0, 2)!= "WX") {
+					result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
 				}
-				if (result.code == "2000") {
-
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].blockHash;
-						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-							i].blockHash.length - 5, result.data[
-							i].blockHash.length);
-						result.data[i].blockHash = blockHash;
-						result.data[i].number = i+number;
-					}
-					setHtml(result.data, 'tpl2', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
+				if (result.data.content[i].to_address.substring(0, 2)!= "WX") {
+					result.data.content[i].to_address = "WX" + result.data.content[i].to_address;
 				}
-
-			});
+				result.data.content[i].coinHash = coinHash;
+				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+				result.data.content[i].code = code1;
+			}
+			setHtml(result.data.content, 'tpl2', 'transactions_data_List');
+			//分页处理
+			$('#totalCount').html(result.data.totalElements);
+			$('#curr_page').html(pageIndex+1);
+			$('#totalPage').html(result.data.totalPages);
+		}
+	});
 
 	}else if(type==3){  //所有权
 		//数据请求部分
-		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
-				coidHash160: coinhash,
-				pageSize: startIndex2,
-				pageIndex: pageIndex
-			},
-			function(result) {
-				let number;
-				if(pageIndex == null || pageIndex ==1){
-					number = 1;
-				}else{
-					number = ((pageIndex-1)*startIndex2)+1;
+		$.get("/v2-web/get_asset_owner_list_by_hash160", {
+				hash160: coinhash,
+				per_page: startIndex2,
+				page: pageIndex
+		},
+		function(result) {
+		if (result.code == "2000") {
+			for (var i = 0;i < result.data.content.length;i++) {
+				var blockHash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
+						i].hash.length - 5, result.data.content[
+						i].hash.length);
+				result.data.content[i].coinHash = blockHash;
+				result.data.content[i].number = ((pageIndex)*startIndex2)+i+1;
+				if (result.data.content[i].old_address.substring(0, 2)!= "WX") {
+					result.data.content[i].old_address = "WX" + result.data.content[i].old_address;
 				}
-				if (result.code == "2000") {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].coinHash;
-						var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-							i].coinHash.length - 5, result.data[
-							i].coinHash.length);
-						result.data[i].coinHash = blockHash;
-						result.data[i].number = i+number;
-					}
-					setHtml(result.data, 'tpl3', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
+				if (result.data.content[i].new_address.substring(0, 2)!= "WX") {
+					result.data.content[i].new_address = "WX" + result.data.content[i].new_address;
 				}
-
-			});
+				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+			}
+			setHtml(result.data.content, 'tpl3', 'transactions_data_List');
+			//分页处理
+			$('#totalCount').html(result.data.totalElements);
+			$('#curr_page').html(pageIndex+1);
+			$('#totalPage').html(result.data.totalPages);
+		}
+	});
 	}else{  //增发
 		//数据请求部分
-		$.post(HttpHead + "/assetIncreased/getAssetIncreased/", {
-				coidHash160: coinhash,
-				pageSize: startIndex2,
-				pageIndex: pageIndex
-			},
-			function(result) {
-				let number;
-				if(pageIndex == null || pageIndex ==1){
-					number = 1;
-				}else{
-					number = ((pageIndex-1)*startIndex2)+1;
-				}
-				if (result.code == "2000") {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].coinHash = result.data[i].coinHash;
-						var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-							i].coinHash.length - 5, result.data[
-							i].coinHash.length);
-						result.data[i].coinHash = blockHash;
-						result.data[i].number = i+number;
+		$.get("/v2-web/get_asset_increased", {
+				hash160: coinhash,
+				per_page: startIndex2,
+				page: pageIndex
+		},
+		function(result) {
+			if (result.code == "2000") {
+				for (var i = 0;i < result.data.content.length;i++) {
+					var blockHash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
+							i].hash.length - 5, result.data.content[
+							i].hash.length);
+					result.data.content[i].hash = blockHash;
+					result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+					result.data.content[i].number = ((pageIndex)*startIndex2)+i+1;
+					if (result.data.content[i].address.substring(0, 2)!= "WX") {
+						result.data.content[i].address = "WX" + result.data.content[i].address;
 					}
-					setHtml(result.data, 'tpl1', 'transactions_data_List');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
 				}
-
-			});
-
+				setHtml(result.data.content, 'tpl1', 'transactions_data_List');
+				//分页处理
+				$('#totalCount').html(result.data.totalElements);
+				$('#curr_page').html(pageIndex+1);
+				$('#totalPage').html(result.data.totalPages);
+			}
+	});
+}
 
 	}
 
-}
-
-//getBalance("1FyA6jTrC2MSKoLUS8BxZdqgZWkxFH7G1n");
-//getTransferLogList("1FyA6jTrC2MSKoLUS8BxZdqgZWkxFH7G1n");
-var GetQueryString_address = GetQueryString("coinaddress");
+var coinaddress = GetQueryString("coinaddress");
 var pageIndex = GetQueryString("pageIndex");
 var type = GetQueryString("type");
-if (GetQueryString_address != undefined &&
-	GetQueryString_address != null &&
-	GetQueryString_address != "undefined" &&
-	GetQueryString_address != "null" &&
-	GetQueryString_address != "" &&
+if (coinaddress != undefined &&
+	coinaddress != null &&
+	coinaddress != "undefined" &&
+	coinaddress != "null" &&
+	coinaddress != "" &&
 	pageIndex != undefined &&
 	pageIndex != null &&
 	pageIndex != "undefined" &&
@@ -196,10 +188,7 @@ if (GetQueryString_address != undefined &&
 	type != "null" &&
 	type != ""
 ) {
-
-	//getBalance(GetQueryString_address);
-	//getTransferLogList(GetQueryString_address,pageIndex);
-	getParseContract(GetQueryString_address,type,pageIndex);
+	getParseContract(coinaddress,type,pageIndex);
 	if (type==1) {
 		$('.tabst').css('left','2.5rem');
 	}else if(type==2){
@@ -222,216 +211,29 @@ if (GetQueryString_address != undefined &&
 			$('.tab'+i).css('display','none');
 		}
 	}
-
-	getParseContract(GetQueryString_address,1,1);
-	//getTransferLogList(GetQueryString_address,1,1);
+	getParseContract(coinaddress,1,0);
 }
 
 function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
-	var GetQueryString_address = GetQueryString("coinaddress");
+	var coinaddress = GetQueryString("coinaddress");
+	var hash160 = GetQueryString("hash160");
 	var type = GetQueryString("type");
+	let total = $('#totalPage').html();
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
 		page == "null" ||
 		page == ""){
-		getParseContract1(GetQueryString_address,type,1,startIndex);
+		location.href = "assetsList.html?pageIndex=1&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex+"&hash160=" + hash160;
 	}else {
-		getParseContract1(GetQueryString_address,type,page,startIndex);
+		if(parseInt(total)<parseInt(page)){
+			alert("number is big than the max page!");
+            return;
+        }else {
+			location.href = "assetsList.html?pageIndex=" + page + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex + "&hash160=" + hash160;
+		}
 	}
-}
-
-/**
- * 根据事务hash获取区块信息
- * @param {Object} hash
- */
-function getParseContract1(coinaddress,type,pageIndex,startIndex) {
-	var type=type||1;
-	var pageIndex=pageIndex||1;
-	//var hash = "undefined" ? "" : hash;
-	if (coinaddress == "") {
-		//alert();
-		$("#con-box-yu").html("未查到该信息");
-		return;
-	}
-	$("#accountAddress").html(coinaddress);
-
-
-
-	//数据请求部分
-	$.post(HttpHead + "/userTransferLog/getParseContractTx/", {
-			coincode: coinaddress,
-		},
-
-		function(result) {
-			if (result.code == "2000") {
-				if(result.data.code == "WGC"){
-					result.data.info = "十方盾，英文：Wisdom guardian coin，简称：WGC，WGC是基于公链WDC底层技术，实现实时的点对点交换和支付服务。WGC将适用于贝诺国际全球业务以及影视众筹等项目。";
-				}
-				if(result.data.code == "TGB"){
-					result.data.info = "TGB 基于公链WDC底层技术，实现实时的点对点交换和支付服务。TGB将适用于泰国境内旅游、酒店预订、餐饮、购买水果等一条龙服务。";
-				}
-				if (result.data.allowincrease==1) {
-					result.data.allowincrease = "Yes"
-				} else{
-					result.data.allowincrease = "No"
-				}
-
-				if(type==1){
-					getTransferLogList1(result.data.coinHash160,'',type,pageIndex,startIndex);
-				}else if(type==2){//转账记录
-					getTransferLogList1(result.data.createuserAddress,result.data.coinHash160,type,pageIndex,startIndex);
-
-				}else if(type==3){
-					getTransferLogList1(result.data.coinHash160,'',type,pageIndex,startIndex);
-				}
-
-
-				$('.codes').html(result.data.code);
-				setHtml(result.data, 'tpl', 'blocks_data_List');
-			}
-
-		});
-}
-
-
-function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex) {
-	var coinhash=coinhash||'';
-	var coinhash160=coinhash160||'';
-	var type=type||1;
-	var pageIndex=pageIndex||1;
-	if (coinhash == "") {
-		//alert();
-		$("#block-content").html("The information was not found");
-		return;
-	}
-
-	//console.log(coinhash)
-	//console.log(type)
-	if(type==2){  //转账事务
-		//数据请求部分
-		$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-				txHash:coinhash160,
-				pageSize: startIndex,
-				pageIndex: pageIndex
-			},
-
-			function(result) {
-				if (result.code == "2000") {
-					let len = result.pageQuery.totalPage;
-					if (pageIndex > len) {
-						if(len == 0){
-							return;
-						}else {
-							alert("Please enter the correct number!");
-						}
-					} else {
-						let number;
-						if (pageIndex == null || pageIndex == 1) {
-							number = 1;
-						} else {
-							number = ((pageIndex - 1) * startIndex) + 1;
-						}
-						for (var i = 0; i < result.data.length; i++) {
-							result.data[i].hash = result.data[i].blockHash;
-							var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-								i].blockHash.length - 5, result.data[
-								i].blockHash.length);
-							result.data[i].blockHash = blockHash;
-							result.data[i].number = i + number;
-						}
-						setHtml(result.data, 'tpl2', 'transactions_data_List');
-						//分页处理
-						$('#totalCount').html(result.pageQuery.totalCount);
-						$('#curr_page').html(result.pageQuery.pageIndex);
-						$('#totalPage').html(result.pageQuery.totalPage);
-					}
-				}
-			});
-
-	}else if(type==3){  //所有权
-		//数据请求部分
-		$.post(HttpHead + "/assetOwner/getAssetOwner/", {
-				coidHash160: coinhash,
-				pageSize: startIndex,
-				pageIndex: pageIndex
-			},
-			function(result) {
-				let len = result.pageQuery.totalPage;
-				if(pageIndex > len){
-					if(len == 0){
-						return;
-					}else {
-						alert("Please enter the correct number!");
-					}
-				}else {
-					let number;
-					if (pageIndex == null || pageIndex == 1) {
-						number = 1;
-					} else {
-						number = ((pageIndex - 1) * startIndex) + 1;
-					}
-					if (result.code == "2000") {
-						for (var i = 0; i < result.data.length; i++) {
-							result.data[i].hash = result.data[i].coinHash;
-							var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-								i].coinHash.length - 5, result.data[
-								i].coinHash.length);
-							result.data[i].coinHash = blockHash;
-							result.data[i].number = i + number;
-						}
-						setHtml(result.data, 'tpl3', 'transactions_data_List');
-						//分页处理
-						$('#totalCount').html(result.pageQuery.totalCount);
-						$('#curr_page').html(result.pageQuery.pageIndex);
-						$('#totalPage').html(result.pageQuery.totalPage);
-					}
-				}
-			});
-	}else{  //增发
-		//数据请求部分
-		$.post(HttpHead + "/assetIncreased/getAssetIncreased/", {
-				coidHash160: coinhash,
-				pageSize: startIndex,
-				pageIndex: pageIndex
-			},
-			function(result) {
-				let len = result.pageQuery.totalPage;
-				if(pageIndex > len){
-					if(len == 0){
-						return;
-					}else {
-						alert("Please enter the correct number!");
-					}
-				}else {
-					let number;
-					if (pageIndex == null || pageIndex == 1) {
-						number = 1;
-					} else {
-						number = ((pageIndex - 1) * startIndex) + 1;
-					}
-					if (result.code == "2000") {
-						for (var i = 0; i < result.data.length; i++) {
-							result.data[i].coinHash = result.data[i].coinHash;
-							var blockHash = result.data[i].coinHash.substring(0, 5) + "***" + result.data[i].coinHash.substring(result.data[
-								i].coinHash.length - 5, result.data[
-								i].coinHash.length);
-							result.data[i].coinHash = blockHash;
-							result.data[i].number = i + number;
-						}
-						setHtml(result.data, 'tpl1', 'transactions_data_List');
-						//分页处理
-						$('#totalCount').html(result.pageQuery.totalCount);
-						$('#curr_page').html(result.pageQuery.pageIndex);
-						$('#totalPage').html(result.pageQuery.totalPage);
-					}
-				}
-			});
-
-
-	}
-
 }
 
 $(function() {
@@ -443,7 +245,6 @@ $(function() {
 		location.href = "assetsList.html?pageIndex=1&coinaddress="+coinaddress+"&type="+type+"&select=" + startIndex;
 	});
 
-	var coinaddress=GetQueryString_address;//$("#soso").val();
 	if(type==null){
 		type=1;
 	}
@@ -453,7 +254,7 @@ $(function() {
 		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
 		if(curr_page > 1) {
-			location.href = "assetsList.html?pageIndex=1&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+			location.href = "assetsList.html?pageIndex=1" + "&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
 	});
 
@@ -463,7 +264,7 @@ $(function() {
 		var curr_page = parseInt($('#curr_page').html());
 		let startIndex = document.getElementById("select").value;
 		if(curr_page < totalPage) {
-			location.href = "assetsList.html?pageIndex=" + totalPage + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+			location.href = "assetsList.html?pageIndex=" + totalPage +"&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
 		//getTransferLogList(10, totalPage);
 	});
@@ -478,7 +279,7 @@ $(function() {
 		}
 		let startIndex = document.getElementById("select").value;
 		if(curr_page > 1) {
-			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+			location.href = "assetsList.html?pageIndex=" + pageIndex + "&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
 	});
 	//下一頁
@@ -493,10 +294,11 @@ $(function() {
 		}
 		let startIndex = document.getElementById("select").value;
 		if(curr_page < totalPage) {
-			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex;
+			location.href = "assetsList.html?pageIndex=" + pageIndex + "&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
 	});
 })
+
 $(document).ready(function(){
 	var test = GetQueryString("select");
 	if (test == null){
@@ -508,8 +310,27 @@ $(document).ready(function(){
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
 		alert("Please enter the correct number!");
 	}
 	changePageSize(page);
+}
+
+function getTime(UTCDateString) {
+	if(!UTCDateString){
+		return '-';
+	}
+	function formatFunc(str) {    //格式化显示
+		return str > 9 ? str : '0' + str
+	}
+	var date2 = new Date(UTCDateString);     //这步是关键
+	var year = date2.getFullYear();
+	var mon = formatFunc(date2.getMonth() + 1);
+	var day = formatFunc(date2.getDate());
+	var hour = date2.getHours();
+	hour = formatFunc(hour);
+	var min = formatFunc(date2.getMinutes());
+	var sec = formatFunc(date2.getSeconds());
+	var dateStr = year+'-'+mon+'-'+day+' '+hour+':'+min+':'+sec;
+	return dateStr;
 }

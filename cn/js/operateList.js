@@ -15,74 +15,68 @@ if (pageIndex == undefined ||
     pageIndex == "undefined" ||
     pageIndex == "null" ||
     pageIndex == "") {
-    getRuleLogList(coinHashAddress,1,startIndex2,coinHash,coinHash160,fromAddress);
+    getRuleLogList(coinHashAddress,0,startIndex2,coinHash,coinHash160,fromAddress);
 } else {
     getRuleLogList(coinHashAddress,pageIndex, startIndex2,coinHash,coinHash160,fromAddress);
 }
 function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddress) {
+    if(pageIndex > 0){
+        pageIndex = pageIndex - 1;
+    }
     //数据请求部分
-    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
+    $.get("/v2-web/search_store_rule", {
             search:address,
-            pageIndex: 1,
-            pageSize: 10
+            page: 0,
+            per_page: 10
         },
 
         function(result) {
-            for(let  i = 0;i<result.data.length;i++){
-                result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
-                result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
-                if(result.data[i].type == 2){
-                    result.data[i].destAddress = "WR"+ result.data[i].destAddress;
+            for(let  i = 0;i<result.data.content.length;i++){
+                result.data.content[i].hash_address = "WR"+ result.data.content[i].hash_address;
+                if(result.data.content[i].type == 2){
+                    result.data.content[i].dest_address = "WR"+ result.data.content[i].dest_address;
                 }else{
-                    result.data[i].destAddress = "WX"+ result.data[i].destAddress;
+                    result.data.content[i].dest_address = "WX"+ result.data.content[i].dest_address;
                 }
-                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
+                if(result.data.content[i].asset_hash160 == "0000000000000000000000000000000000000000"){
                     $('.codes').html("WDC");
                 }
-                $('#ruleName').html(result.data[i].ruleName);
-                $('#coinHashAddress').html(result.data[i].coinHashAddress);
-                $('#fromAddress').html(result.data[i].fromAddress);
+                $('#ruleName').html(result.data.content[i].rule_name);
+                $('#coinHashAddress').html(result.data.content[i].hash_address);
+                $('#from_address').html(fromAddress);
+                $('#txn_hash').html(coinHash);
             }
             //数据请求部分
-            $.get(HttpHead + "/conditionalPaymentRuleTransferInOut/getTransferOutList/", {
-                    coinHash:coinHash,
-                    fromAddress: fromAddress,
-                    coinHash160: coinHash160,
-                    pageIndex: pageIndex,
-                    pageSize: pageSize
+            $.get("/v2-web/get_transfer_out_list", {
+                    from_address: fromAddress,
+                    coin_hash_160: coinHash160,
+                    coin_hash:coinHash,
+                    per_page: pageSize,
+                    page: pageIndex
                 },
 
                 function(result) {
-                    let number;
-                    if(pageIndex == null || pageIndex ==1){
-                        number = 1;
-                    }else{
-                        number = ((pageIndex-1)*pageSize)+1;
-                    }
                     if (result.code == "2000") {
                         setHtml(result.data, 'tpl2', 'block-content');
-                        var list = new Array();
-                        for (let i = 0; i < result.data.outs.length; i++) {
-                            if (fromAddress.substring(0, 2) == "WX" || fromAddress.substring(0, 2) == "WR") {
-                                fromAddress = fromAddress.substring(2, fromAddress.length);
+                            var list = new Array();
+                            for (let i = 0; i < result.data.outs.content.length; i++) {
+                                if (result.data.outs.content[i].type == 2) {
+                                    result.data.outs.content[i].to_address = "WR" + result.data.outs.content[i].to_address;
+                                    result.data.outs.content[i].from_address = "WR" + result.data.outs.content[i].from_address;
+                                } else {
+                                    result.data.outs.content[i].to_address = "WX" + result.data.outs.content[i].to_address;
+                                    result.data.outs.content[i].from_address = "WX" + result.data.outs.content[i].from_address;
+                                }
+                                result.data.outs.content[i].created_at = getTime(result.data.outs.content[i].created_at);
+                                result.data.outs.content[i].number = ((pageIndex) * pageSize) + i + 1;
+                                list.push(result.data.outs.content[i]);
                             }
-                            if (result.data.outs[i].type == 2) {
-                                result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = "WR" + fromAddress;
-                            } else {
-                                result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
-                                result.data.outs[i].fromAddress = "WX" + fromAddress;
-                            }
-                            result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
-                            result.data.outs[i].number = number + i;
-                            list.push(result.data.outs[i]);
+                            setHtml(list, 'tpl3', 'block-details');
+                            //分页处理
+                            $('#totalCount').html(result.data.outs.totalElements);
+                            $('#curr_page').html(pageIndex + 1);
+                            $('#totalPage').html(result.data.outs.totalPages);
                         }
-                        setHtml(list, 'tpl3', 'block-details');
-                        //分页处理
-                        $('#totalCount').html(result.pageQuery.totalCount);
-                        $('#curr_page').html(result.pageQuery.pageIndex);
-                        $('#totalPage').html(result.pageQuery.totalPage);
-                    }
                 });
         });
 }
@@ -94,6 +88,7 @@ function changePageSize(page){
     if(coinHashAddress.substring(0,2) == "WX" || coinHashAddress.substring(0,2) == "WR"){
         coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
     }
+    let total = $('#totalPage').html();
     var coinHash160 = GetQueryString("coinHash160");
     var fromAddress = GetQueryString("fromAddress");
     if(page == undefined ||
@@ -101,87 +96,15 @@ function changePageSize(page){
         page == "undefined" ||
         page == "null" ||
         page == ""){
-        getRuleLogList1(coinHashAddress,1,startIndex,coinHash,coinHash160,fromAddress);
+        location.href = "operateList.html?pageIndex=1&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
     }else {
-        getRuleLogList1(coinHashAddress,page, startIndex,coinHash,coinHash160,fromAddress);
+        if(parseInt(total)<parseInt(page)){
+            alert("超过最大页数");
+            return;
+        }else {
+            location.href = "operateList.html?pageIndex=" + page + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
+        }
     }
-}
-
-function getRuleLogList1(address,pageIndex,pageSize,coinHash,coinHash160,fromAddress) {
-    //数据请求部分
-    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
-            search:address,
-            pageIndex: 1,
-            pageSize: 10
-        },
-
-        function(result) {
-            for(let  i = 0;i<result.data.length;i++){
-                result.data[i].fromAddress = "WX"+ result.data[i].fromAddress;
-                result.data[i].coinHashAddress = "WR"+ result.data[i].coinHashAddress;
-                if(result.data[i].type == 2){
-                    result.data[i].destAddress = "WR"+ result.data[i].destAddress;
-                }else{
-                    result.data[i].destAddress = "WX"+ result.data[i].destAddress;
-                }
-                if(result.data[i].assetHash160 == "0000000000000000000000000000000000000000"){
-                    $('.codes').html("WDC");
-                }
-                $('#ruleName').html(result.data[i].ruleName);
-                $('#coinHashAddress').html(result.data[i].coinHashAddress);
-                $('#fromAddress').html(result.data[i].fromAddress);
-            }
-            //数据请求部分
-            $.get(HttpHead + "/conditionalPaymentRuleTransferInOut/getTransferOutList/", {
-                    coinHash:coinHash,
-                    fromAddress: fromAddress,
-                    coinHash160: coinHash160,
-                    pageIndex: pageIndex,
-                    pageSize: pageSize
-                },
-
-                function(result) {
-                    let number;
-                    if(pageIndex == null || pageIndex ==1){
-                        number = 1;
-                    }else{
-                        number = ((pageIndex-1)*pageSize)+1;
-                    }
-                    if (result.code == "2000") {
-                        let len = result.pageQuery.totalPage ;
-                        if (pageIndex > len) {
-                            if(len == 0){
-                                return;
-                            }else {
-                                alert("请输入正确的数字!");
-                            }
-                        } else {
-                            setHtml(result.data, 'tpl2', 'block-content');
-                            var list = new Array();
-                            for (let i = 0; i < result.data.outs.length; i++) {
-                                if (fromAddress.substring(0, 2) == "WX" || fromAddress.substring(0, 2) == "WR") {
-                                    fromAddress = fromAddress.substring(2, fromAddress.length);
-                                }
-                                if (result.data.outs[i].type == 2) {
-                                    result.data.outs[i].toAddress = "WR" + result.data.outs[i].toAddress;
-                                    result.data.outs[i].fromAddress = "WR" + fromAddress;
-                                } else {
-                                    result.data.outs[i].toAddress = "WX" + result.data.outs[i].toAddress;
-                                    result.data.outs[i].fromAddress = "WX" + fromAddress;
-                                }
-                                result.data.outs[i].createdAt = getTime(result.data.outs[i].createdAt);
-                                result.data.outs[i].number = number + i;
-                                list.push(result.data.outs[i]);
-                            }
-                            setHtml(list, 'tpl3', 'block-details');
-                            //分页处理
-                            $('#totalCount').html(result.pageQuery.totalCount);
-                            $('#curr_page').html(result.pageQuery.pageIndex);
-                            $('#totalPage').html(result.pageQuery.totalPage);
-                        }
-                    }
-                });
-        });
 }
 
 $(function() {
@@ -273,8 +196,8 @@ $(document).ready(function(){
 
 function jumpSize(){
     let page = document.getElementById("page").value;
-    if(isNaN(page)){
-        alert("请输入正确的数字!");
+    if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
+        alert("请输入正确的数字！");
     }
     changePageSize(page);
 }

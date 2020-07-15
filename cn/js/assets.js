@@ -1,43 +1,41 @@
-//var pageIndex = 1;
-//var totalPage = 0;
+// var pageIndex = 1;
+// var totalPage = 0;
 
 function getTransferLogList(pageSize, pageIndex) {
-	var pageSize=pageSize||10;
-	var pageIndex=pageIndex||1;
+	var pageSize = pageSize || 10;
+	var pageIndex = pageIndex || 0;
 	var pageSize = GetQueryString("select");
-	if(pageSize == null){
+	if (pageSize == null) {
 		pageSize = 10;
 	}
+	if(pageIndex > 0){
+		pageIndex = pageIndex -1;
+	}
 	//数据请求部分
-	$.post(HttpHead + "/coin/getAllCoinList/", {
-			pageSize: pageSize,
-			pageIndex: pageIndex
+	$.get("/v2-web/get_coin_list", {
+			per_page: pageSize,
+			page: pageIndex
 		},
 
 		function(result) {
-			let number;
-			if(pageIndex == null || pageIndex ==1){
-				number = 1;
-			}else{
-				number = ((pageIndex-1)*pageSize)+1;
-			}
 			if (result.code == "2000") {
-				for(let i = 0;i<result.data.length;i++){
-					result.data[i].number = number+i;
-					if(result.data[i].imgUrl == null ){
-						result.data[i].imgUrl = "img/coin_Logo.png";
+				for (let i = 0; i < result.data.content.length; i++) {
+					result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
+					if (result.data.content[i].image_url == null) {
+						result.data.content[i].image_url = "/cn/img/coin_Logo.png";
 					}
 				}
-				setHtml(result.data, 'tpl2', 'block-content');
+				setHtml(result.data.content, 'tpl2', 'block-content');
 				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
+				$('#totalCount').html(result.data.totalElements);
+				$('#curr_page').html(pageIndex + 1);
+				$('#totalPage').html(result.data.totalPages);
 
 			}
-
 		});
+
 }
+
 
 var pageIndex = GetQueryString("pageIndex");
 
@@ -58,63 +56,26 @@ if (pageIndex != undefined &&
 	getTransferLogList(startIndex2, pageIndex);
 
 } else {
-	getTransferLogList(startIndex2, 1);
+	getTransferLogList(startIndex2, 0);
 }
 
 function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
+	let total = $('#totalPage').html();
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
 		page == "null" ||
 		page == ""){
-		getTransferLogList1(startIndex,1);
+		location.href = "assets.html?pageIndex=1&select=" + startIndex;
 	}else {
-		getTransferLogList1(startIndex, page);
+		if(parseInt(total)<parseInt(page)){
+			alert("超过最大页数");
+			return;
+		}else {
+			location.href = "assets.html?pageIndex=" + page + "&select=" + startIndex;
+		}
 	}
-}
-
-function getTransferLogList1(pageSize, pageIndex) {
-
-	// var pageSize=pageSize||10;
-	// var pageIndex=pageIndex||1;
-	//数据请求部分
-	$.post(HttpHead + "/coin/getAllCoinList/", {
-			pageSize: pageSize,
-			pageIndex: pageIndex
-		},
-
-		function(result) {
-			let number;
-			if(pageIndex == null || pageIndex ==1){
-				number = 1;
-			}else{
-				number = ((pageIndex-1)*pageSize)+1;
-			}
-			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage;
-				if(pageIndex > len){
-					if(len == 0){
-						return;
-					}else {
-						alert("请输入正确的数字!");
-					}
-				}else {
-					for (let i = 0; i < result.data.length; i++) {
-						result.data[i].number = number + i;
-						if (result.data[i].imgUrl == null) {
-							result.data[i].imgUrl = "img/coin_Logo.png";
-						}
-					}
-					setHtml(result.data, 'tpl2', 'block-content');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
-				}
-			}
-
-		});
 }
 
 $(function() {
@@ -188,7 +149,7 @@ function soso_coin() {
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
 		alert("请输入正确的数字!");
 	}
 	changePageSize(page);

@@ -159,14 +159,14 @@
 				<tr class="" data-row-key="1">
 					<td class=""><%=obj[i].number%></td>
 					<td class="">
-						<a href="proveList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].coinHash%></a>
+						<a href="proveList.html?coinaddress=<%=obj[i].hash%>"><%=obj[i].hash%></a>
 					</td>
 
 					<td class="">
-						<a href="proveList.html?coinaddress=<%=obj[i].coinHash%>"><%=obj[i].coinAddress %></a>
+						<a href="proveList.html?coinaddress=<%=obj[i].hash%>"><%=obj[i].from_address %></a>
 					</td>
 					<td class="">
-						<%=obj[i].payloadUtf8%>
+						<%=obj[i].payload%>
 					</td>
 				</tr>
 				<%}%>

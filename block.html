@@ -172,7 +172,6 @@
 							<option selected="selected" value="10">10</option>
 							<option value="25">25</option>
 							<option value="50">50</option>
-							<option value="100">100</option>
 						</select>
 						Records 
 					</div>
@@ -221,14 +220,14 @@
 					<% for(var i = 0;i<obj.length;i++){%>
 						<tr class="" data-row-key="1">
 							<td class="cursor"><span class="" style="padding-left: 0px;">
-								<a title="<%=obj[i].nheight%>" href="blockList.html?height=<%=obj[i].nheight%>"><%=obj[i].nheight%></a>
+								<a title="<%=obj[i].height%>" href="blockList.html?height=<%=obj[i].height%>"><%=obj[i].height%></a>
 							</span></td>
 							<td class="cursor"><span class="" title="">
-								<a title="<%=obj[i].blockhash%>" href="blockList.html?height=<%=obj[i].nheight%>"><%=obj[i].blockhash%></a>
+								<a title="<%=obj[i].blockhash%>" href="blockList.html?height=<%=obj[i].height%>"><%=obj[i].block_hash%></a>
 							</span></td>
-							<td class=""><span><%=obj[i].ntime%></span></td>
-							<td class="tr"><span><%=obj[i].blocksize%></span></td>
-							<td class="tr"><span><%=obj[i].remarks%></span></td>
+							<td class=""><span><%=obj[i].time%></span></td>
+							<td class="tr"><span><%=obj[i].block_size%></span></td>
+							<td class="tr"><span><%=obj[i].number%></span></td>
 							<!-- <td class="tr">
 								<span>2</span>
 							</td> -->

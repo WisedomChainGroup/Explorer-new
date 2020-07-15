@@ -10,109 +10,59 @@ if (pageIndex == undefined ||
     pageIndex == "undefined" ||
     pageIndex == "null" ||
     pageIndex == "") {
-    getRuleLogList(1,startIndex2);
+    getRuleLogList(0,startIndex2);
 } else {
     getRuleLogList(pageIndex, startIndex2);
 }
 
 
 function getRuleLogList(pageIndex,pageSize) {
-    // var pageSize=pageSize||10;
-    // var pageIndex=pageIndex||1;
-    // var pageSize = GetQueryString("select");
-    // if(pageSize == null){
-    //     pageSize = 10;
-    // }
+    if(pageIndex>0){
+        pageIndex = pageIndex -1;
+    }
     //数据请求部分
-    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
-            pageIndex: pageIndex,
-            pageSize: pageSize
+    $.get("/v2-web/search_store_rule", {
+            page: pageIndex,
+            per_page: pageSize
         },
 
         function(result) {
-            let number;
-            if(pageIndex == null || pageIndex ==1){
-                number = 1;
-            }else{
-                number = ((pageIndex-1)*pageSize)+1;
-            }
             if (result.code == "2000") {
-                for (let i = 0; i < result.data.length; i++) {
-                    result.data[i].number = number + i;
-                    result.data[i].createdAt = getTime(result.data[i].createdAt);
-                    result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
-                    result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
-                    if(result.data[i].ruleName == null){
-                        result.data[i].ruleName = "";
+                for (let i = 0; i < result.data.content.length; i++) {
+                    result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
+                    result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+                    result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
+                    result.data.content[i].hash_address = "WR" + result.data.content[i].hash_address;
+                    if (result.data.content[i].rule_name == null) {
+                        result.data.content[i].rule_name = "";
                     }
                 }
             }
-            setHtml(result.data, 'tpl2', 'block-content');
+            setHtml(result.data.content, 'tpl2', 'block-content');
             //分页处理
-            $('#totalCount').html(result.pageQuery.totalCount);
-            $('#curr_page').html(result.pageQuery.pageIndex);
-            $('#totalPage').html(result.pageQuery.totalPage);
+            $('#totalCount').html(result.data.totalElements);
+            $('#curr_page').html(pageIndex + 1);
+            $('#totalPage').html(result.data.totalPages);
         });
 }
 
 function changePageSize(page){
     let startIndex = document.getElementById("select").value;
+    let total = $('#totalPage').html();
     if(page == undefined ||
         page == null ||
         page == "undefined" ||
         page == "null" ||
         page == ""){
-        getRuleLogList1(1,startIndex);
+        location.href = "contract.html?pageIndex=1&select=" + startIndex;
     }else {
-        getRuleLogList1(page, startIndex);
+        if(parseInt(total)<parseInt(page)){
+            alert("超过最大页数");
+            return;
+        }else {
+            location.href = "contract.html?pageIndex=" + page + "&select=" + startIndex;
+        }
     }
-}
-
-function getRuleLogList1(pageIndex,pageSize) {
-    // var pageSize=pageSize||10;
-    // var pageIndex=pageIndex||1;
-    // var pageSize = GetQueryString("select");
-    // if(pageSize == null){
-    //     pageSize = 10;
-    // }
-    //数据请求部分
-    $.get(HttpHead + "/deployConditionalPaymentRule/searchStoreRule/", {
-            pageIndex: pageIndex,
-            pageSize: pageSize
-        },
-        function(result) {
-            let number;
-            if(pageIndex == null || pageIndex ==1){
-                number = 1;
-            }else{
-                number = ((pageIndex-1)*pageSize)+1;
-            }
-            if (result.code == "2000") {
-                let len = result.pageQuery.totalPage;
-                if(pageIndex > len){
-                    if(len == 0){
-                        return;
-                    }else {
-                        alert("请输入正确的数字!");
-                    }
-                }else {
-                    for (let i = 0; i < result.data.length; i++) {
-                        result.data[i].number = number+i;
-                        result.data[i].createdAt = getTime(result.data[i].createdAt);
-                        result.data[i].fromAddress = "WX" + result.data[i].fromAddress;
-                        result.data[i].coinHashAddress = "WR" + result.data[i].coinHashAddress;
-                        if(result.data[i].ruleName == null){
-                            result.data[i].ruleName = "";
-                        }
-                    }
-                    setHtml(result.data, 'tpl2', 'block-content');
-                    //分页处理
-                    $('#totalCount').html(result.pageQuery.totalCount);
-                    $('#curr_page').html(result.pageQuery.pageIndex);
-                    $('#totalPage').html(result.pageQuery.totalPage);
-                }
-            }
-        });
 }
 
 $(function() {
@@ -177,8 +127,8 @@ $(document).ready(function(){
 
 function jumpSize(){
     let page = document.getElementById("page").value;
-    if(isNaN(page)){
-        alert("请输入正确的数字!");
+    if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
+        alert("请输入正确的数字！");
     }
     changePageSize(page);
 }
@@ -188,13 +138,11 @@ function soso_address() {
     if (sosoval == "") {
         alert("请输入规则地址!");
         return;
-    }
-    if(sosoval.substring(0,2) == "WR"){
-        location.href = "contractList.html?coinaddress="+ sosoval;
-    }else{
-        alert("请输入正确的规则地址！");
+    }else if(sosoval.substring(0,2) == "WX"){
+        alert("请输入正确的规则地址!");
         return;
     }
+    location.href = "contractList.html?coinaddress="+ sosoval;
 }
 
 function getTime(UTCDateString) {

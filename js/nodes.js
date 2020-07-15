@@ -4,37 +4,42 @@ $(function() {
 	if(select == null){
 		select = 50;
 	}
-	if(pageIndex == null){
+	if(pageIndex == null || pageIndex=="undenfind"){
 		pageIndex = 1;
 	}
 	getList(select,pageIndex);
 });
 
 function getList(select, pageIndex) {
+	if(pageIndex > 0){
+		pageIndex = pageIndex -1;
+	}
 
-	$.post(HttpHead+"/userMortgage/queryPageUserMortgageList", {
-			pageSize: select,
-			pageIndex: pageIndex
+	$.get("v2-web/get_user_mortgage_list", {
+			per_page: select,
+			page: pageIndex
 		},
 		function(result) {
-			let number;
-			if(pageIndex == null || pageIndex ==1){
-				number = 1;
-			}else{
-				number = ((pageIndex-1)*pageSize)+1;
+		let len = result.data.totalPages;
+			if(pageIndex+1 > len) {
+				if(len == 0){
+					return;
+				}else {
+					alert("超过最大页数!");
+				}
+			}else {
+				var sum=0;
+				for(var i=0;i<result.data.content.length;i++)
+				{
+					sum+=result.data.content[i].vote_amount;
+				}
+				var restr=fmoney(sum, 1).replace('.0','');
+				$('#totalCount').html(restr);
+				setHtml(result.data.content, 'tpl3', 'block_data_node');
+				//分页处理
+				$('#curr_page').html(pageIndex+1);
+				$('#totalPage').html(result.data.totalPages);
 			}
-			var sum=0;
-			for(var i=0;i<result.data.length;i++)
-			{
-				result.data[i].number = number+i;
-				sum+=result.data[i].voteAmount;
-			}
-			var restr=fmoney(sum, 1).replace('.0','');
-			$('#totalCount').html(restr);
-			setHtml(result.data, 'tpl3', 'block_data_node');
-			//分页处理
-			$('#curr_page').html(result.pageQuery.pageIndex);
-			$('#totalPage').html(result.pageQuery.totalPage);
 		});
 	function fmoney(s, n) {
 		n = n > 0 && n <= 20 ? n : 2;
@@ -50,65 +55,22 @@ function getList(select, pageIndex) {
 
 function changePageSize(page){
 	let pageSize = document.getElementById("select").value;
-	var GetQueryString_address = GetQueryString("coinaddress");
+	let total = $('#totalPage').html();
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
 		page == "null" ||
 		page == ""){
-		getList1(GetQueryString_address,1,pageSize);
+		location.href = "nodes.html?pageIndex=1&select=" + pageSize;
 	}else {
-		getList1(GetQueryString_address,page,pageSize);
-	}
-}
-
-function getList1(coinaddress, pageIndex,pageSize) {
-	$.post(HttpHead+"/userMortgage/queryPageUserMortgageList",{
-			pageSize: pageSize,
-			pageIndex: pageIndex
-		},
-		function(result) {
-			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage;
-				if (pageIndex > len) {
-					if (len == 0) {
-						return;
-					} else {
-						alert("Please enter the correct number!");
-					}
-				} else {
-					let number;
-					if (pageIndex == null || pageIndex == 1) {
-						number = 1;
-					} else {
-						number = ((pageIndex - 1) * pageSize) + 1;
-					}
-					var sum = 0;
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].number = number + i;
-						sum += result.data[i].voteAmount;
-					}
-					var restr = fmoney(sum, 1).replace('.0', '');
-					$('#totalCount').html(restr);
-					setHtml(result.data, 'tpl3', 'block_data_node');
-					//分页处理
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
-				}
-			}
-		});
-	function fmoney(s, n) {
-		n = n > 0 && n <= 20 ? n : 2;
-		s = parseFloat((s + "").replace(/[^\d\.-]/g, "")).toFixed(n) + "";
-		var l = s.split(".")[0].split("").reverse(), r = s.split(".")[1];
-		t = "";
-		for (i = 0; i < l.length; i++) {
-			t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+		if(parseInt(total)<parseInt(page)){
+			alert("number is big than the max page!");
+			return;
+		}else {
+			location.href = "nodes.html?pageIndex=" + page + "&select=" + pageSize;
 		}
-		return t.split("").reverse().join("") + "." + r;
 	}
 }
-
 
 $(function() {
 
@@ -178,12 +140,17 @@ function soso_nodes() {
 		alert("Please enter the search content!");
 		return;
 	}
-	location.href = "nodesList.html?coinaddress="+ sosoval;
+	if(sosoval.substring(0,2) != "WX"){
+		alert("Please enter the correct address!");
+		return;
+	}else {
+		location.href = "nodesList.html?coinaddress=" + sosoval;
+	}
 }
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
 		alert("Please enter the correct number!");
 	}
 	changePageSize(page);

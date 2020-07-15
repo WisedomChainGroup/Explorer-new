@@ -93,16 +93,16 @@
 							<ul>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">区块事务hash</span>
-									<span><%=obj.coinHash%></span>
+									<span><%=obj.hash%></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">区块事务状态</span>
-									<span><%=obj.status%></span>
+									<span>成功</span>
 								</li>
 
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">区块高度</span>
-									 <span><%=obj.coinHeight%></span>
+									 <span><%=obj.height%></span>
 
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
@@ -112,15 +112,15 @@
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">发起账户</span>
-									<span><a href="particulars.html?coinaddress=<%=obj.coinAddress%>"><%=obj.coinAddress%></a></span>
+									<span><a href="particulars.html?coinaddress=<%=obj.from_address%>"><%=obj.from_address%></a></span>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">时间</span>
-									<span><%=obj.time%></objspan>
+									<span><%=obj.created_at%></objspan>
 								</li>
 								<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 									<span style="width: 30%;">备注信息</span>
-									<span><%=obj.payloadUtf8%></span>
+									<span><%=obj.payload%></span>
 								</li>
 
 							</ul>

@@ -1,48 +1,38 @@
-//var pageIndex = 1;
-//var totalPage = 0;
-
 function getTransferLogList(pageSize, pageIndex) {
-	var pageSize=pageSize||10;
-	var pageIndex=pageIndex||1;
 	if (pageIndex == "") {
-		pageIndex = 1;
+		pageIndex = 0;
 	}
-	var pageSize = GetQueryString("select");
 	if(pageSize == null){
 		pageSize = 10;
 	}
+	if(pageIndex > 0) {
+		pageIndex= pageIndex -1;
+	}
 	//数据请求部分
-	$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
+	$.get("/v2-web/get_all_transfer_list", {
 
-			pageSize: pageSize,
-			pageIndex: pageIndex
+			per_page: pageSize,
+			page: pageIndex
 		},
 
 		function(result) {
-			let number;
-			if(pageIndex == null || pageIndex ==1){
-				number = 1;
-			}else{
-				number = ((pageIndex-1)*pageSize)+1;
-			}
 			if (result.code == "2000") {
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].hash = result.data[i].blockHash;
-					var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-						i].blockHash.length - 5, result.data[
-						i].blockHash.length);
-					result.data[i].blockHash = blockHash;
-					result.data[i].number = number+i;
+				for (var i = 0; i < result.data.content.length; i++) {
+					result.data.content[i].hash = result.data.content[i].hash;
+					var hash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
+						i].hash.length - 5, result.data.content[
+						i].hash.length);
+					result.data.content[i].txn_hash = hash;
+					result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+					result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
+					result.data.content[i].amount = toNonExponential(result.data.content[i].amount);
 				}
-				setHtml(result.data, 'tpl2', 'block-content');
+				setHtml(result.data.content, 'tpl2', 'block-content');
 				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
-				//totalPage=result.pageQuery.totalPage;
-				//pageIndex=result.pageQuery.pageIndex;
+				$('#totalCount').html(result.data.totalElements);
+				$('#curr_page').html(pageIndex + 1);
+				$('#totalPage').html(result.data.totalPages);
 			}
-
 		});
 }
 
@@ -59,79 +49,36 @@ if (pageIndex != undefined &&
 	pageIndex != "") {
 
 	if (pageIndex < 1) {
-		pageIndex = 1;
+		pageIndex = 0;
 	}
 
 	getTransferLogList(startIndex2, pageIndex);
 
 } else {
 
-	getTransferLogList(startIndex2, 1);
+	getTransferLogList(startIndex2, 0);
 }
 
 function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
+	let total = $('#totalPage').html();
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
 		page == "null" ||
 		page == ""){
-		getTransferLogList1(startIndex,1);
+		location.href = "deal.html?pageIndex=1&select=" + startIndex;
 	}else {
-		getTransferLogList1(startIndex, page);
+		if(parseInt(total)<parseInt(page)){
+			alert("超过最大页数");
+			return;
+		}else {
+			location.href = "deal.html?pageIndex=" + page + "&select=" + startIndex;
+		}
 	}
-}
-
-function getTransferLogList1(pageSize, pageIndex) {
-	if (pageIndex == "") {
-		pageIndex = 1;
-	}
-	//数据请求部分
-	$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-			pageSize: pageSize,
-			pageIndex: pageIndex
-		},
-
-		function(result) {
-			let number;
-			if(pageIndex == null || pageIndex ==1){
-				number = 1;
-			}else{
-				number = ((pageIndex-1)*pageSize)+1;
-			}
-			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage;
-				if(pageIndex > len){
-					if(len == 0){
-						return;
-					}else {
-						alert("请输入正确的数字!");
-					}
-				}else {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].hash = result.data[i].blockHash;
-						var blockHash = result.data[i].blockHash.substring(0, 5) + "***" + result.data[i].blockHash.substring(result.data[
-							i].blockHash.length - 5, result.data[
-							i].blockHash.length);
-						result.data[i].blockHash = blockHash;
-						result.data[i].number = number + i;
-					}
-					setHtml(result.data, 'tpl2', 'block-content');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
-				}
-				//totalPage=result.pageQuery.totalPage;
-				//pageIndex=result.pageQuery.pageIndex;
-			}
-
-		});
 }
 
 $(function() {
-
-
 	//首页
 	$("#first_page").click(function() {
 		//getTransferLogList(10, 1);
@@ -198,24 +145,42 @@ function soso_tran() {
 		alert("请输入搜索内容!");
 		return;
 	}
-	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
-			coinAddress: sosoval,
-		},
+	if (sosoval.substring(0,2) == "WX") {
+		location.href = "particulars.html?coinaddress=" + sosoval;
+	} else {
+		location.href = "account.html?hash=" + sosoval;
+	}
+}
 
-		function(result) {
-			if (result.data == "0") {
-				location.href = "particulars.html?coinaddress=" + sosoval;
-			} else {
-				location.href = "account.html?hash=" + sosoval;
-			}
-
-		});
+//将科学计数法转换为小数
+function toNonExponential(num) {
+	var m = num.toExponential().match(/\d(?:\.(\d*))?e([+-]\d+)/);
+	return num.toFixed(Math.max(0, (m[1] || '').length - m[2]));
 }
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
 		alert("请输入正确的数字!");
 	}
 	changePageSize(page);
+}
+
+function getTime(UTCDateString) {
+	if(!UTCDateString){
+		return '-';
+	}
+	function formatFunc(str) {    //格式化显示
+		return str > 9 ? str : '0' + str
+	}
+	var date2 = new Date(UTCDateString);     //这步是关键
+	var year = date2.getFullYear();
+	var mon = formatFunc(date2.getMonth() + 1);
+	var day = formatFunc(date2.getDate());
+	var hour = date2.getHours();
+	hour = formatFunc(hour);
+	var min = formatFunc(date2.getMinutes());
+	var sec = formatFunc(date2.getSeconds());
+	var dateStr = year+'-'+mon+'-'+day+' '+hour+':'+min+':'+sec;
+	return dateStr;
 }

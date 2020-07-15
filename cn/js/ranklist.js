@@ -1,111 +1,56 @@
-//var pageIndex = 1;
-//var totalPage = 0;
 
 function getTransferLogList(pageSize, pageIndex) {
-	var pageSize=pageSize||20;
-	var pageIndex=pageIndex||1;
 	if (pageIndex == "") {
-		pageIndex = 1;
+		pageIndex = 0;
+	}
+	if(pageIndex>0){
+		pageIndex = pageIndex -1;
 	}
 	//数据请求部分
-	$.post(HttpHead + "/accountSort/accountSort/", {
-
-			pageSize: pageSize,
-			pageIndex: pageIndex
+	$.get("/internal/accountStates", {
+			size: pageSize,
+			page: pageIndex
 		},
 
 		function(result) {
-			if (result.code == "2000") {
-				for (var i = 0; i < result.data.length; i++) {
-					result.data[i].balance = result.data[i].balance / 100000000;
-					result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
-					result.data[i].index = result.data[i].index+1;
-				}
-				setHtml(result.data, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.pageQuery.totalCount);
-				$('#curr_page').html(result.pageQuery.pageIndex);
-				$('#totalPage').html(result.pageQuery.totalPage);
-				//totalPage=result.pageQuery.totalPage;
-				//pageIndex=result.pageQuery.pageIndex;
+			for (var i = 0; i < result.records.length; i++) {
+				result.records[i].balance = result.records[i].balance / 100000000;
+				console.log(toNonExponential(result.records[i].proportion));
+				result.records[i].proportion = (Math.floor(result.records[i].proportion * 100 * 1000)) / 1000;
+				result.records[i].index = result.records[i].index + 1;
 			}
-
+			setHtml(result.records, 'tpl2', 'block-content');
+			let totalPage = Math.ceil(result.total / pageSize);
+			$('#totalCount').html(result.total);
+			$('#curr_page').html(result.page + 1);
+			$('#totalPage').html(totalPage);
 		});
 }
 
-function getTotalInfo() {
+//将科学计数法转换为小数
+function toNonExponential(num) {
+	var m = num.toExponential().match(/\d(?:\.(\d*))?e([+-]\d+)/);
+	return num.toFixed(Math.max(0, (m[1] || '').length - m[2]));
+}
 
-
+function getTransferTotal() {
 	//数据请求部分
-	$.post(HttpHead + "/accountSort/getTotalInfo/",
+	$.get("/v2-web/get_all_transfer_list", {
 
+			per_page: 10,
+			page: 0
+		},
 		function(result) {
 			if (result.code == "2000") {
-				$("#tradeTotal").html(result.data.tradeTotal);
-				$("#accountSum").html(result.data.accountSum);
-				$("#accountNub").html(result.data.accountNub);
+				//分页处理
+				$('#accountNub').html(result.data.totalElements);
 				$("#staticTotal").html("590000000");
 			}
 
 		});
 }
-
-function transaction() {
-
-
-	//数据请求部分
-	$.post(HttpHead + "/dict/transaction_fee/",
-
-		function(result) {
-			if (result.code == "2000") {
-
-
-				// $("#tradeTotal").html(result.data.tradeTotal);
-				var accountSum = 5.02 * 100000000 + Number(result.data);
-
-				accountSum=Math.floor(accountSum*1000)/1000;
-
-				$("#accountSum").html(accountSum);
-				var tradeTotal = Math.floor((88000000 - Number(result.data)) * 1000) / 1000;
-				$("#tradeTotal").html(tradeTotal);
-				// $("#staticTotal").html("590000000");
-			}
-
-		});
-}
-
-function getTransferTotal(pageSize, pageIndex) {
-	var pageSize=pageSize||10;
-	var pageIndex=pageIndex||1;
-	if (pageIndex == "") {
-		pageIndex = 1;
-	}
-	//数据请求部分
-	$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
-
-			pageSize: pageSize,
-			pageIndex: pageIndex
-		},
-
-		function(result) {
-
-			if (result.code == "2000") {
-
-
-				//分页处理
-				$('#accountNub').html(result.pageQuery.totalCount);
-				$("#staticTotal").html("590000000");
-				//totalPage=result.pageQuery.totalPage;
-				//pageIndex=result.pageQuery.pageIndex;
-			}
-
-		});
-}
-transaction();
 getTransferTotal();
-//getTotalInfo();
 var pageIndex = GetQueryString("pageIndex");
-
 var startIndex2 = GetQueryString("select");
 if(startIndex2 == null || startIndex2 == undefined){
 	startIndex2 = 10;
@@ -117,65 +62,30 @@ if (pageIndex != undefined &&
 	pageIndex != "") {
 
 	if (pageIndex < 1) {
-		pageIndex = 1;
+		pageIndex = 0;
 	}
 	getTransferLogList(startIndex2, pageIndex);
 } else {
-	getTransferLogList(startIndex2, 1);
+	getTransferLogList(startIndex2, 0);
 }
 
 function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
+	let total = $('#totalPage').html();
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
 		page == "null" ||
 		page == ""){
-		getTransferLogList1(startIndex,1);
+		location.href = "rankList.html?pageIndex=1&select=" + startIndex;
 	}else {
-		getTransferLogList1(startIndex, page);
+		if(parseInt(total)<parseInt(page)){
+			alert("超过最大页数");
+			return;
+		}else {
+			location.href = "rankList.html?pageIndex=" + page + "&select=" + startIndex;
+		}
 	}
-}
-
-function getTransferLogList1(pageSize, pageIndex) {
-	var pageSize=pageSize||20;
-	var pageIndex=pageIndex||1;
-	if (pageIndex == "") {
-		pageIndex = 1;
-	}
-	//数据请求部分
-	$.post(HttpHead + "/accountSort/accountSort/", {
-
-			pageSize: pageSize,
-			pageIndex: pageIndex
-		},
-
-		function(result) {
-			if (result.code == "2000") {
-				let len = result.pageQuery.totalPage;
-				if(pageIndex > len) {
-					if(len == 0){
-						return;
-					}else {
-						alert("请输入正确的数字!");
-					}
-				}else {
-					for (var i = 0; i < result.data.length; i++) {
-						result.data[i].balance = result.data[i].balance / 100000000;
-						result.data[i].proportion = (Math.floor(result.data[i].proportion * 100 * 1000)) / 1000;
-						result.data[i].index = result.data[i].index + 1;
-					}
-					setHtml(result.data, 'tpl2', 'block-content');
-					//分页处理
-					$('#totalCount').html(result.pageQuery.totalCount);
-					$('#curr_page').html(result.pageQuery.pageIndex);
-					$('#totalPage').html(result.pageQuery.totalPage);
-					//totalPage=result.pageQuery.totalPage;
-					//pageIndex=result.pageQuery.pageIndex;
-				}
-			}
-
-		});
 }
 
 $(function() {
@@ -246,12 +156,17 @@ function soso_account() {
 		alert("请输入搜索内容!");
 		return;
 	}
-	location.href = "particulars.html?coinaddress="+ sosoval;
+	if(sosoval.substring(0,2) != "WX"){
+		alert("请输入正确的地址!");
+		return;
+	}else {
+		location.href = "particulars.html?coinaddress=" + sosoval;
+	}
 }
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
 		alert("请输入正确的数字!");
 	}
 	changePageSize(page);

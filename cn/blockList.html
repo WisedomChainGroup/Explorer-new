@@ -178,37 +178,37 @@
 						<ul>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">区块Hash</span>
-								<span><%=obj.blockHash%></span>
+								<span><%=obj.block_hash%></span>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">区块高度</span>
-								<span><%=obj.nHeight%></span>
+								<span><%=obj.height%></span>
 							</li>
 
 						 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">矿工</span>
 								<!-- <span><%=obj.Minner%></span> -->
-								<span><a title="<%=obj.Minner%>" href="particulars.html?coinaddress=<%=obj.Minner%>"><%=obj.Minner%></a></span>
+								<span><a title="<%=obj.miner_address%>" href="particulars.html?coinaddress=<%=obj.miner_address%>"><%=obj.miner_address%></a></span>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">矿工费</span>
-								<span><%=obj.BlockRewade/100000000%>&nbsp;(WDC)</span>
+								<span><%=obj.blockRewade/100000000%>&nbsp;(WDC)</span>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">默克尔根</span>
-								<span><%=obj.hashMerkleRoot%></objspan>
+								<span><%=obj.hash_merkle_root%></objspan>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">区块大小</span>
-								<span><%=obj.BlockSize%>&nbsp;(Bytes)</objspan>
+								<span><%=obj.block_size%>&nbsp;(Bytes)</objspan>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">时间</span>
-								<span><%=obj.ntime%></span>
+								<span><%=obj.time%></span>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 								<span style="width: 30%;">事务数量</span>
-								<span><%=obj.Remarks%></span>
+								<span><%=obj.remarks%></span>
 							</li>
 						</ul>
 						</script>
@@ -274,19 +274,19 @@
 									<% for(var i = 0;i<obj.length;i++){%>
 								<tr class="showtr" data-row-key="1">
 									<td class="" ><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
-									<td title="<%=obj[i].hash%>"><%=obj[i].transactionhash%></td>
+									<td title="<%=obj[i].tx_hash%>"><%=obj[i].tx_hash%></td>
 									<td class=""><%=obj[i].type%></td>
 									<td style="width: 20%;">
 										<span>
-											<a class="cursor" title="<%=obj[i].fromaddress%>" href="particulars.html?coinaddress=<%=obj[i].fromaddress%>"><%=obj[i].fromaddress%></a>
+											<a class="cursor" title="<%=obj[i].from_address%>" href="particulars.html?coinaddress=<%=obj[i].from_address%>"><%=obj[i].from_address%></a>
 										</span>
 									</td>
 									<td class="">
 										<span>
-											<a class="cursor" title="<%=obj[i].toaddress%>" href="particulars.html?coinaddress=<%=obj[i].toaddress%>"><%=obj[i].toaddress%></a>
+											<a class="cursor" title="<%=obj[i].to_address%>" href="particulars.html?coinaddress=<%=obj[i].to_address%>"><%=obj[i].to_address%></a>
 									    </span>
 										</td>
-									<td><%=obj[i].amount%></td>
+									<td><%=obj[i].amount/100000000%></td>
 								</tr>
 									<%}}%>
 								</script>

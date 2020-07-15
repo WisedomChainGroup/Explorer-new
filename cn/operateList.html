@@ -151,8 +151,12 @@
 
 								</div>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-										<span style="width: 30%;">部署人地址:</span>
-										<span id = "fromAddress"></span>
+										<span style="width: 30%;">转入人地址:</span>
+										<span id = "from_address"></span>
+									</li>
+									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
+										<span style="width: 30%;">转入事务哈希:</span>
+										<span id = "txn_hash"></span>
 									</li>
 									<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 										<span style="width: 30%;">规则地址</span>
@@ -199,6 +203,9 @@
 											</th>
 											<th class="">
 												<div style="margin-left: 20%;">目标地址</div>
+											</th>
+											<th class="">
+												<div style="margin-left: 20%;">转出事务哈希</div>
 											</th>
 											<th class="">
 												<div>操作时间</div>
@@ -259,15 +266,15 @@
 
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">总提取次数</span>
-				<span><%=obj.allCount%></span>
+				<span><%=obj.all_count%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">已提取次数</span>
-				<span><%=obj.usedCount%></span>
+				<span><%=obj.used_count%></span>
 			</li>
 			<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
 				<span style="width: 30%;">当前可提取次数</span>
-				<span><%=obj.currentCount%></span>
+				<span><%=obj.current_count%></span>
 			</li>
 
 		</script>
@@ -276,9 +283,10 @@
 			<tr class="showtr" data-row-key="1">
 				<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 				<td><%=obj[i].amount%></td>
-				<td><%=obj[i].toAddress%></td>
-				<td><%=obj[i].createdAt%></td>
-				<td><%if(obj[i].fromAddress==obj[i].toAddress){%>撤回<%}else{%>提取<%}%></td>
+				<td><%=obj[i].to_address%></td>
+				<td><%=obj[i].hash%></td>
+				<td><%=obj[i].created_at%></td>
+				<td><%if(obj[i].from_address==obj[i].to_address){%>撤回<%}else{%>提取<%}%></td>
 			</tr>
 			<%}%>
 		</script>

@@ -8,34 +8,30 @@ function getTransferLogList(pageSize, pageIndex) {
     if(pageSize == null){
         pageSize = 10;
     }
+    if(pageIndex>0){
+        pageIndex= pageIndex-1;
+    }
     //数据请求部分
-    $.post(HttpHead + "/prove/getProveList/", {
-            pageSize: pageSize,
-            pageIndex: pageIndex
+    $.get("/v2-web/get_prove_list", {
+            per_page: pageSize,
+            page: pageIndex
         },
 
         function(result) {
-            let number;
-            if(pageIndex == null || pageIndex ==1){
-                number = 1;
-            }else{
-                number = ((pageIndex-1)*pageSize)+1;
-            }
             if (result.code == "2000") {
-                for (let i = 0;i<result.data.length;i++) {
-                    let address = result.data[i].coinAddress.substring(0, 2);
+                for (let i = 0; i < result.data.content.length; i++) {
+                    let address = result.data.content[i].from_address.substring(0, 2);
                     if (address != "WX") {
-                        result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+                        result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
                     }
-                    result.data[i].number = number+i;
+                    result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
                 }
-                setHtml(result.data, 'tpl2', 'block-content');
+                setHtml(result.data.content, 'tpl2', 'block-content');
                 //分页处理
-                $('#totalCount').html(result.pageQuery.totalCount);
-                $('#curr_page').html(result.pageQuery.pageIndex);
-                $('#totalPage').html(result.pageQuery.totalPage);
+                $('#totalCount').html(result.data.totalElements);
+                $('#curr_page').html(pageIndex + 1);
+                $('#totalPage').html(result.data.totalPages);
             }
-
         });
 }
 
@@ -58,60 +54,60 @@ if (pageIndex != undefined &&
     getTransferLogList(startIndex2, pageIndex);
 
 } else {
-    getTransferLogList(startIndex2, 1);
+    getTransferLogList(startIndex2, 0);
 }
 
 function changePageSize(page){
     let startIndex = document.getElementById("select").value;
+    let total = $('#totalPage').html();
     if(page == undefined ||
         page == null ||
         page == "undefined" ||
         page == "null" ||
         page == ""){
-        getTransferLogList1(startIndex,1);
+        location.href = "prove.html?pageIndex=1&select=" + startIndex;
     }else {
-        getTransferLogList1(startIndex, page);
+        if(parseInt(total)<parseInt(page)){
+            alert("超过最大页数");
+            return;
+        }else {
+            location.href = "prove.html?pageIndex=" + page + "&select=" + startIndex;
+        }
     }
 }
 
 function getTransferLogList1(pageSize, pageIndex) {
-    // var pageSize=pageSize||10;
-    // var pageIndex=pageIndex||1;
-
+    if(pageIndex>0){
+        pageIndex= pageIndex-1;
+    }
     //数据请求部分
-    $.post(HttpHead + "/prove/getProveList/", {
-            pageSize: pageSize,
-            pageIndex: pageIndex
+    $.get("/v2-web/get_prove_list", {
+            per_page: pageSize,
+            page: pageIndex
         },
 
         function(result) {
-            let number;
-            if(pageIndex == null || pageIndex ==1){
-                number = 1;
-            }else{
-                number = ((pageIndex-1)*pageSize)+1;
-            }
             if (result.code == "2000") {
-                let len = result.pageQuery.totalPage;
-                if(pageIndex > len){
+                let len = result.data.totalPages;
+                if(pageIndex+1 > len){
                     if(len == 0){
                         return;
                     }else {
-                        alert("请输入正确的数字!");
+                        alert("超过最大页数!");
                     }
                 }else {
-                    for (let i = 0; i < result.data.length; i++) {
-                        let address = result.data[i].coinAddress.substring(0, 2);
+                    for (let i = 0; i < result.data.content.length; i++) {
+                        let address = result.data.content[i].from_address.substring(0, 2);
                         if (address != "WX") {
-                            result.data[i].coinAddress = "WX" + result.data[i].coinAddress;
+                            result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
                         }
-                        result.data[i].number = number + i;
+                        result.data.content[i].number = ((pageIndex)*pageSize)+i+1;
                     }
-                    setHtml(result.data, 'tpl2', 'block-content');
+                    setHtml(result.data.content, 'tpl2', 'block-content');
                     //分页处理
-                    $('#totalCount').html(result.pageQuery.totalCount);
-                    $('#curr_page').html(result.pageQuery.pageIndex);
-                    $('#totalPage').html(result.pageQuery.totalPage);
+                    $('#totalCount').html(result.data.totalElements);
+                    $('#curr_page').html(pageIndex+1);
+                    $('#totalPage').html(result.data.totalPages);
                 }
             }
 
@@ -181,7 +177,7 @@ $(document).ready(function(){
 function soso_cer() {
     let sosoval = document.getElementById("soso_cer").value;
     if (sosoval == "") {
-        alert("请输入搜索内容!");
+        alert("Please enter the search content!");
         return;
     }
     location.href = "proveList.html?coinaddress="+ sosoval;
@@ -189,8 +185,8 @@ function soso_cer() {
 
 function jumpSize(){
     let page = document.getElementById("page").value;
-    if(isNaN(page)){
-        alert("请输入正确的数字!");
+    if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
+        alert("请输入正确的数字！");
     }
     changePageSize(page);
 }

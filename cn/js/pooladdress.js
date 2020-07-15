@@ -13,8 +13,8 @@ function userTransferLog(hash) {
 	$("#sosoPool").val(hash);
 	$("#sosoPoolwap").val(hash);
 	//数据请求部分
-	$.post(HttpHead + "/userTransferLog/getPoolAddressInfo/", {
-		blockHash: hash,
+	$.get("/getPoolAddress", {
+		address: hash,
 	},
 	function(result) {
 		if(result.code=="2000" &&result.data!=""){
