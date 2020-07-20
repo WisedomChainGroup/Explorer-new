@@ -8,32 +8,42 @@ function getTransferLogList(pageSize, pageIndex) {
 	if(pageIndex > 0) {
 		pageIndex= pageIndex -1;
 	}
-	//数据请求部分
-	$.get("/v2-web/get_all_transfer_list", {
+		//数据请求部分
+		$.get("/v2-web/get_all_transfer_list_no_page", {
+				start: pageIndex*pageSize+1,
+				end: pageSize * (1+pageIndex)
+			},
+			function(result) {
+				if (result.code == "2000") {
+					for (var i = 0; i < result.data.length; i++) {
+						result.data[i].hash = result.data[i].hash;
+						var hash = result.data[i].hash.substring(0, 5) + "***" + result.data[i].hash.substring(result.data[
+							i].hash.length - 5, result.data[
+							i].hash.length);
+						result.data[i].txn_hash = hash;
+						result.data[i].created_at = getTime(result.data[i].created_at);
+						result.data[i].number = ((pageIndex) * pageSize) + i + 1;
+						result.data[i].amount = toNonExponential(result.data[i].amount);
+					}
+					setHtml(result.data, 'tpl2', 'block-content');
+					let total;
+					let totalPage;
+					$.get("/v2-web/get_latest_transfer_size", {
+					},
+						function(result1) {
+							total = result1.data;
+							//分页处理
+							totalPage = parseInt(total/pageSize);
+							if(total%pageSize != 0){
+								totalPage = totalPage + 1;
+							}
+							$('#totalCount').html(total);
+							$('#curr_page').html(pageIndex + 1);
+							$('#totalPage').html(totalPage);
+					})
 
-			per_page: pageSize,
-			page: pageIndex
-		},
-
-		function(result) {
-			if (result.code == "2000") {
-				for (var i = 0; i < result.data.content.length; i++) {
-					result.data.content[i].hash = result.data.content[i].hash;
-					var hash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
-						i].hash.length - 5, result.data.content[
-						i].hash.length);
-					result.data.content[i].txn_hash = hash;
-					result.data.content[i].created_at = getTime(result.data.content[i].created_at);
-					result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
-					result.data.content[i].amount = toNonExponential(result.data.content[i].amount);
 				}
-				setHtml(result.data.content, 'tpl2', 'block-content');
-				//分页处理
-				$('#totalCount').html(result.data.totalElements);
-				$('#curr_page').html(pageIndex + 1);
-				$('#totalPage').html(result.data.totalPages);
-			}
-		});
+			});
 }
 
 var pageIndex = GetQueryString("pageIndex");

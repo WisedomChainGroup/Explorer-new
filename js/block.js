@@ -36,18 +36,27 @@ function getList() {
 
 function Blocklist(page,startIndex)
 {
-	$.get("v2-web/get_block_list", {
-			page:page,
-			per_page: startIndex
-		},
+	let total ;
+	let totalPage ;
+	$.get("/v2-web/get_latest_block_size", {},
+		function(result1) {
+	total = result1.data;
+	$.get("/v2-web/get_block_list_no_page", {
+		start: total-page*startIndex-startIndex+1,
+		end: total-page*startIndex
+	},
 		function(result) {
-			for(let i = 0 ;i<result.data.content.length;i++){
-				result.data.content[i].time = formatDate(result.data.content[i].time);
-				result.data.content[i].number = result.data.content[i].transaction_size;
+			totalPage = parseInt(total/startIndex);
+			if(total%startIndex != 0){
+				totalPage = totalPage + 1
+			}
+			for(let i = 0 ;i<result.data.length;i++){
+				result.data[i].time = formatDate(result.data[i].time);
+				result.data[i].number = result.data[i].transaction_size;
 			}
 			$('#curr_page').html(page+1);
-			$('#totalPage').html(result.data.totalPages);
-			setHtml(result.data.content, 'tpl3', 'block-details');
+			$('#totalPage').html(totalPage);
+			setHtml(result.data, 'tpl3', 'block-details');
 
 			//首页
 			$("#first_page").click(function() {
@@ -98,6 +107,7 @@ function Blocklist(page,startIndex)
 				}
 			});
 		});
+	})
 }
 
 function changePageSize(page)

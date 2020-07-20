@@ -13,7 +13,7 @@ function getList() {
 			success:function(result){
 				setHtml(result.data, 'tpl', 'block_data_browser1');
 				let startIndex = document.getElementById("select").value;
-				var page = GetQueryString("page");
+				let page = GetQueryString("page");
 				if (page != undefined &&
 					page != null &&
 					page != "undefined" &&
@@ -36,68 +36,79 @@ function getList() {
 
 function Blocklist(page,startIndex)
 {
-	$.get("/v2-web/get_block_list", {
-			page:page,
-			per_page: startIndex
-		},
-		function(result) {
-			for(let i = 0 ;i<result.data.content.length;i++){
-				result.data.content[i].time = formatDate(result.data.content[i].time);
-				result.data.content[i].number = result.data.content[i].transaction_size;
-			}
-			$('#curr_page').html(page+1);
-			$('#totalPage').html(result.data.totalPages);
-			setHtml(result.data.content, 'tpl3', 'block-details');
+	let total ;
+	let totalPage ;
+	$.get("/v2-web/get_latest_block_size", {},
+		function(result1) {
+			total = result1.data;
+			$.get("/v2-web/get_block_list_no_page", {
+					start: total-page*startIndex-startIndex+1,
+					end: total-page*startIndex
+				},
+				function(result) {
+					totalPage = parseInt(total/startIndex);
+					if(total%startIndex != 0){
+						totalPage = totalPage + 1
+					}
+					for(let i = 0 ;i<result.data.length;i++){
+						result.data[i].time = formatDate(result.data[i].time);
+						result.data[i].number = result.data[i].transaction_size;
+					}
+					$('#curr_page').html(page+1);
+					$('#totalPage').html(totalPage);
+					setHtml(result.data, 'tpl3', 'block-details');
 
-			//首页
-			$("#first_page").click(function() {
-				//getTransferLogList(10, 1);
-				var curr_page = parseInt($('#curr_page').html());
-				let startIndex = document.getElementById("select").value;
-				if(curr_page > 1) {
-					location.href = "block.html?page=1&select=" + startIndex;
-				}
-			});
+					//首页
+					$("#first_page").click(function() {
+						//getTransferLogList(10, 1);
+						var curr_page = parseInt($('#curr_page').html());
+						let startIndex = document.getElementById("select").value;
+						if(curr_page > 1) {
+							location.href = "block.html?page=1&select=" + startIndex;
+						}
+					});
 
-			//最后一页
-			$('#last_page').click(function() {
-				var curr_page = parseInt($('#curr_page').html());
-				var totalPage = $('#totalPage').html();
-				let startIndex = document.getElementById("select").value;
-				if(curr_page < totalPage) {
-					location.href = "block.html?page=" + totalPage + "&select=" + startIndex;
-				}
-			});
+					//最后一页
+					$('#last_page').click(function() {
+						var curr_page = parseInt($('#curr_page').html());
+						var totalPage = $('#totalPage').html();
+						let startIndex = document.getElementById("select").value;
+						if(curr_page < totalPage) {
+							location.href = "block.html?page=" + totalPage + "&select=" + startIndex;
+						}
+					});
 
-			//上一頁
-			$("#pre_page").click(function() {
-				var curr_page = parseInt($('#curr_page').html());
-				var totalPage = parseInt($('#totalPage').html());
-				if (curr_page > 0) {
-					page = curr_page - 1;
-				}else{
-					page=curr_page;
-				}
-				let startIndex = document.getElementById("select").value;
-				if(curr_page > 1) {
-					location.href = "block.html?page=" + page + "&select=" + startIndex;
-				}
-			});
-			//下一頁
-			$("#next_page").click(function() {
-				var curr_page = parseInt($('#curr_page').html());
-				var totalPage = parseInt($('#totalPage').html());
-				if (curr_page < totalPage) {
-					page = curr_page + 1;
-				}else{
-					page=curr_page;
-				}
-				let startIndex = document.getElementById("select").value;
-				if(curr_page < totalPage){
-					location.href = "block.html?page=" + page + "&select=" + startIndex;
-				}
-			});
-		});
+					//上一頁
+					$("#pre_page").click(function() {
+						var curr_page = parseInt($('#curr_page').html());
+						var totalPage = parseInt($('#totalPage').html());
+						if (curr_page > 0) {
+							page = curr_page - 1;
+						}else{
+							page=curr_page;
+						}
+						let startIndex = document.getElementById("select").value;
+						if(curr_page > 1) {
+							location.href = "block.html?page=" + page + "&select=" + startIndex;
+						}
+					});
+					//下一頁
+					$("#next_page").click(function() {
+						var curr_page = parseInt($('#curr_page').html());
+						var totalPage = parseInt($('#totalPage').html());
+						if (curr_page < totalPage) {
+							page = curr_page + 1;
+						}else{
+							page=curr_page;
+						}
+						let startIndex = document.getElementById("select").value;
+						if(curr_page < totalPage){
+							location.href = "block.html?page=" + page + "&select=" + startIndex;
+						}
+					});
+				});
+
+		})
 }
 
 function changePageSize(page)

@@ -28,15 +28,12 @@ function getTransferLogList(pageSize, pageIndex) {
 
 function getTransferTotal() {
 	//数据请求部分
-	$.get("/v2-web/get_all_transfer_list", {
-
-			per_page: 10,
-			page: 0
+	$.get("/v2-web/get_latest_transfer_size", {
 		},
 		function(result) {
 			if (result.code == "2000") {
 				//分页处理
-				$('#accountNub').html(result.data.totalElements);
+				$('#accountNub').html(result.data);
 				$("#staticTotal").html("590000000");
 				//totalPage=result.pageQuery.totalPage;
 				//pageIndex=result.pageQuery.pageIndex;
