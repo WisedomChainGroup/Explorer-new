@@ -91,18 +91,36 @@ function changePageSize(page){
     let total = $('#totalPage').html();
     var coinHash160 = GetQueryString("coinHash160");
     var fromAddress = GetQueryString("fromAddress");
-    if(page == undefined ||
-        page == null ||
-        page == "undefined" ||
-        page == "null" ||
-        page == ""){
-        location.href = "operateList.html?pageIndex=1&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
-    }else {
-        if(parseInt(total)<parseInt(page)){
-            alert("超过最大页数");
-            return;
+    let searchType = document.getElementById("searchType").value;
+    if(searchType != ""){
+        if (page == undefined ||
+            page == null ||
+            page == "undefined" ||
+            page == "null" ||
+            page == "") {
+            searchOperateByAddress(startIndex, 1);
         }else {
-            location.href = "operateList.html?pageIndex=" + page + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
+            if (parseInt(total) < parseInt(page)) {
+                alert("超过最大页数");
+                return;
+            } else {
+                searchOperateByAddress(startIndex, page);
+            }
+        }
+    }else {
+        if (page == undefined ||
+            page == null ||
+            page == "undefined" ||
+            page == "null" ||
+            page == "") {
+            location.href = "operateList.html?pageIndex=1&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
+        } else {
+            if (parseInt(total) < parseInt(page)) {
+                alert("超过最大页数");
+                return;
+            } else {
+                location.href = "operateList.html?pageIndex=" + page + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
+            }
         }
     }
 }
@@ -120,7 +138,10 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page > 1) {
+        let searchType = document.getElementById("searchType").value;
+        if(curr_page > 1 && searchType != "") {
+            searchOperateByAddress(startIndex,1);
+        }else{
             location.href = "operateList.html?pageIndex=1&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
         }
     });
@@ -137,7 +158,10 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page < totalPage) {
+        let searchType = document.getElementById("searchType").value;
+        if(curr_page < totalPage && searchType != "") {
+            searchOperateByAddress(startIndex,totalPage);
+        }else{
             location.href = "operateList.html?pageIndex=" + totalPage + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
         }//getTransferLogList(10, totalPage);
     });
@@ -158,7 +182,10 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page > 1) {
+        let searchType = document.getElementById("searchType").value;
+        if(curr_page > 1 && searchType != "") {
+            searchOperateByAddress(startIndex,pageIndex);
+        }else{
             location.href = "operateList.html?pageIndex=" + pageIndex + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
         }
     });
@@ -179,7 +206,10 @@ $(function() {
         }
         var coinHash160 = GetQueryString("coinHash160");
         var fromAddress = GetQueryString("fromAddress");
-        if(curr_page < totalPage) {
+        let searchType = document.getElementById("searchType").value;
+        if(curr_page < totalPage  && searchType != "") {
+            searchOperateByAddress(startIndex,pageIndex);
+        }else{
             location.href = "operateList.html?pageIndex=" + pageIndex + "&select=" + startIndex + "&coinHashAddress=" + coinHashAddress + "&coinHash=" + coinHash + "&coinHash160=" + coinHash160 + "&fromAddress=" + fromAddress;
         }
     });
@@ -224,4 +254,106 @@ function getTime(UTCDateString) {
 function returnBack() {
     var coinHashAddress = GetQueryString("coinHashAddress");
     location.href = "contractList.html?coinaddress=" + coinHashAddress;
+}
+
+function searchOperateByAddress(page1,pageIndex) {
+    var coinHash = GetQueryString("coinHash");
+    var coinHashAddress = GetQueryString("coinHashAddress");
+    var fromAddress = GetQueryString("fromAddress");
+    if(coinHashAddress.substring(0,2) == "WX" || coinHashAddress.substring(0,2) == "WR"){
+        coinHashAddress = coinHashAddress.substring(2,coinHashAddress.length);
+    }
+    var coinHash160 = GetQueryString("coinHash160");
+    var startIndex2 = GetQueryString("select");
+    if(startIndex2 == null){
+        startIndex2 = 10;
+    }
+    if(page1 == undefined ||
+        page1 == null ||
+        page1 == "undefined" ||
+        page1 == "null" ||
+        page1 == ""){
+        pageIndex = 1 ;
+        page1=startIndex2;
+    }
+    let searchType = document.getElementById("searchType").value;
+    let searchAddress = searchType.trim();
+    if(pageIndex > 0){
+        pageIndex = pageIndex - 1;
+    }
+    //数据请求部分
+    $.get("/v2-web/search_store_rule", {
+            search:coinHashAddress,
+            page: 0,
+            per_page: 10
+        },
+
+        function(result) {
+            for(let  i = 0;i<result.data.content.length;i++){
+                result.data.content[i].hash_address = "WR"+ result.data.content[i].hash_address;
+                if(result.data.content[i].type == 2){
+                    result.data.content[i].dest_address = "WR"+ result.data.content[i].dest_address;
+                }else{
+                    result.data.content[i].dest_address = "WX"+ result.data.content[i].dest_address;
+                }
+                if(result.data.content[i].asset_hash160 == "0000000000000000000000000000000000000000"){
+                    $('.codes').html("WDC");
+                }
+                $('#ruleName').html(result.data.content[i].rule_name);
+                $('#coinHashAddress').html(result.data.content[i].hash_address);
+                $('#from_address').html(fromAddress);
+                $('#txn_hash').html(coinHash);
+            }
+            //数据请求部分
+            $.get("/v2-web/get_transfer_out_list", {
+                    from_address: fromAddress,
+                    coin_hash_160: coinHash160,
+                    coin_hash:coinHash,
+                    per_page: 100000000,
+                    page: 0
+                },
+                function(result) {
+                    if (result.code == "2000") {
+                        setHtml(result.data, 'tpl2', 'block-content');
+                        let list_map = new Array();
+                        let list_map_1 = new Array();
+                        let j =0;
+                        for (let i = 0; i < result.data.outs.content.length; i++) {
+                            if (result.data.outs.content[i].type == 2) {
+                                result.data.outs.content[i].to_address = "WR" + result.data.outs.content[i].to_address;
+                                result.data.outs.content[i].from_address = "WR" + result.data.outs.content[i].from_address;
+                            } else {
+                                result.data.outs.content[i].to_address = "WX" + result.data.outs.content[i].to_address;
+                                result.data.outs.content[i].from_address = "WX" + result.data.outs.content[i].from_address;
+                            }
+                            result.data.outs.content[i].created_at = getTime(result.data.outs.content[i].created_at);
+                            result.data.outs.content[i].number = j + 1;
+                            if(result.data.outs.content[i].to_address == searchAddress){
+                                list_map.push(result.data.outs.content[i]);
+                                j++;
+                            }else if(searchAddress == ""){
+                                list_map.push(result.data.outs.content[i]);
+                                j++;
+                            }
+                        }
+                        let total;
+                        if((pageIndex+1)*page1 > list_map.length){
+                            for (let k = pageIndex * page1; k < list_map.length; k++) {
+                                list_map_1.push(list_map[k]);
+                            }
+                            total = Math.ceil(list_map.length/page1);
+                        }else {
+                            for(let k = pageIndex*page1; k < (pageIndex+1)*page1;k++){
+                                list_map_1.push(list_map[k]);
+                            }
+                            total = Math.ceil(list_map.length/page1);
+                        }
+                        setHtml(list_map_1, 'tpl3', 'block-details');
+                        //分页处理
+                        //$('#totalCount').html(list_map.length);
+                        $('#curr_page').html(pageIndex + 1);
+                        $('#totalPage').html(total);
+                    }
+                });
+        });
 }
