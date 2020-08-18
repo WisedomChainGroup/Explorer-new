@@ -734,3 +734,31 @@ tr:hover {background-color: #F4F4F4}}
 .h_ff{
 	color: #FFFFFF!important;
 }
+/*20200723*/
+.box-flex {
+	display:box;
+	display:-webkit-box;
+	display:-moz-box;
+	display:-ms-flexbox;
+	display:flex;
+	displau:-webkit-flex;
+}
+.acenter {
+.webkit-justify-content:center;
+	justify-content:center;
+	-moz-box-pack:center;
+	-webkit--moz-box-pack:center;
+	box-pack:center;
+}
+.vcenter {
+	align-items:center;
+	-webkit-align-items:center;
+	box-align:center;
+	-moz-box-align:center;
+	-webkit-box-align:center;
+}
+.ne_searchBox{position:absolute;right:0px;top:50%;margin-top:-15px; padding-right:30px;}
+.ne_searchBox .din{width:170px;height:30px;border:1px solid #E8E8E8}
+.ne_searchBox .din input{font-size:14px;color:#333;border:0 none;}
+.n_searchbtn{width:30px;height:30px;text-align:center;line-height:30px;background:#5682E1;border:0 none; color:#fff;
+	position:absolute;right:0px;top:0px; padding:0px;}
