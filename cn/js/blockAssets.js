@@ -385,11 +385,11 @@ if (GetQueryString_address != undefined &&
 	//getTransferLogList(GetQueryString_address,pageIndex);
 	getParseContract(GetQueryString_address,type,pageIndex);
 	if (type==1) {
-		$('.tabst').css('left','2.5rem');
+		$('.tabst').css('left','1。7rem');
 	}else if(type==2){
-		$('.tabst').css('left','9.1rem');
+		$('.tabst').css('left','6.3rem');
 	}else{
-		$('.tabst').css('left','15.6rem');
+		$('.tabst').css('left','12.1rem');
 	}
 
 	for(var i =1 ;i<4;i++){
