@@ -56,7 +56,6 @@ function searchCoinContract(page,index){
 	var GetQueryString_address = GetQueryString("coinaddress");
 	var type = GetQueryString("type");
 	let addressSearch = document.getElementById("searchType").value;
-	addressSearch = addressSearch.trim();
 	getParseContract(GetQueryString_address,type,index,addressSearch);
 }
 
@@ -415,8 +414,7 @@ function changePageSize(page){
 	let startIndex = document.getElementById("select").value;
 	var GetQueryString_address = GetQueryString("coinaddress");
 	var type = GetQueryString("type");
-	var searchType = GetQueryString("searchType");
-	searchType = searchType.trim();
+	var searchType = document.getElementById("searchType").value;
 	if(page == undefined ||
 		page == null ||
 		page == "undefined" ||
@@ -542,8 +540,8 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex,sea
 			if(searchType.slice(0,2) == "WX"){
 				$.post(HttpHead + "/userTransferLog/getTransferLogList/", {
 						txHash: coinhash160,
-						coinAddress:addressSearch,
-						pageSize: startIndex2,
+						coinAddress:searchType,
+						pageSize: startIndex,
 						pageIndex: pageIndex
 					},
 
@@ -560,7 +558,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex,sea
 							if (pageIndex == null || pageIndex == 1) {
 								number = 1;
 							} else {
-								number = ((pageIndex - 1) * startIndex2) + 1;
+								number = ((pageIndex - 1) * startIndex) + 1;
 							}
 							if (result.code == "2000") {
 
@@ -650,7 +648,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex,sea
 			$.post(HttpHead + "/assetOwner/getAssetOwnerByAddress/", {
 					coidHash160: coinhash,
 					address:searchType,
-					pageSize: startIndex2,
+					pageSize: startIndex,
 					pageIndex: pageIndex
 				},
 				function (result) {
@@ -666,7 +664,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex,sea
 						if (pageIndex == null || pageIndex == 1) {
 							number = 1;
 						} else {
-							number = ((pageIndex - 1) * startIndex2) + 1;
+							number = ((pageIndex - 1) * startIndex) + 1;
 						}
 						if (result.code == "2000") {
 							for (var i = 0; i < result.data.length; i++) {
@@ -756,7 +754,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex,sea
 		}else if (searchType.slice(0,2) == "WX"){
 			$.post(HttpHead + "/assetIncreased/getAssetIncreasedByAddress/", {
 					coidHash160: coinhash,
-					pageSize: startIndex2,
+					pageSize: startIndex,
 					pageIndex: pageIndex,
 					ownerAddress:searchType
 				},
@@ -773,7 +771,7 @@ function getTransferLogList1(coinhash,coinhash160,type, pageIndex,startIndex,sea
 						if (pageIndex == null || pageIndex == 1) {
 							number = 1;
 						} else {
-							number = ((pageIndex - 1) * startIndex2) + 1;
+							number = ((pageIndex - 1) * startIndex) + 1;
 						}
 						if (result.code == "2000") {
 							for (var i = 0; i < result.data.length; i++) {
