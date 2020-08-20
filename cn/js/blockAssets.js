@@ -384,7 +384,7 @@ if (GetQueryString_address != undefined &&
 	//getTransferLogList(GetQueryString_address,pageIndex);
 	getParseContract(GetQueryString_address,type,pageIndex);
 	if (type==1) {
-		$('.tabst').css('left','1。7rem');
+		$('.tabst').css('left','1.7rem');
 	}else if(type==2){
 		$('.tabst').css('left','6.3rem');
 	}else{
@@ -839,6 +839,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page > 1 && searchType != "") {
 			searchCoinContract(startIndex,1);
+		}else if(curr_page == 1){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=1&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex + "&searchType=" +searchType;
 		}
@@ -852,6 +854,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page < totalPage && searchType != "") {
 			searchCoinContract(startIndex,totalPage);
+		}else if(curr_page == totalPage){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + totalPage + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex+ "&searchType=" +searchType;;
 		}
@@ -870,6 +874,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page > 1 && searchType != "") {
 			searchCoinContract(startIndex,pageIndex);
+		}else if(curr_page == totalPage){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex+ "&searchType=" +searchType;;
 		}
@@ -888,6 +894,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page < totalPage  && searchType != "") {
 			searchCoinContract(startIndex,pageIndex);
+		}else if(curr_page == totalPage){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex+ "&searchType=" +searchType;;
 		}
