@@ -874,7 +874,7 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page > 1 && searchType != "") {
 			searchCoinContract(startIndex,pageIndex);
-		}else if(curr_page == totalPage){
+		}else if(curr_page == 1){
 			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + pageIndex + "&coinaddress=" + coinaddress + "&type=" + type + "&select=" + startIndex+ "&searchType=" +searchType;;
