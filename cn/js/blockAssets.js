@@ -150,7 +150,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex,code) {
 						var blockHash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
 							i].hash.length - 5, result.data.content[
 							i].hash.length);
-						result.data.content[i].hash = blockHash;
+						result.data.content[i].blockHash = blockHash;
 						result.data.content[i].created_at = getTime(result.data.content[i].created_at);
 						result.data.content[i].number = ((pageIndex) * startIndex2) + i + 1;
 						if (result.data.content[i].address.substring(0, 2) != "WX") {
@@ -275,6 +275,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page > 1 && searchType != "") {
 			searchCoinContract(startIndex,1);
+		}else if(curr_page == 1){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=1" +"&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
@@ -288,6 +290,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page < totalPage && searchType != "") {
 			searchCoinContract(startIndex,totalPage);
+		}else if(curr_page == totalPage){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + totalPage +"&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
@@ -306,6 +310,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page > 1 && searchType != "") {
 			searchCoinContract(startIndex,pageIndex);
+		}else if(curr_page == 1){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + pageIndex + "&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
@@ -324,6 +330,8 @@ $(function() {
 		let searchType = document.getElementById("searchType").value;
 		if(curr_page < totalPage  && searchType != "") {
 			searchCoinContract(startIndex,pageIndex);
+		}else if(curr_page == totalPage){
+			return;
 		}else{
 			location.href = "assetsList.html?pageIndex=" + pageIndex + "&type=" + type + "&select=" + startIndex+ "&coinaddress=" + coinaddress;
 		}
@@ -454,12 +462,22 @@ function searchCoinContract(page,index) {
 							}
 							result.data.content[i].created_at = getTime(result.data.content[i].created_at);
 							result.data.content[i].code = code1;
-							if(result.data.content[i].from_address == searchAddress || result.data.content[i].to_address == searchAddress){
+
+							if(searchAddress == ""){
 								list_map.push(result.data.content[i]);
 								j++;
-							}else if(searchAddress == ""){
-								list_map.push(result.data.content[i]);
-								j++;
+							}else{
+								if(searchAddress.substring(0,2) == "WX"){
+									if(result.data.content[i].from_address == searchAddress || result.data.content[i].to_address == searchAddress){
+										list_map.push(result.data.content[i]);
+										j++;
+									}
+								}else{
+									if(result.data.content[i].hash == searchAddress){
+										list_map.push(result.data.content[i]);
+										j++;
+									}
+								}
 							}
 						}
 						let total;
@@ -507,11 +525,21 @@ function searchCoinContract(page,index) {
 								result.data.content[i].new_address = "WX" + result.data.content[i].new_address;
 							}
 							result.data.content[i].created_at = getTime(result.data.content[i].created_at);
-							if(result.data.content[i].address == searchAddress){
+							if(searchAddress == ""){
 								list_map.push(result.data.content[i]);
 								j++;
-							}else if(searchAddress == ""){
-								list_map.push(result.data.content[i]);
+							}else{
+								if(searchAddress.substring(0,2) == "WX"){
+									if(result.data.content[i].address == searchAddress){
+										list_map.push(result.data.content[i]);
+										j++;
+									}
+								}else{
+									if(result.data.content[i].hash == searchAddress){
+										list_map.push(result.data.content[i]);
+										j++;
+									}
+								}
 							}
 						}
 						let total;
@@ -526,7 +554,7 @@ function searchCoinContract(page,index) {
 							}
 							total = Math.ceil(list_map.length/page1);
 						}
-						setHtml(list_map_1, 'tpl2', 'transactions_data_List');
+						setHtml(list_map_1, 'tpl3', 'transactions_data_List');
 						//分页处理
 						//$('#totalCount').html(1);
 						$('#curr_page').html(pageIndex + 1);
@@ -548,17 +576,27 @@ function searchCoinContract(page,index) {
 						var blockHash = result.data.content[i].hash.substring(0, 5) + "***" + result.data.content[i].hash.substring(result.data.content[
 							i].hash.length - 5, result.data.content[
 							i].hash.length);
-						result.data.content[i].hash = blockHash;
+						result.data.content[i].blockHash = blockHash;
 						result.data.content[i].created_at = getTime(result.data.content[i].created_at);
 						result.data.content[i].number = j + 1;
 						if (result.data.content[i].address.substring(0, 2) != "WX") {
 							result.data.content[i].address = "WX" + result.data.content[i].address;
 						}
-						if(result.data.content[i].address == searchAddress){
+						if(searchAddress == ""){
 							list_map.push(result.data.content[i]);
 							j++;
-						}else if(searchAddress == ""){
-							list_map.push(result.data.content[i]);
+						}else{
+							if(searchAddress.substring(0,2) == "WX"){
+								if(result.data.content[i].address == searchAddress){
+									list_map.push(result.data.content[i]);
+									j++;
+								}
+							}else{
+								if(result.data.content[i].hash == searchAddress){
+									list_map.push(result.data.content[i]);
+									j++;
+								}
+							}
 						}
 					}
 					let total;
