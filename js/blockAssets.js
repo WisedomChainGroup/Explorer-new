@@ -912,8 +912,9 @@ $(document).ready(function(){
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page) || page<=0){
 		alert("Please enter the correct number!");
+	}else {
+		changePageSize(page);
 	}
-	changePageSize(page);
 }

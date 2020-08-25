@@ -912,8 +912,9 @@ $(document).ready(function(){
 
 function jumpSize(){
 	let page = document.getElementById("page").value;
-	if(isNaN(page)){
+	if(isNaN(page) || page<=0){
 		alert("请输入正确的数字!");
+	}else {
+		changePageSize(page);
 	}
-	changePageSize(page);
 }
