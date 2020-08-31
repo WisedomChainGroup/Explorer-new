@@ -350,8 +350,9 @@ function jumpSize(){
 	let page = document.getElementById("page").value;
 	if(isNaN(page)|| !(/(^[1-9]\d*$)/.test(page))){
 		alert("请输入正确的数字！");
+	}else{
+		changePageSize(page);
 	}
-	changePageSize(page);
 }
 
 function getTime(UTCDateString) {
