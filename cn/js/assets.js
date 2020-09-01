@@ -21,7 +21,7 @@ function getTransferLogList(pageSize, pageIndex) {
 			if (result.code == "2000") {
 				for (let i = 0; i < result.data.content.length; i++) {
 					result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
-					if (result.data.content[i].image_url == null) {
+					if (result.data.content[i].image_url == "") {
 						result.data.content[i].image_url = "/cn/img/coin_Logo.png";
 					}
 				}
