@@ -532,7 +532,7 @@ function searchCoinContract(page,index) {
 					j++;
 				}else{
 					if(searchAddress.substring(0,2) == "WX"){
-						if(result.data.content[i].old_address == searchAddress || result.data.content[i].new_address == searchAddres){
+						if(result.data.content[i].old_address == searchAddress || result.data.content[i].new_address == searchAddress){
 							list_map.push(result.data.content[i]);
 							j++;
 						}
