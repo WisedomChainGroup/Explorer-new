@@ -47,7 +47,7 @@ function getTransferLogList(coinaddress, pageIndex) {
 			if (result.code == "2000"&&result.data.length>0) {
 				for (var i = 0; i < result.data.length; i++) {
 					result.data[i].hash = result.data[i].tranhash;
-					var blockHash = result.data[i].tranhaxh.substring(0, 5) + "***" + result.data[i].tranhaxh.substring(result.data[
+					var blockHash = result.data[i].tranhash.substring(0, 5) + "***" + result.data[i].tranhash.substring(result.data[
 						i].tranhash.length - 5, result.data[
 						i].tranhash.length);
 					result.data[i].tranhash = blockHash;
