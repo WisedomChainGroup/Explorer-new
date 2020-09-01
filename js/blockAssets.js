@@ -532,7 +532,7 @@ function searchCoinContract(page,index) {
 					j++;
 				}else{
 					if(searchAddress.substring(0,2) == "WX"){
-						if(result.data.content[i].address == searchAddress){
+						if(result.data.content[i].old_address == searchAddress || result.data.content[i].new_address == searchAddres){
 							list_map.push(result.data.content[i]);
 							j++;
 						}
@@ -613,7 +613,7 @@ function searchCoinContract(page,index) {
 			}
 			total = Math.ceil(list_map.length/page1);
 		}
-		setHtml(list_map, 'tpl1', 'transactions_data_List');
+		setHtml(list_map_1, 'tpl1', 'transactions_data_List');
 		//分页处理
 		//$('#totalCount').html(1);
 		$('#curr_page').html(pageIndex + 1);
