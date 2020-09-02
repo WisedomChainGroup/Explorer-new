@@ -145,14 +145,28 @@ function soso_address() {
     location.href = "contractList.html?coinaddress="+ sosoval;
 }
 
+function replaceAll(str)
+{
+    if(str!=null)
+        str = str.replace(/-/g,"/")
+    return str;
+}
+
+
 function getTime(UTCDateString) {
     if(!UTCDateString){
         return '-';
     }
+    //UTCDateString = renderTime(UTCDateString);
+    UTCDateString = UTCDateString.replace("-","/");
+    UTCDateString = UTCDateString.replace("T"," ");
+    UTCDateString = replaceAll(UTCDateString);
+    UTCDateString = UTCDateString.substring(0,19);
+
     function formatFunc(str) {    //格式化显示
         return str > 9 ? str : '0' + str
     }
-    var date2 = new Date(UTCDateString);     //这步是关键
+    var date2 = new Date(UTCDateString);//这步是关键
     var year = date2.getFullYear();
     var mon = formatFunc(date2.getMonth() + 1);
     var day = formatFunc(date2.getDate());
@@ -160,6 +174,24 @@ function getTime(UTCDateString) {
     hour = formatFunc(hour);
     var min = formatFunc(date2.getMinutes());
     var sec = formatFunc(date2.getSeconds());
-    var dateStr = year+'-'+mon+'-'+day+' '+hour+':'+min+':'+sec;
-    return dateStr;
+    var dateStr = year+'/'+mon+'/'+day+' '+hour+':'+min+':'+sec;
+    //var dateStr = "2020/9/2 23:01:01";
+    var dateStr1 = eosFormatTime2(dateStr);
+    var year1 = dateStr1.getFullYear();
+    var mon1 = formatFunc(dateStr1.getMonth() + 1);
+    var day1 = formatFunc(dateStr1.getDate());
+    var hour1 = dateStr1.getHours();
+    hour1 = formatFunc(hour1);
+    var min1 = formatFunc(dateStr1.getMinutes());
+    var sec1 = formatFunc(dateStr1.getSeconds());
+    var dateStr2 = year1+'-'+mon1+'-'+day1+' '+hour1+':'+min1+':'+sec1;
+    return dateStr2;
+}
+
+function eosFormatTime2(oldTimes1) {
+    var x = oldTimes1; // 取得时间"2017-07-08 13:00:00"
+    var time = new Date(x);
+    var timeNum = 8;//小时数
+    time.setHours(time.getHours() + timeNum);
+    return time;
 }
