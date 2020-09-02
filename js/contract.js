@@ -147,6 +147,7 @@ function soso_address() {
     }
 }
 
+
 function replaceAll(str)
 {
 	if(str!=null)
@@ -156,6 +157,8 @@ function replaceAll(str)
 
 
 function getTime(UTCDateString) {
+	//获取当前时区
+	var offset = new Date().getTimezoneOffset()/60;
 	if(!UTCDateString){
 		return '-';
 	}
@@ -178,7 +181,7 @@ function getTime(UTCDateString) {
 	var sec = formatFunc(date2.getSeconds());
 	var dateStr = year+'/'+mon+'/'+day+' '+hour+':'+min+':'+sec;
 	//var dateStr = "2020/9/2 23:01:01";
-	var dateStr1 = eosFormatTime2(dateStr);
+	var dateStr1 = eosFormatTime2(dateStr,offset);
 	var year1 = dateStr1.getFullYear();
 	var mon1 = formatFunc(dateStr1.getMonth() + 1);
 	var day1 = formatFunc(dateStr1.getDate());
@@ -190,10 +193,10 @@ function getTime(UTCDateString) {
 	return dateStr2;
 }
 
-function eosFormatTime2(oldTimes1) {
+function eosFormatTime2(oldTimes1,offset) {
 	var x = oldTimes1; // 取得时间"2017-07-08 13:00:00"
 	var time = new Date(x);
-        var timeNum = 8;//小时数
-	time.setHours(time.getHours() + timeNum);
+        var timeNum = offset;//小时数
+	time.setHours(time.getHours() - timeNum);
         return time;
     }
