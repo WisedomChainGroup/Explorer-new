@@ -6,6 +6,11 @@ $(function() {
 		});
 
 
+	// $.get("/WisdomCore/ExplorerInfo",
+	// 	function(result) {
+	// 		//$('#price').find('font').find('font').innerText=result.data.last;
+	// 		setHtml(result.data, 'tpl1', 'block_data_browser');
+	// 	});
 
 	$.ajax(
 		{
@@ -13,6 +18,6 @@ $(function() {
 			success:function(result){
 				setHtml(result.data, 'tpl1', 'block_data_browser');},
 			error:function(result){console.log("error");}
-		},
+		}
 	);
 });
