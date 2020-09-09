@@ -15,53 +15,53 @@
 		<script src="js/block.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			@media screen and (max-width: 768px){
-				.compontPagination___3HkDQ{
-					flex-direction:column;
-				}
-			}
-			.dis{
-				display: flex;
-			}
-			.ju-c{
-				justify-content: center;
-				align-items: center;
-			}
-			.page-input{
-				padding: 0 0.15rem;
-				font-size: 80%;
-				background-position: right .375rem center;
-				background-size: 7px 8px;
-				border-radius: 5px;
-				width: 50px;
-				height: 28px;
-				border: 1px solid #a8a8a8;
-			}
-			.page-button{
-				margin: 0 10px;
-				border-radius: 5px;
-				width: 50px;
-				height: 28px;
-				border: 1px solid #a8a8a8;
+	.compontPagination___3HkDQ{
+		flex-direction:column;
+	}
+}
+.dis{
+	display: flex;
+}
+.ju-c{
+	justify-content: center;
+	align-items: center;
+}
+.page-input{
+	padding: 0 0.15rem;
+	font-size: 80%;
+	background-position: right .375rem center;
+	background-size: 7px 8px;
+	border-radius: 5px;
+	width: 50px;
+	height: 28px;
+	border: 1px solid #a8a8a8;
+}
+.page-button{
+	margin: 0 10px;
+	border-radius: 5px;
+	width: 50px;
+	height: 28px;
+	border: 1px solid #a8a8a8;
 				color: #428BCA;
 				outline: none;
-				display: flex;
-				white-space: nowrap;
-				cursor: pointer;
-			}
-			.ma-r-2{
-				margin-right: 40px;
-			}
-			.compontPagination___3HkDQ p{
-				margin-top: 12px;
-			}
-		</style>
+	display: flex;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.ma-r-2{
+	margin-right: 40px;
+}
+.compontPagination___3HkDQ p{
+	margin-top: 12px;
+}
+</style>
 	</head>
 	<body>
 
 		<div id="page_header"></div>
 		<script>
 		  $("#page_header").load("header.html");
-		</script>
+</script>
 			
 		<section class="box">
 			<div class="wid-1200">
@@ -205,38 +205,39 @@
 						<% for(var i = 0;i<obj.length;i++){%>
 							<tr class="" data-row-key="1">
 								<td class="cursor"><span class="" style="padding-left: 0px;">
-									<a title="<%=obj[i].nheight%>" href="blockList.html?height=<%=obj[i].nheight%>"><%=obj[i].nheight%></a>
+									<a title="<%=obj[i].height%>" href="blockList.html?height=<%=obj[i].height%>"><%=obj[i].height%></a>
 								</span></td>
 								<td class="cursor"><span class="" title="">
-									<a title="<%=obj[i].blockhash%>" href="blockList.html?height=<%=obj[i].nheight%>"><%=obj[i].blockhash%></a>
+									<a title="<%=obj[i].blockhash%>" href="blockList.html?height=<%=obj[i].height%>"><%=obj[i].block_hash%></a>
 								</span></td>
-								<td class=""><span><%=obj[i].ntime%></span></td>
-								<td class="tr"><span><%=obj[i].blocksize%></span></td>
-								<td class="tr"><span><%=obj[i].remarks%></span></td>
+								<td class=""><span><%=obj[i].time%></span></td>
+								<td class="tr"><span><%=obj[i].block_size%></span></td>
+								<td class="tr"><span><%=obj[i].number%></span></td>
 							</tr>
 						<%}%>
 						</script>
 			<div id="page_footer"></div>
-			
+
 			<script>
 			  $("#page_footer").load("footer.html");
-			</script>
-			 
+</script>
+
 		</div>
-		
-		
+
+
 
 			<script>
 				function MyClick(flag) {
-					if (flag == 'show') {
-						document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
-					}
-					if (flag == 'hide') {
-						document.getElementById('header-mobile-menu').classList.remove('show')
-					}
-				}
-			</script>
+	if (flag == 'show') {
+		document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+	}
+	if (flag == 'hide') {
+		document.getElementById('header-mobile-menu').classList.remove('show')
+	}
+}
+</script>
 
 <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 </html>
+
