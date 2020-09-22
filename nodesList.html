@@ -13,56 +13,56 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/nodesList.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="js/nodesList.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			@media screen and (max-width: 768px){
-				.compontPagination___3HkDQ{
-					flex-direction:column;
-				}
-				.ma-r-2{
-					margin-right: 0px;
-				}
-			}
-			.dis{
-				display: flex;
-			}
-			.ju-c{
-				justify-content: center;
-				align-items: center;
-			}
-			.page-input{
-				padding: 0 0.15rem;
-				font-size: 80%;
-				background-position: right .375rem center;
-				background-size: 7px 8px;
-				border-radius: 5px;
-				width: 50px;
-				height: 28px;
-				border: 1px solid #a8a8a8;
-			}
-			.page-button{
-				margin: 0 10px;
-				border-radius: 5px;
-				height: 28px;
-				border: 1px solid #a8a8a8;
+	.compontPagination___3HkDQ{
+		flex-direction:column;
+	}
+	.ma-r-2{
+		margin-right: 0px;
+	}
+}
+.dis{
+	display: flex;
+}
+.ju-c{
+	justify-content: center;
+	align-items: center;
+}
+.page-input{
+	padding: 0 0.15rem;
+	font-size: 80%;
+	background-position: right .375rem center;
+	background-size: 7px 8px;
+	border-radius: 5px;
+	width: 50px;
+	height: 28px;
+	border: 1px solid #a8a8a8;
+}
+.page-button{
+	margin: 0 10px;
+	border-radius: 5px;
+	height: 28px;
+	border: 1px solid #a8a8a8;
 				color: #428BCA;
 				outline: none;
-				cursor: pointer;
-			}
-			.ma-r-2{
-				margin-right: 40px;
-			}
-			.compontPagination___3HkDQ p{
-				margin-top: 12px;
-			}
-		</style>
+	cursor: pointer;
+}
+.ma-r-2{
+	margin-right: 40px;
+}
+.compontPagination___3HkDQ p{
+	margin-top: 12px;
+}
+</style>
 	</head>
 	<body>
 		<div id="page_header"></div>
-		
+
 		<script>
 		  $("#page_header").load("header.html");
-		 </script>
+</script>
 
 
 		<section class="box">
@@ -84,7 +84,7 @@
 					</div>
 				</div>
 				<div class="blocks" style="margin-top: 2em;">
-		
+
 					<div class="ant-row" style="margin-bottom: 28px;">
 						<span class="detailLable"><span>Node address</span>：</span>
 
@@ -93,14 +93,36 @@
 							<canvas id="qrcode" style="display: none;"></canvas>
 						</span>
 					</div>
-					
-					<div class="con-box" id="con-box-yu">
+
+					<div class="con-box n_con-box" id="con-box-yu">
+
 						<script type="text/json" id="tpl">
-							<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>Balance（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.data/100000000%></span></p>
+							<span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.data/100000000%></span>
 						</script>
 					</div>
-						
-					
+
+					<div class="con-box n_con-box" >
+						<span class="detailLable"><span>历史余额（WDC）</span>：</span><span class="detailValue"style="width:auto;" id ="HistoricalBalance"></span>
+						<div class="n_searchIn">
+						   <input placeholder="请输入区块高度" id="height"/>
+						   <button class="n_searchBtn" onclick="searchByHeight()">查询</button>
+						</div>
+					</div>
+					<div class="con-box n_con-box " >
+						<span class="detailLable"><span>历史投票数</span>：</span><span id="HistoricalVotes"></span>
+						<span class="dataDetail">
+						   <img src="../img/icon_list.png" onclick="showDetail()"/>
+						   <div class="voteBox hidden" id="voteBox">
+						      <div class="arrow"></div>
+						      <ul class="" id="blockHeight-content">
+
+								</ul>
+						   </div>
+						</span>
+
+					</div>
+
+
 
 					<div class="clear"></div>
 					<div class="wrapper">
@@ -122,7 +144,7 @@
 																<th>
 																	<div  style="padding-left:150px;">Txn Hash</div>
 																</th>
-																
+
 																<th class="" style="">
 																	<div>Votes</div>
 																</th>
@@ -135,16 +157,16 @@
 																<th class="">
 																	<div>Block Number</div>
 																</th>
-																
+
 																<th class="" >
 																	<div style="text-align:center">Vote Time</div>
 																</th>
-																
+
 															</tr>
 														</thead>
 														<tbody class="" id="block-content">
 
-													
+
 														</tbody>
 													</table>
 												</div>
@@ -172,7 +194,7 @@
 									<option value="50">50</option>
 									<option value="100">100</option>
 								</select>
-								Records 
+								Records
 							</div>
 							<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
 								<div class="dis ju-c ma-r-2">
@@ -193,21 +215,32 @@
 							</div>
 						</div>
 
-					</div> 
+					</div>
 
 				</div>
 
 			</div>
 
 		</section>
-		
+
 		<div class="clear">
 
 			<div id="page_footer"></div>
-			
+
 			<script>
 			  $("#page_footer").load("footer.html");
-			 </script>
+			</script>
+
+			<script type="text/json" id="tpl4">
+				<% for(var i = 0;i<obj.length;i++){%>
+					<li>
+						<div class="d1"><span><%=i+1%></span></div>
+						<div class="d2"><span><%=obj[i].to_address%></span></div>
+						<div class="d3"><span><%=obj[i].amount%></span></div>
+					</li>
+				<%}%>
+
+			</script>
 
 			<script type="text/json" id="tpl2">
 				<%if(obj.length==0){%>
@@ -234,16 +267,30 @@
 			</script>
 			<script>
 				function MyClick(flag) {
-					if (flag == 'show') {
-						document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
-					}
-					if (flag == 'hide') {
-						document.getElementById('header-mobile-menu').classList.remove('show')
-					}
-				}
-			</script>
+			if (flag == 'show') {
+				document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');
+			}
+			if (flag == 'hide') {
+				document.getElementById('header-mobile-menu').classList.remove('show')
+			}
+}
+
+function showDetail(){
+
+	var node = document.getElementById('voteBox');
+	if (node.getAttribute('class')) {  // 存在class属性
+						if (node.getAttribute('class').indexOf('hidden') > -1) {
+		node.classList.remove('hidden')
+	}else{
+		node.setAttribute('class', 'voteBox hidden');
+	}
+	}
+}
+
+</script>
 			<!-- <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 			<script src="js/coinaddress.js" type="text/javascript" charset="utf-8"></script> -->
 		</div>
 	</body>
 </html>
+

@@ -237,4 +237,53 @@ function eosFormatTime2(oldTimes1,offset) {
 		return time;
 	}
 
+function searchByHeight() {
+	let address = GetQueryString("coinaddress");
+	let height = document.getElementById("height").value;
+
+	let publicKeyHash = null;
+	let blockhash = null;
+	if(height != undefined &&
+		height != null &&
+		height != "undefined" &&
+		height != "null" &&
+		height != "" && !isNaN(height)) {
+		//数据请求部分
+		$.get("/v2-web/get_public_key_hash_by_address", {
+				from_address: address
+			},
+			function (result1) {
+				publicKeyHash = result1.data;
+
+				//数据请求部分
+				$.get("/v2-web/get_block_by_height?height=" + height,
+					function (result2) {
+						blockhash = result2.data.block_hash;
+
+						//数据请求部分
+						$.get("/internal/accountState", {
+								publicKeyHash: publicKeyHash,
+								blockHash: blockhash
+							},
+							function (result) {
+								$("#HistoricalBalance").html(result.data.account.balance/100000000);
+								$("#HistoricalVotes").html(result.data.account.vote/100000000);
+
+					address = address.substring(2,address.length);
+					//数据请求部分
+					$.get("/v2-web/get_vote_list_by_height",{
+						from_address:address,
+							height:height
+					},
+					function (result3) {
+						if (result3.code == "2000"&&result3.data.length>0) {
+							setHtml(result3.data, 'tpl4', 'blockHeight-content');
+						}
+					});
+				});
+			});
+		});
+	}
+}
+
 
