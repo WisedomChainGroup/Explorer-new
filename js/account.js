@@ -29,7 +29,11 @@ function userTransferLog(hash,GetQueryString_hash160) {
 				//判断是否转的代币
 					result.data.code = code;
 			}else{
-				result.data.code = "WDC";
+				if(result.data.transfer_type == "6"){
+					result.data.code = result.data.coin_name;
+				}else{
+					result.data.code = "WDC";
+				}
 			}
 			setHtml(result.data,'tpl','content');
 		}
