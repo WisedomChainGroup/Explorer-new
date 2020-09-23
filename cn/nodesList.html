@@ -85,7 +85,7 @@
 
 				<div class="blocks" style="margin-top: 2em;">
 
-					<div class="ant-row n_con-box" style="margin-bottom:18px;">
+					<div class="ant-row" style="margin-bottom: 28px;">
 						<span class="detailLable"><span>节点地址</span>：</span>
 
 						<span class="detailValue" style="position: relative;">
@@ -94,33 +94,14 @@
 						</span>
 					</div>
 
-					<div class="con-box n_con-box" id="con-box-yu">
-
+					<div class="con-box" id="con-box-yu">
 						<script type="text/json" id="tpl">
-							<span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.data/100000000%></span>
+							<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.dynamicCount%></span></p>
+							<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>余额（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.data/100000000%></span></p>
 						</script>
 					</div>
 
-					<div class="con-box n_con-box" >
-						<span class="detailLable"><span>历史余额（WDC）</span>：</span><span class="detailValue"style="width:auto;" id ="HistoricalBalance"></span>
-						<div class="n_searchIn">
-						   <input placeholder="请输入区块高度"  id="height"/>
-						   <button class="n_searchBtn" onclick="searchByHeight()">查询</button>
-						</div>
-					</div>
-					<div class="con-box n_con-box " >
-						<span class="detailLable"><span>历史投票数</span>：</span><span id="HistoricalVotes"></span>
-						<span class="dataDetail">
-						   <img src="../img/icon_list.png" onclick="showDetail()"/>
-						   <div class="voteBox hidden" id="voteBox">
-						      <div class="arrow"></div>
-								<ul class="" id="blockHeight-content">
 
-								</ul>
-						   </div>
-						</span>
-
-					</div>
 
 					<div class="clear"></div>
 					<div class="wrapper">
@@ -219,45 +200,38 @@
 
 			<div id="page_footer"></div>
 
-			<script type="text/json" id="tpl4">
-				<% for(var i = 0;i<obj.length;i++){%>
-					<li>
-						<div class="d1"><span><%=i+1%></span></div>
-						<div class="d2"><span><%=obj[i].to_address%></span></div>
-						<div class="d3"><span><%=obj[i].amount%></span></div>
-					</li>
-				<%}%>
-
-			</script>
-
-			<script type="text/json" id="tpl2">
-																<%if(obj.length==0){%>
-																<tr>
-																<td class="" colspan="8">aaa</td>
-																</tr>
-																<%}else{%>
-																<% for(var i = 0;i<obj.length;i++){%>
-
-															<tr class="" data-row-key="1">
-																<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
-																<td class="cursor"><span><%=obj[i].hash%></span></td>
-																<td class=""><span><%=obj[i].amount%></span></td>
-																<td class="cursor"><span><%=obj[i].from_address%></span></td>
-
-																<!-- <td class="cursor"><span><%=obj[i].toAddress%></span></td> -->
-																<td class=""><span><%=obj[i].height%></span></td>
-
-																<td class="tr"><span><%=obj[i].created_at%></span></td>
-															</tr>
-
-																<%}}%>
-
-															</script>
-
-
 			<script>
 			  $("#page_footer").load("footer.html");
 </script>
+
+			<script type="text/json" id="tpl2">
+				<%if(obj.length==0){%>
+				<tr>
+				<td class="" colspan="8">aaa</td>
+				</tr>
+				<%}else{%>
+				<% for(var i = 0;i<obj.length;i++){%>
+
+			<tr class="" data-row-key="1">
+				<td class=""><span class="" style="padding-left: 0px;"></span><%=i+1%></td>
+				<td class="cursor"><span><%=obj[i].coinHash%></span></td>
+				<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+				<td class="cursor"><span><%=obj[i].hash%></span></td>
+				<td class=""><span><%=obj[i].amount%></span></td>
+				<td class="cursor"><span><%=obj[i].coinAddress%></span></td>
+				<td class="cursor"><span><%=obj[i].from_address%></span></td>
+
+				<!-- <td class="cursor"><span><%=obj[i].toAddress%></span></td> -->
+				<td class=""><span><%=obj[i].coinHeigth%></span></td>
+				<td class=""><span><%=obj[i].height%></span></td>
+
+				<td class="tr"><span><%=obj[i].createTimeFmt%></span></td>
+				<td class="tr"><span><%=obj[i].created_at%></span></td>
+			</tr>
+
+				<%}}%>
+
+			</script>
 			<script>
 				function MyClick(flag) {
 	if (flag == 'show') {
@@ -267,19 +241,9 @@
 		document.getElementById('header-mobile-menu').classList.remove('show')
 	}
 }
-
-function showDetail(){
-
-	var node = document.getElementById('voteBox');
-	if (node.getAttribute('class')) {  // 存在class属性
-						if (node.getAttribute('class').indexOf('hidden') > -1) {
-		node.classList.remove('hidden');
-	}else{
-		node.setAttribute('class', 'voteBox hidden');
-	}
-	}
-}
 </script>
+			<!-- <script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+			<script src="js/coinaddress.js" type="text/javascript" charset="utf-8"></script> -->
 		</div>
 	</body>
 </html>
