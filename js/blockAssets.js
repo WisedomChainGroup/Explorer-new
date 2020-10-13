@@ -97,7 +97,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex,code) {
 					result.data.content[i].to_address = "WX" + result.data.content[i].to_address;
 				}
 				result.data.content[i].coinHash = coinhash;
-				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+				result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 				result.data.content[i].code = code1;
 			}
 			setHtml(result.data.content, 'tpl2', 'transactions_data_List');
@@ -129,7 +129,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex,code) {
 				if (result.data.content[i].new_address.substring(0, 2)!= "WX") {
 					result.data.content[i].new_address = "WX" + result.data.content[i].new_address;
 				}
-				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+				result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 			}
 			setHtml(result.data.content, 'tpl3', 'transactions_data_List');
 			//分页处理
@@ -152,7 +152,7 @@ function getTransferLogList(coinhash,coinhash160,type, pageIndex,code) {
 							i].hash.length - 5, result.data.content[
 							i].hash.length);
 					result.data.content[i].blockHash = blockHash;
-					result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+					result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 					result.data.content[i].number = ((pageIndex)*startIndex2)+i+1;
 					if (result.data.content[i].address.substring(0, 2)!= "WX") {
 						result.data.content[i].address = "WX" + result.data.content[i].address;
@@ -496,7 +496,7 @@ function searchCoinContract(page,index) {
 				if (result.data.content[i].to_address.substring(0, 2) != "WX") {
 					result.data.content[i].to_address = "WX" + result.data.content[i].to_address;
 				}
-				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+				result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 				result.data.content[i].code = code1;
 
 				if(searchAddress == ""){
@@ -560,7 +560,7 @@ function searchCoinContract(page,index) {
 				if (result.data.content[i].new_address.substring(0, 2) != "WX") {
 					result.data.content[i].new_address = "WX" + result.data.content[i].new_address;
 				}
-				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+				result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 				if(searchAddress == ""){
 					list_map.push(result.data.content[i]);
 					j++;
@@ -613,7 +613,7 @@ function searchCoinContract(page,index) {
 							i].hash.length - 5, result.data.content[
 							i].hash.length);
 			result.data.content[i].blockHash = blockHash;
-			result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+			result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 			result.data.content[i].number = j + 1;
 			if (result.data.content[i].address.substring(0, 2) != "WX") {
 				result.data.content[i].address = "WX" + result.data.content[i].address;

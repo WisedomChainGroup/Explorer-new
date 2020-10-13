@@ -67,7 +67,7 @@ function getRuleLogList(address,pageIndex,pageSize,coinHash,coinHash160,fromAddr
                                     result.data.outs.content[i].to_address = "WX" + result.data.outs.content[i].to_address;
                                     result.data.outs.content[i].from_address = "WX" + result.data.outs.content[i].from_address;
                                 }
-                                result.data.outs.content[i].created_at = getTime(result.data.outs.content[i].created_at);
+                                result.data.outs.content[i].created_at = getTime(result.data.outs.content[i].entry_block_at);
                                 result.data.outs.content[i].number = ((pageIndex) * pageSize) + i + 1;
                                 list.push(result.data.outs.content[i]);
                             }
@@ -361,7 +361,7 @@ function searchOperateByAddress(page1,pageIndex) {
                                 result.data.outs.content[i].to_address = "WX" + result.data.outs.content[i].to_address;
                                 result.data.outs.content[i].from_address = "WX" + result.data.outs.content[i].from_address;
                             }
-                            result.data.outs.content[i].created_at = getTime(result.data.outs.content[i].created_at);
+                            result.data.outs.content[i].created_at = getTime(result.data.outs.content[i].entry_block_at);
                             result.data.outs.content[i].number = j + 1;
                             if(result.data.outs.content[i].to_address == searchAddress){
                                 list_map.push(result.data.outs.content[i]);

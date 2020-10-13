@@ -76,7 +76,7 @@ function getVoteLogList(coinaddress, pageIndex,startIndex2) {
 					if (result.data.content[i].from_address.substring(0, 2) != "WX") {
 						result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
 					}
-					result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+					result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 				}
 				setHtml(result.data.content, 'tpl2', 'block-content');
 				//分页处理

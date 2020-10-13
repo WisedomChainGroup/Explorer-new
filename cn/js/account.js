@@ -17,7 +17,7 @@ function userTransferLog(hash) {
 
 			//var coinHash160=result.data[0].coinHash160;
 			if(result.code=="2000"){
-				result.data.created_at = getTime(result.data.created_at);
+				result.data.created_at = getTime(result.data.entry_block_at);
 				if (result.data.from_address.substring(0, 2) != "WX") {
 					result.data.from_address = "WX" + result.data.from_address;
 				}

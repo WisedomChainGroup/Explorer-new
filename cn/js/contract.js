@@ -30,7 +30,7 @@ function getRuleLogList(pageIndex,pageSize) {
             if (result.code == "2000") {
                 for (let i = 0; i < result.data.content.length; i++) {
                     result.data.content[i].number = ((pageIndex) * pageSize) + i + 1;
-                    result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+                    result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
                     result.data.content[i].from_address = "WX" + result.data.content[i].from_address;
                     result.data.content[i].hash_address = "WR" + result.data.content[i].hash_address;
                     if (result.data.content[i].rule_name == null) {

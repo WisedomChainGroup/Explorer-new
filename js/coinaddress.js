@@ -51,7 +51,7 @@ function getTransferLogList(coinaddress, pageIndex,startIndex2) {
 						i].hash.length);
 				result.data.content[i].txn_hash = hash;
 				result.data.content[i].number = ((pageIndex)*startIndex2)+i+1;
-				result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+				result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
 				result.data.content[i].amount = toNonExponential(result.data.content[i].amount);
 			}
 			setHtml(result.data.content, 'tpl2', 'block-content');

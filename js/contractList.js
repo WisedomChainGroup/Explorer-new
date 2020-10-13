@@ -34,7 +34,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
         function(result) {
             let coinHash160 = "";
             for(let  i = 0;i<result.data.content.length;i++){
-                result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+                result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
                 result.data.content[i].from_address = "WX"+ result.data.content[i].from_address;
                 result.data.content[i].draw_rate = result.data.content[i].draw_rate * 100;
                 result.data.content[i].hash_address = "WR"+ result.data.content[i].hash_address;
@@ -70,7 +70,7 @@ function getRuleLogList(fromAddress,pageIndex,pageSize) {
                             for (let i = 0; i < result.data.list.content.length; i++) {
                                 result.data.list.content[i].from_address = "WX"+ result.data.list.content[i].from_address;
                                 result.data.list.content[i].number = ((pageIndex)*pageSize)+i+1;
-                                result.data.list.content[i].created_at = getTime(result.data.list.content[i].created_at);
+                                result.data.list.content[i].created_at = getTime(result.data.list.content[i].entry_block_at);
                             }
                             setHtml(result.data.list.content, 'tpl3', 'block-transferList');
                             //分页处理
@@ -288,7 +288,7 @@ function searchContractByAddress(page1,pageIndex) {
         function(result) {
             let coinHash160 = "";
             for(let  i = 0;i<result.data.content.length;i++){
-                result.data.content[i].created_at = getTime(result.data.content[i].created_at);
+                result.data.content[i].created_at = getTime(result.data.content[i].entry_block_at);
                 result.data.content[i].from_address = "WX"+ result.data.content[i].from_address;
                 result.data.content[i].draw_rate = result.data.content[i].draw_rate * 100 + "%";
                 result.data.content[i].hash_address = "WR"+ result.data.content[i].hash_address;
@@ -323,7 +323,7 @@ function searchContractByAddress(page1,pageIndex) {
                         for (let i = 0; i < result.data.list.content.length; i++) {
                             result.data.list.content[i].from_address = "WX" + result.data.list.content[i].from_address;
                             result.data.list.content[i].number = j+ 1;
-                            result.data.list.content[i].created_at = getTime(result.data.list.content[i].created_at);
+                            result.data.list.content[i].created_at = getTime(result.data.list.content[i].entry_block_at);
                             if(result.data.list.content[i].from_address == searchAddress || result.data.list.content[i].to_address == searchAddress){
                                 list_map.push(result.data.list.content[i]);
                                 j++;

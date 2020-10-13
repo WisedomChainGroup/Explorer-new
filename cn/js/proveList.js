@@ -10,7 +10,7 @@ function getProveList(hash) {
         },
         function(result) {
             if (result.code == "2000") {
-                result.data.created_at = getTime(result.data.created_at);
+                result.data.created_at = getTime(result.data.entry_block_at);
                 let address = result.data.from_address.substring(0, 2);
                 if(address !=  "WX"){
                     result.data.from_address = "WX" + result.data.from_address;

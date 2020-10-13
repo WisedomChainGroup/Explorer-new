@@ -22,7 +22,7 @@ function getTransferLogList(pageSize, pageIndex) {
 						i].hash.length - 5, result.data[
 						i].hash.length);
 					result.data[i].txn_hash = hash;
-					result.data[i].created_at = getTime(result.data[i].created_at);
+					result.data[i].created_at = getTime(result.data[i].entry_block_at);
 					result.data[i].number = ((pageIndex)*pageSize)+i+1;
 					result.data[i].amount = toNonExponential(result.data[i].amount);
 				}
