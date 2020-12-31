@@ -20,17 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="修改">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Explorer_explore2_0_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jstl_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn/img/arrow-down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn/img/arrow-up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cn/img/icon_list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/icon_list.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cn/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/cn/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cn/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cn/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -355,6 +346,8 @@
       <workItem from="1609384535933" duration="354000" />
       <workItem from="1609385024151" duration="3315000" />
       <workItem from="1609394240712" duration="102000" />
+      <workItem from="1609394356549" duration="376000" />
+      <workItem from="1609395368043" duration="138000" />
     </task>
     <task id="LOCAL-00001" summary="修改">
       <created>1600761288012</created>
@@ -452,22 +445,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609392467297" />
-    <state width="1877" height="315" key="GridCell.Tab.0.bottom" timestamp="1609394230866">
+    <state width="1877" height="315" key="GridCell.Tab.0.bottom" timestamp="1609394732065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="315" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609394230866" />
-    <state width="1877" height="315" key="GridCell.Tab.0.center" timestamp="1609394230866">
+    <state width="1877" height="315" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609394732065" />
+    <state width="1877" height="315" key="GridCell.Tab.0.center" timestamp="1609394732065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="315" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609394230866" />
-    <state width="1877" height="315" key="GridCell.Tab.0.left" timestamp="1609394230866">
+    <state width="1877" height="315" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609394732065" />
+    <state width="1877" height="315" key="GridCell.Tab.0.left" timestamp="1609394732065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="315" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609394230866" />
-    <state width="1877" height="315" key="GridCell.Tab.0.right" timestamp="1609394230866">
+    <state width="1877" height="315" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609394732065" />
+    <state width="1877" height="315" key="GridCell.Tab.0.right" timestamp="1609394732065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="315" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609394230866" />
+    <state width="1877" height="315" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609394732065" />
     <state x="738" y="221" key="RollbackChangesDialog" timestamp="1609384612025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

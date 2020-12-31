@@ -1,5 +1,5 @@
 $(function() {
-	 $.get("http://www.ukeyc.com/api/market/tickers",
+	 $.get("https://www.ukeyc.com/api/market/tickers",
 		function(result) {
 		 for(let i=0;i<result.data.length;i++){
 			 if(result.data[i].symbol == "wdcusdt"){
