@@ -1,15 +1,3 @@
- var HttpHead="https://wdcwallet.hkcyb.pro/wisechain";  //正式
- var HttpBlockHead = "https://scannode.hkcyb.pro"; //正式
-//var HttpBlockHead="http://192.168.1.67:8080";//测试
-//var HttpBlock="http://47.96.67.155:19585"; //节点请求地址
-
-//var HttpHead;
-//	测试线上
-//var HttpHead = "http://47.52.195.58:9090/wisechain";
-//正式
-//var HttpBlockHead = "https://scannode.hkcyb.pro";
-//var HttpBlockHead = "http://192.168.1.137:8081";
-// var HttpHead = "http://139.129.12.159:9090/wisechain";
 
 /**
  * 设置模板宣言
@@ -62,40 +50,13 @@ function soso_tag(type) {
 			alert("Please enter the search content!");
 			return;
 		}
+		if (sosoval.substring(0,2) == "WX") {
+			location.href = "particulars.html?coinaddress=" + sosoval;
+		} else {
+			location.href = "account.html?hash=" + sosoval;
+		}
 	}
-	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
-			coinAddress: sosoval,
-		},
 
-		function(result) {
-
-
-			var indexsearch = $('#indexsearch').val();
-			if (indexsearch == 2) {
-				//存证
-				location.href = "blockverify.html?hash=" + sosoval;
-
-			} else if (indexsearch == 3) {
-				//资产
-				location.href = "assetsList.html?coinaddress=" + sosoval;
-
-			} else {
-				if (result.data == "0") {
-
-					location.href = "particulars.html?coinaddress=" + sosoval;
-
-
-				} else {
-					if (!isNaN(sosoval)) {
-						location.href = "blockList.html?height=" + sosoval;
-					} else {
-						location.href = "account.html?hash=" + sosoval;
-					}
-				}
-			}
-
-
-		});
 }
 
 $('#indexsearch').bind("change", function() {
@@ -129,8 +90,8 @@ function sosoApp_tag() {
 		alert("Please enter the search content!");
 		return;
 	}
-	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
-			coinAddress: sosoval,
+	$.post("/v2-web/get_transfer_by_tx_hash", {
+			tx_hash: sosoval,
 		},
 
 		function(result) {
@@ -159,26 +120,17 @@ $('#sosoApp').keydown(function(e) {
 function sosoPool_tag() {
 	var sosoval = $("#sosoPool").val();
 	//alert(sosoval);
-	if (sosoval == "") {
-		alert("Please enter the search content!");
-		return;
+		if (sosoval == "") {
+			alert("请输入搜索内容");
+			return;
+		}
+		if (sosoval.substring(0,2) == "WX") {
+			location.href = "poolList.html?coinaddress=" + sosoval;
+		} else {
+			//location.href = "incubation.html?hash=" + sosoval;
+			alert("非法地址");
+		}
 	}
-	$.post(HttpHead + "/userTransferLog/verifyAddress/", {
-			coinAddress: sosoval,
-		},
-
-		function(result) {
-
-
-			if (result.data == "0") {
-				location.href = "poolList.html?coinaddress=" + sosoval;
-			} else {
-				//location.href = "incubation.html?hash=" + sosoval;
-				alert("Wrong address!");
-			}
-
-		});
-}
 
 
 $('#sosoPool').keydown(function(e) {

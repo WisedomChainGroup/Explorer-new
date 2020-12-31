@@ -1,5 +1,5 @@
 .con-box {
-	background: ;
+	/*background: ;*/
 }
 
 .ant-breadcrumb {
@@ -62,9 +62,8 @@
 .section li {
 
 	padding: 13px 20px;
-	/* background: #f2f9ff; */
-	margin-bottom: 14px;
 	background: #F5F5F5;
+	margin-bottom: 14px;
 }
 
 .section li span {

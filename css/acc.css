@@ -157,7 +157,6 @@ tr {
 	border-bottom: 1px solid #e8e8e8;
 }
 
-
 td p {
 	background: #aad998;
 	width: 26px !important;
@@ -263,26 +262,24 @@ td p {
 	right: -1px;
 }
 
-/*
-.wdc i {
-	width: 29px;
-	display: block;
-	height: 29px;
-	margin: 0 auto 5px;
-	background: url(../img/0001.png) no-repeat;
-	background-size: 100% 100%;
-}
+/*.wdc i {*/
+/*	width: 29px;*/
+/*	display: block;*/
+/*	height: 29px;*/
+/*	margin: 0 auto 5px;*/
+/*	background: url(../img/0001.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
 
-.ant-row .wdc:nth-child(2) i {
-	background: url(../img/0002.png) no-repeat;
-	background-size: 100% 100%;
-}
+/*.ant-row .wdc:nth-child(2) i {*/
+/*	background: url(../img/0002.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
 
-.ant-row .wdc:nth-child(3) i {
-	background: url(../img/0003.png) no-repeat;
-	background-size: 100% 100%;
-}
-*/
+/*.ant-row .wdc:nth-child(3) i {*/
+/*	background: url(../img/0003.png) no-repeat;*/
+/*	background-size: 100% 100%;*/
+/*}*/
 
 
 .wdc p {
@@ -327,14 +324,12 @@ td p {
 .blocks h5 span:after {
     content: "";
     display: block;
-    /* width: 90px; */
-	width: 100%;
+    width: 90px;
     height: 2px;
     background: #2e2f47;
     position: absolute;
     bottom: 0;
-    /* left:-13px; */
-	}
+    left:-13px;}
 
 
 @media screen and (max-width: 768px) {

@@ -164,7 +164,7 @@ sup {
 }
 
 a {
-	color: #1890ff;
+	color: #0C95FF;
 	background-color: transparent;
 	text-decoration: none;
 	outline: none;
@@ -1523,10 +1523,10 @@ mark {
 }
 
 .ant-table-thead>tr>th {
-	background: #fafafa;
+	background: #F5F5F5;
 	transition: background .3s ease;
 	text-align: left;
-	color: rgba(0, 0, 0, .85);
+	color: #000000;
 	font-weight: 500;
 	border-bottom: 1px solid #e8e8e8
 }
@@ -5795,7 +5795,8 @@ textarea.ant-pagination-options-quick-jumper input {
 	padding: 0;
 	list-style: none;
 	color: rgba(0, 0, 0, .45);
-	font-size: 14px
+	font-size: 14px;
+
 }
 
 .ant-breadcrumb .anticon {
@@ -5804,7 +5805,7 @@ textarea.ant-pagination-options-quick-jumper input {
 
 .ant-breadcrumb a {
 	color: rgba(0, 0, 0, .45);
-	transition: color .3s
+	transition: color .3s;
 }
 
 .ant-breadcrumb a:hover {
@@ -6977,7 +6978,7 @@ textarea.ant-pagination-options-quick-jumper input {
 .ant-menu-submenu-title {
 	cursor: pointer;
 	margin: 0;
-	padding: 0 1rem;
+	padding: 0 1.0rem;
 	position: relative;
 	display: block;
 	white-space: nowrap;
@@ -13665,7 +13666,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 .header___1E4MV {
 	width: 100%;
 	height: 78px;
-	/* background:url(../img/index-header.png) center center no-repeat; */
+	/* background: url(../img/index-header.png) center center no-repeat; */
 	position: relative;
 	z-index: 101;
 	/* box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .08) */
@@ -13673,7 +13674,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 
 .logoContainer___3JZvy {
 	float: left;
-	/* margin-top: 14px */
+	margin-top: 10px;
 	/* margin-left: -28%; */
 }
 
@@ -13761,11 +13762,9 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 }
 
 .mobileMenu___3vw4f .componentHeaderMobile___1JrnQ {
-	padding: 0;	
+	padding: 0
 }
-.nQ{
-	margin-left: -30%;
-}
+
 .mobileSearch___1j-Qz {
 	position: relative
 }
@@ -13882,7 +13881,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 	}
 
 	.header___1E4MV {
-		height: 50px
+		/* height: 50px */
 	}
 
 	.componentHeaderMobile___1JrnQ {
@@ -14132,8 +14131,8 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 .bannerWrapper___TiD9c {
 	width: 100%;
 	height: 605px;
-	background:  url(../img/pool.png);
-/* 	background:  url(../img/pool.png) center center no-repeat; */
+	/* background: url(../img/pool.png) center center no-repeat; */
+	background: url(../img/pool.png);
 	position: relative;
 	overflow: hidden
 }
@@ -14255,11 +14254,12 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 	height: 50px;
 
 	background-size: 100%;
-	/* color:#2A61D7; */
-	font-size:19px;
-	font-family:Source Han Sans CN;
-	font-weight:400;
-	color:rgba(255,255,255,1);
+	 font-weight: 600;
+	 font-size: 20px;
+	 font-size: 19px;
+	 font-family: Source Han Sans CN;
+	 font-weight: 400;
+	 color: rgba(255,255,255,1);
 }
 
 .tpsInfo___20JAn span {
@@ -14321,6 +14321,8 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 	display: block;
 	width: 100%;
 	height: 100%;
+	background:rgba(255,255,255,1);
+	border-radius:8px;
 	border: none;
 	outline: none;
 	color: #000000;
@@ -14328,10 +14330,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 	padding-right: 50px;
 	position: relative;
 	z-index: 51;
-	/* box-shadow: 0 12px 5px rgba(18, 23, 32, .28); */	
-	height:55px;
-	background:rgba(255,255,255,1);
-	border-radius:8px;
+	box-shadow: 0 12px 5px rgba(18, 23, 32, .28)
 }
 
 .bannerSearch___1uumL::-webkit-input-placeholder {
@@ -14377,8 +14376,8 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 }
  */
 .wdcIndexCardTitle___3NiKJ {
-	font-family:Source Han Sans CN;
 	font-size: 20px;
+	font-family:Source Han Sans CN;
 	color: #000000;
 	letter-spacing: .62px;
 	text-align: center;
@@ -14789,6 +14788,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 		display: block;
 		width: 275px;
 		height: 180px;
+		/*background: url(/static/banner_index.18182454.png) no-repeat;*/
 		background-size: 100% 100%;
 		position: relative;
 		margin: 40px auto 0
@@ -14840,7 +14840,7 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 	.bannerSearch___1uumL {
 		padding-left: 20px;
 		padding-right: 30px;
-		font-size: 16px
+		font-size: 14px
 	}
 
 	.bannerSearch___1uumL::-webkit-input-placeholder {
@@ -14896,17 +14896,17 @@ form :not(.ant-input-group-wrapper)>.ant-input-group {
 
 	.bannerWrapper___TiD9c {
 		width: 100%;
-		height: 400px
+		/* height: 400px */
 	}
 
-	.bannerWrapper___TiD9c .bannerImg___3AdM_ {
+	/*.bannerWrapper___TiD9c .bannerImg___3AdM_ {
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
 		margin-left: 0;
 		background-size: 100% 100%
-	}
+	}*/
 
 	.persentIcon___1UIrp {
 		display: inline-block;

@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no">
-		<title>Wisdom Public Chain</title>
+		<title>TDS浏览器</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/particulars.css" />
 		<link rel="stylesheet" href="./css/index.css" />
@@ -13,14 +13,10 @@
 		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
 		<style type="text/css">
 			@media screen and (max-width: 768px){
 				.compontPagination___3HkDQ{
 					flex-direction:column;
-				}
-				.ma-r-2{
-					margin-right: 0px;
 				}
 			}
 			.dis{
@@ -43,11 +39,14 @@
 			.page-button{
 				margin: 0 10px;
 				border-radius: 5px;
+				width: 50px;
 				height: 28px;
 				border: 1px solid #a8a8a8;
 				color: #428BCA;
 				outline: none;
 				cursor: pointer;
+				display: flex;
+				white-space: nowrap;
 			}
 			.ma-r-2{
 				margin-right: 40px;
@@ -58,39 +57,39 @@
 		</style>
 	</head>
 	<body>
-		
-<div id="page_header"></div>
+		<div id="page_header"></div>
 		
 		<script>
-          $("#page_header").load("header.html");
-         </script>
-		 
+		  $("#page_header").load("header.html");
+		 </script>
+
+
 		<section class="box">
 			<div class="wid-1200">
 				<div class="wid-75">
 					<div class="ant-bread">
 						<a href="index.html">
 							<i></i>
-							<span>Home</span></a>
+							<span>首页</span></a>
 						<span class="arrows">></span>
-						<a href="deal.html"><span>Transaction</span></a>
-						<span class="arrows">></span>
-						<span>Transaction details</span>
+						<span>交易详情</span>
 <!--						<span class="in">-->
-<!--							<input type="text"placeholder="Address/Trading hash"  id="soso" style="width:50%;height:26px;"/>-->
+
+<!--							<input type="text"placeholder="地址/交易hash" id="soso" style="width:50%;height:26px;"/>-->
 <!--							<a style="min-width: 2%;"><span onclick="soso_tag()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>-->
 <!--						</span>-->
-						<span ></span>
 					</div>
 				</div>
 
-				<div class="blocks" style="margin-top: 2em;">
-					<h3 class="h3"><span>Transaction details</span></h3>
+
+				<div class="blocks"style="margin-top: 2em;">
+
+					<h3 class="h3"><span>交易详情</span></h3>
 
 					<div class="ant-row" style="margin-bottom: 28px;">
 
 
-						<span class="detailLable"style="float: left;"><span>Account Address</span>：
+						<span class="detailLable" style="float: left;"><span>账户地址</span>：
 						</span>
 
 						<span class="detailValue" style="position: relative;">
@@ -106,11 +105,11 @@
 
 					<div class="con-box" id="con-box-yu">
 						
-						<script type="text/json" id="tpl">
-						<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>Balance（WDC）</span>：</span><span class="detailValue"style="width: 336px;"><%=obj.dynamicCount%></span></p>
-
-
-
+						<script type="text/json" id="tpl"
+						<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>余额</span>：</span><span class="detailValue"><%=obj.data/100000000%></span></p>
+						
+							
+							
 						</script>
 						<!--<p class="" style="margin-bottom: 28px;"><span class="detailLable"><span>交易总数</span>：</span><span class="detailValue">3</span></p>
 
@@ -125,8 +124,8 @@
 
 					<div class="wrapper">
 
-						<h5>Transaction record</h5>
-							<div class="ant-table-wrapper">
+						<h5>交易记录</h5>
+<div class="ant-table-wrapper">
 							<div class="" style="position: relative;">
 								<div class="">
 									<div class="">
@@ -138,31 +137,31 @@
 														<thead class="ant-table-thead">
 															<tr>
 																<th class="ant-table-fixed-columns-in-body">
-																	<div>No.</div>
+																	<div>序号</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>Txn Hash</div>
+																	<div>交易Hash</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>Block</div>
+																	<div>区块号</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>Time</div>
+																	<div>交易时间</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>From</div>
+																	<div>发送方</div>
 																</th>
-																<th class="" style="text-align:center">
+																<th class="">
 																	<div></div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>To</div>
+																	<div>接收方</div>
 																</th>
 																<th class="tr" style="text-align:center">
-																	<div>Value(WDC)</div>
+																	<div>数量</div>
 																</th>
 																<th class="tr" style="text-align:center">
-																	<div>Fee(WDC)</div>
+																	<div>矿工费</div>
 																</th>
 															</tr>
 														</thead>
@@ -186,32 +185,33 @@
 						</div>
 						<div class="d-md-flex justify-content-between my-3">
 							<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
-								Show
+								显示
 								<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
 									<option selected="selected" value="10">10</option>
 									<option value="25">25</option>
 									<option value="50">50</option>
 									<option value="100">100</option>
 								</select>
-								Records 
+								记录
 							</div>
 							<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
 								<div class="dis ju-c ma-r-2">
 									<i id="first_page"></i><i id="pre_page"></i>
-									<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
-										<span>Total Pages</span>
+									<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+										<span>总页数</span>
 										<span class="pageNum___HAhvB" id="totalPage">1</span></p>
 									<i id="next_page"></i><i id="last_page"></i>
 								</div>
 								<div id="" class="dis page-annal">
 									<div id="" class="">
-											Jump
+											跳转
 										<input type="" name="" id="page" value="" class="page-input"/>
-											page
+											页
 									</div>
-									<button class="page-button" onclick="jumpSize()">Search</button>
+									<button class="page-button" onclick="jumpSize()">确定</button>
 								</div>
 							</div>
+							
 						</div>
 
 					</div>
@@ -227,60 +227,59 @@
 
 		</section>
 		<div class="clear">
-
-		<div id="page_footer"></div>
 			<script type="text/json" id="tpl2">
-				<%if(obj.length==0){%>
-				<tr>
-				<td class="" colspan="8">aaa</td>
-				</tr>
-				<%}else{%>
-				<% for(var i = 0;i<obj.length;i++){%>
+						<%if(obj.length==0){%>
+						<tr>
+						<td class="" colspan="8">aaa</td>
+						</tr>
+						<%}else{%>
+						<% for(var i = 0;i<obj.length;i++){%>
 
-			<tr class="" data-row-key="1">
-				<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
-				<td class="cursor">
-			<span class="" title="<%=obj[i].blockHash%>">
+					<tr class="" data-row-key="1">
+						<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+						<td class="cursor">
+					<span class="" title="<%=obj[i].hash%>">
 
-			<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].blockHash%></a>
-			</span>
-			</td>
-				<td class=""><span class=""><%=obj[i].coinHeigth%></span></td>
-				<td class=""><span><%=obj[i].createTime%></span></td>
-				<td class=""><span>
-				<a title="<%=obj[i].fromAddress%>" href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
-				<%=obj[i].fromAddress%>
-				</a>
-				</span></td>
-				<td class=""><%if(obj[i].type==1){%>
-					<p class="come"><span>IN</span>
-			<%}else{%>
-			<p class="enter"><span>OUT</span>
-			<%}%>
-		</p>
-				</td>
-				<td class=""><span class="" title="<%=obj[i].coinAddress%>">
-				<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>">
-				<%=obj[i].coinAddress%>
-				</a>
-				</span></td>
-				<td class="tr">
-					<div class="tr"><%=obj[i].amount%></div>
-				</td>
-				<td class="tr">
-					<div class="tr"><%=obj[i].fee%></div>
-				</td>
-			</tr>
+					<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].txn_hash%></a>
+					</span>
+					</td>
+						<td class=""><span class=""><%=obj[i].height%></span></td>
+						<td class=""><span><%=obj[i].created_at%></span></td>
+						<td class=""><span>
+						<a title="<%=obj[i].from_address%>" href="particulars.html?coinaddress=<%=obj[i].from_address%>">
+						<%=obj[i].from_address%>
+						</a>
+						</span></td>
+						<td class=""><%if(obj[i].type==1){%>
+							<p class="come"><span>进</span>
+					<%}else{%>
+					<p class="enter"><span>出</span>
+					<%}%>
+				</p>
+						</td>
+						<td class=""><span class="" title="<%=obj[i].to_address%>">
+						<a title="<%=obj[i].to_address%>" href="particulars.html?coinaddress=<%=obj[i].to_address%>">
+						<%=obj[i].to_address%>
+						</a>
+						</span></td>
+						<td class="tr">
+							<div class="tr"><%=obj[i].amount%></div>
+						</td>
+						<td class="tr">
+							<div class="tr"><%=obj[i].fee%></div>
+						</td>
+					</tr>
 
 
 
-		<%}}%>
-		</script>
-		<script>
-		  $("#page_footer").load("footer.html");
-		 </script>
-		 </div>
-		 <script>
+				<%}}%>
+				</script>
+			<div id="page_footer"></div>
+			
+			<script>
+			  $("#page_footer").load("footer.html");
+			 </script>
+			<script>
 				function MyClick(flag) {
 					if (flag == 'show') {
 						document.getElementById('header-mobile-menu').setAttribute('class', 'header-mobile-menu show');

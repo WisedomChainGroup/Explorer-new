@@ -119,8 +119,8 @@ thead {
 
 
 .ant-table-thead>tr>th {
-    /* background: #f2f9ff; */
-    font-family: PingFangSC-Regular;
+    background: #F5F5F5;
+    font-family:Source Han Sans CN;
     font-weight: 400!important;
     color: #2e2f47!important;
 	border-bottom: 1px solid #e8e8e8;	

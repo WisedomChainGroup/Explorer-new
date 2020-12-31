@@ -137,7 +137,7 @@ body {
 }
 
 #component-header .ant-menu-horizontal {
-	margin-left: 34%;
+	margin-left: 47%;
 	margin-top: 10px;
 }
 
@@ -167,13 +167,13 @@ body {
 }
 
 #component-header .ant-menu-horizontal>.ant-menu-item,
-#component-header .ant-menu-horizontal>.ant-menu-submenu {
+#component-header .ant-menu-horizontal>.ant-menu-
+menu {
 	border-bottom: none !important;
+	color: #fff;
 	line-height: 50px;
-	font-size: 14px;
 	font-weight: 400;
-	font-family:Source Han Sans CN;
-	color:rgba(255,255,255,1);
+	/* margin-top: 10px; */
 }
 
 #component-header .ant-menu-horizontal>.ant-menu-item a,
@@ -194,10 +194,10 @@ body {
 
 #component-header #header-mobile-menu .ant-menu-item>a {
 	font-size: 14px;
+	font-family: PingFangSC-Regular;
 	font-weight: 400;
-	line-height: 20px;
-	font-family:Source Han Sans CN;
-	color:rgba(255,255,255,1);
+	color: #9c9eb9;
+	line-height: 20px
 }
 
 #component-header #header-mobile-menu .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
@@ -206,10 +206,10 @@ body {
 
 #component-header #header-mobile-menu .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected a {
 	font-size: 14px;
-	line-height: 20px;
-	font-family:Source Han Sans CN;
-	font-weight:400;
-	color:rgba(255,255,255,1);
+	font-family: PingFangSC-Medium;
+	font-weight: 500;
+	color: #fff;
+	line-height: 20px
 }
 
 #component-header #header-mobile-menu .ant-menu-item {
@@ -291,7 +291,6 @@ body {
 
 #component-footer {
 	width: 100%;
-	/* background: #171c25; */
 	background: #141414;
 	padding-top: 50px;
 	min-height:400px;
@@ -301,13 +300,18 @@ body {
 	margin: 0 auto
 }
 
-.wdc-logo {
+.tds_logo {
 	display: block;
-	width: 142px;
- 	height: 55px; 
-	background: url("../img/logo.png") no-repeat;
-	background-size: 100%;
-	margin-top: 10px;
+	width: 280px;
+ 	height: 40px;
+	background: url("../img/tds_logo.png") no-repeat;
+	background-size: 100%
+}
+
+@media screen and (max-width: 1920px){
+	.wid-1201{
+		width: 96% !important;
+		margin: 0 auto;
 }
 
 .highcharts-tooltip-header {
@@ -390,7 +394,7 @@ body {
 
 .ant-table-tbody>tr>td {
 	font-size: 12px !important;
-	font-family: Source Han Sans CN !important;
+	font-family:Source Han Sans CN !important;
 	font-weight: 400 !important;
 	color: #66688f !important
 }
@@ -926,7 +930,7 @@ body {
 		text-align: center
 	}
 
-	.wdc-logo {
+	.tds_logo {
 		width: 100px;
 	
 	}
@@ -987,52 +991,4 @@ body {
 		display: inline-block;
 		vertical-align: middle
 	}
-}
-
-
-
-
-/* body {
-  background: #DCF5FF;
-  margin: 0;
-  height: 100vh;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  font-family: 'Nunito', 'sans-serif';
-}
- */
-.inner {
-  background: #09c999;
-  padding: 1em;
-  border-radius: 10px;
-  width: 250px;
-  clip-path: circle(10% at 90% 20%);
-  transition: all .5s ease-in-out;
-  cursor: pointer;
-}
-.inner:hover {
-  clip-path: circle(75%);
-  background: #00B6FF;
-}
-.inner h1 {
-  color: white;
-  margin: 0;
-}
-.inner p {
-  color: white;
-  font-size: .8rem;
-}
-.inner span {
-  float: right;
-  color: white;
-  font-weight: bold;
-  transition: color .5s;
-  position: relative;
-  margin-right: 4%;
-  line-height:12px;
-  font-size:24px;
-}
-.inner:hover span {
-  color: rgba(255, 255, 255, 0);
 }

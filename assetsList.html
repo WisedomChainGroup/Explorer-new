@@ -3,17 +3,17 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-		<title>Wisdom Public Chain Main chain browser</title>
+		<title>TDS浏览器</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/account.css" />
-		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
 		<link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.css"/>
 		<link rel="stylesheet" href="./css/index.css" />
 		<link rel="stylesheet" href="./css/index_vendors.css" />
+		<link rel="stylesheet" type="text/css" href="css/assets.css"/>
 		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
-		
+	
 		<style>
 			.subtitle span i{
 				margin: 0rem 1.5rem;
@@ -34,24 +34,22 @@
 			-ms-transform-origin: 0 0;
 			transform-origin: 0 0;
             }
+
 		@media screen and (max-width: 768px){
-		.tabst {
-			position: inherit!important;
-			margin-top: -0.0625rem;
+			.tabst {
+				position: inherit!important;
+				margin-top: -0.0625rem;
+			}
+			.subtitle span {
+				text-align: -webkit-left !important;
+			}
+			.tabs{
+				margin-left: 0px;
+			}
 		}
-		.subtitle span {
-			text-align: -webkit-left !important;
-		}
-		.tabs{
-			margin-left: 0px;
-		}
-	   }
 			@media screen and (max-width: 768px){
 				.compontPagination___3HkDQ{
 					flex-direction:column;
-				}
-				.ma-r-2{
-					margin-right: 0px;
 				}
 			}
 			.dis{
@@ -74,19 +72,21 @@
 			.page-button{
 				margin: 0 10px;
 				border-radius: 5px;
+				width: 50px;
 				height: 28px;
 				border: 1px solid #a8a8a8;
 				color: #428BCA;
 				outline: none;
 				cursor: pointer;
+				display: flex;
+				white-space: nowrap;
 			}
 			.ma-r-2{
 				margin-right: 40px;
 			}
 			.compontPagination___3HkDQ p{
 				margin-top: 12px;
-			}	 
-
+			}
 		</style>
 	</head>
 	<body>
@@ -97,6 +97,7 @@
 		<div class="clear">
 
 		</div>
+		
 		<div class="con-box" style="margin-left: 0rem;">
 			<div class="wid-1200">
 				<div class="wid-75">
@@ -104,25 +105,26 @@
 						<div class="ant-bread">
 							<a href="index.html">
 								<i></i>
-								<span>Home</span></a>
+								<span>首页</span></a>
 							<span class="arrows">></span>
-							<a href="assets.html"><i></i><span>Tokens</span></a>
+							<a href="assets.html"><span>资产</span></a>
 							<span class="arrows">></span>
-							<span>Tokens Details</span>
+							<span>资产详情</span>
 <!--							<span class="in">-->
-<!--								<input type="text"placeholder="Address/Trading hash" style="width: 50%;"/>-->
+<!--								<input type="text"placeholder="地址/交易hash" style="width:50%;height:26px;"/>-->
 <!--								<a style="min-width: 2%;"><i class="fa fa-search"style="margin-left: -24px;"></i></a>-->
 <!--							</span>-->
 						</div>
 					</div>
 				</div>
-				<div class="blocks" style="margin-top: 1em;">
+
+				<div class="blocks" style="margin-top: 2em;">
 					
-					<h3 class="h3"><span>Tokens Details</span></h3>
+					<h3 class="h3"><span>资产详情</span></h3>
 
 					<div class="subtitle">
-						<span>Survey</span>
-						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;margin-left: 6.5px"></div>
+						<span>概况</span>
+						<div class="tabs" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
 					</div>
 					
 					<section class="section">
@@ -130,28 +132,30 @@
 
 						</div>
 					</section>
-					
 					<div id=""style="text-align: center;">
-						<i id="arrow" class="fa fa-angle-double-up fa-2x" style="color: #999999;cursor:pointer;" onselectstart="return false"></i>
-					</div> 
- 					
-					<!-- <br /> -->
+						<i id="arrow" onclick="showaa(this)" class="fa fa-angle-double-up fa-2x" style="color: #999999;cursor:pointer;" onselectstart="return false"></i>
+
+					</div>
 					
-					<div class="ant-table-wrapper"id="btnshow">
-					 <div style="position: relative;">
-					<div class="subtitle"><!--id="div_transaction"-->
-						<span><i class="sub" data-type="1">Additional</i><i class="sub" data-type="2">Transfer</i><i class="sub" data-type="3">Ownership</i></span>
-						 <div class="tabst" style="display: block; transform: translate3d(0px, 0px, 0px); width: 60px;"></div>
-						<div class="ne_searchBox">
+			<div class="ant-table-wrapper" id="btnshow">
+				<div style="position: relative;">
+					<div class="subtitle">
+						<span>
+							<i class="sub" data-type="1">增发</i>
+							<i class="sub" data-type="2">转账</i>
+							<i class="sub" data-type="3">所有权</i>
+						</span>
+						 <div class="tabst" style="display: block; transform: translate3d(0px, 0px, 0px); width: 55px;"></div>
+						 <div class="ne_searchBox">
 							<div class="box-flex acenter vcenter din">
-								<input type="text" placeholder="Address Or Txn Hash" id = "searchType"/>
+							   <input type="text" placeholder="地址或事务哈希" id = "searchType"/>
 							</div>
 							<button class="n_searchbtn fa fa-search" onclick = "searchCoinContract()"></button>
-						</div>
+						 </div>
 					</div>
 					
 					
-					<section class="box" ><!--id="section_transaction"-->
+					<section class="box">
 						<table class="" style="width: 100%;">
 							<colgroup>
 								<col>
@@ -166,26 +170,25 @@
 							<thead class="ant-table-thead tab1">
 								<tr>
 									<th class="">
-										<div>NO.</div>
+										<div>序号</div>
 									</th>
 									<th class="">
-										<div>Txn Hash</div>
+										<div>交易Hash</div>
 									</th>
 									<th class="">
-										<div>Block No.</div>
-									</th>
-									<th
-										class="">
-										<div>Time</div>
+										<div>区块号</div>
 									</th>
 									<th class="">
-										<div>Receiving</div>
+										<div>时间</div>
+									</th>
+									<th class="">
+										<div>接收地址</div>
 									</th>
 									<th class="tr">
-										<div>Additional (<b class="codes"></b>)</div>
+										<div>增发数量(<b class="codes"></b>)</div>
 									</th>
 									<th class="tr">
-										<div>Fee(WDC)</div>
+										<div>手续费</div>
 									</th>
 								</tr>
 							</thead>
@@ -196,53 +199,53 @@
 					<thead class="ant-table-thead tab2">
 						<tr>
 							<th class="">
-								<div>No.</div>
+								<div>序号</div>
 							</th>
 							<th class="">
-								<div>Txn Hash</div>
+								<div>交易Hash</div>
 							</th>
 							<th class="">
-								<div>Block No.</div>
+								<div>区块号</div>
 							</th>
 							<th class="">
-								<div>Time</div>
+								<div>时间</div>
 							</th>
 							<th class="">
-								<div>Sender</div>
+								<div>发送地址</div>
 							</th>
 							<th class="">
-								<div>Receiving</div>
+								<div>接收地址</div>
 							</th>
 							<th class="tr">
-								<div>Transfer(<b class="codes"></b>)</div>
+								<div>转账数量(<b class="codes"></b>)</div>
 							</th>
 							<th class="tr">
-								<div>Fee(WDC)</div>
+								<div>手续费</div>
 							</th>
 						</tr>
 					</thead>		
 							<thead class="ant-table-thead tab3">
 								<tr>
 									<th class="">
-										<div>No.</div>
+										<div>序号</div>
 									</th>
 									<th class="">
-										<div>Txn Hash</div>
+										<div>交易Hash</div>
 									</th>
 									<th class="">
-										<div>Block No.</div>
+										<div>区块号</div>
 									</th>
 									<th class="">
-										<div>Time</div>
+										<div>时间</div>
 									</th>
 									<th class="">
-										<div>Original</div>
+										<div>原地址</div>
 									</th>
 									<th class="">
-										<div>New</div>
+										<div>新地址</div>
 									</th>
 									<th class="">
-										<div>Fee(wdc)</div>
+										<div>手续费</div>
 									</th>
 								</tr>
 							</thead>	
@@ -252,75 +255,79 @@
 							</tbody>
 						</table>
 					</section>
-					</div>
+				
+					
+				</div>
 					<div class="d-md-flex justify-content-between my-3">
 						<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
-							Show
+							显示
 							<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
 								<option selected="selected" value="10">10</option>
 								<option value="25">25</option>
 								<option value="50">50</option>
 								<option value="100">100</option>
 							</select>
-							Records 
+							记录
 						</div>
 						<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
 							<div class="dis ju-c ma-r-2">
 								<i id="first_page"></i><i id="pre_page"></i>
-								<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
-									<span>Total Pages</span>
+								<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+									<span>总页数</span>
 									<span class="pageNum___HAhvB" id="totalPage">1</span></p>
 								<i id="next_page"></i><i id="last_page"></i>
 							</div>
 							<div id="" class="dis page-annal">
 								<div id="" class="">
-										Jump
+										跳转
 									<input type="" name="" id="page" value="" class="page-input"/>
-										page
+										页
 								</div>
-								<button class="page-button" onclick="jumpSize()">Search</button>
+								<button class="page-button" onclick="jumpSize()">确定</button>
 							</div>
 						</div>
+						
 					</div>
-					
+					</div>
 				</div>
+				
+	
 			</div>
 			
 		</div>
-
 		<div id="page_footer"></div>
 			<script type="text/json" id="tpl">
 						<ul>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Token Name</span>
+								<span style="width: 30%;">资产名称</span>
 								<span><%=obj.code%></span>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Initial circulation</span>
-								<span><%=obj.offering%></span>
+								<span style="width: 30%;">初期发行量</span>
+								<span><%=obj.offering/100000000%></span>
 							</li>
 
 						 	<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Total issue amount</span>
-								 <span><%=obj.totalamount%></span>
+								<span style="width: 30%;">发行总量</span>
+								 <span><%=obj.totalamount/100000000%></span>
 
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Creator user</span>
+								<span style="width: 30%;">创建者</span>
 								<span><a title="<%=obj.createuserAddress%>" href="particulars.html?coinaddress=<%=obj.createuserAddress%>"><%=obj.createuserAddress%></a></span>
 
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Owner user</span>
+								<span style="width: 30%;">所有者</span>
 
 									<span><a title="<%=obj.ownerAddress%>" href="particulars.html?coinaddress=<%=obj.ownerAddress%>"><%=obj.ownerAddress%></a></span>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Allow additional issue</span>
+								<span style="width: 30%;">是否允许增发</span>
 								<span><%=obj.allowincrease%></objspan>
 							</li>
 							<li class="licss" style="padding: 10px 20px;margin-bottom: 2px;">
-								<span style="width: 30%;">Token description</span>
+								<span style="width: 30%;">资产说明</span>
 								<span><%=obj.info%></span>
 							</li>
 
@@ -335,16 +342,16 @@
 									<% for(var i = 0;i<obj.length;i++){%>
 								<tr class="showtr" data-row-key="1">
 									<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
-									<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
-									<td class=""><%=obj[i].coinHeigth%></td>
+									<td title="<%=obj[i].hash%>"><%=obj[i].blockHash%></td>
+									<td class=""><%=obj[i].height%></td>
 									<td class="">
 
-											<%=obj[i].time%>
+											<%=obj[i].created_at%>
 
 										</td>
 									<td style="width: 20%;">
 										<span>
-											<a class="cursor" title="<%=obj[i].ownerAddress%>" href="particulars.html?coinaddress=<%=obj[i].ownerAddress%>"><%=obj[i].ownerAddress%></a>
+											<a class="cursor" title="<%=obj[i].address%>" href="particulars.html?coinaddress=<%=obj[i].address%>"><%=obj[i].address%></a>
 										</span>
 									</td>
 
@@ -365,23 +372,23 @@
 								<tr class="" data-row-key="1">
 									<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
 									<td class="cursor">
-								<span class="" title="<%=obj[i].blockHash%>">
+								<span class="" title="<%=obj[i].hash%>">
 
-								<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].blockHash%></a>
+								<a href="account.html?hash=<%=obj[i].hash%>&coinHash=<%=obj[i].coinHash%>&code=<%=obj[i].code%>"><%=obj[i].blockHash%></a>
 								</span>
 								</td>
-									<td class=""><span class=""><%=obj[i].coinHeigth%></span></td>
-									<td class=""><span><%=obj[i].createTime%></span></td>
+									<td class=""><span class=""><%=obj[i].height%></span></td>
+									<td class=""><span><%=obj[i].created_at%></span></td>
 									<td class=""><span>
-									<a title="<%=obj[i].fromAddress%>" href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
-									<%=obj[i].fromAddress%>
+									<a title="<%=obj[i].from_address%>" href="particulars.html?coinaddress=<%=obj[i].from_address%>">
+									<%=obj[i].from_address%>
 									</a>
 									</span></td>
 
 									<td class="">
-										<span class="" title="<%=obj[i].coinAddress%>">
-									<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>">
-									<%=obj[i].coinAddress%>
+										<span class="" title="<%=obj[i].to_address%>">
+									<a title="<%=obj[i].to_address%>" href="particulars.html?coinaddress=<%=obj[i].to_address%>">
+									<%=obj[i].to_address%>
 									</a>
 									</span></td>
 									<td class="tr">
@@ -406,21 +413,21 @@
 								<% for(var i = 0;i<obj.length;i++){%>
 							<tr class="showtr" data-row-key="1">
 								<td class="" ><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
-								<td title="<%=obj[i].coinHash%>"><%=obj[i].coinHash%></td>
-								<td class=""><%=obj[i].coinHeigth%></td>
+								<td title="<%=obj[i].hash%>"><%=obj[i].coinHash%></td>
+								<td class=""><%=obj[i].height%></td>
 								<td  class="">
 
-										<%=obj[i].time%>
+										<%=obj[i].created_at%>
 
 								</td>
 								<td class="">
 
-										<%=obj[i].oldAddress%>
+										<%=obj[i].old_address%>
 
 									</td>
 									<td class="">
 
-											<%=obj[i].newAddress%>
+											<%=obj[i].new_address%>
 
 										</td>
 								<td class=""><%=obj[i].fee%></td>
@@ -439,17 +446,25 @@
 				document.getElementById('header-mobile-menu').classList.remove('show')
 			}
 		}
+		
+		// function removeEvent(obj,type){
+		//        if(obj["on"+type]) obj["on"+type]=null;
+		//    }
+		
+
 		function addEVent(obj,type,fn){
 		    var saved=null;
 		//判断是否之前有事件，如果有，保存下来
 		    // if(typeof obj['on'+type]=='function'){
-		    //     saved=obj['on'+type];
+		    //     saved=obj['on'+type];//保存上一个事件
 		         
 		    //     }  
 		//执行
 		    obj['on'+type]=function(){
+//            if(saved)saved.call(this);//先执行上一个事件
 		        if(saved)saved();
 		        fn.call(this);
+		
 		        };
 		     
 		}
@@ -458,6 +473,7 @@
 		    addEVent(box,'click',toBlue);  
 		     
 		    });
+			
 		 
 		function toBlue(){
 		    this.className='fa fa-angle-double-down fa-2x';
@@ -470,4 +486,6 @@
 			document.getElementById("btnshow").style.display = "block";
 		}
 	</script>
+	  
+	</body>
 </html>

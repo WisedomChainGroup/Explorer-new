@@ -2,8 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-		<title>Wisdom Public Chain</title>
+			<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+
+		<title>TDS浏览器</title>
 		<link rel="stylesheet" type="text/css" href="css/style.css" />
 		<link rel="stylesheet" type="text/css" href="css/deal.css" />
 		<link rel="stylesheet" href="./css/index.css" />
@@ -18,9 +19,6 @@
 			@media screen and (max-width: 768px){
 				.compontPagination___3HkDQ{
 					flex-direction:column;
-				}
-				.ma-r-2{
-					margin-right: 0px;
 				}
 			}
 			.dis{
@@ -43,11 +41,14 @@
 			.page-button{
 				margin: 0 10px;
 				border-radius: 5px;
+				width: 50px;
 				height: 28px;
 				border: 1px solid #a8a8a8;
 				color: #428BCA;
 				outline: none;
 				cursor: pointer;
+				display: flex;
+				white-space: nowrap;
 			}
 			.ma-r-2{
 				margin-right: 40px;
@@ -59,32 +60,30 @@
 	</head>
 	<body>
 		<div id="page_header"></div>
+		
 		<script>
-			  $("#page_header").load("header.html");
-		</script>
-		
-		
+		  $("#page_header").load("header.html");
+		 </script>
 		<section class="box" style="margin-top: 20px;">
 			<div class="wid-1200">
 				<div class="wid-75">
 					<div class="ant-bread">
 						<a href="index.html">
 							<i></i>
-							<span>Home</span></a>
+							<span>首页</span></a>
 						<span class="arrows">></span>
-						<span>Transaction</span>
+						<span>交易</span>
 						<span class="in">
-							<input type="text"placeholder="Address/Trading hash"  id="soso_tran" style="width:50%;height:26px;"/>
+							<input type="text"placeholder="地址/交易hash" id="soso_tran" style="width:50%;height:26px;"/>
 							<a style="min-width: 2%;"><span onclick="soso_tran()"><i class="fa fa-search"style="margin-left: -24px;"></i></span></a>
 						</span>
-						<span ></span>
 					</div>
 				</div>
 				<div class="blocks" style="margin-top: 2em;">
 					<div class="wrapper">
 						<h5>
-							<p>Transaction List</p>
-							<p><i></i><span style="font-size: 14px;">Total Trades <b id="totalCount"></b></span></p>
+							<p>交易列表</p>
+							<p><i></i><span style="font-size: 14px;">总交易数 <b id="totalCount"></b></span></p>
 						</h5>
 
 								
@@ -110,31 +109,31 @@
 														<thead class="ant-table-thead">
 															<tr>
 																<th class="ant-table-fixed-columns-in-body">
-																	<div>NO.</div>
+																	<div>序号</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>Txn Hash</div>
+																	<div>交易Hash</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>Block</div>
+																	<div>区块号</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>Time</div>
+																	<div>交易时间</div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>From</div>
+																	<div>发送方</div>
 																</th>
 																<th class="" style="text-align:center">
 																	<div></div>
 																</th>
 																<th class="" style="text-align:center">
-																	<div>To</div>
+																	<div>接收方</div>
 																</th>
 																<th class="tr" style="text-align:center">
-																	<div>Amount(WDC)</div>
+																	<div>数量</div>
 																</th>
 																<th class="tr" style="text-align:center">
-																	<div>Fee(WDC)</div>
+																	<div>矿工费</div>
 																</th>
 															</tr>
 														</thead>
@@ -143,6 +142,7 @@
 															     <span style="display: block;width: 100%;text-align: center;">数据请求中......<span>
 																 </div> -->
 
+														
 														
 														
 														</tbody>
@@ -157,34 +157,34 @@
 						</div>
 						<div class="d-md-flex justify-content-between my-3">
 							<div class="d-flex align-items-center text-secondary mb-2 mb-md-0">
-								Show
+								显示
 								<select class="custom-select custom-select-xs mx-2" id="select" onchange="changePageSize()" name="select">
 									<option selected="selected" value="10">10</option>
 									<option value="25">25</option>
 									<option value="50">50</option>
 									<option value="100">100</option>
 								</select>
-								Records 
+								记录
 							</div>
 							<div class=" compontPagination___3HkDQ dis ju-c" style="float: right;">
 								<div class="dis ju-c ma-r-2">
 									<i id="first_page"></i><i id="pre_page"></i>
-									<p><span>Current Page</span><span class="pageNum___HAhvB" id="curr_page">1</span>
-										<span>Total Pages</span>
+									<p><span>当前页</span><span class="pageNum___HAhvB" id="curr_page">1</span>
+										<span>总页数</span>
 										<span class="pageNum___HAhvB" id="totalPage">1</span></p>
 									<i id="next_page"></i><i id="last_page"></i>
 								</div>
 								<div id="" class="dis page-annal">
 									<div id="" class="">
-											Jump
-										<input type="" name="" id="page" value="" class="page-input" />
-											page
+											跳转
+										<input type="" name="" id="page" value="" class="page-input"/>
+											页
 									</div>
-									<button class="page-button" onclick="jumpSize()">Search</button>
+									<button class="page-button" onclick="jumpSize()">确定</button>
 								</div>
 							</div>
 						</div>
-						
+							
 					</div>
 				</div>
 
@@ -193,76 +193,53 @@
 		</section>
 		<div class="clear">
 			<script type="text/json" id="tpl2">
-							<%if(obj.length==0){%>
-							<tr>
-							<td class="" colspan="8">aaa</td>
-							</tr>
-							<%}else{%>
-							<% for(var i = 0;i<obj.length;i++){%>
+				<%if(obj.length==0){%>
+				<tr>
+				<td class="" colspan="8">aaa</td>
+				</tr>
+				<%}else{%>
+				<% for(var i = 0;i<obj.length;i++){%>
 
-						<tr class="" data-row-key="1">
-							<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
-							<td class="cursor">
-						<span class="" title="<%=obj[i].blockHash%>">
+			<tr class="" data-row-key="1">
+				<td class=""><span class="" style="padding-left: 0px;"></span><%=obj[i].number%></td>
+				<td class="cursor">
+			<span class="" title="<%=obj[i].hash%>">
 
-						<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].blockHash%></a>
-						</span>
-						</td>
-							<td class=""><span class=""><%=obj[i].coinHeigth%></span></td>
-							<td class=""><span><%=obj[i].createTime%></span></td>
-							<td class=""><span>
-							<a title="<%=obj[i].fromAddress%>" href="particulars.html?coinaddress=<%=obj[i].fromAddress%>">
-							<%=obj[i].fromAddress%>
-							</a>
-							</span></td>
-							<td class="">
-							</td>
-							<td class=""><span class="" title="<%=obj[i].coinAddress%>">
-							<a title="<%=obj[i].coinAddress%>" href="particulars.html?coinaddress=<%=obj[i].coinAddress%>">
-							<%=obj[i].coinAddress%>
-							</a>
-							</span></td>
-							<td class="tr">
-								<div class="tr"><%=obj[i].amount%></div>
-							</td>
-							<td class="tr">
-								<div class="tr"><%=obj[i].fee%></div>
-							</td>
-						</tr>
+			<a href="account.html?hash=<%=obj[i].hash%>"><%=obj[i].txn_hash%></a>
+			</span>
+			</td>
+				<td class=""><span class=""><%=obj[i].height%></span></td>
+				<td class=""><span><%=obj[i].created_at%></span></td>
+				<td class=""><span>
+				<a title="<%=obj[i].from_address%>" href="particulars.html?coinaddress=<%=obj[i].from_address%>">
+				<%=obj[i].from_address%>
+				</a>
+				</span></td>
+				<td class="">
+				</td>
+				<td class=""><span class="" title="<%=obj[i].to_address%>">
+				<a title="<%=obj[i].to_address%>" href="particulars.html?coinaddress=<%=obj[i].to_address%>">
+				<%=obj[i].to_address%>
+				</a>
+				</span></td>
+				<td class="tr">
+					<div class="tr"><%=obj[i].amount%></div>
+				</td>
+				<td class="tr">
+					<div class="tr"><%=obj[i].fee%></div>
+				</td>
+			</tr>
 
 
 
-					<%}}%>
-			</script>
-
-			<div id="page_footer"></div>
-		<script>
-			  $("#page_footer").load("footer.html");
+		<%}}%>
 		</script>
-<!--			<script language="javascript" type="text/javascript">-->
-<!--				window.onunload = function(){-->
-<!--					var startIndex2 = GetQueryString("select");-->
-<!--					console.log(startIndex2);-->
-<!--					var epd=new Date();-->
-<!--					epd.setDate(epd.setDate()+7);-->
-<!--					document.cookie="pg="+document.getElementById("select").selectedIndex+";expires="+epd.toGMTString();-->
-<!--				}-->
-<!--				window.onload = function(){-->
-<!--					var i;-->
-<!--					if(document.getElementById("select").value == 1){-->
-<!--						i= 0;-->
-<!--					}else if(document.getElementById("select").value == 3){-->
-<!--						i= 1;-->
-<!--					}else if(document.getElementById("select").value == 5){-->
-<!--						i=2;-->
-<!--					}-->
-<!--					var gck = document.cookie.split("; ");-->
-<!--					if(gck[0].split("=")[0]=="pg"){-->
-<!--						i = parseInt(gck[i].split("=")[1]);-->
-<!--					}-->
-<!--					document.getElementById("select").selectedIndex = i;-->
-<!--				}-->
-<!--			</script>-->
+		<div id="page_footer"></div>
+		
+		<script>
+		  $("#page_footer").load("footer.html");
+		 </script>
+		</div>
 	<script>
 		function MyClick(flag) {
 			if (flag == 'show') {
@@ -274,7 +251,7 @@
 		}
 	</script>
 	
-		</div>
+	
 	
 	
 	</body>

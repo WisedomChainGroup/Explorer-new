@@ -1,750 +1,497 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="bd4386b6-cbed-42da-a865-40d76e5fbfa2" name="Default Changelist" comment="update tds-web">
+      <change beforePath="$PROJECT_DIR$/.assetsList.html.swp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Explorer-explore2.0.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/account.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assetsList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/block.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockverify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/card.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/account.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/app.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/assets.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/assetsList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/block.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/blockList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/blockverify.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/contract.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/contractList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/Incubation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/acc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/account.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/assets.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/block.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/deal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/hatch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/index_vendors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/nav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/particulars.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/particulars1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/deal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/hatch.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/Chinese.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/E-mail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/English-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/English.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/Search-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/Twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/a_07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/assets-input-search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/bit-z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/bizu-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/ceo-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/coin_Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/guanbi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/index-center.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/index-header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/jiantou.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/logo-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/logo1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/pool.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/quantity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/reddit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/sh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/syex-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/telegram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/weibo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/img/you.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/incubation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/assets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/block.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/blockAssets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/blockList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/blockverify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/coinaddress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/contract.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/contractList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/deal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/dist/clipboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/dist/clipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/hatch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/navbber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/nodes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/nodesList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/operateList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/poolList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/pooladdress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/prove.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/proveList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/public.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/ranklist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/js/template.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/nodes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/nodesList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/operateList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/particulars.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/pool.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/poolList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/pooladdress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/prove.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/proveList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cn/rankList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contractList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/Incubation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/acc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/account.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/assets.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/block.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/deal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/hatch.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index_vendors.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/nav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/particulars.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/particulars1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/HELP-US-OUT.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/animated.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/bordered-pulled.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/core.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/fixed-width.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/font-awesome.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/icons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/larger.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/list.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/path.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/rotated-flipped.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/screen-reader.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/stacked.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_animated.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_bordered-pulled.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_core.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_fixed-width.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_icons.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_larger.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_list.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_path.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_rotated-flipped.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_screen-reader.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_stacked.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/_variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/font-awesome-4.7.0/scss/font-awesome.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hatch.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Chinese-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Chinese.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/E-mail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/English.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Search-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/Twitter.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bit-z.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/bizu-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/ceo-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/coin_Logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/guanbi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/home.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/index-center.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/index-center2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/index-header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/index-header2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/jiantou.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/logo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/menu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/pool.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/quantity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/reddit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/search.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/sh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/syex-logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/telegram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/weibo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/you.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/incubation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/account.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/assets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/block.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/blockAssets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/blockList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/blockverify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/coinaddress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/contract.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/contractList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/deal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dist/clipboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dist/clipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/hatch.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/navbber.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/nodes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/nodesList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/operateList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/poolList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/pooladdress.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/prove.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/proveList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/public.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/public1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/ranklist.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/template.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nodesList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/operateList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/particulars.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pool.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poolList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pooladdress.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prove.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proveList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/rankList.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="block.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/block.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="60" lean-forward="false" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/block.html" />
-      </list>
-    </option>
-  </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsFlowSettings">
-    <service-enabled>false</service-enabled>
-    <exe-path />
-    <annotation-enable>false</annotation-enable>
-    <other-services-enabled>false</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="LogFilters">
-    <option name="FILTER_ERRORS" value="false" />
-    <option name="FILTER_WARNINGS" value="false" />
-    <option name="FILTER_INFO" value="true" />
-    <option name="FILTER_DEBUG" value="true" />
-    <option name="CUSTOM_FILTER" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="localRepository" value="D:\mavenrepository" />
-        <option name="mavenHome" value="D:/dev/apache-maven-3.6.1/bin" />
-        <option name="userSettingsFile" value="D:\dev\apache-maven-3.6.1\conf\settings.xml" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="501" />
-    <option name="y" value="224" />
-    <option name="width" value="1193" />
-    <option name="height" value="742" />
-  </component>
-  <component name="ProjectId" id="1afF1uMOZBr44baelM4jJvxx527" />
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Explorer-new" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Explorer-new" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Explorer-new" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Explorer-new" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="1i4czoODbO1eaucuIG2OUwtDHtp" />
   <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wisdom-operations" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../web-tds111" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\web-tds111" />
+      <recent name="D:\project\web-tds111\js" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="Explorer-new" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.85" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="BROWSER_ID" value="16bf23d4-93e0-4ffc-bfd6-cb13575177b0" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment>
-        <file path="$PROJECT_DIR$">
-          <settings>
-            <option name="CONTEXT_PATH" value="/Explorer-new" />
-          </settings>
-        </file>
-      </deployment>
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Explorer-new" />
-        <option name="HTTP_PORT" value="8099" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62674" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
+    <configuration name="tds-web" type="nginx.configuration.type" factoryName="nginx server">
+      <option name="serverDescriptorId" value="nginx.descriptor.1592373088773" />
+      <option name="showHttpLog" value="false" />
+      <option name="showErrorLog" value="false" />
+      <option name="httpLogPath" value="$USER_HOME$/Downloads/nginx-1.19.0/logs/access.log" />
+      <option name="errorLogPath" value="$USER_HOME$/Downloads/nginx-1.19.0/logs/error.log" />
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <module />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="BROWSER_ID" value="16bf23d4-93e0-4ffc-bfd6-cb13575177b0" />
-      <option name="UPDATING_POLICY" value="restart-server" />
-      <deployment />
-      <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="_Explorer-new_2" />
-        <option name="HTTP_PORT" value="8085" />
-      </server-settings>
-      <predefined_log_file id="Tomcat" enabled="true" />
-      <predefined_log_file id="Tomcat Catalina" enabled="true" />
-      <predefined_log_file id="Tomcat Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
-      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="62674" />
-      </RunnerSettings>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
-        <option name="USE_ENV_VARIABLES" value="true" />
-        <STARTUP>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </STARTUP>
-        <SHUTDOWN>
-          <option name="USE_DEFAULT" value="true" />
-          <option name="SCRIPT" value="" />
-          <option name="VM_PARAMETERS" value="" />
-          <option name="PROGRAM_PARAMETERS" value="" />
-        </SHUTDOWN>
-      </ConfigurationWrapper>
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method>
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2c82dc58-e575-45f7-b299-7cd93acd3038" name="Default Changelist" comment="" />
-      <created>1587118529909</created>
+      <changelist id="bd4386b6-cbed-42da-a865-40d76e5fbfa2" name="Default Changelist" comment="" />
+      <created>1601170569584</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1587118529909</updated>
-      <workItem from="1587118531148" duration="1254000" />
-      <workItem from="1587345040426" duration="794000" />
-      <workItem from="1587605319099" duration="12222000" />
-      <workItem from="1587624777659" duration="627000" />
-      <workItem from="1589249133394" duration="18542000" />
-      <workItem from="1589277301126" duration="1000" />
-      <workItem from="1589332800381" duration="98000" />
-      <workItem from="1589333061571" duration="58000" />
-      <workItem from="1590048134851" duration="48000" />
-      <workItem from="1590110195712" duration="597000" />
+      <updated>1601170569584</updated>
+      <workItem from="1601170572539" duration="27000" />
+      <workItem from="1601170607544" duration="178000" />
+      <workItem from="1601170795475" duration="178000" />
+      <workItem from="1601170981413" duration="930000" />
+      <workItem from="1601171925998" duration="5567000" />
+      <workItem from="1601178041874" duration="77000" />
+      <workItem from="1601178202721" duration="12799000" />
+      <workItem from="1601279644707" duration="1864000" />
+      <workItem from="1604996212450" duration="32000" />
     </task>
+    <task id="LOCAL-00001" summary="update tds-web">
+      <created>1601170959334</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1601170959334</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update tds-web">
+      <created>1601171568137</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1601171568137</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update tds-web">
+      <created>1601171588255</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1601171588255</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update tds-web">
+      <created>1601171647410</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1601171647410</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update tds-web">
+      <created>1601172122487</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601172122487</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update tds-web">
+      <created>1601172794588</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1601172794588</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update tds-web">
+      <created>1601174734160</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1601174734160</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update tds-web">
+      <created>1601176442850</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1601176442850</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update tds-web">
+      <created>1601188060829</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1601188060829</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update tds-web">
+      <created>1601192696680</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1601192696680</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update tds-web">
+      <created>1601199981028</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1601199981028</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update tds-web">
+      <created>1601256453590</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1601256453590</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update tds-web">
+      <created>1601261840245</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1601261840245</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4083000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="501" y="224" width="1193" height="742" extended-state="1" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4284165" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19858782" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER" />
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update tds-web" />
+    <option name="LAST_COMMIT_MESSAGE" value="update tds-web" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="879" y="285" key="FileChooserDialogImpl" timestamp="1589333117342">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601256332288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="879" y="285" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589333117342" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/block.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/block.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="54" column="3" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="54" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/coinaddress.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="135" column="8" lean-forward="true" selection-start-line="135" selection-start-column="8" selection-end-line="135" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/nodesList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1306">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/nodes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/blockAssets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="267" column="49" lean-forward="false" selection-start-line="267" selection-start-column="49" selection-end-line="267" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/assets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-831">
-          <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/prove.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1306">
-          <caret line="59" column="48" lean-forward="false" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/ranklist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="137" column="26" lean-forward="true" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/blockList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/deal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="67" column="4" lean-forward="true" selection-start-line="67" selection-start-column="4" selection-end-line="68" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cn/js/block.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/blockAssets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="410" column="37" lean-forward="true" selection-start-line="410" selection-start-column="37" selection-end-line="410" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/assets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1106">
-          <caret line="62" column="48" lean-forward="false" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/prove.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1181">
-          <caret line="62" column="48" lean-forward="false" selection-start-line="62" selection-start-column="48" selection-end-line="62" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/ranklist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1331">
-          <caret line="131" column="48" lean-forward="false" selection-start-line="131" selection-start-column="48" selection-end-line="131" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/coinaddress.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1384">
-          <caret line="98" column="51" lean-forward="false" selection-start-line="98" selection-start-column="51" selection-end-line="98" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/deal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1184">
-          <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="48" selection-end-line="71" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/blockList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="23" column="4" lean-forward="true" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/block.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="38" column="21" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/public.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="47" column="22" lean-forward="false" selection-start-line="47" selection-start-column="22" selection-end-line="47" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="101" column="34" lean-forward="true" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16251">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/block.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="60" lean-forward="false" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Explorer-explore2.0</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601256332288" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601178709451">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601178709451" />
+    <state x="620" y="384" key="#nginx_Servers" timestamp="1601256328988">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="620" y="384" key="#nginx_Servers/0.0.1920.1040@0.0.1920.1040" timestamp="1601256328988" />
+    <state x="558" y="83" key="CommitChangelistDialog2" timestamp="1601358136331">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="558" y="83" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1601358136331" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1604996238056">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604996238056" />
+    <state width="1877" height="125" key="GridCell.Tab.0.bottom" timestamp="1601261745244">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601261745244" />
+    <state width="1877" height="125" key="GridCell.Tab.0.center" timestamp="1601261745244">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601261745244" />
+    <state width="1877" height="125" key="GridCell.Tab.0.left" timestamp="1601261745244">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601261745244" />
+    <state width="1877" height="125" key="GridCell.Tab.0.right" timestamp="1601261745244">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601261745244" />
+    <state x="766" y="221" key="RollbackChangesDialog" timestamp="1601187178125">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="766" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601187178125" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1601358146092">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1601358146092" />
+    <state x="662" y="223" width="596" height="594" key="find.popup" timestamp="1601261650182">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="223" width="596" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601261650182" />
   </component>
 </project>
