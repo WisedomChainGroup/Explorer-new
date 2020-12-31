@@ -1,8 +1,12 @@
 $(function() {
-	 $.get("/ceo/api/market/ticker?market=wdc_qc",
+	 $.get("http://www.ukeyc.com/api/market/tickers",
 		function(result) {
-			//$('#price').find('font').find('font').innerText=result.data.last;
-			setHtml(result.data, 'tpl', 'block_data_test');
+		 for(let i=0;i<result.data.length;i++){
+			 if(result.data[i].symbol == "wdcusdt"){
+				 setHtml(result.data[i], 'tpl', 'block_data_test');
+			 }
+		 }
+
 		});
 
 

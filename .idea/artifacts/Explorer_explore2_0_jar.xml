@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact name="Explorer-explore2.0:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Explorer_explore2_0_jar</output-path>
+    <root id="root">
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+    </root>
+  </artifact>
+</component>
